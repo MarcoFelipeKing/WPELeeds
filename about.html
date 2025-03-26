@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - WPE - Water, Public Health and Environment</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Note: FreightSans Pro and Monarcha are premium fonts that would need to be properly licensed and loaded -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-blue: #77AAD4;
+            --secondary-blue: #6F8AC6;
+            --dark-gray: #53525a;
+            --purple: #9F90C5;
+            --teal: #8AC9C1;
+            
+            --heading-font: 'FreightSans Pro', 'Arial Bold', sans-serif;
+            --display-font: 'Monarcha', 'Georgia', serif;
+            --body-font: 'Nunito', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--body-font);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .display-text {
+            font-family: var(--display-font);
+            font-weight: normal;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--secondary-blue);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary-blue);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(to right, rgba(111, 138, 198, 0.9), rgba(119, 170, 212, 0.8)), url('/api/placeholder/1200/300') center/cover no-repeat;
+            padding: 10rem 2rem 5rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .breadcrumb li {
+            margin: 0 0.5rem;
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .about-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 50px;
+            background-color: var(--teal);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Mission & Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .mission-card, .vision-card {
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .mission-card {
+            background-color: rgba(119, 170, 212, 0.1);
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .vision-card {
+            background-color: rgba(138, 201, 193, 0.1);
+            border-left: 4px solid var(--teal);
+        }
+        
+        .mission-card h3, .vision-card h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mission-card i, .vision-card i {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .mission-card i {
+            color: var(--primary-blue);
+        }
+        
+        .vision-card i {
+            color: var(--teal);
+        }
+        
+        /* Leadership Team */
+        .leadership-team {
+            margin-bottom: 4rem;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .team-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover .team-member-image img {
+            transform: scale(1.05);
+        }
+        
+        .team-member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .team-member-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-blue);
+        }
+        
+        .team-member-title {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .team-member-social {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .team-member-social li {
+            margin: 0 0.5rem;
+        }
+        
+        .team-member-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            color: var(--dark-gray);
+            transition: all 0.3s;
+        }
+        
+        .team-member-social a:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        
+        /* Administrative Staff */
+        .admin-staff {
+            margin-bottom: 4rem;
+        }
+        
+        .admin-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .admin-member {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .admin-member img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+        
+        .admin-member-info h4 {
+            margin-bottom: 0.3rem;
+        }
+        
+        .admin-title {
+            font-size: 0.85rem;
+            color: var(--purple);
+        }
+        
+        /* Partners Section */
+        .partners {
+            margin-bottom: 4rem;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .partner-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Location & Contact */
+        .location-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .map {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 400px;
+        }
+        
+        .map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .contact-info {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item i {
+            margin-right: 1rem;
+            color: var(--teal);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-right: 1rem;
+        }
+        
+        .footer-section h3 {
+            position: relative;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--teal);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: #bbb;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-contact i {
+            margin-right: 0.8rem;
+            color: var(--teal);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+        
+                    .about-content,
+            .mission-vision,
+            .location-contact {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .page-header {
+                padding: 8rem 1rem 3rem;
+            }
+            
+            .page-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="/api/placeholder/60/60" alt="WPE Logo">
+                <h1>WPE</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="#">Research Groups</a></li>
+                    <li><a href="#">People</a></li>
+                    <li><a href="#">Facilities</a></li>
+                    <li><a href="#">Cake Meetings</a></li>
+                    <li><a href="#">News & Events</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h2 class="display-text">About Our Department</h2>
+        <p>Learn more about our mission, people, and history</p>
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>></li>
+            <li>About</li>
+        </ul>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- About Section -->
+        <section class="about-section">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>The Department of Water, Public Health and Environment (WPE) was established in 2003 to address the growing challenges at the intersection of water management, environmental sustainability, and public health concerns. What began as a small research unit with just 6 academics has grown into a vibrant community of 25 academics and 50 PhD students.</p>
+                    <p>Our department has pioneered innovative approaches to complex environmental challenges, earning recognition for our interdisciplinary research methodology that brings together experts from engineering, biology, public health, and social sciences. This collaborative approach has positioned us at the forefront of developing sustainable solutions for global environmental and health challenges.</p>
+                    <p>Over the past two decades, we have expanded our research focus to include emerging concerns such as microplastics, resource recovery, and the health impacts of climate change, while maintaining our core expertise in water quality, sanitation systems, and indoor air quality.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="WPE Research Team">
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="mission-vision">
+            <div class="mission-card">
+                <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                <p>To advance scientific knowledge and develop practical solutions for sustainable water management, improved public health outcomes, and environmental protection through rigorous interdisciplinary research, innovation, and collaboration.</p>
+            </div>
+            <div class="vision-card">
+                <h3><i class="fas fa-binoculars"></i> Our Vision</h3>
+                <p>A world where communities have equitable access to clean water, healthy environments, and sustainable sanitation systems, supported by evidence-based policies and innovative technologies that promote human and ecological wellbeing.</p>
+            </div>
+        </section>
+
+        <!-- Leadership Team -->
+        <section class="leadership-team">
+            <h2 class="section-title">Leadership Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="/api/placeholder/300/300" alt="Professor Emma Wilson">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Professor Emma Wilson</h3>
+                        <div class="team-member-title">Department Head</div>
+                        <ul class="team-member-social">
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="/api/placeholder/300/300" alt="Dr. James Chen">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Dr. James Chen</h3>
+                        <div class="team-member-title">Research Director</div>
+                        <ul class="team-member-social">
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="/api/placeholder/300/300" alt="Professor Fatima Ahmed">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Professor Fatima Ahmed</h3>
+                        <div class="team-member-title">PhD Program Coordinator</div>
+                        <ul class="team-member-social">
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="/api/placeholder/300/300" alt="Dr. Michael Okonjo">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Dr. Michael Okonjo</h3>
+                        <div class="team-member-title">Lab Facilities Manager</div>
+                        <ul class="team-member-social">
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Administrative Staff -->
+        <section class="admin-staff">
+            <h2 class="section-title">Administrative Team</h2>
+            <div class="admin-list">
+                <div class="admin-member">
+                    <img src="/api/placeholder/100/100" alt="Sarah Cooper">
+                    <div class="admin-member-info">
+                        <h4>Sarah Cooper</h4>
+                        <div class="admin-title">Department Administrator</div>
+                    </div>
+                </div>
+                <div class="admin-member">
+                    <img src="/api/placeholder/100/100" alt="Robert Kim">
+                    <div class="admin-member-info">
+                        <h4>Robert Kim</h4>
+                        <div class="admin-title">Finance Coordinator</div>
+                    </div>
+                </div>
+                <div class="admin-member">
+                    <img src="/api/placeholder/100/100" alt="Maria Garcia">
+                    <div class="admin-member-info">
+                        <h4>Maria Garcia</h4>
+                        <div class="admin-title">Student Affairs Officer</div>
+                    </div>
+                </div>
+                <div class="admin-member">
+                    <img src="/api/placeholder/100/100" alt="David Thompson">
+                    <div class="admin-member-info">
+                        <h4>David Thompson</h4>
+                        <div class="admin-title">Events Coordinator</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners">
+            <h2 class="section-title">Our Partners</h2>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="/api/placeholder/180/90" alt="University Partner">
+                </div>
+                <div class="partner-logo">
+                    <img src="/api/placeholder/180/90" alt="Research Institute">
+                </div>
+                <div class="partner-logo">
+                    <img src="/api/placeholder/180/90" alt="Government Agency">
+                </div>
+                <div class="partner-logo">
+                    <img src="/api/placeholder/180/90" alt="Industry Partner">
+                </div>
+                <div class="partner-logo">
+                    <img src="/api/placeholder/180/90" alt="International Organization">
+                </div>
+                <div class="partner-logo">
+                    <img src="/api/placeholder/180/90" alt="Non-profit Organization">
+                </div>
+            </div>
+        </section>
+
+        <!-- Location & Contact -->
+        <section class="location-contact">
+            <div class="map">
+                <img src="/api/placeholder/600/400" alt="Campus Map">
+            </div>
+            <div class="contact-info">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-text">
+                        <h4>Location</h4>
+                        <p>Water, Public Health and Environment Department<br>Building B, Room 301<br>123 University Avenue<br>City, State 12345</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-text">
+                        <h4>Phone</h4>
+                        <p>Main Office: +1 (555) 123-4567<br>Lab Coordinator: +1 (555) 123-4568</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <p>General Inquiries: wpe@university.edu<br>PhD Program: phd.wpe@university.edu</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="contact-text">
+                        <h4>Office Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Closed on weekends and university holidays</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="/api/placeholder/40/40" alt="WPE Logo">
+                    <h3>WPE</h3>
+                </div>
+                <p>Water, Public Health and Environment Research Department</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Research Groups</a></li>
+                    <li><a href="#">People</a></li>
+                    <li><a href="#">Facilities</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Events</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Cake Meetings</a></li>
+                    <li><a href="#">Seminars</a></li>
+                    <li><a href="#">Workshops</a></li>
+                    <li><a href="#">Conferences</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 University Avenue, Building B</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> wpe@university.edu</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Water, Public Health and Environment Department. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
+            
