@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Meetings - WPE - Water, Public Health and Environment</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Cake Meetings specific styles -->
+    <link rel="stylesheet" href="css/cake-meetings.css">
+    <!-- Include script -->
+    <script src="js/include.js" defer></script>
+</head>
+<body>
+    <!-- Header Include -->
+    <include src="includes/header.html"></include>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <h2 class="display-text">Cake Meetings</h2>
+        <p>Connect, share knowledge, and enjoy cake with the WPE community</p>
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>></li>
+            <li>Cake Meetings</li>
+        </ul>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- About Cake Meetings -->
+        <section class="about-cake">
+            <h3>What are Cake Meetings?</h3>
+            <p>Cake Meetings are monthly gatherings bringing together academics, PhD students, and researchers from across the WPE department. These collaborative sessions provide a platform for knowledge sharing, interdisciplinary discussion, and community building - all accompanied by delicious cake!</p>
+            <p>While particularly valuable for Early Career Researchers (ECRs), these meetings are open to all department members regardless of career stage. The informal atmosphere encourages open dialogue and creates opportunities for unexpected collaborations across our research groups.</p>
+        </section>
+        
+        <!-- Meeting Types -->
+        <section>
+            <h2 class="section-title">Meeting Types</h2>
+            <div class="meeting-types">
+                <div class="meeting-type-card">
+                    <div class="meeting-type-icon icon-rainbow">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h4>Rainbow Sessions</h4>
+                    <p>Interdisciplinary discussions where researchers from different groups share perspectives on common challenges, encouraging cross-pollination of ideas.</p>
+                </div>
+                <div class="meeting-type-card">
+                    <div class="meeting-type-icon icon-career">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h4>Career Tips & Tricks</h4>
+                    <p>Professional development sessions focused on skills like grant writing, publishing strategies, and career advancement in academic and industry settings.</p>
+                </div>
+                <div class="meeting-type-card">
+                    <div class="meeting-type-icon icon-story">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h4>Your Story</h4>
+                    <p>Personal journeys and experiences shared by department members, highlighting diverse career paths and the human side of academic research.</p>
+                </div>
+                <div class="meeting-type-card">
+                    <div class="meeting-type-icon icon-research">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h4>Research Presentations</h4>
+                    <p>Technical sessions where researchers present their latest findings, methodologies, and results, sparking detailed discussions on specific research topics.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Upcoming Meetings -->
+        <section>
+            <h2 class="section-title">Upcoming Meetings</h2>
+            <div class="meeting-categories">
+                <button class="category-btn active" data-filter="all">All</button>
+                <button class="category-btn" data-filter="rainbow">Rainbow Sessions</button>
+                <button class="category-btn" data-filter="career">Career Tips & Tricks</button>
+                <button class="category-btn" data-filter="story">Your Story</button>
+                <button class="category-btn" data-filter="research">Research</button>
+            </div>
+            
+            <div class="cake-meeting-grid">
+                <div class="cake-meeting-card" data-category="rainbow">
+                    <div class="cake-meeting-header" style="background-image: url('images/cake-meeting-1.jpg');">
+                        <div class="cake-meeting-type rainbow">Rainbow Session</div>
+                    </div>
+                    <div class="cake-meeting-content">
+                        <div class="cake-meeting-date">April 15, 2025 • 14:00-15:30</div>
+                        <h3>Microplastics in Urban Water Systems</h3>
+                        <p>An interdisciplinary discussion on microplastic contamination in urban water infrastructure and potential remediation strategies from multiple perspectives.</p>
+                        <div class="cake-meeting-presenter">
+                            <img src="images/presenter-1.jpg" alt="Dr. Sarah Chen" class="presenter-image">
+                            <div class="presenter-info">
+                                <strong>Dr. Sarah Chen</strong>
+                                <span>Associate Professor, Indoor Air Group</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="cake-meeting-card" data-category="career">
+                    <div class="cake-meeting-header" style="background-image: url('images/cake-meeting-2.jpg');">
+                        <div class="cake-meeting-type career">Career Tips & Tricks</div>
+                    </div>
+                    <div class="cake-meeting-content">
+                        <div class="cake-meeting-date">May 3, 2025 • 14:00-15:30</div>
+                        <h3>Publishing in High-Impact Journals</h3>
+                        <p>Insights and strategies for early career researchers to increase their chances of publication in prestigious academic journals in the environmental sciences.</p>
+                        <div class="cake-meeting-presenter">
+                            <img src="images/presenter-2.jpg" alt="Prof. Michael Wong" class="presenter-image">
+                            <div class="presenter-info">
+                                <strong>Prof. Michael Wong</strong>
+                                <span>Professor, BioResources Group</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="cake-meeting-card" data-category="story">
+                    <div class="cake-meeting-header" style="background-image: url('images/cake-meeting-3.jpg');">
+                        <div class="cake-meeting-type story">Your Story</div>
+                    </div>
+                    <div class="cake-meeting-content">
+                        <div class="cake-meeting-date">May 17, 2025 • 14:00-15:30</div>
+                        <h3>From Uncertainty to Impact</h3>
+                        <p>A personal journey through academic research, industry collaboration, and policy influence in the field of environmental health and sanitation.</p>
+                        <div class="cake-meeting-presenter">
+                            <img src="images/presenter-3.jpg" alt="Dr. Elena Rodriguez" class="presenter-image">
+                            <div class="presenter-info">
+                                <strong>Dr. Elena Rodriguez</strong>
+                                <span>Senior Lecturer, Public Health Group</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="cake-meeting-card" data-category="research">
+                    <div class="cake-meeting-header" style="background-image: url('images/cake-meeting-4.jpg');">
+                        <div class="cake-meeting-type research">Research</div>
+                    </div>
+                    <div class="cake-meeting-content">
+                        <div class="cake-meeting-date">June 7, 2025 • 14:00-15:30</div>
+                        <h3>Novel Approaches in Resource Recovery</h3>
+                        <p>Presentation of innovative biological processes for recovering valuable resources from waste streams, with potential applications in circular economy.</p>
+                        <div class="cake-meeting-presenter">
+                            <img src="images/presenter-4.jpg" alt="Dr. James Park" class="presenter-image">
+                            <div class="presenter-info">
+                                <strong>Dr. James Park</strong>
+                                <span>Research Fellow, Sanitation Group</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="cake-meeting-card" data-category="rainbow">
+                    <div class="cake-meeting-header" style="background-image: url('images/cake-meeting-5.jpg');">
+                        <div class="cake-meeting-type rainbow">Rainbow Session</div>
+                    </div>
+                    <div class="cake-meeting-content">
+                        <div class="cake-meeting-date">June 21, 2025 • 14:00-15:30</div>
+                        <h3>Climate Change and Indoor Environments</h3>
+                        <p>Cross-disciplinary discussion on how climate change affects indoor air quality, health outcomes, and architectural adaptations needed in future buildings.</p>
+                        <div class="cake-meeting-presenter">
+                            <img src="images/presenter-5.jpg" alt="Dr. Thomas Lee" class="presenter-image">
+                            <div class="presenter-info">
+                                <strong>Dr. Thomas Lee</strong>
+                                <span>Associate Professor, Indoor Air Group</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="cake-meeting-card" data-category="research">
+                    <div class="cake-meeting-header" style="background-image: url('images/cake-meeting-6.jpg');">
+                        <div class="cake-meeting-type research">Research</div>
+                    </div>
+                    <div class="cake-meeting-content">
+                        <div class="cake-meeting-date">July 5, 2025 • 14:00-15:30</div>
+                        <h3>Microbial Communities in Urban Soils</h3>
+                        <p>Research findings on how urbanization affects soil microbial diversity and the implications for ecosystem services and public health.</p>
+                        <div class="cake-meeting-presenter">
+                            <img src="images/presenter-6.jpg" alt="Dr. Lisa Zhang" class="presenter-image">
+                            <div class="presenter-info">
+                                <strong>Dr. Lisa Zhang</strong>
+                                <span>Lecturer, Public Health Group</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Calendar Section -->
+        <section class="calendar-section">
+            <h2 class="section-title">Meeting Calendar</h2>
+            <div class="calendar-header">
+                <div class="calendar-nav">
+                    <button><i class="fas fa-chevron-left"></i></button>
+                    <span>April 2025</span>
+                    <button><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-options">
+                    <select>
+                        <option>Monthly View</option>
+                        <option>Weekly View</option>
+                        <option>List View</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="calendar-grid">
+                <div class="calendar-day-header">Sun</div>
+                <div class="calendar-day-header">Mon</div>
+                <div class="calendar-day-header">Tue</div>
+                <div class="calendar-day-header">Wed</div>
+                <div class="calendar-day-header">Thu</div>
+                <div class="calendar-day-header">Fri</div>
+                <div class="calendar-day-header">Sat</div>
+                
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day">
+                    <div class="day-number">1</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">2</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">3</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">4</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">5</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">6</div>
+                </div>
+                
+                <div class="calendar-day">
+                    <div class="day-number">7</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">8</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">9</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">10</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">11</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">12</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">13</div>
+                </div>
+                
+                <div class="calendar-day">
+                    <div class="day-number">14</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">15</div>
+                    <div class="day-event rainbow">Rainbow Session: Microplastics (14:00)</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">16</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">17</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">18</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">19</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">20</div>
+                </div>
+                
+                <div class="calendar-day">
+                    <div class="day-number">21</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">22</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">23</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">24</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">25</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">26</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">27</div>
+                </div>
+                
+                <div class="calendar-day">
+                    <div class="day-number">28</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">29</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">30</div>
+                </div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer Include -->
+    <include src="includes/footer.html"></include>
+    
+    <!-- Cake Meetings JavaScript -->
+    <script src="js/cake-meetings.js"></script>
+</body>
+</html>
