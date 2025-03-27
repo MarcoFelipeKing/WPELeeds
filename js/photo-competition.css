@@ -1,0 +1,367 @@
+// Photo Competition page functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for navigation
+    initSmoothScrolling();
+    
+    // Year selector for past winners
+    initYearSelector();
+    
+    // Email reminder modal
+    initReminderButton();
+    
+    // Add scroll animations
+    initScrollAnimations();
+});
+
+// Smooth scrolling for navigation links
+function initSmoothScrolling() {
+    const navLinks = document.querySelectorAll('.competition-nav a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Get header height for offset
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without jumping
+                    history.pushState(null, null, targetId);
+                }
+            }
+        });
+    });
+    
+    // Check for hash in URL on page load
+    if (window.location.hash) {
+        setTimeout(() => {
+            const targetElement = document.querySelector(window.location.hash);
+            if (targetElement) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
+    }
+}
+
+// Year selector functionality for past winners
+function initYearSelector() {
+    const yearButtons = document.querySelectorAll('.year-btn');
+    const yearContainers = document.querySelectorAll('.year-winners');
+    
+    if (!yearButtons.length || !yearContainers.length) return;
+    
+    yearButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            yearButtons.forEach(button => button.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get selected year
+            const selectedYear = this.textContent;
+            
+            // Hide all year containers
+            yearContainers.forEach(container => {
+                container.style.display = 'none';
+                container.classList.remove('active');
+            });
+            
+            // Show selected year container
+            const activeContainer = document.querySelector(`.year-winners[data-year="${selectedYear}"]`);
+            if (activeContainer) {
+                activeContainer.style.display = 'block';
+                
+                // Add animation class
+                setTimeout(() => {
+                    activeContainer.classList.add('active');
+                }, 50);
+            }
+        });
+    });
+}
+
+// Email reminder button functionality
+function initReminderButton() {
+    const reminderBtn = document.querySelector('.reminder-btn');
+    
+    if (!reminderBtn) return;
+    
+    reminderBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Create modal overlay
+        const modalOverlay = document.createElement('div');
+        modalOverlay.className = 'modal-overlay';
+        
+        // Create modal content
+        const modalContent = document.createElement('div');
+        modalContent.className = 'modal-content';
+        
+        modalContent.innerHTML = `
+            <div class="modal-header">
+                <h3>Set Submission Reminder</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your email to receive a reminder when submissions open on March 1, 2025.</p>
+                <form class="reminder-form">
+                    <div class="form-group">
+                        <label for="reminder-email">Email Address</label>
+                        <input type="email" id="reminder-email" required placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" required>
+                            I consent to receive email notifications about the WPE Photo Competition
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Set Reminder</button>
+                </form>
+            </div>
+        `;
+        
+        // Append modal to body
+        modalOverlay.appendChild(modalContent);
+        document.body.appendChild(modalOverlay);
+        
+        // Show modal with animation
+        setTimeout(() => {
+            modalOverlay.classList.add('active');
+        }, 10);
+        
+        // Close button functionality
+        const closeBtn = modalContent.querySelector('.modal-close');
+        closeBtn.addEventListener('click', closeModal);
+        
+        // Close on overlay click
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+        
+        // Form submission
+        const reminderForm = modalContent.querySelector('.reminder-form');
+        reminderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('reminder-email').value;
+            
+            // Here you would typically send the email to your backend
+            console.log('Reminder set for:', email);
+            
+            // Show success message
+            modalContent.innerHTML = `
+                <div class="modal-header">
+                    <h3>Reminder Set!</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Thank you! We'll send a reminder to ${email} when submissions open.</p>
+                        <button class="btn btn-primary modal-ok">OK</button>
+                    </div>
+                </div>
+            `;
+            
+            // Update close button reference
+            const newCloseBtn = modalContent.querySelector('.modal-close');
+            newCloseBtn.addEventListener('click', closeModal);
+            
+            // OK button closes modal
+            const okBtn = modalContent.querySelector('.modal-ok');
+            okBtn.addEventListener('click', closeModal);
+        });
+        
+        // Function to close modal
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            
+            // Remove from DOM after animation
+            setTimeout(() => {
+                document.body.removeChild(modalOverlay);
+            }, 300);
+        }
+    });
+    
+    // Add modal styles
+    const modalStyles = document.createElement('style');
+    modalStyles.textContent = `
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(-20px);
+            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: var(--dark-gray);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+            transition: color 0.3s;
+        }
+        
+        .modal-close:hover {
+            color: var(--dark-gray);
+        }
+        
+        .modal-body {
+            padding: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+        }
+        
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--body-font);
+            font-size: 1rem;
+        }
+        
+        .success-message {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .success-message i {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 1.5rem;
+        }
+        
+        .success-message p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+    `;
+    document.head.appendChild(modalStyles);
+}
+
+// Add scroll animations
+function initScrollAnimations() {
+    // Animate elements when they come into view
+    const animatedElements = document.querySelectorAll('.about-competition, .competition-categories, .competition-guidelines, .prizes-section, .submit-section, .judges-section, .gallery-section, .past-winners');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    animatedElements.forEach(element => {
+        element.classList.add('animate-hidden');
+        observer.observe(element);
+    });
+    
+    // Add animation CSS
+    const animationStyles = document.createElement('style');
+    animationStyles.textContent = `
+        .animate-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        
+        .animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-content {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .year-winners {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .year-winners.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    `;
+    document.head.appendChild(animationStyles);
+}

@@ -3,44 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPE - Water, Public Health and Environment</title>
-    <!-- Font imports -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Note: FreightSans Pro and Monarcha are premium fonts that would need to be properly licensed and loaded -->
-    <!-- For this example, we'll use fallbacks and CSS variables for easy updating later -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <title>WPE - Water, Public Health and Environmental Engineering</title>
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Include script -->
+    <script src="js/include.js" defer></script>
+
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="/api/placeholder/60/60" alt="WPE Logo">
-                <h1>WPE</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="#">Research Groups</a></li>
-                    <li><a href="#">People</a></li>
-                    <li><a href="#">Facilities</a></li>
-                    <li><a href="#">Cake Meetings</a></li>
-                    <li><a href="#">News & Events</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Header Include -->
+    <include src="includes/header.html"></include>
 
+    <!-- Page Content -->
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2 class="display-text">Water, Public Health<br>and Environment</h2>
+            <h2 class="display-text">Water, Public Health<br>and Environmental Engineering</h2>
             <p>Leading research in sustainable solutions for global challenges in water management, public health, and environmental protection.</p>
             <a href="#" class="btn btn-primary">Discover Our Research</a>
         </div>
@@ -51,21 +29,21 @@
         <h2 class="section-title">Featured Research</h2>
         <div class="featured-grid">
             <div class="featured-item">
-                <img src="/api/placeholder/400/250" alt="Research Highlight">
+                <img src="images/research-1.jpg" alt="Research Highlight">
                 <div class="featured-content">
                     <h3>Innovative Water Filtration</h3>
                     <p>Our team has developed new filtration techniques that remove microplastics with 95% efficiency.</p>
                 </div>
             </div>
             <div class="featured-item">
-                <img src="/api/placeholder/400/250" alt="Research Highlight">
+                <img src="images/research-2.jpg" alt="Research Highlight">
                 <div class="featured-content">
                     <h3>Indoor Air Quality Monitoring</h3>
                     <p>Using IoT sensors to track pollutants and create healthier indoor environments for schools and hospitals.</p>
                 </div>
             </div>
             <div class="featured-item">
-                <img src="/api/placeholder/400/250" alt="Research Highlight">
+                <img src="images/research-3.jpg" alt="Research Highlight">
                 <div class="featured-content">
                     <h3>Sustainable BioResources</h3>
                     <p>Converting waste streams into valuable resources through innovative biological processes.</p>
@@ -133,7 +111,7 @@
         <h2 class="section-title">Latest News</h2>
         <div class="news-grid">
             <div class="news-item">
-                <img src="/api/placeholder/400/250" alt="News Item">
+                <img src="images/news-1.jpg" alt="News Item">
                 <div class="news-content">
                     <div class="news-date">March 20, 2025</div>
                     <h3>New Lab Equipment Grant</h3>
@@ -141,7 +119,7 @@
                 </div>
             </div>
             <div class="news-item">
-                <img src="/api/placeholder/400/250" alt="News Item">
+                <img src="images/news-2.jpg" alt="News Item">
                 <div class="news-content">
                     <div class="news-date">March 15, 2025</div>
                     <h3>International Collaboration</h3>
@@ -149,7 +127,7 @@
                 </div>
             </div>
             <div class="news-item">
-                <img src="/api/placeholder/400/250" alt="News Item">
+                <img src="images/news-3.jpg" alt="News Item">
                 <div class="news-content">
                     <div class="news-date">March 7, 2025</div>
                     <h3>PhD Student Award</h3>
@@ -159,45 +137,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="/api/placeholder/40/40" alt="WPE Logo">
-                    <h3>WPE</h3>
-                </div>
-                <p>Water, Public Health and Environment Research Department</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Research Groups</a></li>
-                    <li><a href="#">People</a></li>
-                    <li><a href="#">Facilities</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Events</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Cake Meetings</a></li>
-                    <li><a href="#">Seminars</a></li>
-                    <li><a href="#">Workshops</a></li>
-                    <li><a href="#">Conferences</a></li>
-                </ul>
-            </div>
-            <div class="footer-section footer-contact">
-                <h3>Contact Us</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 University Avenue, Building B</p>
-                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                <p><i class="fas fa-envelope"></i> wpe@university.edu</p>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2025 Water, Public Health and Environment Department. All rights reserved.
-        </div>
-    </footer>
+    <!-- Footer Include -->
+    <include src="includes/footer.html"></include>
 </body>
 </html>

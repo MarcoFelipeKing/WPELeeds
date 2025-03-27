@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Competition - WPE - Water, Public Health and Environment</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Photo Competition specific styles -->
+    <link rel="stylesheet" href="css/photo-competition.css">
+    <!-- Include script -->
+    <script src="js/include.js" defer></script>
+</head>
+<body>
+    <!-- Header Include -->
+    <include src="includes/header.html"></include>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <h2 class="display-text">WPE Photo Competition</h2>
+        <p>Capturing the beauty and challenges of our environment through research and creative vision</p>
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>></li>
+            <li>Photo Competition</li>
+        </ul>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Competition Hero Section -->
+        <section class="competition-hero">
+            <div class="hero-content">
+                <div class="theme-badge">2025 Theme</div>
+                <h3>"Water in the Urban Environment"</h3>
+                <p class="hero-text">Showcasing the role of water in urban landscapes - from infrastructure to natural systems, challenges to innovations, visible flows to hidden processes.</p>
+                <div class="deadline-container">
+                    <div class="deadline-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="deadline-info">
+                        <span class="deadline-label">Submission Deadline</span>
+                        <span class="deadline-date">May 15, 2025</span>
+                    </div>
+                </div>
+                <a href="#submit" class="btn btn-primary">Submit Your Photo</a>
+            </div>
+            <div class="hero-collage">
+                <img src="images/competition/hero-collage.jpg" alt="Collage of winning photos from previous competitions">
+            </div>
+        </section>
+        
+        <!-- Competition Navigation -->
+        <section class="competition-nav">
+            <a href="#about" class="nav-item">
+                <i class="fas fa-info-circle"></i>
+                <span>About</span>
+            </a>
+            <a href="#categories" class="nav-item">
+                <i class="fas fa-th-large"></i>
+                <span>Categories</span>
+            </a>
+            <a href="#guidelines" class="nav-item">
+                <i class="fas fa-list-ul"></i>
+                <span>Guidelines</span>
+            </a>
+            <a href="#prizes" class="nav-item">
+                <i class="fas fa-award"></i>
+                <span>Prizes</span>
+            </a>
+            <a href="#submit" class="nav-item">
+                <i class="fas fa-upload"></i>
+                <span>Submit</span>
+            </a>
+            <a href="#gallery" class="nav-item">
+                <i class="fas fa-images"></i>
+                <span>Gallery</span>
+            </a>
+            <a href="#past" class="nav-item">
+                <i class="fas fa-history"></i>
+                <span>Past Winners</span>
+            </a>
+        </section>
+        
+        <!-- About the Competition -->
+        <section id="about" class="about-competition">
+            <h2 class="section-title">About the Competition</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>The WPE Photo Competition was established in 2021 to celebrate the visual dimensions of our research and to foster creative engagement with environmental themes among our community of academics, researchers, and students.</p>
+                    <p>Each year, participants are invited to submit photographs that connect to a selected theme relevant to water, public health, or environmental research. The competition highlights both the scientific and artistic perspectives on our work, creating a unique platform where technical expertise meets creative expression.</p>
+                    <p>Winning entries are showcased on our website, featured in the department newsletter, shared on our social media channels, and displayed in the WPE building.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">5th</div>
+                        <div class="stat-label">Annual Competition</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">120+</div>
+                        <div class="stat-label">Expected Submissions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Competition Categories -->
+        <section id="categories" class="competition-categories">
+            <h2 class="section-title">Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Research in Action</h3>
+                    <p>Photographs capturing research activities, fieldwork, laboratory experiments, or monitoring related to urban water systems.</p>
+                    <div class="category-example" style="background-image: url('images/competition/category-research.jpg')"></div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3>Urban Waterscapes</h3>
+                    <p>Images showcasing water in the built environment – infrastructure, urban water bodies, stormwater systems, or water features.</p>
+                    <div class="category-example" style="background-image: url('images/competition/category-urban.jpg')"></div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-hand-holding-water"></i>
+                    </div>
+                    <h3>Human Connection</h3>
+                    <p>Photos illustrating the relationship between people and water in urban settings – cultural practices, recreation, daily interactions.</p>
+                    <div class="category-example" style="background-image: url('images/competition/category-human.jpg')"></div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Solutions & Innovations</h3>
+                    <p>Visuals highlighting innovative approaches, technologies, or practices addressing urban water challenges.</p>
+                    <div class="category-example" style="background-image: url('images/competition/category-solutions.jpg')"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Competition Guidelines -->
+        <section id="guidelines" class="competition-guidelines">
+            <h2 class="section-title">Submission Guidelines</h2>
+            <div class="guidelines-content">
+                <div class="guidelines-list">
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="guideline-text">
+                            <h4>Eligibility</h4>
+                            <p>Open to all WPE members - academics, PhD students, postdocs, staff, and research affiliates.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="guideline-text">
+                            <h4>Photo Requirements</h4>
+                            <p>Minimum resolution of 3000 x 2000 pixels (6 megapixels). Accepted formats: JPEG or PNG. Basic editing allowed, but no heavy manipulation or AI-generated images.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="guideline-text">
+                            <h4>Documentation</h4>
+                            <p>Each submission must include a title, location where the photo was taken, brief description (max 100 words), and connection to the competition theme.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="guideline-text">
+                            <h4>Ethics</h4>
+                            <p>Photos featuring identifiable people must have appropriate consent. Wildlife and environmental photography must adhere to ethical standards (no disturbance of wildlife or protected areas).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <i class="fas fa-copyright"></i>
+                        </div>
+                        <div class="guideline-text">
+                            <h4>Rights</h4>
+                            <p>Photographers retain copyright of their images. By submitting, you grant WPE permission to use your photo in department publications, website, and social media with appropriate credit.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="guideline-text">
+                            <h4>Timeline</h4>
+                            <p>Submissions open: March 1, 2025<br>
+                            Submission deadline: May 15, 2025<br>
+                            Winners announced: June 30, 2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="guidelines-download">
+                    <p>For complete competition rules and details:</p>
+                    <a href="documents/wpe-photo-competition-guidelines-2025.pdf" class="btn btn-secondary"><i class="fas fa-download"></i> Download Full Guidelines</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Prizes Section -->
+        <section id="prizes" class="prizes-section">
+            <h2 class="section-title">Prizes</h2>
+            <div class="prizes-content">
+                <div class="prize-cards">
+                    <div class="prize-card grand">
+                        <div class="prize-medal">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Grand Prize</h3>
+                        <div class="prize-details">
+                            <ul>
+                                <li>£500 Photography Equipment Voucher</li>
+                                <li>Feature on WPE Website Homepage</li>
+                                <li>Publication in Department Annual Report</li>
+                                <li>Framed Print Displayed in WPE Building</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="prize-card category">
+                        <div class="prize-medal">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Category Winners (4)</h3>
+                        <div class="prize-details">
+                            <ul>
+                                <li>£150 Photography Equipment Voucher</li>
+                                <li>Feature in Department Newsletter</li>
+                                <li>Digital Display in WPE Common Areas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="prize-card honorable">
+                        <div class="prize-medal">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Honorable Mentions (5)</h3>
+                        <div class="prize-details">
+                            <ul>
+                                <li>£50 Campus Café Voucher</li>
+                                <li>Feature in Online Gallery</li>
+                                <li>Digital Display in WPE Common Areas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="people-choice">
+                    <div class="people-choice-badge">
+                        <i class="fas fa-thumbs-up"></i>
+                        <span>People's Choice Award</span>
+                    </div>
+                    <p>Additionally, a People's Choice Award will be determined by online voting open to all WPE members from June 1-15, 2025. The winner will receive a £200 voucher and special feature on our social media channels.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Submission Section -->
+        <section id="submit" class="submit-section">
+            <h2 class="section-title">Submit Your Photo</h2>
+            <div class="submit-content">
+                <div class="submission-info">
+                    <h3>How to Submit</h3>
+                    <p>Submissions for the 2025 WPE Photo Competition will open on March 1, 2025. Each participant may submit up to three photographs (maximum one per category).</p>
+                    <p>To submit your entry, you will need:</p>
+                    <ul>
+                        <li>Your high-resolution photograph(s)</li>
+                        <li>Title and description for each photo</li>
+                        <li>Information about where and when the photo was taken</li>
+                        <li>Category selection</li>
+                        <li>Brief statement on how your photo connects to the theme</li>
+                    </ul>
+                    <p>If your photograph features identifiable people, you'll need to provide confirmation that you have obtained appropriate consent.</p>
+                </div>
+                
+                <div class="submission-form-container">
+                    <div class="submission-status">
+                        <div class="status-icon">
+                            <i class="fas fa-hourglass-half"></i>
+                        </div>
+                        <h4>Submissions Not Yet Open</h4>
+                        <p>The submission form will be available here starting March 1, 2025.</p>
+                        <a href="#" class="btn btn-secondary reminder-btn">Set Email Reminder</a>
+                    </div>
+                    
+                    <!-- This will be replaced with actual form when submissions open -->
+                    <!-- <form class="submission-form">
+                        [Submission form will appear here]
+                    </form> -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Judges Section -->
+        <section class="judges-section">
+            <h2 class="section-title">Meet the Judges</h2>
+            <div class="judges-grid">
+                <div class="judge-card">
+                    <div class="judge-image">
+                        <img src="images/people/judge-1.jpg" alt="Professor Emma Wilson">
+                    </div>
+                    <h4>Professor Emma Wilson</h4>
+                    <p class="judge-title">Department Head, Indoor Air Group</p>
+                </div>
+                
+                <div class="judge-card">
+                    <div class="judge-image">
+                        <img src="images/people/judge-2.jpg" alt="Dr. Alex Rivera">
+                    </div>
+                    <h4>Dr. Alex Rivera</h4>
+                    <p class="judge-title">Environmental Photographer & Lecturer</p>
+                </div>
+                
+                <div class="judge-card">
+                    <div class="judge-image">
+                        <img src="images/people/judge-3.jpg" alt="Sarah Johnson">
+                    </div>
+                    <h4>Sarah Johnson</h4>
+                    <p class="judge-title">PhD Researcher & Previous Winner</p>
+                </div>
+                
+                <div class="judge-card">
+                    <div class="judge-image">
+                        <img src="images/people/judge-4.jpg" alt="Dr. James Chen">
+                    </div>
+                    <h4>Dr. James Chen</h4>
+                    <p class="judge-title">Research Director, BioResources Group</p>
+                </div>
+                
+                <div class="judge-card">
+                    <div class="judge-image">
+                        <img src="images/people/judge-5.jpg" alt="Maya Patel">
+                    </div>
+                    <h4>Maya Patel</h4>
+                    <p class="judge-title">University Arts Coordinator</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section (Will be populated after submissions) -->
+        <section id="gallery" class="gallery-section">
+            <h2 class="section-title">2025 Competition Gallery</h2>
+            <div class="gallery-status">
+                <div class="status-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3>Gallery Coming Soon</h3>
+                <p>The 2025 competition gallery will be available after the submission period closes on May 15, 2025. Check back to view and vote on this year's entries!</p>
+            </div>
+        </section>
+        
+        <!-- Past Winners -->
+        <section id="past" class="past-winners">
+            <h2 class="section-title">Past Winners</h2>
+            
+            <div class="year-selector">
+                <button class="year-btn active">2024</button>
+                <button class="year-btn">2023</button>
+                <button class="year-btn">2022</button>
+                <button class="year-btn">2021</button>
+            </div>
+            
+            <div class="winners-container">
+                <!-- 2024 Winners -->
+                <div class="year-winners active" data-year="2024">
+                    <h3 class="year-theme">"Climate Change Adaptation"</h3>
+                    
+                    <div class="grand-winner">
+                        <div class="winner-image">
+                            <img src="images/competition/2024-grand-winner.jpg" alt="Living Seawall - 2024 Grand Prize Winner">
+                            <div class="winner-badge">Grand Prize Winner</div>
+                        </div>
+                        <div class="winner-info">
+                            <h4>"Living Seawall"</h4>
+                            <p class="photographer">By Dr. Michael Okonjo, Lab Facilities Manager</p>
+                            <p class="description">This photo documents a novel coastal defense structure that combines engineered elements with living organisms to mitigate wave action while supporting marine biodiversity. The structure was installed as part of a climate adaptation research project led by our Sanitation group.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="category-winners">
+                        <h4>Category Winners</h4>
+                        <div class="winners-grid">
+                            <div class="winner-card">
+                                <div class="winner-thumbnail" style="background-image: url('images/competition/2024-winner-1.jpg')">
+                                    <div class="winner-category">Research in Action</div>
+                                </div>
+                                <h5>"Temperature Mapping"</h5>
+                                <p class="photographer">By Sarah Johnson, PhD Student</p>
+                            </div>
+                            
+                            <div class="winner-card">
+                                <div class="winner-thumbnail" style="background-image: url('images/competition/2024-winner-2.jpg')">
+                                    <div class="winner-category">Urban Environments</div>
+                                </div>
+                                <h5>"Green Rooftop Oasis"</h5>
+                                <p class="photographer">By Dr. Elena Rodriguez, Senior Lecturer</p>
+                            </div>
+                            
+                            <div class="winner-card">
+                                <div class="winner-thumbnail" style="background-image: url('images/competition/2024-winner-3.jpg')">
+                                    <div class="winner-category">Human Connection</div>
+                                </div>
+                                <h5>"Coastal Community Planning"</h5>
+                                <p class="photographer">By Raj Patel, PhD Student</p>
+                            </div>
+                            
+                            <div class="winner-card">
+                                <div class="winner-thumbnail" style="background-image: url('images/competition/2024-winner-4.jpg')">
+                                    <div class="winner-category">Solutions & Innovations</div>
+                                </div>
+                                <h5>"Floating Agriculture"</h5>
+                                <p class="photographer">By Ahmed Hassan, PhD Student</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="view-all-container">
+                        <a href="photo-competition/archive/2024-gallery.html" class="btn btn-secondary">View Complete 2024 Gallery</a>
+                    </div>
+                </div>
+                
+                <!-- Placeholders for previous years - would contain similar content -->
+                <div class="year-winners" data-year="2023" style="display: none;">
+                    <h3 class="year-theme">"Water and Health"</h3>
+                    <!-- Content for 2023 -->
+                </div>
+                
+                <div class="year-winners" data-year="2022" style="display: none;">
+                    <h3 class="year-theme">"Urban Ecology"</h3>
+                    <!-- Content for 2022 -->
+                </div>
+                
+                <div class="year-winners" data-year="2021" style="display: none;">
+                    <h3 class="year-theme">"Environmental Challenges"</h3>
+                    <!-- Content for 2021 -->
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer Include -->
+    <include src="includes/footer.html"></include>
+    
+    <!-- Photo Competition JavaScript -->
+    <script src="js/photo-competition.js"></script>
+</body>
+</html>
