@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Blog - WPE - Water, Public Health and Environment</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- News & Blog specific styles -->
+    <link rel="stylesheet" href="css/news-blog.css">
+    <!-- Include script -->
+    <script src="js/include.js" defer></script>
+</head>
+<body>
+    <!-- Header Include -->
+    <include src="includes/header.html"></include>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <h2 class="display-text">News & Blog</h2>
+        <p>Stay updated with the latest from the WPE department</p>
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>></li>
+            <li>News & Blog</li>
+        </ul>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Filter Section -->
+        <section class="content-filter">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label>Filter by</label>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="news">News</button>
+                        <button class="filter-btn" data-filter="blog">Blog</button>
+                        <button class="filter-btn" data-filter="event">Events</button>
+                        <button class="filter-btn" data-filter="achievement">Achievements</button>
+                    </div>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" id="content-search" placeholder="Search news and blog posts...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Post -->
+        <section class="featured-post">
+            <div class="featured-post-container">
+                <div class="featured-image">
+                    <img src="images/news-blog/ecr-branding-featured.jpg" alt="ECR Branding Project">
+                    <div class="featured-label">Featured</div>
+                </div>
+                <div class="featured-content">
+                    <div class="post-meta">
+                        <span class="post-category blog">Blog</span>
+                        <span class="post-date">March 22, 2025</span>
+                    </div>
+                    <h3>Behind the Brand: How Our ECRs Developed the WPE Visual Identity</h3>
+                    <p>The story of how our talented Early Career Researchers took on the challenge of developing our department's new visual branding and created a cohesive identity that represents our diverse research areas.</p>
+                    <div class="post-author">
+                        <img src="images/people/sarah-johnson.jpg" alt="Sarah Johnson">
+                        <span>By Sarah Johnson</span>
+                    </div>
+                    <a href="news-blog/posts/ecr-branding-project.html" class="btn btn-primary">Read Full Post</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Latest Posts -->
+        <section class="latest-posts">
+            <h2 class="section-title">Latest Posts</h2>
+            
+            <div class="posts-grid" id="posts-container">
+                <!-- ECR Branding Post -->
+                <div class="post-card" data-category="blog">
+                    <div class="post-image">
+                        <img src="images/news-blog/ecr-branding.jpg" alt="ECR Branding Project">
+                        <div class="post-category blog">Blog</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="news-blog/posts/ecr-branding-project.html">Behind the Brand: How Our ECRs Developed the WPE Visual Identity</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">March 22, 2025</span>
+                            <span class="post-author">Sarah Johnson</span>
+                        </div>
+                        <p>The story of how our talented Early Career Researchers took on the challenge of developing our department's new visual branding...</p>
+                        <a href="news-blog/posts/ecr-branding-project.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Grant Announcement -->
+                <div class="post-card" data-category="news">
+                    <div class="post-image">
+                        <img src="images/news-blog/grant-announcement.jpg" alt="New Research Grant">
+                        <div class="post-category news">News</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="news-blog/posts/major-research-grant.html">WPE Secures £1.2M Grant for Advanced Resource Recovery Research</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">March 20, 2025</span>
+                            <span class="post-author">Admin</span>
+                        </div>
+                        <p>The BioResources group has been awarded a substantial grant to expand research facilities and develop innovative technologies for resource recovery from waste streams...</p>
+                        <a href="news-blog/posts/major-research-grant.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- International Collaboration -->
+                <div class="post-card" data-category="news">
+                    <div class="post-image">
+                        <img src="images/news-blog/international-collab.jpg" alt="International Collaboration">
+                        <div class="post-category news">News</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="news-blog/posts/cape-town-collaboration.html">New Partnership with University of Cape Town Addresses Global Sanitation Challenges</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">March 15, 2025</span>
+                            <span class="post-author">Prof. James Park</span>
+                        </div>
+                        <p>We're excited to announce a five-year collaborative research program with the University of Cape Town, focusing on sustainable sanitation solutions for developing regions...</p>
+                        <a href="news-blog/posts/cape-town-collaboration.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Upcoming Conference -->
+                <div class="post-card" data-category="event">
+                    <div class="post-image">
+                        <img src="images/news-blog/upcoming-conference.jpg" alt="Environmental Health Conference">
+                        <div class="post-category event">Event</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="news-blog/posts/envhealth-conference.html">WPE to Host International Conference on Urban Environmental Health</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">March 12, 2025</span>
+                            <span class="post-author">Admin</span>
+                        </div>
+                        <p>Mark your calendars! On May 28-30, 2025, our department will host researchers from around the world for a conference focused on urban environmental health challenges...</p>
+                        <a href="news-blog/posts/envhealth-conference.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- PhD Student Award -->
+                <div class="post-card" data-category="achievement">
+                    <div class="post-image">
+                        <img src="images/news-blog/phd-award.jpg" alt="PhD Student Award">
+                        <div class="post-category achievement">Achievement</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="news-blog/posts/maria-lopez-award.html">PhD Student Maria Lopez Receives Prestigious Young Researcher Award</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">March 7, 2025</span>
+                            <span class="post-author">Dr. Thomas Lee</span>
+                        </div>
+                        <p>Congratulations to Maria Lopez from our Indoor Air group, who has been recognized with the 2025 Young Researcher Award for her innovative work on indoor air quality monitoring...</p>
+                        <a href="news-blog/posts/maria-lopez-award.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Research Blog Post -->
+                <div class="post-card" data-category="blog">
+                    <div class="post-image">
+                        <img src="images/news-blog/research-blog.jpg" alt="Research Methods Blog">
+                        <div class="post-category blog">Blog</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="news-blog/posts/sensing-techniques.html">Advanced Sensing Techniques for Indoor Air Quality Research</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">February 28, 2025</span>
+                            <span class="post-author">Dr. Thomas Lee</span>
+                        </div>
+                        <p>A deep dive into the latest sensing technologies our Indoor Air group is using to monitor pollutants with unprecedented accuracy and lower costs...</p>
+                        <a href="news-blog/posts/sensing-techniques.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button id="load-more" class="btn btn-secondary">Load More Posts</button>
+            </div>
+        </section>
+        
+        <!-- Newsletter Signup -->
+        <section class="newsletter-section">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our monthly newsletter to receive the latest news, blog posts, and event announcements from the WPE department.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <div class="privacy-note">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>We respect your privacy and will never share your email address.</span>
+                    </div>
+                </div>
+                <div class="newsletter-image">
+                    <img src="images/news-blog/newsletter-image.jpg" alt="WPE Newsletter">
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer Include -->
+    <include src="includes/footer.html"></include>
+    
+    <!-- News & Blog JavaScript -->
+    <script src="js/news-blog.js"></script>
+</body>
+</html>
