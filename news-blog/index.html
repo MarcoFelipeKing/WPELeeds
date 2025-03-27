@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Blog Archives - WPE - Water, Public Health and Environment</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- News & Blog specific styles -->
+    <link rel="stylesheet" href="../css/news-blog.css">
+    <!-- Archive specific styles -->
+    <link rel="stylesheet" href="../css/news-archive.css">
+    <!-- Include script -->
+    <script src="../js/include.js" defer></script>
+</head>
+<body>
+    <!-- Header Include -->
+    <include src="../includes/header.html"></include>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <h2 class="display-text">News & Blog Archives</h2>
+        <p>Browse all our posts and filter by category, date, or research group</p>
+        <ul class="breadcrumb">
+            <li><a href="../index.html">Home</a></li>
+            <li>></li>
+            <li><a href="../news-blog.html">News & Blog</a></li>
+            <li>></li>
+            <li>Archive</li>
+        </ul>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Archive Layout -->
+        <div class="archive-layout">
+            <!-- Sidebar Filters -->
+            <aside class="archive-sidebar">
+                <div class="sidebar-widget">
+                    <h3>Browse By</h3>
+                    <ul class="filter-menu">
+                        <li class="active"><a href="#" data-filter="all">All Posts <span>(42)</span></a></li>
+                        <li><a href="#" data-filter="news">News <span>(15)</span></a></li>
+                        <li><a href="#" data-filter="blog">Blog <span>(12)</span></a></li>
+                        <li><a href="#" data-filter="event">Events <span>(8)</span></a></li>
+                        <li><a href="#" data-filter="achievement">Achievements <span>(7)</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3>Research Groups</h3>
+                    <ul class="filter-menu">
+                        <li><a href="#" data-group="indoor-air">Indoor Air <span>(14)</span></a></li>
+                        <li><a href="#" data-group="bioresources">BioResources <span>(11)</span></a></li>
+                        <li><a href="#" data-group="public-health">Public Health <span>(9)</span></a></li>
+                        <li><a href="#" data-group="sanitation">Sanitation <span>(8)</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3>Time Period</h3>
+                    <ul class="filter-menu">
+                        <li class="active"><a href="#" data-period="all">All Time</a></li>
+                        <li><a href="#" data-period="this-month">This Month</a></li>
+                        <li><a href="#" data-period="last-3-months">Last 3 Months</a></li>
+                        <li><a href="#" data-period="last-6-months">Last 6 Months</a></li>
+                        <li><a href="#" data-period="this-year">This Year</a></li>
+                        <li><a href="#" data-period="last-year">Last Year</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3>Archives</h3>
+                    <div class="archive-dropdown">
+                        <select id="year-select">
+                            <option value="">Select Year</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                        </select>
+                        <select id="month-select" disabled>
+                            <option value="">Select Month</option>
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                        <button id="archive-go" class="btn btn-primary" disabled>Go</button>
+                    </div>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3>Popular Tags</h3>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag" data-tag="research">Research <span>(18)</span></a>
+                        <a href="#" class="tag" data-tag="ecr">ECR <span>(12)</span></a>
+                        <a href="#" class="tag" data-tag="publication">Publications <span>(10)</span></a>
+                        <a href="#" class="tag" data-tag="awards">Awards <span>(7)</span></a>
+                        <a href="#" class="tag" data-tag="collaboration">Collaboration <span>(6)</span></a>
+                        <a href="#" class="tag" data-tag="conference">Conference <span>(6)</span></a>
+                        <a href="#" class="tag" data-tag="grant">Grants <span>(5)</span></a>
+                        <a href="#" class="tag" data-tag="community">Community <span>(4)</span></a>
+                        <a href="#" class="tag" data-tag="innovation">Innovation <span>(4)</span></a>
+                    </div>
+                </div>
+                
+                <div class="sidebar-widget search-widget">
+                    <h3>Search Posts</h3>
+                    <div class="search-container">
+                        <input type="text" id="archive-search" placeholder="Search by keyword...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Archive Content -->
+            <div class="archive-content">
+                <!-- Current Filters Display -->
+                <div class="current-filters">
+                    <div class="filter-summary">
+                        <span>Showing: <strong>All Posts</strong></span>
+                        <span id="result-count">42 results</span>
+                    </div>
+                    <div id="active-filters">
+                        <!-- Active filters will be added here by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Sort Options -->
+                <div class="sort-options">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select">
+                        <option value="date-desc">Newest First</option>
+                        <option value="date-asc">Oldest First</option>
+                        <option value="title-asc">Title (A-Z)</option>
+                        <option value="title-desc">Title (Z-A)</option>
+                    </select>
+                    
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid"><i class="fas fa-th-large"></i></button>
+                        <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Posts Grid (Default View) -->
+                <div class="posts-grid" id="posts-container">
+                    <!-- ECR Branding Post -->
+                    <div class="post-card" data-category="blog" data-date="2025-03-22" data-group="all" data-tags="ecr,branding,design">
+                        <div class="post-image">
+                            <img src="../images/news-blog/ecr-branding.jpg" alt="ECR Branding Project">
+                            <div class="post-category blog">Blog</div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="posts/ecr-branding-project.html">Behind the Brand: How Our ECRs Developed the WPE Visual Identity</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">March 22, 2025</span>
+                                <span class="post-author">Sarah Johnson</span>
+                            </div>
+                            <p>The story of how our talented Early Career Researchers took on the challenge of developing our department's new visual branding...</p>
+                            <a href="posts/ecr-branding-project.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Grant Announcement -->
+                    <div class="post-card" data-category="news" data-date="2025-03-20" data-group="bioresources" data-tags="grant,research,innovation">
+                        <div class="post-image">
+                            <img src="../images/news-blog/grant-announcement.jpg" alt="New Research Grant">
+                            <div class="post-category news">News</div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="posts/major-research-grant.html">WPE Secures £1.2M Grant for Advanced Resource Recovery Research</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">March 20, 2025</span>
+                                <span class="post-author">Admin</span>
+                            </div>
+                            <p>The BioResources group has been awarded a substantial grant to expand research facilities and develop innovative technologies for resource recovery from waste streams...</p>
+                            <a href="posts/major-research-grant.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- International Collaboration -->
+                    <div class="post-card" data-category="news" data-date="2025-03-15" data-group="sanitation" data-tags="collaboration,research,global">
+                        <div class="post-image">
+                            <img src="../images/news-blog/international-collab.jpg" alt="International Collaboration">
+                            <div class="post-category news">News</div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="posts/cape-town-collaboration.html">New Partnership with University of Cape Town Addresses Global Sanitation Challenges</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">March 15, 2025</span>
+                                <span class="post-author">Prof. James Park</span>
+                            </div>
+                            <p>We're excited to announce a five-year collaborative research program with the University of Cape Town, focusing on sustainable sanitation solutions for developing regions...</p>
+                            <a href="posts/cape-town-collaboration.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Upcoming Conference -->
+                    <div class="post-card" data-category="event" data-date="2025-03-12" data-group="public-health" data-tags="conference,event,urban">
+                        <div class="post-image">
+                            <img src="../images/news-blog/upcoming-conference.jpg" alt="Environmental Health Conference">
+                            <div class="post-category event">Event</div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="posts/envhealth-conference.html">WPE to Host International Conference on Urban Environmental Health</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">March 12, 2025</span>
+                                <span class="post-author">Admin</span>
+                            </div>
+                            <p>Mark your calendars! On May 28-30, 2025, our department will host researchers from around the world for a conference focused on urban environmental health challenges...</p>
+                            <a href="posts/envhealth-conference.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- PhD Student Award -->
+                    <div class="post-card" data-category="achievement" data-date="2025-03-07" data-group="indoor-air" data-tags="awards,ecr,phd,research">
+                        <div class="post-image">
+                            <img src="../images/news-blog/phd-award.jpg" alt="PhD Student Award">
+                            <div class="post-category achievement">Achievement</div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="posts/maria-lopez-award.html">PhD Student Maria Lopez Receives Prestigious Young Researcher Award</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">March 7, 2025</span>
+                                <span class="post-author">Dr. Thomas Lee</span>
+                            </div>
+                            <p>Congratulations to Maria Lopez from our Indoor Air group, who has been recognized with the 2025 Young Researcher Award for her innovative work on indoor air quality monitoring...</p>
+                            <a href="posts/maria-lopez-award.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Research Blog Post -->
+                    <div class="post-card" data-category="blog" data-date="2025-02-28" data-group="indoor-air" data-tags="research,technology,sensors">
+                        <div class="post-image">
+                            <img src="../images/news-blog/research-blog.jpg" alt="Research Methods Blog">
+                            <div class="post-category blog">Blog</div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="posts/sensing-techniques.html">Advanced Sensing Techniques for Indoor Air Quality Research</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">February 28, 2025</span>
+                                <span class="post-author">Dr. Thomas Lee</span>
+                            </div>
+                            <p>A deep dive into the latest sensing technologies our Indoor Air group is using to monitor pollutants with unprecedented accuracy and lower costs...</p>
+                            <a href="posts/sensing-techniques.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- New Faculty Member -->
+                    <div class="post-card" data-category="news" data-date="2025-02-20" data-group="public-health" data-tags="faculty,people">
+                        <div class="post-image">
+                            <img src="../images/news-blog/new-faculty.jpg" alt="New Faculty Member">
+                            <div class="post-category news">News</div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="posts/new-faculty-member.html">WPE Welcomes Dr. Lisa Zhang to the Public Health Group</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">February 20, 2025</span>
+                                <span class="post-author">Admin</span>
+                            </div>
+                            <p>We are delighted to announce that Dr. Lisa Zhang has joined our department as a Lecturer in the Public Health group, bringing expertise in microbial community analysis...</p>
+                            <a href="posts/new-faculty-member.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Workshop Announcement -->
+                    <div class="post-card" data-category="event" data-date="2025-02-15" data-group="all" data-tags="ecr,workshop,skills">
+                        <div class="post-image">
+                            <img src="../images/news-blog/ecr-showcase.jpg" alt="ECR Showcase">
+                            <div class="post-category event">Event</div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="posts/ecr-showcase-2024.html">2025 ECR Research Showcase - Call for Participants</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">February 15, 2025</span>
+                                <span class="post-author">Admin</span>
+                            </div>
+                            <p>Our annual ECR Research Showcase will take place on April 5, 2025. PhD students and postdoctoral researchers are invited to present their work through posters or short talks...</p>
+                            <a href="posts/ecr-showcase-2025.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional post card examples would continue here -->
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <span class="page-info">Showing 1-8 of 42 results</span>
+                    <div class="page-controls">
+                        <a href="#" class="page-link disabled"><i class="fas fa-chevron-left"></i></a>
+                        <a href="#" class="page-link active">1</a>
+                        <a href="#" class="page-link">2</a>
+                        <a href="#" class="page-link">3</a>
+                        <a href="#" class="page-link">4</a>
+                        <a href="#" class="page-link">5</a>
+                        <a href="#" class="page-link">6</a>
+                        <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Include -->
+    <include src="../includes/footer.html"></include>
+    
+    <!-- Archive JavaScript -->
+    <script src="../js/news-archive.js"></script>
+</body>
+</html>
