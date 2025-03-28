@@ -12,27 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Include script -->
-    <script src="js/include.js" defer></script>
+    <!-- Include script 
+    <script src="js/include.js" defer></script>-->
+    <script src="js/timeline.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" href="images/wpe_favico.ico" type="image/x-icon">
 </head>
 <body>
- <!-- Header Include  <include src="../includes/header.html"></include> -->
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>WPE - Water, Public Health and Environmental Engineering</title>
-     <!-- Font imports -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
-     <!-- Font Awesome -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-     <!-- Main Stylesheet -->
-     <link rel="stylesheet" href="css/style.css">
- </head>
- <body>
      <!-- Header -->
      <header>
          <div class="header-container">
@@ -127,6 +113,98 @@
                 <p>A world where communities have equitable access to clean water, healthy environments, and sustainable sanitation systems, supported by evidence-based policies and innovative technologies that promote human and ecological wellbeing.</p>
             </div>
         </section>
+<!-- Department Timeline -->
+<section class="timeline-section">
+    <h2 class="section-title">Our Journey</h2>
+    <div class="timeline-container">
+        <div class="timeline-navigation">
+            <button class="timeline-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+            <div class="timeline-wrapper">
+                <div class="timeline-track">
+                    <!-- Timeline items -->
+                    <div class="timeline-item" data-year="2003">
+                        <div class="timeline-year">2003</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Department Founded</h3>
+                            <p>The Water, Public Health and Environment department was established with 6 founding academics.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2007">
+                        <div class="timeline-year">2007</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>First Major Research Grant</h3>
+                            <p>Secured £2.5M funding for groundbreaking water purification research, establishing our international reputation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2010">
+                        <div class="timeline-year">2010</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Public Health Group Established</h3>
+                            <p>Expansion into public health research with the addition of 4 new faculty members and dedicated laboratory space.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2014">
+                        <div class="timeline-year">2014</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>New Building Inauguration</h3>
+                            <p>Moved to our current purpose-built facility with state-of-the-art laboratories and collaborative workspaces.</p>
+                            <img src="images/about/new-building-2014.jpg" alt="New WPE Building in 2014">
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2017">
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Indoor Air Group Launched</h3>
+                            <p>Expanded our research scope to include indoor air quality and ventilation systems research.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2020">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>COVID-19 Response</h3>
+                            <p>Pivoted research to address pandemic challenges, developing COVID-safe ventilation guidelines and rapid water testing methods.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2023">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Environmental Excellence Award</h3>
+                            <p>Received the prestigious Environmental Research Excellence Award for our collective work on microplastics.</p>
+                            <img src="images/about/award-ceremony-2023.jpg" alt="Award Ceremony 2023">
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2025">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Today</h3>
+                            <p>Now with 25 academic staff and 50 PhD researchers across four research groups, we continue to expand our impact on global environmental challenges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="timeline-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="timeline-progress">
+            <div class="timeline-progress-bar"></div>
+        </div>
+    </div>
+</section>
 
         <!-- Leadership Team -->
         <section class="leadership-team">
@@ -134,11 +212,11 @@
             <div class="team-members">
                 <div class="team-member">
                     <div class="team-member-image">
-                        <img src="/api/placeholder/300/300" alt="Professor Emma Wilson">
+                        <img src="images/people/profile_marco-felipe_king.png" alt="Dr. Marco-Felipe King">
                     </div>
                     <div class="team-member-info">
-                        <h3>Professor Emma Wilson</h3>
-                        <div class="team-member-title">Department Head</div>
+                        <h3>Dr. Marco-Felipe King</h3>
+                        <div class="team-member-title">Director of WPE</div>
                         <ul class="team-member-social">
                             <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -148,11 +226,11 @@
                 </div>
                 <div class="team-member">
                     <div class="team-member-image">
-                        <img src="/api/placeholder/300/300" alt="Dr. James Chen">
+                        <img src="images/people/Cynthia-700x467.jpg" alt="Dr. Cynthia Okoro Shekwaga">
                     </div>
                     <div class="team-member-info">
-                        <h3>Dr. James Chen</h3>
-                        <div class="team-member-title">Research Director</div>
+                        <h3>Dr. Cynthia Okoro Shekwaga</h3>
+                        <div class="team-member-title">Deputy Director</div>
                         <ul class="team-member-social">
                             <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -162,11 +240,11 @@
                 </div>
                 <div class="team-member">
                     <div class="team-member-image">
-                        <img src="/api/placeholder/300/300" alt="Professor Fatima Ahmed">
+                        <img src="images/people/amir.jpeg" alt="Dr Amir Khan">
                     </div>
                     <div class="team-member-info">
-                        <h3>Professor Fatima Ahmed</h3>
-                        <div class="team-member-title">PhD Program Coordinator</div>
+                        <h3>Dr. Amir Khan</h3>
+                        <div class="team-member-title">Deputy Director</div>
                         <ul class="team-member-social">
                             <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -176,11 +254,11 @@
                 </div>
                 <div class="team-member">
                     <div class="team-member-image">
-                        <img src="/api/placeholder/300/300" alt="Dr. Michael Okonjo">
+                        <img src="images/people/anushi.jpeg" alt="Miss Anushi Khandare">
                     </div>
                     <div class="team-member-info">
-                        <h3>Dr. Michael Okonjo</h3>
-                        <div class="team-member-title">Lab Facilities Manager</div>
+                        <h3>Miss Anushi Khandare</h3>
+                        <div class="team-member-title">Cake Meeting Lead</div>
                         <ul class="team-member-social">
                             <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -191,15 +269,15 @@
             </div>
         </section>
 
-        <!-- Administrative Staff -->
+        <!-- Lab Staff 
         <section class="admin-staff">
-            <h2 class="section-title">Administrative Team</h2>
+            <h2 class="section-title">Lab Team</h2>
             <div class="admin-list">
                 <div class="admin-member">
-                    <img src="/api/placeholder/100/100" alt="Sarah Cooper">
+                    <img src="/api/placeholder/100/100" alt="David Eliott">
                     <div class="admin-member-info">
-                        <h4>Sarah Cooper</h4>
-                        <div class="admin-title">Department Administrator</div>
+                        <h4>David Eliott</h4>
+                        <div class="admin-title">Lead Tecnician</div>
                     </div>
                 </div>
                 <div class="admin-member">
@@ -224,7 +302,70 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
+
+                <!-- Leadership Team -->
+                <section class="leadership-team">
+                    <h2 class="section-title">Laboratry Team</h2>
+                    <div class="team-members">
+                        <div class="team-member">
+                            <div class="team-member-image">
+                                <img src="images/people/profile_marco-felipe_king.png" alt="Dr. Marco-Felipe King">
+                            </div>
+                            <div class="team-member-info">
+                                <h3>Dr. Marco-Felipe King</h3>
+                                <div class="team-member-title">Director of WPE</div>
+                                <ul class="team-member-social">
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-image">
+                                <img src="images/people/Cynthia-700x467.jpg" alt="Dr. Cynthia Okoro Shekwaga">
+                            </div>
+                            <div class="team-member-info">
+                                <h3>Dr. Cynthia Okoro Shekwaga</h3>
+                                <div class="team-member-title">Deputy Director</div>
+                                <ul class="team-member-social">
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-image">
+                                <img src="images/people/amir.jpeg" alt="Dr Amir Khan">
+                            </div>
+                            <div class="team-member-info">
+                                <h3>Dr. Amir Khan</h3>
+                                <div class="team-member-title">Deputy Director</div>
+                                <ul class="team-member-social">
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-image">
+                                <img src="images/people/anushi.jpeg" alt="Miss Anushi Khandare">
+                            </div>
+                            <div class="team-member-info">
+                                <h3>Miss Anushi Khandare</h3>
+                                <div class="team-member-title">Cake Meeting Lead</div>
+                                <ul class="team-member-social">
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
         <!-- Partners Section -->
         <section class="partners">

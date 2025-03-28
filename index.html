@@ -4,21 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WPE - Water, Public Health and Environmental Engineering</title>
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Include script -->
-    <script src="js/include.js" defer></script>
-    <!-- Include hero script -->
-    <script src="js/hero.js" defer></script>
-</head>
-<body>
-    <!-- Header Include <include src="includes/header.html"></include>-->
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPE - Water, Public Health and Environmental Engineering</title>
     <!-- Font imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Hero script -->
+    <script src="js/hero.js" defer></script>
+    <!-- Stats script -->
+    <script src="js/stats.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" href="images/wpe_favico.ico" type="image/x-icon">
+
 </head>
 <body>
     <!-- Header -->
@@ -50,6 +42,29 @@
             </nav>
         </div>
     </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <!-- Make sure these images exist in your images folder -->
+            <img src="images/building_health_sciences.jpg" alt="WPE Research Lab" class="hero-image active">
+            <img src="images/hero-fieldwork.jpg" alt="WPE Field Research" class="hero-image">
+            <img src="images/hero-team.jpg" alt="WPE Research Team" class="hero-image">
+        </div>
+        <div class="hero-content">
+            <h2 class="display-text">Water, Public Health<br>and Environmental Engineering</h2>
+            <p class="hero-tagline">Pioneering sustainable solutions for global environmental challenges since 2003</p>
+            <p class="hero-description">Our interdisciplinary approach brings together 25 academics and 50 PhD researchers across four specialized research groups.</p>
+            <div class="hero-ctas">
+                <a href="research-groups.html" class="btn btn-primary">Discover Our Research</a>
+                <a href="people.html" class="btn btn-secondary">Meet Our Team</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
 
     <!-- Script to highlight current page in navigation -->
     <script>
@@ -81,42 +96,27 @@
             document.getElementById('nav-contact').classList.add('active');
         }
     </script>
-
-    
-
-    <!-- Page Content -->
-    <section class="hero">
-        <div class="hero-background">
-            <!-- This could be a video or rotating images -->
-            <img src="images/building_health_sciences.jpg" alt="WPE Research Lab" class="hero-image active">
-            <img src="images/undraw_environment.svg" alt="WPE Field Research" class="hero-image">
-            <img src="images/card_health.png" alt="WPE Research Team" class="hero-image">   
+<!-- Department Statistics -->
+<section class="stats-section">
+    <div class="stats-container">
+        <div class="stat-item">
+            <div class="stat-number" data-count="25">0</div>
+            <div class="stat-label">Academic Staff</div>
         </div>
-        <div class="hero-content">
-            <h2 class="display-text">Water, Public Health<br>and Environmental Engineering</h2>
-            <p class="hero-tagline">Pioneering sustainable solutions for global environmental challenges since 2003</p>
-            <p class="hero-description">Our interdisciplinary approach brings together 25 academics and 50 PhD researchers across four specialized research groups.</p>
-            <div class="hero-ctas">
-                <a href="research-groups.html" class="btn btn-primary">Discover Our Research</a>
-                <a href="people.html" class="btn btn-secondary">Meet Our Team</a>
-            </div>
+        <div class="stat-item">
+            <div class="stat-number" data-count="50">0</div>
+            <div class="stat-label">PhD Researchers</div>
         </div>
-        <div class="hero-scroll-indicator">
-            <span>Scroll to explore</span>
-            <i class="fas fa-chevron-down"></i>
+        <div class="stat-item">
+            <div class="stat-number" data-count="120">0</div>
+            <div class="stat-label">Publications in 2024</div>
         </div>
-    </section>
-
-    
-    <!-- Hero Section 
-    <section class="hero">
-        <div class="hero-content">
-            <h2 class="display-text">Water, Public Health<br>and Environmental Engineering</h2>
-            <p>Leading research in sustainable solutions for global challenges in water management, public health, and environmental protection.</p>
-            <a href="#" class="btn btn-primary">Discover Our Research</a>
+        <div class="stat-item">
+            <div class="stat-number" data-count="15">0</div>
+            <div class="stat-label">Active Research Grants</div>
         </div>
-    </section>
--->
+    </div>
+</section>
     <!-- Featured Section -->
     <section class="featured">
         <h2 class="section-title">Featured Research</h2>
@@ -171,6 +171,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!-- Events Section -->
     <section class="events">
@@ -229,6 +231,76 @@
             </div>
         </div>
     </section>
+    <!-- Partners & Collaborators -->
+<section class="partners-section">
+    <div class="container">
+        <h2 class="section-title">Our Partners & Collaborators</h2>
+        <div class="partners-carousel">
+            <div class="partner-logo">
+                <img src="images/logo_lahri.jpg" alt="University Hospital Leeds">
+            </div>
+            <div class="partner-logo">
+                <img src="images/logo_leeds_social_sciences_institute_logo.jpeg" alt="Environment Agency">
+            </div>
+            <div class="partner-logo">
+                <img src="images/logo_lifd.jpeg" alt="Water Research Foundation">
+            </div>
+            <div class="partner-logo">
+                <img src="images/logo_water_at_leeds.jpeg" alt="World Health Organization">
+            </div>
+            <div class="partner-logo">
+                <img src="images/leeds_logo_black_on_white_bk.jpg" alt="Engineering Institute">
+            </div>
+            <div class="partner-logo">
+                <img src="images/hbn_landscape.png" alt="Leeds City Council">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Publications -->
+<section class="publications-section">
+    <div class="container">
+        <h2 class="section-title">Latest Publications</h2>
+        <div class="publications-grid">
+            <div class="publication-card">
+                <div class="publication-journal">
+                    <span class="journal-name">Environmental Health Perspectives</span>
+                    <span class="impact-factor">IF: 9.6</span>
+                </div>
+                <h3 class="publication-title">Indoor Air Quality and Cognitive Performance in University Settings: A Longitudinal Study</h3>
+                <p class="publication-authors">Wilson, E., Lee, T., Johnson, S., et al.</p>
+                <p class="publication-date">March 2025</p>
+                <a href="#" class="publication-link">View Publication <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            
+            <div class="publication-card">
+                <div class="publication-journal">
+                    <span class="journal-name">Water Research</span>
+                    <span class="impact-factor">IF: 11.2</span>
+                </div>
+                <h3 class="publication-title">Microplastic Removal Efficiency in Advanced Filtration Systems: Comparative Analysis</h3>
+                <p class="publication-authors">Park, J., Wong, M., Zhang, L., et al.</p>
+                <p class="publication-date">February 2025</p>
+                <a href="#" class="publication-link">View Publication <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            
+            <div class="publication-card">
+                <div class="publication-journal">
+                    <span class="journal-name">Bioresource Technology</span>
+                    <span class="impact-factor">IF: 9.8</span>
+                </div>
+                <h3 class="publication-title">Novel Approaches for Resource Recovery from Waste Streams: Biological Processes and Applications</h3>
+                <p class="publication-authors">Wong, M., Hassan, A., Rodriguez, E., et al.</p>
+                <p class="publication-date">January 2025</p>
+                <a href="#" class="publication-link">View Publication <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+        <div class="publications-more">
+            <a href="publications.html" class="btn btn-secondary">View All Publications</a>
+        </div>
+    </div>
+</section>
 
     <!-- Footer Include <include src="includes/footer.html"></include>-->
      <!-- Footer -->
