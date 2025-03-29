@@ -1,0 +1,778 @@
+/* Facilities specific styles */
+
+/* Facilities Overview */
+.facilities-overview {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.overview-text {
+    flex: 2;
+}
+
+.overview-text p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.facilities-stats {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-family: var(--heading-font);
+}
+
+.stat-label {
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+}
+
+/* Facilities Navigation */
+.facilities-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    gap: 1rem;
+}
+
+.facility-nav-item {
+    flex: 1;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.facility-nav-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.facility-nav-item.active {
+    background-color: var(--purple);
+    color: white;
+}
+
+.facility-nav-item.active .nav-icon {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.nav-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(119, 170, 212, 0.1);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--primary-blue);
+    transition: all 0.3s;
+}
+
+.facility-nav-item:hover .nav-icon {
+    transform: scale(1.1);
+}
+.facility-nav-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+/* Laboratory Details */
+.lab-detail {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.lab-header {
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lab-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.lab-tags {
+    display: flex;
+    gap: 1rem;
+}
+
+.lab-tag {
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Lab Content Layout */
+.lab-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Gallery Styles */
+.lab-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery-main {
+    border-radius: 10px;
+    overflow: hidden;
+    height: 300px;
+}
+
+.gallery-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-main img:hover {
+    transform: scale(1.05);
+}
+
+.gallery-thumbs {
+    display: flex;
+    gap: 1rem;
+}
+
+.gallery-thumbs img {
+    width: calc(25% - 0.75rem);
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.gallery-thumbs img:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.gallery-thumbs img.active {
+    border: 2px solid var(--primary-blue);
+}
+
+/* Lab Info Styles */
+.lab-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-item h3 {
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.info-item p {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Equipment List */
+.equipment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.equipment-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.equipment-list li:last-child {
+    border-bottom: none;
+}
+
+.equipment-name {
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.equipment-model {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.equipment-status {
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.equipment-status.available {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+}
+
+.equipment-status.maintenance {
+    background-color: rgba(241, 196, 15, 0.2);
+    color: #f1c40f;
+}
+
+.equipment-status.booked {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+}
+
+/* Capabilities Grid */
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.capability {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.capability:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.capability i {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.capability span {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+/* Lab Footer */
+.lab-footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.staff-contact h3, .recent-publications h3 {
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.contact-person {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.contact-person img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.contact-info h4 {
+    margin-bottom: 0.3rem;
+    color: var(--dark-gray);
+}
+
+.contact-info p {
+    color: #777;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.pub-list {
+    list-style: none;
+    padding: 0;
+}
+
+.pub-list li {
+    margin-bottom: 1rem;
+}
+
+.pub-list a {
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.pub-list a:hover {
+    color: var(--primary-blue);
+}
+
+/* Booking Preview Section */
+.booking-preview {
+    margin-bottom: 4rem;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: #666;
+}
+
+.booking-snapshot {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.snapshot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.snapshot-header h3 {
+    margin: 0;
+    color: var(--dark-gray);
+    font-size: 1.3rem;
+}
+
+.date-display {
+    color: var(--primary-blue);
+    margin-left: 0.5rem;
+}
+
+.full-calendar-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.full-calendar-link:hover {
+    color: var(--secondary-blue);
+}
+
+.availability-grid {
+    margin-bottom: 2rem;
+}
+
+.equipment-row {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+
+.equipment-row:last-child {
+    border-bottom: none;
+}
+
+.equipment-name {
+    width: 200px;
+    padding: 1rem 0;
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.time-slots {
+    display: flex;
+    flex: 1;
+}
+
+.time-slot {
+    flex: 1;
+    height: 50px;
+    border-right: 1px dashed #eee;
+}
+
+.time-slot:last-child {
+    border-right: none;
+}
+
+.time-slot.available {
+    background-color: rgba(46, 204, 113, 0.2);
+}
+
+.time-slot.booked {
+    background-color: rgba(231, 76, 60, 0.2);
+}
+
+.time-slot.maintenance {
+    background-color: rgba(241, 196, 15, 0.2);
+}
+
+.time-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.legend-color.available {
+    background-color: rgba(46, 204, 113, 0.2);
+}
+
+.legend-color.booked {
+    background-color: rgba(231, 76, 60, 0.2);
+}
+
+.legend-color.maintenance {
+    background-color: rgba(241, 196, 15, 0.2);
+}
+
+.booking-cta {
+    text-align: center;
+}
+
+/* Access Information */
+.access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.access-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.access-card:hover {
+    transform: translateY(-5px);
+}
+
+.access-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(119, 170, 212, 0.1);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--primary-blue);
+}
+
+.access-card h3 {
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.access-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.access-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.access-link:hover {
+    color: var(--secondary-blue);
+}
+
+/* Capabilities Matrix */
+.matrix-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 4rem;
+    overflow-x: auto;
+}
+
+.capabilities-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+.capabilities-table th, .capabilities-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.capabilities-table th:first-child, .capabilities-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.capabilities-table th {
+    background-color: #f9f9f9;
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+.capabilities-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.has-capability {
+    color: var(--primary-blue);
+}
+
+.capability-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-item .dot {
+    color: var(--primary-blue);
+}
+
+/* Contact Section */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.contact-info p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.coordinator-info {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.coordinator-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.coordinator-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--dark-gray);
+}
+
+.coordinator-info p {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.coordinator-info i {
+    color: var(--teal);
+    margin-right: 0.5rem;
+}
+
+.coordinator-info a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.contact-form {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.contact-form h3 {
+    margin-bottom: 1.5rem;
+    color: var(--dark-gray);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-gray);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--body-font);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .facilities-nav {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+        justify-content: flex-start;
+    }
+    
+    .facility-nav-item {
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 992px) {
+    .facilities-overview, 
+    .lab-content, 
+    .lab-footer, 
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .facilities-stats {
+        margin-top: 2rem;
+    }
+    
+    .capability {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .facilities-stats, 
+    .access-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .capabilities-table {
+        font-size: 0.9rem;
+    }
+    
+    .contact-person {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .snapshot-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .equipment-name {
+        width: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .facilities-stats, 
+    .access-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lab-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .coordinator-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .capability-legend {
+        flex-direction: column;
+        align-items: center;
+    }
+}
