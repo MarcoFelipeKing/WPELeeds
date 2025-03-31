@@ -2,49 +2,363 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        p {
-            text-align: center;
-        }
-        .contact-info {
-            margin-top: 20px;
-            text-align: center;
-        }
-        a {
-            color: #0073e6;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - WPE - Water, Public Health and Environmental Engineering</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/wpe_favico.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <h1>Contact Us</h1>
-        <p>If you have any questions or comments, please don't hesitate to get in touch with us.</p>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:wpe-group@leeds.ac.uk">wpe-group@leeds.ac.uk</a></p>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                <h1>WPE</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" id="nav-home">Home</a></li>
+                    <li><a href="about.html" id="nav-about">About</a></li>
+                    <li><a href="research-groups.html" id="nav-research">Research Groups</a></li>
+                    <li><a href="people.html" id="nav-people">People</a></li>
+                    <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
+                    <li><a href="cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
+                    <li><a href="news-blog.html" id="nav-news">News & Blog</a></li>
+                    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h2 class="display-text">Contact Us</h2>
+        <p>Get in touch with the Water, Public Health and Environmental Engineering Research Group</p>
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>Contact</li>
+        </ul>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Contact Information -->
+        <section class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Us</h3>
+                    <p>School of Civil Engineering<br>University of Leeds<br>Woodhouse Lane<br>Leeds, LS2 9JT<br>United Kingdom</p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>General Inquiries:<br><a href="mailto:wpe-group@leeds.ac.uk">wpe-group@leeds.ac.uk</a></p>
+                    <p>Postgraduate Applications:<br><a href="mailto:wpe-pgr@leeds.ac.uk">wpe-pgr@leeds.ac.uk</a></p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Main Office:<br>+44 (0)113 343 2200</p>
+                    <p>Administrative Support:<br>+44 (0)113 343 2248</p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map and Form Section -->
+        <section class="map-form-section">
+            <div class="map-form-container">
+                <div class="map-container">
+                    <h2 class="section-title">Find Us</h2>
+                    <div class="map">
+                        <img src="/api/placeholder/600/400" alt="Map of University of Leeds Campus" class="map-image">
+                        <div class="map-overlay">
+                            <p>Map showing WPE location at the Civil Engineering Building</p>
+                            <a href="https://www.google.com/maps?q=university+of+leeds+civil+engineering" class="btn btn-primary" target="_blank">View on Google Maps</a>
+                        </div>
+                    </div>
+                    <div class="location-details">
+                        <div class="location-item">
+                            <i class="fas fa-building"></i>
+                            <div>
+                                <h4>Main Office</h4>
+                                <p>Civil Engineering Building, Floor 3, Room 3.21</p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-flask"></i>
+                            <div>
+                                <h4>Research Laboratories</h4>
+                                <p>Civil Engineering Building, Floor 1, Rooms 1.05-1.12</p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-bus"></i>
+                            <div>
+                                <h4>Transportation</h4>
+                                <p>Accessible via public transport. Bus routes 1, 6, and 28 stop nearby.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <h2 class="section-title">Send Us a Message</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="general">General Inquiry</option>
+                                <option value="research">Research Collaboration</option>
+                                <option value="postgraduate">Postgraduate Applications</option>
+                                <option value="events">Events & Workshops</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group form-checkbox">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">I consent to WPE storing and processing my data in accordance with the <a href="#">Privacy Policy</a>.</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Contacts Section -->
+        <section class="key-contacts-section">
+            <h2 class="section-title">Key Contacts</h2>
+            <div class="key-contacts-grid">
+                <div class="key-contact-card">
+                    <img src="/api/placeholder/150/150" alt="Professor Smith" class="contact-image">
+                    <div class="contact-details">
+                        <h3>Professor John Smith</h3>
+                        <p class="contact-role">Head of Research Group</p>
+                        <p class="contact-email"><a href="mailto:j.smith@leeds.ac.uk">j.smith@leeds.ac.uk</a></p>
+                        <p class="contact-phone">+44 (0)113 343 2245</p>
+                        <p class="contact-focus">Research focus: Water Quality & Treatment</p>
+                    </div>
+                </div>
+                
+                <div class="key-contact-card">
+                    <img src="/api/placeholder/150/150" alt="Dr. Johnson" class="contact-image">
+                    <div class="contact-details">
+                        <h3>Dr. Emily Johnson</h3>
+                        <p class="contact-role">Postgraduate Research Coordinator</p>
+                        <p class="contact-email"><a href="mailto:e.johnson@leeds.ac.uk">e.johnson@leeds.ac.uk</a></p>
+                        <p class="contact-phone">+44 (0)113 343 2246</p>
+                        <p class="contact-focus">Research focus: Indoor Air Quality</p>
+                    </div>
+                </div>
+                
+                <div class="key-contact-card">
+                    <img src="/api/placeholder/150/150" alt="Dr. Wong" class="contact-image">
+                    <div class="contact-details">
+                        <h3>Dr. Michael Wong</h3>
+                        <p class="contact-role">Industry Partnerships Coordinator</p>
+                        <p class="contact-email"><a href="mailto:m.wong@leeds.ac.uk">m.wong@leeds.ac.uk</a></p>
+                        <p class="contact-phone">+44 (0)113 343 2247</p>
+                        <p class="contact-focus">Research focus: Bioresources & Circular Economy</p>
+                    </div>
+                </div>
+                
+                <div class="key-contact-card">
+                    <img src="/api/placeholder/150/150" alt="Dr. Chen" class="contact-image">
+                    <div class="contact-details">
+                        <h3>Dr. Sarah Chen</h3>
+                        <p class="contact-role">Facilities & Lab Manager</p>
+                        <p class="contact-email"><a href="mailto:s.chen@leeds.ac.uk">s.chen@leeds.ac.uk</a></p>
+                        <p class="contact-phone">+44 (0)113 343 2249</p>
+                        <p class="contact-focus">Research focus: Environmental Microbiology</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How can I apply for a PhD position?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>PhD applications are processed through the University of Leeds Doctoral College. Please visit our <a href="#">Postgraduate Research</a> page for current opportunities and application procedures. You can also contact our Postgraduate Research Coordinator, Dr. Emily Johnson, directly at <a href="mailto:e.johnson@leeds.ac.uk">e.johnson@leeds.ac.uk</a>.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How can I collaborate with WPE on research projects?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We welcome research collaborations with academic institutions, industry partners, and governmental organizations. Please contact our Industry Partnerships Coordinator, Dr. Michael Wong, at <a href="mailto:m.wong@leeds.ac.uk">m.wong@leeds.ac.uk</a> to discuss potential collaboration opportunities.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Can I visit the WPE research facilities?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, we offer guided tours of our research facilities for academic partners, industry collaborators, and prospective students. Please contact our Facilities & Lab Manager, Dr. Sarah Chen, at <a href="mailto:s.chen@leeds.ac.uk">s.chen@leeds.ac.uk</a> to schedule a visit.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Where can I find information about upcoming events?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Information about upcoming events, including Cake Meetings, seminars, and workshops, can be found on our <a href="cake-meetings.html">Cake Meetings</a> and <a href="news-blog.html">News & Blog</a> pages. You can also subscribe to our newsletter for regular updates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                    <h3>WPE</h3>
+                </div>
+                <p>Water, Public Health and Environmental Engineering Research Group</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="research-groups.html">Research Groups</a></li>
+                    <li><a href="news-blog.html">News & Blog</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Events</h3>
+                <ul class="footer-links">
+                    <li><a href="cake-meetings.html">Cake Meetings</a></li>
+                    <li><a href="news-blog.html#seminars">Seminars</a></li>
+                    <li><a href="news-blog.html#workshops">Workshops</a></li>
+                    <li><a href="news-blog.html#conferences">Conferences</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
+                <p><i class="fas fa-map-marker"></i>Woodhouse Lane, LS2 9JT, Leeds, UK</p>
+                <p><i class="fas fa-envelope"></i> wpe-group@leeds.ac.uk</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering Research Group. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Accordion script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    
+                    const content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                    
+                    // Toggle icon
+                    const icon = this.querySelector('i');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+        });
+    </script>
+
+    <!-- Current page script -->
+    <script>
+        // Get current page filename
+        const path = window.location.pathname;
+        const page = path.split("/").pop();
+        
+        // Remove any active classes
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Set active class based on current page
+        if (page === "" || page === "index.html") {
+            document.getElementById('nav-home').classList.add('active');
+        } else if (page === "about.html") {
+            document.getElementById('nav-about').classList.add('active');
+        } else if (page === "research-groups.html") {
+            document.getElementById('nav-research').classList.add('active');
+        } else if (page === "people.html") {
+            document.getElementById('nav-people').classList.add('active');
+        } else if (page === "facilities.html") {
+            document.getElementById('nav-facilities').classList.add('active');
+        } else if (page === "cake-meetings.html") {
+            document.getElementById('nav-cake').classList.add('active');
+        } else if (page === "news-blog.html") {
+            document.getElementById('nav-news').classList.add('active');
+        } else if (page === "contact.html") {
+            document.getElementById('nav-contact').classList.add('active');
+        }
+    </script>
 </body>
 </html>
