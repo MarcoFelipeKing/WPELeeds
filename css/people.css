@@ -200,6 +200,10 @@
     color: var(--teal);
 }
 
+.person-group.water {
+    background-color: rgba(91, 117, 249, 0.2);
+    color: var(--blue);
+}
 .person-group.staff {
     background-color: rgba(83, 82, 90, 0.2);
     color: var(--dark-gray);
@@ -500,6 +504,10 @@
     background-color: var(--teal);
 }
 
+.legend-color.water {
+    background-color: var(--blue);
+}
+
 .legend-line {
     width: 20px;
     height: 2px;
@@ -597,7 +605,10 @@
     background-color: rgba(138, 201, 193, 0.2);
     color: var(--teal);
 }
-
+.details-group.water {
+    background-color: rgba(91, 117, 249, 0.2);
+    color: var(--blie);
+}
 .details-stats {
     display: flex;
     justify-content: space-around;

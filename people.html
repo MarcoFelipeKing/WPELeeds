@@ -22,23 +22,6 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Header Include -->
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>WPE - Water, Public Health and Environmental Engineering</title>
-        <!-- Font imports -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
-        <!-- Font Awesome -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-        <!-- Main Stylesheet -->
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
         <!-- Header -->
         <header>
             <div class="header-container">
@@ -128,6 +111,7 @@
                         <button class="filter-btn" data-group="bioresources">BioResources</button>
                         <button class="filter-btn" data-group="public-health">Public Health</button>
                         <button class="filter-btn" data-group="sanitation">Sanitation</button>
+                        <button class="filter-btn" data-group="water">Water</button>
                     </div>
                 </div>
                 
@@ -150,6 +134,7 @@
             <button class="group-filter" data-group="bioresources">BioResources</button>
             <button class="group-filter" data-group="public-health">Public Health</button>
             <button class="group-filter" data-group="sanitation">Sanitation</button>
+            <button class="group-filter" data-group="water">Water</button>
         </div>
         
         <div class="network-legend">
@@ -168,6 +153,10 @@
             <div class="legend-item">
                 <span class="legend-color sanitation"></span>
                 <span>Sanitation</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color water"></span>
+                <span>Water</span>
             </div>
             <div class="legend-item">
                 <div class="legend-line"></div>
@@ -219,9 +208,9 @@
         <section class="people-directory">
             <div class="people-grid">
                 <!-- Academic Staff -->
-                <div class="person-card" data-role="academic" data-group="indoor-air">
+                <div class="person-card" data-role="academic" data-group="public-health">
                     <div class="person-image">
-                        <img src="images/person-1.jpg" alt="Prof. Emma Wilson">
+                        <img src="images/people/profile_marco-felipe_king.png" alt="Dr. Marco-Felipe King">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -229,9 +218,9 @@
                         </div>
                     </div>
                     <div class="person-info">
-                        <h3>Prof. Emma Wilson</h3>
-                        <div class="person-title">Professor of Environmental Engineering</div>
-                        <div class="person-group indoor-air">Indoor Air</div>
+                        <h3>Dr. Marco-Felipe King</h3>
+                        <div class="person-title">Director of WPE</div>
+                        <div class="person-group public-health">Public Health</div>
                         <p>Research focuses on particulate matter dynamics in indoor environments and their health impacts.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
@@ -239,7 +228,7 @@
                 
                 <div class="person-card" data-role="academic" data-group="bioresources">
                     <div class="person-image">
-                        <img src="images/person-2.jpg" alt="Dr. Michael Wong">
+                        <img src="images/people/Cynthia-700x467.jpg" alt="Dr. Cynthia">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -247,17 +236,53 @@
                         </div>
                     </div>
                     <div class="person-info">
-                        <h3>Dr. Michael Wong</h3>
-                        <div class="person-title">Associate Professor</div>
+                        <h3>Dr. Cynthia Shekwaga-Okoro</h3>
+                        <div class="person-title">Deputy Director of WPE</div>
                         <div class="person-group bioresources">BioResources</div>
-                        <p>Specializes in biological waste treatment processes and resource recovery from waste streams.</p>
+                        <p>Specialises in biological waste treatment processes and resource recovery from waste streams.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
                 </div>
                 
+                <div class="person-card" data-role="academic" data-group="indoor-air">
+                    <div class="person-image">
+                        <img src="images/people/amir.jpeg" alt="Dr. Amir Khan">
+                        <div class="person-social">
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Amir Khan</h3>
+                        <div class="person-title">Deputy Director of WPE</div>
+                        <div class="person-group indoor-air">Indoor Air</div>
+                        <p>Researches modelling airflows in and around buildings using CFD.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="person-card" data-role="academic" data-group="indoor-air">
+                    <div class="person-image">
+                        <img src="images/people/cath_noakes.jpg" alt="Prof. Catherine Noakes">
+                        <div class="person-social">
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="person-info">
+                        <h3>Prof. Catherine Noakes</h3>
+                        <div class="person-title">Professor Environmental for Buildings</div>
+                        <div class="person-group indoor-air">Indoor Air</div>
+                        <p>...</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
                 <div class="person-card" data-role="academic" data-group="public-health">
                     <div class="person-image">
-                        <img src="images/person-3.jpg" alt="Dr. Elena Rodriguez">
+                        <img src="images/people/jamie_bartram.jpg" alt="Prof. Jamie Bartram">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -265,17 +290,17 @@
                         </div>
                     </div>
                     <div class="person-info">
-                        <h3>Dr. Elena Rodriguez</h3>
-                        <div class="person-title">Senior Lecturer</div>
+                        <h3>Prof. Jamie Bartram</h3>
+                        <div class="person-title">Prof. </div>
                         <div class="person-group public-health">Public Health</div>
-                        <p>Researches the intersections of environmental contamination and health outcomes in urban settings.</p>
+                        <p>Research focuses on particulate matter dynamics in indoor environments and their health impacts.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
                 </div>
-                
-                <div class="person-card" data-role="academic" data-group="sanitation">
+
+                <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/person-4.jpg" alt="Prof. James Park">
+                        <img src="images/people/martin_tillotson.jpeg" alt="Prof. Matrin Tillotson">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -283,54 +308,36 @@
                         </div>
                     </div>
                     <div class="person-info">
-                        <h3>Prof. James Park</h3>
-                        <div class="person-title">Professor of Sanitation Engineering</div>
-                        <div class="person-group sanitation">Sanitation</div>
-                        <p>Developing innovative approaches to sanitation challenges in both developed and developing regions.</p>
+                        <h3>Prof. Matrin Tillotson</h3>
+                        <div class="person-title">Prof. </div>
+                        <div class="person-group water">Water</div>
+                        <p>Research focuses on particulate matter dynamics in indoor environments and their health impacts.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
                 </div>
-                
+
+                <div class="person-card" data-role="academic" data-group="water">
+                    <div class="person-image">
+                        <img src="images/people/mohsen.jpg" alt="Dr. Mohsen Besharat">
+                        <div class="person-social">
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Mohsen Besharat </h3>
+                        <div class="person-title">Dr.. Mohsen Besharat </div>
+                        <div class="person-group water">Water</div>
+                        <p>Research focuses numerical modelling of hydraulics and waterflows.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
                 <!-- PhD Students -->
-                <div class="person-card" data-role="phd" data-group="indoor-air">
-                    <div class="person-image">
-                        <img src="images/person-5.jpg" alt="Sarah Johnson">
-                        <div class="person-social">
-                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                    <div class="person-info">
-                        <h3>Sarah Johnson</h3>
-                        <div class="person-title">PhD Candidate</div>
-                        <div class="person-group indoor-air">Indoor Air</div>
-                        <p>Investigating the effects of ventilation systems on airborne pathogen transmission in healthcare settings.</p>
-                        <a href="#" class="person-profile-link">View Profile</a>
-                    </div>
-                </div>
-                
-                <div class="person-card" data-role="phd" data-group="bioresources">
-                    <div class="person-image">
-                        <img src="images/person-6.jpg" alt="Ahmed Hassan">
-                        <div class="person-social">
-                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                    <div class="person-info">
-                        <h3>Ahmed Hassan</h3>
-                        <div class="person-title">PhD Candidate</div>
-                        <div class="person-group bioresources">BioResources</div>
-                        <p>Researching microbial communities in anaerobic digesters for optimal biogas production.</p>
-                        <a href="#" class="person-profile-link">View Profile</a>
-                    </div>
-                </div>
-                
                 <div class="person-card" data-role="phd" data-group="public-health">
                     <div class="person-image">
-                        <img src="images/person-7.jpg" alt="Maria Lopez">
+                        <img src="images/people/jack_dalton.jpg" alt="Sarah Johnson">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -338,17 +345,17 @@
                         </div>
                     </div>
                     <div class="person-info">
-                        <h3>Maria Lopez</h3>
+                        <h3>Jack Dalton</h3>
                         <div class="person-title">PhD Candidate</div>
-                        <div class="person-group public-health">Public Health</div>
-                        <p>Studying the relationship between urban green spaces and respiratory health outcomes in children.</p>
+                        <div class="person-group public-health">public-health</div>
+                        <p>Investigating the effects of ventilation systems on airborne pathogen transmission in healthcare settings.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
                 </div>
                 
                 <div class="person-card" data-role="phd" data-group="sanitation">
                     <div class="person-image">
-                        <img src="images/person-8.jpg" alt="Raj Patel">
+                        <img src="images/people/gettie_shiinda.jpg" alt="Gettie">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -356,18 +363,61 @@
                         </div>
                     </div>
                     <div class="person-info">
-                        <h3>Raj Patel</h3>
+                        <h3>Gettie Shiinda</h3>
                         <div class="person-title">PhD Candidate</div>
                         <div class="person-group sanitation">Sanitation</div>
+                        <p>Researching microbial communities in anaerobic digesters for optimal biogas production.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="person-card" data-role="phd" data-group="indoor-air">
+                    <div class="person-image">
+                        <img src="images/people/anushi.jpeg" alt="Anushi">
+                        <div class="person-social">
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="person-info">
+                        <h3>Anushi Khandare</h3>
+                        <div class="person-title">PhD Candidate</div>
+                        <div class="person-group indoor-air">Indoor Air</div>
+                        <p>Studying the relationship between urban green spaces and respiratory health outcomes in children.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="person-card" data-role="phd" data-group="bioresources">
+                    <div class="person-image">
+                        <img src="images/people/tatiana.jpg" alt="Raj Patel">
+                        <div class="person-social">
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="person-info">
+                        <h3>Tatiana Zúñiga</h3>
+                        <div class="person-title">PhD Candidate</div>
+                        <div class="person-group bioresources">Bio-resources</div>
                         <p>Developing low-cost sanitation technologies for emergency response situations.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
                 </div>
                 
-                <!-- Postdoctoral Researchers -->
-                <div class="person-card" data-role="postdoc" data-group="indoor-air">
+                <!-- Postdoctoral Researchers 
+                <div class="person-card" data-role="postdoc" data-group="sanitation">
                     <div class="person-image">
-                        <img src="images/person-9.jpg" alt="Dr. Thomas Lee">
+                        <img src="images/people/benjamin.jpg" alt="Dr. Benjamin">
+                        <div class="person-social">
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    <div class="person-image">
+                        <img src="images/people/carolina.jpeg" alt="Dr. Carolina">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -375,17 +425,17 @@
                         </div>
                     </div>
                     <div class="person-info">
-                        <h3>Dr. Thomas Lee</h3>
+                        <h3>Dr. Caroline Montoyo Pachongo</h3>
                         <div class="person-title">Postdoctoral Researcher</div>
-                        <div class="person-group indoor-air">Indoor Air</div>
+                        <div class="person-group sanitation">Sanitation</div>
                         <p>Investigating advanced sensing technologies for real-time indoor air quality monitoring.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
-                </div>
+                </div>-->
                 
-                <div class="person-card" data-role="postdoc" data-group="public-health">
+                <div class="person-card" data-role="postdoc" data-group="water">
                     <div class="person-image">
-                        <img src="images/person-10.jpg" alt="Dr. Laura Silva">
+                        <img src="images/people/carolina.jpeg" alt="Dr. Laura Silva">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -393,9 +443,9 @@
                         </div>
                     </div>
                     <div class="person-info">
-                        <h3>Dr. Laura Silva</h3>
+                        <h3>Dr. Carolina Montoya Pachongo</h3>
                         <div class="person-title">Postdoctoral Researcher</div>
-                        <div class="person-group public-health">Public Health</div>
+                        <div class="person-group water">water</div>
                         <p>Working on epidemiological models for waterborne disease transmission in urban settings.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
