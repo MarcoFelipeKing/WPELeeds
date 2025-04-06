@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman Matemático</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #111;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            overflow: hidden;
+        }
+        
+        h1 {
+            color: #FFFF00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 10px;
+        }
+        
+        .game-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background-color: #000;
+            border: 4px solid #2121DE;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(33, 33, 222, 0.7);
+        }
+        
+        .info-panel {
+            display: flex;
+            justify-content: space-between;
+            width: 500px;
+            margin-top: 10px;
+            padding: 5px;
+            background-color: #2121DE;
+            border-radius: 10px;
+        }
+        
+        .lives, .score, .level {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .pacman {
+            width: 30px;
+            height: 30px;
+            background-color: #FFFF00;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 2;
+        }
+        
+        .ghost {
+            width: 30px;
+            height: 30px;
+            border-radius: 15px 15px 2px 2px;
+            position: absolute;
+            z-index: 2;
+        }
+        
+        .ghost-red { background-color: #FF0000; }
+        .ghost-pink { background-color: #FFB8FF; }
+        .ghost-blue { background-color: #00FFFF; }
+        .ghost-orange { background-color: #FFB852; }
+        
+        .wall {
+            background-color: #2121DE;
+            position: absolute;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .power-pellet {
+            width: 15px;
+            height: 15px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            animation: pulse 1s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            from { transform: scale(0.8); }
+            to { transform: scale(1.2); }
+        }
+        
+        .math-challenge {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .math-box {
+            background-color: #2121DE;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.7);
+            max-width: 500px;
+            animation: appear 0.5s forwards;
+        }
+        
+        @keyframes appear {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .question {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #FFFF00;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .option-btn {
+            padding: 15px;
+            font-size: 20px;
+            background-color: #000;
+            color: white;
+            border: 2px solid #FFFF00;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option-btn:hover {
+            background-color: #FFFF00;
+            color: #000;
+            transform: scale(1.05);
+        }
+        
+        .result-message {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            height: 30px;
+        }
+        
+        .game-over, .level-complete {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+        
+        .game-over h2, .level-complete h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: blink 1s infinite alternate;
+        }
+        
+        @keyframes blink {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
+        }
+        
+        .game-over h2 { color: #FF0000; }
+        .level-complete h2 { color: #FFFF00; }
+        
+        .restart-btn, .next-level-btn {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #2121DE;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .restart-btn:hover, .next-level-btn:hover {
+            background-color: #FFFF00;
+            color: #000;
+            transform: scale(1.1);
+        }
+        
+        .pacman-mouth {
+            width: 0;
+            height: 0;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #000;
+            border-left: 15px solid #000;
+            border-bottom: 15px solid #000;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            position: absolute;
+            animation: eat 0.3s infinite alternate;
+        }
+        
+        @keyframes eat {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(40deg); }
+        }
+        
+        .ghost-eye {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+        }
+        
+        .ghost-eye-left { left: 7px; }
+        .ghost-eye-right { right: 7px; }
+        
+        .ghost-pupil {
+            width: 4px;
+            height: 4px;
+            background-color: blue;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+        }
+        
+        .ghost-feet {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 5px;
+        }
+        
+        .ghost-foot {
+            width: 7.5px;
+            height: 5px;
+            background-color: inherit;
+            position: absolute;
+            bottom: 0;
+            border-radius: 0 0 100% 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Pacman Matemático!</h1>
+    <div class="game-container" id="gameContainer"></div>
+    <div class="info-panel">
+        <div class="lives">Vidas: <span id="livesCount">3</span></div>
+        <div class="score">Puntos: <span id="scoreCount">0</span></div>
+        <div class="level">Nivel: <span id="levelCount">1</span></div>
+    </div>
+    
+    <div class="math-challenge" id="mathChallenge">
+        <div class="math-box">
+            <div class="question" id="mathQuestion">¿Cuánto es 5 + 3?</div>
+            <div class="options" id="mathOptions">
+                <button class="option-btn">6</button>
+                <button class="option-btn">7</button>
+                <button class="option-btn">8</button>
+                <button class="option-btn">9</button>
+            </div>
+            <div class="result-message" id="resultMessage"></div>
+        </div>
+    </div>
+    
+    <div class="game-over" id="gameOver">
+        <h2>¡GAME OVER!</h2>
+        <p>Has conseguido <span id="finalScore">0</span> puntos</p>
+        <button class="restart-btn" id="restartBtn">Jugar otra vez</button>
+    </div>
+    
+    <div class="level-complete" id="levelComplete">
+        <h2>¡NIVEL COMPLETADO!</h2>
+        <p>Has conseguido <span id="levelScore">0</span> puntos</p>
+        <button class="next-level-btn" id="nextLevelBtn">Siguiente nivel</button>
+    </div>
+
+    <script>
+        // Control de teclado
+        document.addEventListener('keydown', function(e) {
+            switch (e.key) {
+                case 'ArrowUp':
+                    controls.up = true;
+                    entities.pacman.nextDirection = 'up';
+                    break;
+                case 'ArrowDown':
+                    controls.down = true;
+                    entities.pacman.nextDirection = 'down';
+                    break;
+                case 'ArrowLeft':
+                    controls.left = true;
+                    entities.pacman.nextDirection = 'left';
+                    break;
+                case 'ArrowRight':
+                    controls.right = true;
+                    entities.pacman.nextDirection = 'right';
+                    break;
+            }
+        });
+        
+        document.addEventListener('keyup', function(e) {
+            switch (e.key) {
+                case 'ArrowUp': controls.up = false; break;
+                case 'ArrowDown': controls.down = false; break;
+                case 'ArrowLeft': controls.left = false; break;
+                case 'ArrowRight': controls.right = false; break;
+            }
+        });
+        
+        // Configuración del juego
+        const gameConfig = {
+            cellSize: 20,
+            pacmanSpeed: 3,
+            ghostSpeed: 2,
+            initialGhostCount: 2,
+            maxGhostCount: 5,
+            dotsNeededForPowerPellet: 10
+        };
+        
+        let gameState = {
+            level: 1,
+            score: 0,
+            lives: 3,
+            dotsCollected: 0,
+            totalDots: 0,
+            poweredUp: false,
+            paused: false,
+            gameStarted: false,
+            mathChallenge: false,
+            currentGhost: null
+        };
+        
+        let entities = {
+            pacman: null,
+            ghosts: [],
+            dots: [],
+            powerPellets: [],
+            walls: []
+        };
+        
+        let controls = {
+            up: false,
+            down: false,
+            left: false,
+            right: false
+        };
+        
+        const gameContainer = document.getElementById('gameContainer');
+        const containerWidth = gameContainer.offsetWidth;
+        const containerHeight = gameContainer.offsetHeight;
+        const gridWidth = Math.floor(containerWidth / gameConfig.cellSize);
+        const gridHeight = Math.floor(containerHeight / gameConfig.cellSize);
+        
+        // Inicialización del juego
+        function initGame() {
+            resetGameState();
+            createMaze(gameState.level);
+            createPacman();
+            createGhosts(gameConfig.initialGhostCount);
+            gameState.gameStarted = true;
+            gameLoop();
+        }
+        
+        function resetGameState() {
+            gameState = {
+                level: 1,
+                score: 0,
+                lives: 3,
+                dotsCollected: 0,
+                totalDots: 0,
+                poweredUp: false,
+                paused: false,
+                gameStarted: false,
+                mathChallenge: false,
+                currentGhost: null
+            };
+            
+            entities = {
+                pacman: null,
+                ghosts: [],
+                dots: [],
+                powerPellets: [],
+                walls: []
+            };
+            
+            updateUI();
+            gameContainer.innerHTML = '';
+        }
+        
+        function nextLevel() {
+            gameState.level++;
+            gameState.dotsCollected = 0;
+            gameState.totalDots = 0;
+            gameState.poweredUp = false;
+            
+            entities = {
+                pacman: null,
+                ghosts: [],
+                dots: [],
+                powerPellets: [],
+                walls: []
+            };
+            
+            gameContainer.innerHTML = '';
+            createMaze(gameState.level);
+            createPacman();
+            createGhosts(Math.min(gameConfig.initialGhostCount + gameState.level - 1, gameConfig.maxGhostCount));
+            updateUI();
+            
+            document.getElementById('levelComplete').style.display = 'none';
+            gameState.paused = false;
+        }
+        
+        function createMaze(level) {
+            // Generamos un laberinto básico según el nivel
+            // Nivel 1: Laberinto simple con pocas paredes
+            // Niveles superiores: Más complejos
+            
+            // Crear paredes del borde
+            createWall(0, 0, containerWidth, 20); // Superior
+            createWall(0, containerHeight - 20, containerWidth, 20); // Inferior
+            createWall(0, 0, 20, containerHeight); // Izquierda
+            createWall(containerWidth - 20, 0, 20, containerHeight); // Derecha
+            
+            // Crear paredes internas según el nivel
+            if (level === 1) {
+                // Nivel 1: Pocas paredes simples
+                createWall(100, 100, 300, 20);
+                createWall(100, 300, 300, 20);
+                createWall(200, 180, 20, 80);
+            } else if (level === 2) {
+                // Nivel 2: Más paredes formando un laberinto simple
+                createWall(100, 100, 300, 20);
+                createWall(100, 300, 300, 20);
+                createWall(100, 180, 20, 80);
+                createWall(380, 180, 20, 80);
+                createWall(200, 180, 100, 20);
+                createWall(200, 260, 100, 20);
+            } else {
+                // Nivel 3+: Laberinto más complejo
+                createWall(60, 60, 380, 20);
+                createWall(60, 140, 20, 220);
+                createWall(60, 360, 380, 20);
+                createWall(420, 140, 20, 220);
+                createWall(140, 140, 20, 160);
+                createWall(220, 80, 20, 220);
+                createWall(300, 140, 20, 160);
+                createWall(380, 80, 20, 100);
+                createWall(380, 240, 20, 120);
+                createWall(140, 140, 80, 20);
+                createWall(140, 300, 80, 20);
+                createWall(300, 140, 120, 20);
+                createWall(300, 300, 120, 20);
+            }
+            
+            // Generar puntos (dots)
+            generateDots();
+            
+            // Generar power pellets
+            generatePowerPellets();
+        }
+        
+        function createWall(x, y, width, height) {
+            const wall = document.createElement('div');
+            wall.className = 'wall';
+            wall.style.left = x + 'px';
+            wall.style.top = y + 'px';
+            wall.style.width = width + 'px';
+            wall.style.height = height + 'px';
+            gameContainer.appendChild(wall);
+            
+            entities.walls.push({
+                element: wall,
+                x: x,
+                y: y,
+                width: width,
+                height: height
+            });
+        }
+        
+        function generateDots() {
+            const dotSpacing = 40;
+            
+            for (let x = 40; x < containerWidth; x += dotSpacing) {
+                for (let y = 40; y < containerHeight; y += dotSpacing) {
+                    // No generamos dots donde hay paredes
+                    if (!isCollidingWithWalls(x, y, 8, 8)) {
+                        createDot(x, y);
+                        gameState.totalDots++;
+                    }
+                }
+            }
+        }
+        
+        function generatePowerPellets() {
+            // Colocamos power pellets en 4 lugares estratégicos
+            const positions = [
+                { x: 40, y: 40 },
+                { x: containerWidth - 40, y: 40 },
+                { x: 40, y: containerHeight - 40 },
+                { x: containerWidth - 40, y: containerHeight - 40 }
+            ];
+            
+            for (const pos of positions) {
+                // Verificamos si hay un dot en esa posición y lo eliminamos
+                const dotIndex = entities.dots.findIndex(dot => 
+                    Math.abs(dot.x - pos.x) < 10 && Math.abs(dot.y - pos.y) < 10
+                );
+                
+                if (dotIndex !== -1) {
+                    gameContainer.removeChild(entities.dots[dotIndex].element);
+                    entities.dots.splice(dotIndex, 1);
+                    gameState.totalDots--;
+                }
+                
+                createPowerPellet(pos.x, pos.y);
+            }
+        }
+        
+        function createDot(x, y) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            dot.style.left = (x - 4) + 'px';
+            dot.style.top = (y - 4) + 'px';
+            gameContainer.appendChild(dot);
+            
+            entities.dots.push({
+                element: dot,
+                x: x,
+                y: y,
+                width: 8,
+                height: 8
+            });
+        }
+        
+        function createPowerPellet(x, y) {
+            const powerPellet = document.createElement('div');
+            powerPellet.className = 'power-pellet';
+            powerPellet.style.left = (x - 7.5) + 'px';
+            powerPellet.style.top = (y - 7.5) + 'px';
+            gameContainer.appendChild(powerPellet);
+            
+            entities.powerPellets.push({
+                element: powerPellet,
+                x: x,
+                y: y,
+                width: 15,
+                height: 15
+            });
+        }
+        
+        function createPacman() {
+            // Encontrar un lugar libre para Pacman
+            let pacmanX = 40;
+            let pacmanY = 40;
+            
+            while (isCollidingWithWalls(pacmanX, pacmanY, 30, 30)) {
+                pacmanX += gameConfig.cellSize;
+                if (pacmanX >= containerWidth - 40) {
+                    pacmanX = 40;
+                    pacmanY += gameConfig.cellSize;
+                }
+                if (pacmanY >= containerHeight - 40) {
+                    pacmanY = 40;
+                }
+            }
+            
+            const pacman = document.createElement('div');
+            pacman.className = 'pacman';
+            
+            // Agregar la boca
+            const mouth = document.createElement('div');
+            mouth.className = 'pacman-mouth';
+            pacman.appendChild(mouth);
+            
+            gameContainer.appendChild(pacman);
+            
+            entities.pacman = {
+                element: pacman,
+                mouth: mouth,
+                x: pacmanX,
+                y: pacmanY,
+                width: 30,
+                height: 30,
+                direction: 'right',
+                speed: gameConfig.pacmanSpeed,
+                nextDirection: null
+            };
+            
+            updatePacmanPosition();
+        }
+        
+        function createGhosts(count) {
+            const ghostColors = ['red', 'pink', 'blue', 'orange'];
+            
+            for (let i = 0; i < count; i++) {
+                // Encontrar un lugar libre para el fantasma
+                let ghostX = containerWidth - 80;
+                let ghostY = containerHeight - 80;
+                
+                while (isCollidingWithWalls(ghostX, ghostY, 30, 30) || 
+                       isCloseToOtherGhost(ghostX, ghostY, 50) ||
+                       isCloseToPacman(ghostX, ghostY, 150)) {
+                    ghostX -= gameConfig.cellSize;
+                    if (ghostX <= 40) {
+                        ghostX = containerWidth - 80;
+                        ghostY -= gameConfig.cellSize;
+                    }
+                    if (ghostY <= 40) {
+                        ghostY = containerHeight - 80;
+                    }
+                }
+                
+                const ghost = document.createElement('div');
+                ghost.className = 'ghost ghost-' + ghostColors[i % ghostColors.length];
+                
+                // Agregar los ojos
+                const eyeLeft = document.createElement('div');
+                eyeLeft.className = 'ghost-eye ghost-eye-left';
+                const pupilLeft = document.createElement('div');
+                pupilLeft.className = 'ghost-pupil';
+                eyeLeft.appendChild(pupilLeft);
+                
+                const eyeRight = document.createElement('div');
+                eyeRight.className = 'ghost-eye ghost-eye-right';
+                const pupilRight = document.createElement('div');
+                pupilRight.className = 'ghost-pupil';
+                eyeRight.appendChild(pupilRight);
+                
+                ghost.appendChild(eyeLeft);
+                ghost.appendChild(eyeRight);
+                
+                // Agregar los pies
+                const feet = document.createElement('div');
+                feet.className = 'ghost-feet';
+                
+                for (let f = 0; f < 4; f++) {
+                    const foot = document.createElement('div');
+                    foot.className = 'ghost-foot';
+                    foot.style.left = (f * 7.5) + 'px';
+                    feet.appendChild(foot);
+                }
+                
+                ghost.appendChild(feet);
+                
+                gameContainer.appendChild(ghost);
+                
+                entities.ghosts.push({
+                    element: ghost,
+                    eyeLeft: eyeLeft,
+                    eyeRight: eyeRight,
+                    x: ghostX,
+                    y: ghostY,
+                    width: 30,
+                    height: 30,
+                    direction: ['up', 'down', 'left', 'right'][Math.floor(Math.random() * 4)],
+                    speed: gameConfig.ghostSpeed + (Math.random() * 0.5 - 0.25), // Pequeña variación en velocidad
+                    scared: false,
+                    color: ghostColors[i % ghostColors.length]
+                });
+                
+                updateGhostPosition(entities.ghosts[i]);
+            }
+        }
+        
+        function isCloseToOtherGhost(x, y, minDistance) {
+            for (const ghost of entities.ghosts) {
+                const distance = Math.sqrt(Math.pow(x - ghost.x, 2) + Math.pow(y - ghost.y, 2));
+                if (distance < minDistance) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function isCloseToPacman(x, y, minDistance) {
+            if (!entities.pacman) return false;
+            
+            const distance = Math.sqrt(
+                Math.pow(x - entities.pacman.x, 2) + 
+                Math.pow(y - entities.pacman.y, 2)
+            );
+            
+            return distance < minDistance;
+        }
+        
+        function updatePacmanPosition() {
+            if (!entities.pacman) return;
+            
+            entities.pacman.element.style.left = (entities.pacman.x - 15) + 'px';
+            entities.pacman.element.style.top = (entities.pacman.y - 15) + 'px';
+            
+            // Rotar la boca según la dirección
+            let rotationDegree = 0;
+            switch (entities.pacman.direction) {
+                case 'right': rotationDegree = 0; break;
+                case 'down': rotationDegree = 90; break;
+                case 'left': rotationDegree = 180; break;
+                case 'up': rotationDegree = 270; break;
+            }
+            
+            entities.pacman.element.style.transform = `rotate(${rotationDegree}deg)`;
+        }
+        
+        function updateGhostPosition(ghost) {
+            ghost.element.style.left = (ghost.x - 15) + 'px';
+            ghost.element.style.top = (ghost.y - 15) + 'px';
+            
+            // Actualizar la dirección de los ojos
+            let pupilLeftPos = { x: 2, y: 2 };
+            let pupilRightPos = { x: 2, y: 2 };
+            
+            switch (ghost.direction) {
+                case 'right':
+                    pupilLeftPos.x = 4;
+                    pupilRightPos.x = 4;
+                    break;
+                case 'left':
+                    pupilLeftPos.x = 0;
+                    pupilRightPos.x = 0;
+                    break;
+                case 'up':
+                    pupilLeftPos.y = 0;
+                    pupilRightPos.y = 0;
+                    break;
+                case 'down':
+                    pupilLeftPos.y = 4;
+                    pupilRightPos.y = 4;
+                    break;
+            }
+            
+            ghost.eyeLeft.firstChild.style.left = pupilLeftPos.x + 'px';
+            ghost.eyeLeft.firstChild.style.top = pupilLeftPos.y + 'px';
+            ghost.eyeRight.firstChild.style.left = pupilRightPos.x + 'px';
+            ghost.eyeRight.firstChild.style.top = pupilRightPos.y + 'px';
+            
+            // Cambiar el color si está asustado
+            if (ghost.scared) {
+                ghost.element.style.backgroundColor = '#2121DE';
+            } else {
+                switch (ghost.color) {
+                    case 'red': ghost.element.style.backgroundColor = '#FF0000'; break;
+                    case 'pink': ghost.element.style.backgroundColor = '#FFB8FF'; break;
+                    case 'blue': ghost.element.style.backgroundColor = '#00FFFF'; break;
+                    case 'orange': ghost.element.style.backgroundColor = '#FFB852'; break;
+                }
+            }
+        }
+        
+        function updateUI() {
+            document.getElementById('scoreCount').textContent = gameState.score;
+            document.getElementById('livesCount').textContent = gameState.lives;
+            document.getElementById('levelCount').textContent = gameState.level;
+        }
+        
+        function movePacman() {
+            if (!entities.pacman || gameState.paused) return;
+            
+            // Cambiar dirección si se ha solicitado y es posible
+            if (entities.pacman.nextDirection) {
+                const nextPos = getNextPosition(
+                    entities.pacman.x, 
+                    entities.pacman.y, 
+                    entities.pacman.nextDirection, 
+                    entities.pacman.speed
+                );
+                
+                if (!isCollidingWithWalls(nextPos.x, nextPos.y, entities.pacman.width, entities.pacman.height)) {
+                    entities.pacman.direction = entities.pacman.nextDirection;
+                    entities.pacman.nextDirection = null;
+                }
+            }
+            
+            // Mover en la dirección actual
+            const nextPos = getNextPosition(
+                entities.pacman.x, 
+                entities.pacman.y, 
+                entities.pacman.direction, 
+                entities.pacman.speed
+            );
+            
+            if (!isCollidingWithWalls(nextPos.x, nextPos.y, entities.pacman.width, entities.pacman.height)) {
+                entities.pacman.x = nextPos.x;
+                entities.pacman.y = nextPos.y;
+                updatePacmanPosition();
+            } else {
+                // Intentar deslizarse si está cerca de una esquina
+                const alternateDirections = getAlternateDirections(entities.pacman.direction);
+                for (const dir of alternateDirections) {
+                    const altNextPos = getNextPosition(
+                        entities.pacman.x, 
+                        entities.pacman.y, 
+                        dir, 
+                        entities.pacman.speed
+                    );
+                    
+                    if (!isCollidingWithWalls(altNextPos.x, altNextPos.y, entities.pacman.width, entities.pacman.height)) {
+                        entities.pacman.direction = dir;
+                        entities.pacman.x = altNextPos.x;
+                        entities.pacman.y = altNextPos.y;
+                        updatePacmanPosition();
+                        break;
+                    }
+                }
+            }
+            
+            // Comprobar colisiones con dots y power pellets
+            checkDotCollisions();
+            checkPowerPelletCollisions();
+            
+            // Comprobar si ha completado el nivel
+            if (gameState.dotsCollected >= gameState.totalDots && entities.powerPellets.length === 0) {
+                completeLevel();
+            }
+        }
+        
+        function moveGhosts() {
+            if (gameState.paused) return;
+            
+            for (const ghost of entities.ghosts) {
+                // Cambiar dirección aleatoriamente o si hay una colisión
+                if (Math.random() < 0.02 || willCollideWithWall(ghost)) {
+                    ghost.direction = getRandomDirection(ghost);
+                }
+                
+                // Si está asustado, intentar alejarse de Pacman
+                if (ghost.scared && Math.random() < 0.1) {
+                    ghost.direction = getDirectionAwayFromPacman(ghost);
+                }
+                
+                // Si no está asustado, a veces intentar perseguir a Pacman
+                if (!ghost.scared && Math.random() < 0.05) {
+                    ghost.direction = getDirectionTowardsPacman(ghost);
+                }
+                
+                // Mover en la dirección actual
+                const nextPos = getNextPosition(
+                    ghost.x, 
+                    ghost.y, 
+                    ghost.direction, 
+                    ghost.speed * (ghost.scared ? 0.5 : 1) // Más lento si está asustado
+                );
+                
+                if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                    ghost.x = nextPos.x;
+                    ghost.y = nextPos.y;
+                } else {
+                    // Cambiar a una dirección aleatoria si hay colisión
+                    ghost.direction = getRandomDirection(ghost);
+                }
+                
+                updateGhostPosition(ghost);
+                
+                // Comprobar colisión con Pacman
+                if (isCollidingWithPacman(ghost) && !gameState.mathChallenge) {
+                    if (ghost.scared) {
+                        // Pacman se come al fantasma
+                        eatGhost(ghost);
+                    } else {
+                        // Fantasma atrapa a Pacman - Desafío matemático
+                        startMathChallenge(ghost);
+                    }
+                }
+            }
+        }
+        
+        function getNextPosition(x, y, direction, speed) {
+            let nextX = x;
+            let nextY = y;
+            
+            switch (direction) {
+                case 'up': nextY -= speed; break;
+                case 'down': nextY += speed; break;
+                case 'left': nextX -= speed; break;
+                case 'right': nextX += speed; break;
+            }
+            
+            // Ajustar para que no se salga de los límites
+            nextX = Math.max(20, Math.min(containerWidth - 20, nextX));
+            nextY = Math.max(20, Math.min(containerHeight - 20, nextY));
+            
+            return { x: nextX, y: nextY };
+        }
+        
+        function isCollidingWithWalls(x, y, width, height) {
+            // Crear un rectángulo para el objeto
+            const rect = {
+                left: x - width / 2,
+                right: x + width / 2,
+                top: y - height / 2,
+                bottom: y + height / 2
+            };
+            
+            // Comprobar colisión con cada pared
+            for (const wall of entities.walls) {
+                if (
+                    rect.right > wall.x &&
+                    rect.left < wall.x + wall.width &&
+                    rect.bottom > wall.y &&
+                    rect.top < wall.y + wall.height
+                ) {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        function willCollideWithWall(ghost) {
+            const nextPos = getNextPosition(
+                ghost.x, 
+                ghost.y, 
+                ghost.direction, 
+                ghost.speed * 5 // Mirar un poco hacia adelante
+            );
+            
+            return isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height);
+        }
+        
+        function getRandomDirection(ghost) {
+            const possibleDirections = ['up', 'down', 'left', 'right'];
+            const oppositeDirection = {
+                'up': 'down',
+                'down': 'up',
+                'left': 'right',
+                'right': 'left'
+            };
+            
+            // Filtrar la dirección opuesta a la actual para evitar cambios de 180 grados
+            const filteredDirections = possibleDirections.filter(dir => 
+                dir !== oppositeDirection[ghost.direction]
+            );
+            
+            // Probar direcciones hasta encontrar una válida
+            for (let i = 0; i < 3; i++) {
+                const randomIndex = Math.floor(Math.random() * filteredDirections.length);
+                const direction = filteredDirections[randomIndex];
+                
+                const nextPos = getNextPosition(
+                    ghost.x, 
+                    ghost.y, 
+                    direction, 
+                    ghost.speed
+                );
+                
+                if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                    return direction;
+                }
+                
+                // Eliminar esta dirección y probar otra
+                filteredDirections.splice(randomIndex, 1);
+            }
+            
+            // Si no encontramos una dirección válida, probar incluso la opuesta
+            for (const direction of possibleDirections) {
+                const nextPos = getNextPosition(
+                    ghost.x, 
+                    ghost.y, 
+                    direction, 
+                    ghost.speed
+                );
+                
+                if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                    return direction;
+                }
+            }
+            
+            // Si todo falla, mantener la dirección actual
+            return ghost.direction;
+        }
+        
+        function getDirectionTowardsPacman(ghost) {
+            if (!entities.pacman) return ghost.direction;
+            
+            const dx = entities.pacman.x - ghost.x;
+            const dy = entities.pacman.y - ghost.y;
+            
+            // Determinar qué dirección intentar primero (horizontal o vertical)
+            const tryHorizontalFirst = Math.abs(dx) > Math.abs(dy);
+            
+            if (tryHorizontalFirst) {
+                // Intentar moverse horizontalmente primero
+                if (dx > 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'right', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'right';
+                    }
+                } else if (dx < 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'left', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'left';
+                    }
+                }
+                
+                // Si no es posible, intentar verticalmente
+                if (dy > 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'down', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'down';
+                    }
+                } else if (dy < 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'up', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'up';
+                    }
+                }
+            } else {
+                // Intentar moverse verticalmente primero
+                if (dy > 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'down', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'down';
+                    }
+                } else if (dy < 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'up', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'up';
+                    }
+                }
+                
+                // Si no es posible, intentar horizontalmente
+                if (dx > 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'right', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'right';
+                    }
+                } else if (dx < 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'left', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'left';
+                    }
+                }
+            }
+            
+            // Si no podemos acercarnos a Pacman, mantener la dirección actual
+            return ghost.direction;
+        }
+        
+        function getDirectionAwayFromPacman(ghost) {
+            if (!entities.pacman) return ghost.direction;
+            
+            const dx = entities.pacman.x - ghost.x;
+            const dy = entities.pacman.y - ghost.y;
+            
+            const tryHorizontalFirst = Math.abs(dx) > Math.abs(dy);
+            
+            if (tryHorizontalFirst) {
+                if (dx > 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'left', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'left';
+                    }
+                } else if (dx < 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'right', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'right';
+                    }
+                }
+                
+                if (dy > 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'up', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'up';
+                    }
+                } else if (dy < 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'down', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'down';
+                    }
+                }
+            } else {
+                if (dy > 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'up', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'up';
+                    }
+                } else if (dy < 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'down', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'down';
+                    }
+                }
+                
+                if (dx > 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'left', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'left';
+                    }
+                } else if (dx < 0) {
+                    const nextPos = getNextPosition(ghost.x, ghost.y, 'right', ghost.speed);
+                    if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                        return 'right';
+                    }
+                }
+            }
+            
+            return getRandomDirection(ghost);
+        }
+
+    // Carga el juego cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+        initGame();
+    });
+</script>

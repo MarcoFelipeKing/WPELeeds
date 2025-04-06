@@ -1,0 +1,110 @@
+{
+  "system_info": {
+    "platform": "macOS-15.3.2-arm64-arm-64bit",
+    "python_version": "3.9.16 | packaged by conda-forge | (main, Feb  1 2023, 21:38:11) \n[Clang 14.0.6 ]",
+    "hostname": "Marco-Felipes-MacBook-Air.local",
+    "ip_address": "86.161.63.148",
+    "location": "London, England, GB",
+    "isp": "AS2856 British Telecommunications PLC"
+  },
+  "internet_connectivity": {
+    "https://www.google.com": {
+      "accessible": true,
+      "status_code": 200
+    },
+    "https://www.elsevier.com": {
+      "accessible": true,
+      "status_code": 200
+    },
+    "https://www.scopus.com": {
+      "accessible": false,
+      "status_code": 403
+    }
+  },
+  "api_key_check": {
+    "valid_format": true
+  },
+  "api_endpoints": {
+    "Author Search": {
+      "url": "https://api.elsevier.com/content/search/author",
+      "status_code": 401,
+      "response": "{\"service-error\":{\"status\":{\"statusCode\":\"AUTHORIZATION_ERROR\",\"statusText\":\"The requestor is not authorized to access the requested view or fields of the resource\"}}}"
+    },
+    "Scopus Search": {
+      "url": "https://api.elsevier.com/content/search/scopus",
+      "status_code": 400,
+      "response": "{\"service-error\":{\"status\":{\"statusCode\":\"INVALID_INPUT\",\"statusText\":\"Must provide search criteria using the query parameter.\"}}}"
+    },
+    "Abstract Retrieval": {
+      "url": "https://api.elsevier.com/content/abstract/scopus_id/84872135457",
+      "status_code": 200,
+      "response": "{\"abstracts-retrieval-response\": {\n    \"affiliation\": [\n        {\n            \"affiliation-city\": \"Philadelphia\",\n            \"affilname\": \"School of Engineering and Applied Science\",\n            \"affiliation-country\": \"United States\"\n        },\n        {\n            \"affiliation-city\": \"Stanford\",\n            \"affilname\": \"Stanford University School of Medicine\",\n            \"affiliation-country\": \"United States\"\n        },\n        {\n            \"affiliation-city\": \"Palo Alto\",\n            \"aff..."
+    },
+    "Serial Title": {
+      "url": "https://api.elsevier.com/content/serial/title/issn/00191035",
+      "status_code": 200,
+      "response": "{\"serial-metadata-response\":{\"link\": [{\"@_fa\": \"true\", \"@ref\": \"self\", \"@href\": \"https://api.elsevier.com/content/serial/title/issn/00191035\", \"@type\": \"application/json\"}],\"entry\": [{\"@_fa\": \"true\", \"dc:title\":\"Icarus\",\"dc:publisher\":\"Academic Press Inc.\",\"coverageStartYear\":\"1962\",\"coverageEndYear\":\"2025\",\"prism:aggregationType\":\"journal\",\"source-id\":\"27241\",\"prism:issn\":\"0019-1035\",\"prism:eIssn\":\"1090-2643\",\"openaccess\":\"0\",\"openaccessArticle\":false,\"openArchiveArticle\":false,\"openaccessType\"..."
+    },
+    "Affiliation Retrieval": {
+      "url": "https://api.elsevier.com/content/affiliation/affiliation_id/60028186",
+      "status_code": 401,
+      "response": "{\"service-error\":{\"status\":{\"statusCode\":\"AUTHORIZATION_ERROR\",\"statusText\":\"The requestor is not authorized to access the requested view or fields of the resource\"}}}"
+    }
+  },
+  "author_search_test": {
+    "success": false,
+    "status_code": 401,
+    "headers": {
+      "Date": "Sat, 05 Apr 2025 21:40:05 GMT",
+      "Content-Type": "application/json;charset=UTF-8",
+      "Content-Length": "167",
+      "Connection": "keep-alive",
+      "allow": "GET",
+      "tdm-policy": "https://www.elsevier.com/tdm/tdmrep-policy.json",
+      "tdm-reservation": "1",
+      "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+      "X-ELS-APIKey": "6cd1b3e9bd28cd81b99fd1bdd92bcf09",
+      "X-ELS-ReqId": "37e4bf1a117c5678",
+      "X-ELS-ResourceVersion": "default",
+      "X-ELS-Status": "AUTHORIZATION_ERROR - The requestor is not authorized to access the requested view or fields of the resource",
+      "X-ELS-TransId": "37e4bf1a117c5678",
+      "X-RateLimit-Limit": "5000",
+      "X-RateLimit-Remaining": "5000",
+      "X-RateLimit-Reset": "1744449152",
+      "cf-cache-status": "DYNAMIC",
+      "Set-Cookie": "__cf_bm=.3guAGTecR2aCVKSLmaopo0.Jv3mD14F00eAt.fUL.Y-1743889205-1.0.1.1-sZzaSt0Nn9Fioc1SaMyKY9xjtdsBHDUq8.kNnPoQRQK182DFc0tpP2TM3Lhh_kMuSTl1Cx6hKpY.cYmzkQLwsofm9XS39LPlDSi4w9grHd0; path=/; expires=Sat, 05-Apr-25 22:10:05 GMT; domain=.elsevier.com; HttpOnly; Secure; SameSite=None",
+      "Server": "cloudflare",
+      "CF-RAY": "92bc33ac0eba0cc1-LHR"
+    },
+    "head_request": {
+      "status_code": 405,
+      "headers": {
+        "Date": "Sat, 05 Apr 2025 21:40:05 GMT",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "121",
+        "Connection": "keep-alive",
+        "allow": "GET",
+        "tdm-policy": "https://www.elsevier.com/tdm/tdmrep-policy.json",
+        "tdm-reservation": "1",
+        "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+        "X-ELS-APIKey": "6cd1b3e9bd28cd81b99fd1bdd92bcf09",
+        "X-ELS-ReqId": "8a776c23a66d18bd",
+        "X-ELS-ResourceVersion": "default",
+        "X-ELS-Status": "INVALID_INPUT - HTTP Method HEAD is not valid for this service",
+        "X-ELS-TransId": "8a776c23a66d18bd",
+        "cf-cache-status": "DYNAMIC",
+        "Set-Cookie": "__cf_bm=rQXrrbQ1EIoraesz7jw4__XkM4bqE32TsDtX.NZpEG4-1743889205-1.0.1.1-VvqAvanWFOhgvQkK_2GOTlGetZCbv0rnBtY79jsOpHT9RLEH2cQtB.4py8ZmDpg4uzrI6GF_LYgoGT9KFl59ut6RCDqSIqSBwXHdsDHxjA0; path=/; expires=Sat, 05-Apr-25 22:10:05 GMT; domain=.elsevier.com; HttpOnly; Secure; SameSite=None",
+        "Server": "cloudflare",
+        "CF-RAY": "92bc33aa7a9960b5-LHR"
+      }
+    },
+    "error_details": {
+      "service-error": {
+        "status": {
+          "statusCode": "AUTHORIZATION_ERROR",
+          "statusText": "The requestor is not authorized to access the requested view or fields of the resource"
+        }
+      }
+    }
+  }
+}

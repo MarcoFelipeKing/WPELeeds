@@ -276,10 +276,10 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .indoor-air { background-color: var(--primary-blue); color: white; }
-.bioresources { background-color: var(--secondary-blue); color: white; }
+.bioresources { background-color: var(--teal); color: white; }
 .public-health { background-color: var(--purple); color: white; }
-.sanitation { background-color: var(--teal); color: white; }
-.water { background-color: var(--dark-gray); color: white; }
+.sanitation { background-color: var(--dark-gray); color: white; }
+.water { background-color: var(--secondary-blue); color: white; }
 
 .group-card:hover {
     transform: scale(1.05);
