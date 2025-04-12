@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Results - WPE - Water, Public Health and Environmental Engineering</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Stats script -->
+    <script src="js/stats.js" defer></script>
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="images/wpe_favico.ico" type="image/x-icon">
+    <!-- Additional CSS for survey page -->
+    <style>
+        /* Survey results specific styles */
+        .survey-hero {
+            background-color: #003366;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .survey-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .survey-hero p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .survey-section {
+            padding: 3rem 0;
+        }
+        
+        .survey-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .survey-intro {
+            background-color: #f7f9fb;
+            padding: 1.5rem;
+            border-left: 4px solid #003366;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+        
+        .survey-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .survey-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .survey-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .survey-card.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .metric-display {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+        
+        .metric-item {
+            text-align: center;
+            padding: 1rem;
+            background-color: #f7f9fb;
+            border-radius: 8px;
+            flex: 1;
+            margin: 0 0.5rem;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #003366;
+            line-height: 1;
+        }
+        
+        .metric-label {
+            margin-top: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin: 2rem 0;
+        }
+        
+        .quote-block {
+            font-style: italic;
+            padding: 1.2rem 1.5rem;
+            background-color: #f9f9f9;
+            border-left: 3px solid #003366;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .tag {
+            background-color: #e1f5fe;
+            color: #0288d1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+        
+        .tag:hover {
+            background-color: #0288d1;
+            color: white;
+        }
+        
+        .implementation-timeline {
+            display: flex;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .implementation-timeline::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background-color: #e0e0e0;
+            z-index: 0;
+        }
+        
+        .phase {
+            flex: 1;
+            position: relative;
+            padding-top: 50px;
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .phase::before {
+            content: '';
+            position: absolute;
+            top: 26px;
+            left: calc(50% - 8px);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #003366;
+        }
+        
+        .phase-title {
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 0.3rem;
+        }
+        
+        .phase-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.8rem;
+        }
+        
+        .phase-content {
+            font-size: 0.95rem;
+        }
+        
+        .next-steps {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .next-steps ul {
+            margin-left: 1.5rem;
+        }
+        
+        .next-steps li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+        
+        .get-involved {
+            background-color: #003366;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border-radius: 10px;
+        }
+        
+        .get-involved h3 {
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        
+        .get-involved .btn {
+            margin-top: 1rem;
+            background-color: white;
+            color: #003366;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .survey-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-display {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .metric-item {
+                margin: 0.5rem 0;
+            }
+            
+            .implementation-timeline {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .implementation-timeline::before {
+                display: none;
+            }
+            
+            .phase {
+                padding-top: 0;
+                padding-left: 40px;
+                text-align: left;
+            }
+            
+            .phase::before {
+                top: 8px;
+                left: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                <h1>WPE</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" id="nav-home">Home</a></li>
+                    <li><a href="about.html" id="nav-about">About</a></li>
+                    <li><a href="research-groups.html" id="nav-research">Research Groups</a></li>
+                    <li><a href="people.html" id="nav-people">People</a></li>
+                    <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
+                    <li><a href="cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
+                    <li><a href="news-blog.html" id="nav-news">News & Blog</a></li>
+                    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Survey Hero Section -->
+    <section class="survey-hero">
+        <div class="container">
+            <h1>WPE Member Survey Results</h1>
+            <p>Insights and analysis from our 2025 research community survey</p>
+        </div>
+    </section>
+
+    <!-- Survey Content -->
+    <section class="survey-section">
+        <div class="survey-container">
+            <div class="survey-intro">
+                <p>Thank you to everyone who participated in our recent survey. Your feedback has been invaluable in understanding how we can better serve our research community. This page summarizes the key findings and our planned actions moving forward.</p>
+            </div>
+            
+            <h2 class="section-title">Survey Response Profile</h2>
+            <div class="survey-grid">
+                <div class="survey-card">
+                    <h3>Respondent Demographics</h3>
+                    <div class="chart-container">
+                        <canvas id="respondentsChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="survey-card">
+                    <h3>Key Engagement Metrics</h3>
+                    <div class="metric-display">
+                        <div class="metric-item">
+                            <div class="metric-value">2.33<span style="font-size: 1rem;">/5</span></div>
+                            <div class="metric-label">Current Engagement Level</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">3.85<span style="font-size: 1rem;">/5</span></div>
+                            <div class="metric-label">Name Representation</div>
+                        </div>
+                    </div>
+                    <div class="quote-block">
+                        "Too big to provide community, too small for external profile."
+                    </div>
+                    <p>This insight from one respondent highlights a key structural challenge we need to address in our strategic planning.</p>
+                </div>
+                
+                <div class="survey-card full-width">
+                    <h3>Most Desired Activities</h3>
+                    <div class="chart-container">
+                        <canvas id="activitiesChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="survey-card">
+                    <h3>What Members Seek from WPE</h3>
+                    <p>Four primary themes emerged regarding what members hope to gain:</p>
+                    <ul>
+                        <li><strong>Community Building</strong> - "A sense of community" and "Re-establishing network of WPE staff and students"</li>
+                        <li><strong>Collaboration Opportunities</strong> - "Grow opportunities for collaborative research proposals and papers"</li>
+                        <li><strong>Skills Development</strong> - Research skills and professional development</li>
+                        <li><strong>Identity and Recognition</strong> - "A research centre that gives an identity for international exposure"</li>
+                    </ul>
+                </div>
+                
+                <div class="survey-card">
+                    <h3>Preferred Meeting Types</h3>
+                    <div class="chart-container">
+                        <canvas id="meetingsChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="survey-card full-width">
+                    <h3>Research Keywords</h3>
+                    <p>The word frequency analysis revealed our group's diverse research interests:</p>
+                    <div class="tag-cloud">
+                        <span class="tag" style="font-size: 1.5rem;">Water treatment</span>
+                        <span class="tag" style="font-size: 1.4rem;">Public health</span>
+                        <span class="tag" style="font-size: 1.3rem;">Sanitation</span>
+                        <span class="tag" style="font-size: 1.3rem;">Environmental engineering</span>
+                        <span class="tag" style="font-size: 1.2rem;">Climate change</span>
+                        <span class="tag" style="font-size: 1.2rem;">Air quality</span>
+                        <span class="tag" style="font-size: 1.1rem;">Microbiology</span>
+                        <span class="tag" style="font-size: 1.1rem;">Governance</span>
+                        <span class="tag" style="font-size: 1rem;">Hydraulics</span>
+                        <span class="tag" style="font-size: 1rem;">Gender</span>
+                        <span class="tag" style="font-size: 0.9rem;">Modelling</span>
+                        <span class="tag" style="font-size: 0.9rem;">Emissions</span>
+                        <span class="tag" style="font-size: 0.9rem;">Contamination</span>
+                    </div>
+                    <p>This diverse set of research interests provides numerous opportunities for interdisciplinary collaboration within WPE.</p>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Implementation Plan</h2>
+            <p>Based on your feedback, we are developing a three-phase implementation plan:</p>
+            
+            <div class="implementation-timeline">
+                <div class="phase">
+                    <div class="phase-title">Phase 1</div>
+                    <div class="phase-date">May-July 2025</div>
+                    <div class="phase-content">Horizons Scanning & Grant-writing Workshops</div>
+                </div>
+                
+                <div class="phase">
+                    <div class="phase-title">Phase 2</div>
+                    <div class="phase-date">Aug-Oct 2025</div>
+                    <div class="phase-content">Themed Networking & Skill-building Sessions</div>
+                </div>
+                
+                <div class="phase">
+                    <div class="phase-title">Phase 3</div>
+                    <div class="phase-date">Nov-Dec 2025</div>
+                    <div class="phase-content">WPE Annual Awards & Identity Building</div>
+                </div>
+            </div>
+            
+            <div class="next-steps">
+                <h3>Immediate Next Steps</h3>
+                <ul>
+                    <li><strong>May 15th:</strong> First Grant-writing Workshop focusing on UKRI opportunities</li>
+                    <li><strong>May 30th:</strong> Themed Networking event on "Water Treatment Innovations"</li>
+                    <li><strong>June:</strong> Launch of working groups around core research themes</li>
+                </ul>
+            </div>
+            
+            <div class="get-involved">
+                <h3>Get Involved!</h3>
+                <p>We're excited to build a more vibrant and engaged research community based on your feedback. If you would like to volunteer for any of these initiatives or have additional suggestions, please contact us.</p>
+                <a href="mailto:wpe-group@leeds.ac.uk" class="btn btn-primary">Contact the WPE Coordinator</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                    <h3>WPE</h3>
+                </div>
+                <p>Water, Public Health and Environmental Engineering Research Group</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="research-groups.html">Research Groups</a></li>
+                    <li><a href="news-blog.html">News & Blog</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Events</h3>
+                <ul class="footer-links">
+                    <li><a href="cake-meetings.html">Cake Meetings</a></li>
+                    <li><a href="news-blog.html#seminars">Seminars</a></li>
+                    <li><a href="news-blog.html#workshops">Workshops</a></li>
+                    <li><a href="news-blog.html#conferences">Conferences</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
+                <p><i class="fas fa-map-marker"></i>Woodhouse Lane, LS2 9JT, Leeds, UK</p>
+                <p><i class="fas fa-envelope"></i> wpe-group@leeds.ac.uk</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering Research Group. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Chart Scripts -->
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Respondents Chart
+            const respondentsCtx = document.getElementById('respondentsChart').getContext('2d');
+            const respondentsChart = new Chart(respondentsCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Academics', 'PhD Students/Researchers', 'Postdoctoral Researchers'],
+                    datasets: [{
+                        data: [9, 5, 1],
+                        backgroundColor: [
+                            '#003366',
+                            '#4a86e8',
+                            '#9fc5e8'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ${value} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Activities Chart
+            const activitiesCtx = document.getElementById('activitiesChart').getContext('2d');
+            const activitiesChart = new Chart(activitiesCtx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Horizons Scanning & Grant-writing',
+                        'Themed Networking',
+                        'Skill-building Sessions',
+                        'Social Gatherings',
+                        'Other Suggestions'
+                    ],
+                    datasets: [{
+                        label: 'Percentage of Respondents',
+                        data: [73, 67, 53, 53, 47],
+                        backgroundColor: '#003366',
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: '% of Respondents'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Meetings Chart
+            const meetingsCtx = document.getElementById('meetingsChart').getContext('2d');
+            const meetingsChart = new Chart(meetingsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        'Research-Focused Discussions',
+                        'Tips on Surviving & Thriving',
+                        'Career Trajectory & Life Experience',
+                        'Rainbow Sessions',
+                    ],
+                    datasets: [{
+                        data: [10, 6, 5, 5],
+                        backgroundColor: [
+                            '#4a86e8',
+                            '#9fc5e8',
+                            '#c9daf8',
+                            '#d9d2e9'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    return `${label}: ${value} mentions`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Script to highlight current page in navigation -->
+    <script>
+        // Get current page filename
+        const path = window.location.pathname;
+        const page = path.split("/").pop();
+        
+        // Remove any active classes
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Set active class based on current page
+        if (page === "survey-results.html") {
+            // No specific nav item to highlight
+            // Could add a new nav item for this page if desired
+        }
+    </script>
+</body>
+</html>

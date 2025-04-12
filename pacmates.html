@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman Matemático Simplificado</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #111;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+        
+        h1 {
+            color: #FFFF00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+        
+        .game-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background-color: #000;
+            border: 4px solid #2121DE;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(33, 33, 222, 0.7);
+            overflow: hidden;
+        }
+        
+        .info-panel {
+            display: flex;
+            justify-content: space-between;
+            width: 500px;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #2121DE;
+            border-radius: 10px;
+        }
+        
+        .lives, .score, .level {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .pacman {
+            width: 30px;
+            height: 30px;
+            background-color: #FFFF00;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 2;
+        }
+        
+        .pacman-mouth {
+            width: 0;
+            height: 0;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #000;
+            border-left: 15px solid #000;
+            border-bottom: 15px solid #000;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            position: absolute;
+            animation: eat 0.3s infinite alternate;
+        }
+        
+        @keyframes eat {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(40deg); }
+        }
+        
+        .ghost {
+            width: 30px;
+            height: 30px;
+            border-radius: 15px 15px 2px 2px;
+            position: absolute;
+            z-index: 2;
+        }
+        
+        .ghost-red { background-color: #FF0000; }
+        .ghost-pink { background-color: #FFB8FF; }
+        .ghost-blue { background-color: #00FFFF; }
+        .ghost-orange { background-color: #FFB852; }
+        
+        .ghost-eye {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+        }
+        
+        .ghost-eye-left { left: 7px; }
+        .ghost-eye-right { right: 7px; }
+        
+        .ghost-pupil {
+            width: 4px;
+            height: 4px;
+            background-color: blue;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+        }
+        
+        .wall {
+            background-color: #2121DE;
+            position: absolute;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .power-pellet {
+            width: 15px;
+            height: 15px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            animation: pulse 1s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            from { transform: scale(0.8); }
+            to { transform: scale(1.2); }
+        }
+        
+        .math-challenge {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .math-box {
+            background-color: #2121DE;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.7);
+            max-width: 500px;
+        }
+        
+        .question {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #FFFF00;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .option-btn {
+            padding: 15px;
+            font-size: 20px;
+            background-color: #000;
+            color: white;
+            border: 2px solid #FFFF00;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .option-btn:hover {
+            background-color: #FFFF00;
+            color: #000;
+        }
+        
+        .result-message {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Pacman Matemático!</h1>
+    <div class="game-container" id="gameContainer"></div>
+    <div class="info-panel">
+        <div class="lives">Vidas: <span id="livesCount">3</span></div>
+        <div class="score">Puntos: <span id="scoreCount">0</span></div>
+        <div class="level">Nivel: <span id="levelCount">1</span></div>
+    </div>
+    
+    <div class="math-challenge" id="mathChallenge">
+        <div class="math-box">
+            <div class="question" id="mathQuestion">¿Cuánto es 5 + 3?</div>
+            <div class="options" id="mathOptions">
+                <button class="option-btn">6</button>
+                <button class="option-btn">7</button>
+                <button class="option-btn">8</button>
+                <button class="option-btn">9</button>
+            </div>
+            <div class="result-message" id="resultMessage"></div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        const gameContainer = document.getElementById('gameContainer');
+        const containerWidth = gameContainer.offsetWidth;
+        const containerHeight = gameContainer.offsetHeight;
+        
+        let pacman = null;
+        let ghosts = [];
+        let walls = [];
+        let dots = [];
+        let powerPellets = [];
+        let score = 0;
+        let lives = 3;
+        let level = 1;
+        let paused = false;
+        
+        // Configuración del juego
+        const pacmanSpeed = 3;
+        const ghostSpeed = 2;
+        
+        // Función para iniciar el juego
+        function initGame() {
+            // Limpiar el contenedor
+            gameContainer.innerHTML = '';
+            
+            // Crear paredes
+            createWalls();
+            
+            // Crear dots
+            createDots();
+            
+            // Crear power pellets
+            createPowerPellets();
+            
+            // Crear pacman
+            createPacman();
+            
+            // Crear fantasmas
+            createGhosts();
+            
+            // Actualizar la UI
+            updateUI();
+            
+            // Iniciar bucle del juego
+            gameLoop();
+        }
+        
+        // Función para crear las paredes
+        function createWalls() {
+            walls = [];
+            
+            // Paredes exteriores
+            createWall(0, 0, containerWidth, 20); // Superior
+            createWall(0, containerHeight - 20, containerWidth, 20); // Inferior
+            createWall(0, 0, 20, containerHeight); // Izquierda
+            createWall(containerWidth - 20, 0, 20, containerHeight); // Derecha
+            
+            // Paredes interiores
+            createWall(100, 100, 300, 20); // Horizontal superior
+            createWall(100, 300, 300, 20); // Horizontal inferior
+            createWall(200, 180, 20, 80); // Vertical central
+        }
+        
+        // Función para crear una pared
+        function createWall(x, y, width, height) {
+            const wall = document.createElement('div');
+            wall.className = 'wall';
+            wall.style.left = x + 'px';
+            wall.style.top = y + 'px';
+            wall.style.width = width + 'px';
+            wall.style.height = height + 'px';
+            gameContainer.appendChild(wall);
+            
+            walls.push({
+                element: wall,
+                x: x,
+                y: y,
+                width: width,
+                height: height,
+                right: x + width,
+                bottom: y + height
+            });
+        }
+        
+        // Función para crear dots
+        function createDots() {
+            dots = [];
+            const dotSpacing = 40;
+            
+            for (let x = 40; x < containerWidth; x += dotSpacing) {
+                for (let y = 40; y < containerHeight; y += dotSpacing) {
+                    // No crear dots donde hay paredes
+                    if (!isCollidingWithWalls(x, y, 8, 8)) {
+                        const dot = document.createElement('div');
+                        dot.className = 'dot';
+                        dot.style.left = (x - 4) + 'px';
+                        dot.style.top = (y - 4) + 'px';
+                        gameContainer.appendChild(dot);
+                        
+                        dots.push({
+                            element: dot,
+                            x: x,
+                            y: y,
+                            width: 8,
+                            height: 8
+                        });
+                    }
+                }
+            }
+        }
+        
+        // Función para crear power pellets
+        function createPowerPellets() {
+            powerPellets = [];
+            
+            // Crear 4 power pellets en las esquinas
+            const positions = [
+                { x: 40, y: 40 },
+                { x: containerWidth - 40, y: 40 },
+                { x: 40, y: containerHeight - 40 },
+                { x: containerWidth - 40, y: containerHeight - 40 }
+            ];
+            
+            for (const pos of positions) {
+                // Eliminar dot si hay uno en esta posición
+                for (let i = 0; i < dots.length; i++) {
+                    if (Math.abs(dots[i].x - pos.x) < 10 && Math.abs(dots[i].y - pos.y) < 10) {
+                        gameContainer.removeChild(dots[i].element);
+                        dots.splice(i, 1);
+                        break;
+                    }
+                }
+                
+                const powerPellet = document.createElement('div');
+                powerPellet.className = 'power-pellet';
+                powerPellet.style.left = (pos.x - 7.5) + 'px';
+                powerPellet.style.top = (pos.y - 7.5) + 'px';
+                gameContainer.appendChild(powerPellet);
+                
+                powerPellets.push({
+                    element: powerPellet,
+                    x: pos.x,
+                    y: pos.y,
+                    width: 15,
+                    height: 15
+                });
+            }
+        }
+        
+        // Función para crear Pacman
+        function createPacman() {
+            const pacmanElement = document.createElement('div');
+            pacmanElement.className = 'pacman';
+            
+            // Crear la boca de Pacman
+            const mouth = document.createElement('div');
+            mouth.className = 'pacman-mouth';
+            pacmanElement.appendChild(mouth);
+            
+            gameContainer.appendChild(pacmanElement);
+            
+            pacman = {
+                element: pacmanElement,
+                mouth: mouth,
+                x: 40,
+                y: 40,
+                width: 30,
+                height: 30,
+                direction: 'right',
+                nextDirection: null,
+                speed: pacmanSpeed
+            };
+            
+            updatePacmanPosition();
+        }
+        
+        // Función para crear fantasmas
+        function createGhosts() {
+            ghosts = [];
+            const ghostColors = ['red', 'pink', 'blue', 'orange'];
+            
+            // Crear 4 fantasmas
+            for (let i = 0; i < 2; i++) {
+                const ghost = document.createElement('div');
+                ghost.className = 'ghost ghost-' + ghostColors[i];
+                
+                // Ojos
+                const eyeLeft = document.createElement('div');
+                eyeLeft.className = 'ghost-eye ghost-eye-left';
+                const pupilLeft = document.createElement('div');
+                pupilLeft.className = 'ghost-pupil';
+                eyeLeft.appendChild(pupilLeft);
+                
+                const eyeRight = document.createElement('div');
+                eyeRight.className = 'ghost-eye ghost-eye-right';
+                const pupilRight = document.createElement('div');
+                pupilRight.className = 'ghost-pupil';
+                eyeRight.appendChild(pupilRight);
+                
+                ghost.appendChild(eyeLeft);
+                ghost.appendChild(eyeRight);
+                
+                gameContainer.appendChild(ghost);
+                
+                // Posición inicial lejos de Pacman
+                const ghostX = containerWidth - 80 - (i * 40);
+                const ghostY = containerHeight - 80 - (i * 40);
+                
+                ghosts.push({
+                    element: ghost,
+                    eyeLeft: eyeLeft,
+                    eyeRight: eyeRight,
+                    x: ghostX,
+                    y: ghostY,
+                    width: 30,
+                    height: 30,
+                    direction: ['up', 'down', 'left', 'right'][Math.floor(Math.random() * 4)],
+                    speed: ghostSpeed,
+                    scared: false,
+                    color: ghostColors[i]
+                });
+                
+                updateGhostPosition(ghosts[i]);
+            }
+        }
+        
+        // Función para actualizar la posición de Pacman
+        function updatePacmanPosition() {
+            pacman.element.style.left = (pacman.x - 15) + 'px';
+            pacman.element.style.top = (pacman.y - 15) + 'px';
+            
+            // Rotar según la dirección
+            let rotationDegree = 0;
+            switch (pacman.direction) {
+                case 'right': rotationDegree = 0; break;
+                case 'down': rotationDegree = 90; break;
+                case 'left': rotationDegree = 180; break;
+                case 'up': rotationDegree = 270; break;
+            }
+            
+            pacman.element.style.transform = `rotate(${rotationDegree}deg)`;
+        }
+        
+        // Función para actualizar la posición de un fantasma
+        function updateGhostPosition(ghost) {
+            ghost.element.style.left = (ghost.x - 15) + 'px';
+            ghost.element.style.top = (ghost.y - 15) + 'px';
+            
+            // Actualizar los ojos según la dirección
+            let pupilLeftPos = { x: 2, y: 2 };
+            let pupilRightPos = { x: 2, y: 2 };
+            
+            switch (ghost.direction) {
+                case 'right':
+                    pupilLeftPos.x = 4;
+                    pupilRightPos.x = 4;
+                    break;
+                case 'left':
+                    pupilLeftPos.x = 0;
+                    pupilRightPos.x = 0;
+                    break;
+                case 'up':
+                    pupilLeftPos.y = 0;
+                    pupilRightPos.y = 0;
+                    break;
+                case 'down':
+                    pupilLeftPos.y = 4;
+                    pupilRightPos.y = 4;
+                    break;
+            }
+            
+            ghost.eyeLeft.firstChild.style.left = pupilLeftPos.x + 'px';
+            ghost.eyeLeft.firstChild.style.top = pupilLeftPos.y + 'px';
+            ghost.eyeRight.firstChild.style.left = pupilRightPos.x + 'px';
+            ghost.eyeRight.firstChild.style.top = pupilRightPos.y + 'px';
+            
+            // Cambiar color si está asustado
+            if (ghost.scared) {
+                ghost.element.style.backgroundColor = '#2121DE';
+            } else {
+                switch (ghost.color) {
+                    case 'red': ghost.element.style.backgroundColor = '#FF0000'; break;
+                    case 'pink': ghost.element.style.backgroundColor = '#FFB8FF'; break;
+                    case 'blue': ghost.element.style.backgroundColor = '#00FFFF'; break;
+                    case 'orange': ghost.element.style.backgroundColor = '#FFB852'; break;
+                }
+            }
+        }
+        
+        // Verificar colisión con paredes
+        function isCollidingWithWalls(x, y, width, height) {
+            const objLeft = x - width / 2;
+            const objRight = x + width / 2;
+            const objTop = y - height / 2;
+            const objBottom = y + height / 2;
+            
+            for (const wall of walls) {
+                if (objRight > wall.x && 
+                    objLeft < wall.x + wall.width && 
+                    objBottom > wall.y && 
+                    objTop < wall.y + wall.height) {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Obtener siguiente posición según dirección
+        function getNextPosition(x, y, direction, speed) {
+            let nextX = x;
+            let nextY = y;
+            
+            switch (direction) {
+                case 'up': nextY -= speed; break;
+                case 'down': nextY += speed; break;
+                case 'left': nextX -= speed; break;
+                case 'right': nextX += speed; break;
+            }
+            
+            // Ajustar para no salirse del mapa
+            nextX = Math.max(20, Math.min(containerWidth - 20, nextX));
+            nextY = Math.max(20, Math.min(containerHeight - 20, nextY));
+            
+            return { x: nextX, y: nextY };
+        }
+        
+        // Función para mover a Pacman
+        function movePacman() {
+            if (paused) return;
+            
+            // Cambiar dirección si se ha solicitado y es posible
+            if (pacman.nextDirection) {
+                const nextPos = getNextPosition(
+                    pacman.x, 
+                    pacman.y, 
+                    pacman.nextDirection, 
+                    pacman.speed
+                );
+                
+                if (!isCollidingWithWalls(nextPos.x, nextPos.y, pacman.width, pacman.height)) {
+                    pacman.direction = pacman.nextDirection;
+                    pacman.nextDirection = null;
+                }
+            }
+            
+            // Mover en la dirección actual
+            const nextPos = getNextPosition(
+                pacman.x, 
+                pacman.y, 
+                pacman.direction, 
+                pacman.speed
+            );
+            
+            if (!isCollidingWithWalls(nextPos.x, nextPos.y, pacman.width, pacman.height)) {
+                pacman.x = nextPos.x;
+                pacman.y = nextPos.y;
+                updatePacmanPosition();
+            }
+            
+            // Comprobar colisiones con dots
+            checkDotCollisions();
+            
+            // Comprobar colisiones con power pellets
+            checkPowerPelletCollisions();
+        }
+        
+        // Función para mover fantasmas
+        function moveGhosts() {
+            if (paused) return;
+            
+            for (const ghost of ghosts) {
+                // Cambiar dirección aleatoriamente a veces
+                if (Math.random() < 0.02) {
+                    ghost.direction = getRandomDirection(ghost);
+                }
+                
+                // O si va a chocar con una pared
+                const nextPos = getNextPosition(
+                    ghost.x, 
+                    ghost.y, 
+                    ghost.direction, 
+                    ghost.speed * 5 // Mirar más adelante
+                );
+                
+                if (isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                    ghost.direction = getRandomDirection(ghost);
+                }
+                
+                // Mover en la dirección elegida
+                const movePos = getNextPosition(
+                    ghost.x, 
+                    ghost.y, 
+                    ghost.direction, 
+                    ghost.speed * (ghost.scared ? 0.5 : 1) // Más lento si está asustado
+                );
+                
+                if (!isCollidingWithWalls(movePos.x, movePos.y, ghost.width, ghost.height)) {
+                    ghost.x = movePos.x;
+                    ghost.y = movePos.y;
+                }
+                
+                updateGhostPosition(ghost);
+                
+                // Comprobar colisión con Pacman
+                if (isCollidingWithPacman(ghost)) {
+                    if (ghost.scared) {
+                        // Pacman se come al fantasma
+                        eatGhost(ghost);
+                    } else {
+                        // Fantasma atrapa a Pacman
+                        startMathChallenge(ghost);
+                    }
+                }
+            }
+        }
+        
+        // Verificar colisión con Pacman
+        function isCollidingWithPacman(ghost) {
+            const distance = Math.sqrt(
+                Math.pow(ghost.x - pacman.x, 2) + 
+                Math.pow(ghost.y - pacman.y, 2)
+            );
+            
+            return distance < (ghost.width + pacman.width) / 2 - 5;
+        }
+        
+        // Obtener dirección aleatoria para fantasma
+        function getRandomDirection(ghost) {
+            const directions = ['up', 'down', 'left', 'right'];
+            
+            // Probar direcciones hasta encontrar una que no choque
+            for (let i = 0; i < directions.length; i++) {
+                const randomIndex = Math.floor(Math.random() * directions.length);
+                const direction = directions[randomIndex];
+                
+                const nextPos = getNextPosition(
+                    ghost.x, 
+                    ghost.y, 
+                    direction, 
+                    ghost.speed
+                );
+                
+                if (!isCollidingWithWalls(nextPos.x, nextPos.y, ghost.width, ghost.height)) {
+                    return direction;
+                }
+                
+                // Eliminar esta dirección y probar otra
+                directions.splice(randomIndex, 1);
+            }
+            
+            // Si todo falla, mantener la dirección actual
+            return ghost.direction;
+        }
+        
+        // Verificar colisiones con dots
+        function checkDotCollisions() {
+            for (let i = dots.length - 1; i >= 0; i--) {
+                const dot = dots[i];
+                const distance = Math.sqrt(
+                    Math.pow(dot.x - pacman.x, 2) + 
+                    Math.pow(dot.y - pacman.y, 2)
+                );
+                
+                if (distance < (dot.width + pacman.width) / 2) {
+                    // Comer el dot
+                    gameContainer.removeChild(dot.element);
+                    dots.splice(i, 1);
+                    score += 10;
+                    updateUI();
+                }
+            }
+        }
+        
+        // Verificar colisiones con power pellets
+        function checkPowerPelletCollisions() {
+            for (let i = powerPellets.length - 1; i >= 0; i--) {
+                const pellet = powerPellets[i];
+                const distance = Math.sqrt(
+                    Math.pow(pellet.x - pacman.x, 2) + 
+                    Math.pow(pellet.y - pacman.y, 2)
+                );
+                
+                if (distance < (pellet.width + pacman.width) / 2) {
+                    // Comer el power pellet
+                    gameContainer.removeChild(pellet.element);
+                    powerPellets.splice(i, 1);
+                    score += 50;
+                    updateUI();
+                    
+                    // Activar power mode
+                    activatePowerMode();
+                }
+            }
+        }
+        
+        // Activar power mode
+        function activatePowerMode() {
+            // Asustar a los fantasmas
+            for (const ghost of ghosts) {
+                ghost.scared = true;
+                updateGhostPosition(ghost);
+            }
+            
+            // Desactivar después de 10 segundos
+            setTimeout(() => {
+                for (const ghost of ghosts) {
+                    ghost.scared = false;
+                    updateGhostPosition(ghost);
+                }
+            }, 10000);
+        }
+        
+        // Pacman come un fantasma
+        function eatGhost(ghost) {
+            ghost.scared = false;
+            
+            // Reposicionar
+            ghost.x = containerWidth / 2;
+            ghost.y = containerHeight / 2;
+            
+            // Puntos extra
+            score += 200;
+            updateUI();
+        }
+        
+        // Iniciar desafío matemático
+        function startMathChallenge(ghost) {
+            paused = true;
+            
+            // Generar un desafío matemático
+            const challenge = generateMathChallenge();
+            
+            // Mostrar el desafío
+            document.getElementById('mathQuestion').textContent = challenge.question;
+            
+            const optionsContainer = document.getElementById('mathOptions');
+            optionsContainer.innerHTML = '';
+            
+            // Mezclar las opciones
+            const shuffledOptions = [...challenge.options];
+            for (let i = shuffledOptions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+            }
+            
+            // Crear botones para las opciones
+            for (const option of shuffledOptions) {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.textContent = option;
+                
+                button.addEventListener('click', () => {
+                    // Comprobar si la respuesta es correcta
+                    if (option === challenge.correctAnswer) {
+                        handleCorrectAnswer(ghost);
+                    } else {
+                        handleWrongAnswer();
+                    }
+                });
+                
+                optionsContainer.appendChild(button);
+            }
+            
+            // Limpiar mensaje de resultado
+            document.getElementById('resultMessage').textContent = '';
+            
+            // Mostrar el desafío
+            document.getElementById('mathChallenge').style.display = 'flex';
+        }
+        
+        // Generar desafío matemático
+        function generateMathChallenge() {
+            // Generar operación según el nivel
+            let question, correctAnswer, options;
+            
+            // Elegir tipo de operación (suma, resta, multiplicación, etc.)
+            const operationType = Math.floor(Math.random() * 3);
+            
+            switch (operationType) {
+                case 0: // Suma
+                    const a = Math.floor(Math.random() * 10) + 1;
+                    const b = Math.floor(Math.random() * 10) + 1;
+                    question = `¿Cuánto es ${a} + ${b}?`;
+                    correctAnswer = `${a + b}`;
+                    break;
+                    
+                case 1: // Resta
+                    const minuendo = Math.floor(Math.random() * 10) + 5;
+                    const sustraendo = Math.floor(Math.random() * minuendo);
+                    question = `¿Cuánto es ${minuendo} - ${sustraendo}?`;
+                    correctAnswer = `${minuendo - sustraendo}`;
+                    break;
+                    
+                case 2: // Multiplicación
+                    const factor1 = Math.floor(Math.random() * 5) + 1;
+                    const factor2 = Math.floor(Math.random() * 5) + 1;
+                    question = `¿Cuánto es ${factor1} × ${factor2}?`;
+                    correctAnswer = `${factor1 * factor2}`;
+                    break;
+            }
+            
+            // Generar opciones incorrectas
+            options = [correctAnswer];
+            
+            while (options.length < 4) {
+                // Generar una respuesta incorrecta cercana a la correcta
+                const offset = Math.floor(Math.random() * 5) + 1;
+                const incorrectAnswer = `${parseInt(correctAnswer) + (Math.random() < 0.5 ? offset : -offset)}`;
+                
+                // Asegurarse de que no se repitan opciones y sean positivas
+                if (!options.includes(incorrectAnswer) && parseInt(incorrectAnswer) > 0) {
+                    options.push(incorrectAnswer);
+                }
+            }
+            
+            return { question, correctAnswer, options };
+        }
+        
+        // Manejar respuesta correcta
+        function handleCorrectAnswer(ghost) {
+            const resultMessage = document.getElementById('resultMessage');
+            resultMessage.textContent = '¡Correcto! 😃';
+            resultMessage.style.color = '#00FF00';
+            
+            // Asustar al fantasma
+            ghost.scared = true;
+            
+            // Aumentar puntuación
+            score += 100;
+            updateUI();
+            
+            // Cerrar el desafío después de un breve momento
+            setTimeout(() => {
+                document.getElementById('mathChallenge').style.display = 'none';
+                paused = false;
+            }, 1500);
+        }
+        
+        // Manejar respuesta incorrecta
+        function handleWrongAnswer() {
+            const resultMessage = document.getElementById('resultMessage');
+            resultMessage.textContent = '¡Incorrecto! 😞';
+            resultMessage.style.color = '#FF0000';
+            
+            // Cerrar el desafío después de un breve momento
+            setTimeout(() => {
+                document.getElementById('mathChallenge').style.display = 'none';
+                paused = false;
+                
+                // Perder una vida
+                lives--;
+                updateUI();
+                
+                // Verificar si es game over
+                if (lives <= 0) {
+                    gameOver();
+                } else {
+                    // Reposicionar a Pacman y fantasmas
+                    resetPositions();
+                }
+            }, 1500);
+        }
+        
+        // Resetear posiciones
+        function resetPositions() {
+            // Reposicionar a Pacman
+            pacman.x = 40;
+            pacman.y = 40;
+            pacman.direction = 'right';
+            updatePacmanPosition();
+            
+            // Reposicionar a los fantasmas
+            for (let i = 0; i < ghosts.length; i++) {
+                ghosts[i].x = containerWidth - 80 - (i * 40);
+                ghosts[i].y = containerHeight - 80 - (i * 40);
+                ghosts[i].scared = false;
+                ghosts[i].direction = ['up', 'down', 'left', 'right'][Math.floor(Math.random() * 4)];
+                updateGhostPosition(ghosts[i]);
+            }
+        }
+        
+        // Game over
+        function gameOver() {
+            alert(`¡GAME OVER! Has conseguido ${score} puntos.`);
+            initGame(); // Reiniciar juego
+        }
+        
+        // Actualizar interfaz
+        function updateUI() {
+            document.getElementById('scoreCount').textContent = score;
+            document.getElementById('livesCount').textContent = lives;
+            document.getElementById('levelCount').textContent = level;
+        }
+        
+        // Bucle principal del juego
+        function gameLoop() {
+            movePacman();
+            moveGhosts();
+            
+            // Comprobar si ha ganado el nivel
+            if (dots.length === 0 && powerPellets.length === 0) {
+                levelComplete();
+            }
+            
+            // Continuar el bucle
+            requestAnimationFrame(gameLoop);
+        }
+        
+        // Nivel completado
+        function levelComplete() {
+            alert(`¡NIVEL COMPLETADO! Has conseguido ${score} puntos.`);
+            
+            // Subir de nivel
+            level++;
+            
+            // Reiniciar juego con mayor dificultad
+            initGame();
+        }
+        
+        // Control de teclado
+        document.addEventListener('keydown', function(e) {
+            switch (e.key) {
+                case 'ArrowUp':
+                    pacman.nextDirection = 'up';
+                    break;
+                case 'ArrowDown':
+                    pacman.nextDirection = 'down';
+                    break;
+                case 'ArrowLeft':
+                    pacman.nextDirection = 'left';
+                    break;
+                case 'ArrowRight':
+                    pacman.nextDirection = 'right';
+                    break;
+            }
+        });
+        
+        // Iniciar el juego cuando cargue la página
+        window.onload = function() {
+            initGame();
+        };
+    </script>
+</body>
+</html>
