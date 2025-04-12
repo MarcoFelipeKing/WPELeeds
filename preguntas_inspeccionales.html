@@ -12,68 +12,154 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Stats script -->
-    <script src="js/stats.js" defer></script>
-    <!-- Chart.js for visualizations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <!-- ApexCharts for modern visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!-- Favicon -->
     <link rel="icon" href="images/wpe_favico.ico" type="image/x-icon">
     <!-- Additional CSS for survey page -->
     <style>
-        /* Survey results specific styles */
+        /* Survey results specific styles with modern elements */
+        :root {
+            --summer-blue: #77AAD4;
+            --orbit: #6F8AC6;
+            --earth-stone: #53525a;
+            --wisteria: #9F90C5;
+            --riverbed: #8AC9C1;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+        }
+        
         .survey-hero {
-            background-color: #003366;
+            background: linear-gradient(135deg, var(--orbit), var(--riverbed));
             color: white;
-            padding: 3rem 0;
+            padding: 5rem 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .survey-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3QgaWQ9InBhdHRlcm4tYmFja2dyb3VuZCIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0idHJhbnNwYXJlbnQiPjwvcmVjdD48cGF0aCBkPSJNMCAwIGw0MCA0MCIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIgZmlsbD0ibm9uZSI+PC9wYXRoPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==');
+            opacity: 0.4;
+            z-index: 0;
+        }
+        
+        .survey-hero .container {
+            position: relative;
+            z-index: 1;
         }
         
         .survey-hero h1 {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .survey-hero p {
             max-width: 800px;
             margin: 0 auto;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             opacity: 0.9;
+            line-height: 1.6;
         }
         
         .survey-section {
-            padding: 3rem 0;
+            padding: 5rem 0;
         }
         
         .survey-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--earth-stone);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--summer-blue), var(--riverbed));
+            margin: 0.7rem auto 0;
+            border-radius: 2px;
         }
         
         .survey-intro {
-            background-color: #f7f9fb;
-            padding: 1.5rem;
-            border-left: 4px solid #003366;
-            margin-bottom: 2rem;
-            border-radius: 4px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--orbit);
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
         
         .survey-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 2.5rem;
         }
         
         .survey-card {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            padding: 1.5rem;
-            transition: transform 0.3s ease;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border-top: 5px solid transparent;
+        }
+        
+        .survey-card:nth-child(3n+1) {
+            border-top-color: var(--summer-blue);
+        }
+        
+        .survey-card:nth-child(3n+2) {
+            border-top-color: var(--wisteria);
+        }
+        
+        .survey-card:nth-child(3n+3) {
+            border-top-color: var(--riverbed);
         }
         
         .survey-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .survey-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--earth-stone);
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .survey-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--orbit), var(--summer-blue));
+            border-radius: 2px;
         }
         
         .survey-card.full-width {
@@ -83,125 +169,231 @@
         .metric-display {
             display: flex;
             justify-content: space-between;
-            margin-top: 1.5rem;
+            margin: 2rem 0;
+            gap: 1rem;
         }
         
         .metric-item {
             text-align: center;
-            padding: 1rem;
-            background-color: #f7f9fb;
-            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa, white);
+            border-radius: 16px;
             flex: 1;
-            margin: 0 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 4px;
+            width: 100%;
+        }
+        
+        .metric-item:first-child::before {
+            background: var(--summer-blue);
+        }
+        
+        .metric-item:last-child::before {
+            background: var(--orbit);
         }
         
         .metric-value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #003366;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--orbit), var(--summer-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             line-height: 1;
+            margin-bottom: 0.5rem;
         }
         
         .metric-label {
-            margin-top: 0.5rem;
-            color: #666;
-            font-size: 0.9rem;
+            margin-top: 0.8rem;
+            color: var(--earth-stone);
+            font-size: 1rem;
+            font-weight: 500;
         }
         
         .chart-container {
             width: 100%;
-            height: 300px;
+            height: 350px;
             margin: 2rem 0;
         }
         
         .quote-block {
             font-style: italic;
-            padding: 1.2rem 1.5rem;
+            padding: 1.5rem 2rem;
             background-color: #f9f9f9;
-            border-left: 3px solid #003366;
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
-            color: #444;
+            border-left: 5px solid var(--wisteria);
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            color: var(--earth-stone);
+            border-radius: 0 12px 12px 0;
+            position: relative;
+        }
+        
+        .quote-block::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 4rem;
+            color: rgba(0,0,0,0.05);
+            font-family: Georgia, serif;
         }
         
         .tag-cloud {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 1.5rem 0;
+            gap: 12px;
+            margin: 2rem 0;
+            justify-content: center;
         }
         
         .tag {
-            background-color: #e1f5fe;
-            color: #0288d1;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
+            padding: 8px 16px;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            font-weight: 500;
         }
         
         .tag:hover {
-            background-color: #0288d1;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        
+        .tag:nth-child(5n+1) {
+            background-color: var(--summer-blue);
+            color: white;
+        }
+        
+        .tag:nth-child(5n+2) {
+            background-color: var(--orbit);
+            color: white;
+        }
+        
+        .tag:nth-child(5n+3) {
+            background-color: var(--wisteria);
+            color: white;
+        }
+        
+        .tag:nth-child(5n+4) {
+            background-color: var(--riverbed);
+            color: white;
+        }
+        
+        .tag:nth-child(5n+5) {
+            background-color: var(--earth-stone);
             color: white;
         }
         
         .implementation-timeline {
             display: flex;
-            margin: 2rem 0;
+            margin: 4rem 0;
             position: relative;
+            padding: 2rem 0;
         }
         
         .implementation-timeline::before {
             content: '';
             position: absolute;
-            top: 30px;
-            left: 10%;
-            right: 10%;
+            top: 50%;
+            left: 0;
+            right: 0;
             height: 4px;
-            background-color: #e0e0e0;
+            background: linear-gradient(90deg, var(--summer-blue), var(--riverbed));
+            transform: translateY(-50%);
+            border-radius: 2px;
             z-index: 0;
         }
         
         .phase {
             flex: 1;
             position: relative;
-            padding-top: 50px;
-            text-align: center;
             z-index: 1;
+            padding: 0 1rem;
         }
         
-        .phase::before {
+        .phase-content-wrapper {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            position: relative;
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .phase-content-wrapper:hover {
+            transform: translateY(-5px);
+        }
+        
+        .phase:nth-child(1) .phase-content-wrapper {
+            border-top: 5px solid var(--summer-blue);
+        }
+        
+        .phase:nth-child(2) .phase-content-wrapper {
+            border-top: 5px solid var(--orbit);
+        }
+        
+        .phase:nth-child(3) .phase-content-wrapper {
+            border-top: 5px solid var(--wisteria);
+        }
+        
+        .phase::after {
             content: '';
             position: absolute;
-            top: 26px;
-            left: calc(50% - 8px);
-            width: 16px;
-            height: 16px;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--orbit);
             border-radius: 50%;
-            background-color: #003366;
+            transform: translate(-50%, -50%);
+            z-index: 2;
         }
         
         .phase-title {
-            font-weight: bold;
-            color: #003366;
+            font-weight: 700;
+            color: var(--earth-stone);
             margin-bottom: 0.3rem;
+            font-size: 1.2rem;
         }
         
         .phase-date {
             font-size: 0.9rem;
             color: #666;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: #f0f0f0;
+            border-radius: 100px;
         }
         
         .phase-content {
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
         
         .next-steps {
-            background-color: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 2rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 3rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            border-left: 5px solid var(--riverbed);
+        }
+        
+        .next-steps h3 {
+            color: var(--earth-stone);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
         }
         
         .next-steps ul {
@@ -209,39 +401,98 @@
         }
         
         .next-steps li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             padding-left: 0.5rem;
+            position: relative;
+        }
+        
+        .next-steps li::before {
+            content: '→';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--orbit);
+            font-weight: bold;
         }
         
         .get-involved {
-            background-color: #003366;
+            background: linear-gradient(135deg, var(--orbit), var(--wisteria));
             color: white;
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
-            margin: 3rem 0;
-            border-radius: 10px;
+            margin: 4rem 0;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .get-involved::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3QgaWQ9InBhdHRlcm4tYmFja2dyb3VuZCIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0idHJhbnNwYXJlbnQiPjwvcmVjdD48cGF0aCBkPSJNMCAwIGw0MCA0MCIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIgZmlsbD0ibm9uZSI+PC9wYXRoPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .get-involved-content {
+            position: relative;
+            z-index: 1;
         }
         
         .get-involved h3 {
             margin-top: 0;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
         }
         
         .get-involved .btn {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             background-color: white;
-            color: #003366;
+            color: var(--orbit);
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 12px 30px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .get-involved .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Animation for chart entrance */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chart-container {
+            animation: fadeInUp 0.6s ease-out;
         }
         
         /* Responsive adjustments */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .survey-grid {
                 grid-template-columns: 1fr;
             }
             
             .metric-display {
                 flex-direction: column;
-                gap: 1rem;
             }
             
             .metric-item {
@@ -250,24 +501,154 @@
             
             .implementation-timeline {
                 flex-direction: column;
-                gap: 2rem;
+                gap: 3rem;
             }
             
             .implementation-timeline::before {
-                display: none;
+                top: 0;
+                bottom: 0;
+                left: 20px;
+                right: auto;
+                width: 4px;
+                height: auto;
             }
             
             .phase {
-                padding-top: 0;
-                padding-left: 40px;
+                padding-left: 50px;
                 text-align: left;
             }
             
-            .phase::before {
-                top: 8px;
-                left: 8px;
+            .phase::after {
+                left: 20px;
+                top: 0;
+            }
+            
+            .phase-content-wrapper {
+                text-align: left;
             }
         }
+        
+        @media (max-width: 576px) {
+            .survey-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .metric-value {
+                font-size: 2.5rem;
+            }
+            
+            .get-involved h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Add this to your CSS to fix the timeline circles issue */
+.implementation-timeline {
+    display: flex;
+    margin: 4rem 0;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.implementation-timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--summer-blue), var(--riverbed));
+    transform: translateY(-50%);
+    border-radius: 2px;
+    z-index: 0;
+}
+
+.phase {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    padding: 0 1rem;
+}
+
+.phase-content-wrapper {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    position: relative;
+    text-align: center;
+    margin-bottom: 3.5rem; /* Increased from 2rem to make room for the circle */
+    transition: transform 0.3s ease;
+}
+
+.phase-content-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.phase:nth-child(1) .phase-content-wrapper {
+    border-top: 5px solid var(--summer-blue);
+}
+
+.phase:nth-child(2) .phase-content-wrapper {
+    border-top: 5px solid var(--orbit);
+}
+
+.phase:nth-child(3) .phase-content-wrapper {
+    border-top: 5px solid var(--wisteria);
+}
+
+/* Move the circle below the content wrapper */
+.phase::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Change from top to bottom */
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 4px solid var(--orbit);
+    border-radius: 50%;
+    transform: translate(-50%, 50%); /* Change to push it down */
+    z-index: 2;
+}
+
+/* Adjust for mobile responsiveness */
+@media (max-width: 992px) {
+    .implementation-timeline {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .implementation-timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        right: auto;
+        width: 4px;
+        height: auto;
+    }
+    
+    .phase {
+        padding-left: 50px;
+        text-align: left;
+    }
+    
+    .phase-content-wrapper {
+        text-align: left;
+        margin-bottom: 2rem;
+    }
+    
+    .phase::after {
+        left: 20px;
+        bottom: auto;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
     </style>
 </head>
 <body>
@@ -303,9 +684,12 @@
 
     <!-- Survey Content -->
     <section class="survey-section">
+        <div class="progress-container">
+            <div class="progress-bar" id="readingProgress"></div>
+        </div>
         <div class="survey-container">
             <div class="survey-intro">
-                <p>Thank you to everyone who participated in our recent survey. Your feedback has been invaluable in understanding how we can better serve our research community. This page summarizes the key findings and our planned actions moving forward.</p>
+                <p>Thank you to everyone who participated in our recent survey. Your feedback has been invaluable in understanding how we can better serve our research community. This page summarises the key findings and our planned actions moving forward.</p>
             </div>
             
             <h2 class="section-title">Survey Response Profile</h2>
@@ -313,7 +697,7 @@
                 <div class="survey-card">
                     <h3>Respondent Demographics</h3>
                     <div class="chart-container">
-                        <canvas id="respondentsChart"></canvas>
+                        <div id="respondentsChart"></div>
                     </div>
                 </div>
                 
@@ -321,12 +705,12 @@
                     <h3>Key Engagement Metrics</h3>
                     <div class="metric-display">
                         <div class="metric-item">
-                            <div class="metric-value">2.33<span style="font-size: 1rem;">/5</span></div>
-                            <div class="metric-label">Current Engagement Level</div>
+                            <div class="metric-value">2.33</div>
+                            <div class="metric-label">Current Engagement Level (out of 5)</div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-value">3.85<span style="font-size: 1rem;">/5</span></div>
-                            <div class="metric-label">Name Representation</div>
+                            <div class="metric-value">3.85</div>
+                            <div class="metric-label">Name Representation (out of 5)</div>
                         </div>
                     </div>
                     <div class="quote-block">
@@ -338,25 +722,21 @@
                 <div class="survey-card full-width">
                     <h3>Most Desired Activities</h3>
                     <div class="chart-container">
-                        <canvas id="activitiesChart"></canvas>
+                        <div id="activitiesChart"></div>
                     </div>
                 </div>
                 
                 <div class="survey-card">
                     <h3>What Members Seek from WPE</h3>
-                    <p>Four primary themes emerged regarding what members hope to gain:</p>
-                    <ul>
-                        <li><strong>Community Building</strong> - "A sense of community" and "Re-establishing network of WPE staff and students"</li>
-                        <li><strong>Collaboration Opportunities</strong> - "Grow opportunities for collaborative research proposals and papers"</li>
-                        <li><strong>Skills Development</strong> - Research skills and professional development</li>
-                        <li><strong>Identity and Recognition</strong> - "A research centre that gives an identity for international exposure"</li>
-                    </ul>
+                    <div class="chart-container">
+                        <div id="membersSeekChart"></div>
+                    </div>
                 </div>
                 
                 <div class="survey-card">
                     <h3>Preferred Meeting Types</h3>
                     <div class="chart-container">
-                        <canvas id="meetingsChart"></canvas>
+                        <div id="meetingsChart"></div>
                     </div>
                 </div>
                 
@@ -382,42 +762,109 @@
                 </div>
             </div>
             
-            <h2 class="section-title">Implementation Plan</h2>
-            <p>Based on your feedback, we are developing a three-phase implementation plan:</p>
+ <!-- Add this section before the "Get Involved" section -->
+<h2 class="section-title">Upcoming WPE Events</h2>
+<div class="survey-grid">
+    <div class="survey-card">
+        <h3>Cake Meeting: Building Your Academic Profile</h3>
+        <div class="event-date">
+            <i class="fas fa-calendar-alt"></i> April 25th, 2025
+            <i class="fas fa-clock ml-3"></i> 11:30 AM - 12:30 PM
+            <i class="fas fa-map-marker-alt ml-3"></i> Hybrid (Teams and 4.18 Civil Engineering)
+        </div>
+        <div class="event-description">
+            <p>Whether you're just starting out or looking to strengthen your academic presence, this session is packed with actionable insights to help you <strong>elevate your profile</strong>.</p>
             
-            <div class="implementation-timeline">
-                <div class="phase">
-                    <div class="phase-title">Phase 1</div>
-                    <div class="phase-date">May-July 2025</div>
-                    <div class="phase-content">Horizons Scanning & Grant-writing Workshops</div>
-                </div>
-                
-                <div class="phase">
-                    <div class="phase-title">Phase 2</div>
-                    <div class="phase-date">Aug-Oct 2025</div>
-                    <div class="phase-content">Themed Networking & Skill-building Sessions</div>
-                </div>
-                
-                <div class="phase">
-                    <div class="phase-title">Phase 3</div>
-                    <div class="phase-date">Nov-Dec 2025</div>
-                    <div class="phase-content">WPE Annual Awards & Identity Building</div>
-                </div>
+            <p>This interactive session will be led by <strong>Prof Cath Noakes</strong>, Pro-Dean for Research and Innovation in the Faculty, and will cover:</p>
+            
+            <ul class="event-details-list">
+                <li>Motivations</li>
+                <li>University expectations</li>
+                <li>Symplectic and University web profiles</li>
+                <li>Open Access</li>
+                <li>ORCID, Google scholar, Scopus</li>
+                <li>Promoting work, including the press office and on social media</li>
+            </ul>
+            
+            <div class="event-highlight">
+                <i class="fas fa-birthday-cake"></i> And yes, there will be <strong>cake</strong>! 🍰 So join us in person if you can.
             </div>
+        </div>
+        <a href="#" class="btn-event-rsvp">Add to Calendar</a>
+    </div>
+    
+    <div class="survey-card">
+        <h3>WPE Annual General Meeting</h3>
+        <div class="event-date">
+            <i class="fas fa-calendar-alt"></i> June 16th, 2025
+            <i class="fas fa-clock ml-3"></i> 9:30 AM - 2:00 PM
+            <i class="fas fa-map-marker-alt ml-3"></i> Bragg G25
+        </div>
+        <div class="event-description">
+            <p>This meeting is particularly important as it's our AGM this year and will serve as a strategic planning session for our upcoming research initiatives but also get to showcase your recent research and successes.</p>
             
-            <div class="next-steps">
-                <h3>Immediate Next Steps</h3>
-                <ul>
-                    <li><strong>May 15th:</strong> First Grant-writing Workshop focusing on UKRI opportunities</li>
-                    <li><strong>May 30th:</strong> Themed Networking event on "Water Treatment Innovations"</li>
-                    <li><strong>June:</strong> Launch of working groups around core research themes</li>
+            <div class="agenda-summary">
+                <h4>Agenda Highlights:</h4>
+                <ul class="event-details-list">
+                    <li><strong>9:30 AM:</strong> Welcome and Introductions</li>
+                    <li><strong>9:45 AM:</strong> Year in Review & Operations Update</li>
+                    <li><strong>10:15 AM:</strong> Spotlight Sessions and Lightning Talks</li>
+                    <li><strong>11:30 AM:</strong> New Website Showcase</li>
+                    <li><strong>12:15 PM:</strong> Lunch and Networking</li>
+                    <li><strong>1:00 PM:</strong> IPE Planning Discussion</li>
+                    <li><strong>1:30 PM:</strong> Cross-Disciplinary Collaboration Opportunities</li>
                 </ul>
             </div>
             
+            <div class="event-highlight">
+                <i class="fas fa-utensils"></i> Coffee and lunch will be provided
+            </div>
+        </div>
+        <a href="#" class="btn-event-rsvp">Add to Calendar</a>
+    </div>
+
+    <div class="survey-card full-width">
+        <h3>Photo Competition: Capture WPE Research in Action</h3>
+        <div class="photo-competition">
+            <div class="competition-description">
+                <p>We're excited to announce our first WPE Photo Competition! Share your research moments in these categories:</p>
+                
+                <div class="category-grid">
+                    <div class="category-item">
+                        <div class="category-icon"><i class="fas fa-flask"></i></div>
+                        <div class="category-name">In the Lab</div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-icon"><i class="fas fa-mountain"></i></div>
+                        <div class="category-name">In the Field</div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-icon"><i class="fas fa-users"></i></div>
+                        <div class="category-name">In Community</div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-icon"><i class="fas fa-chart-bar"></i></div>
+                        <div class="category-name">In the Numbers/Words</div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-icon"><i class="fas fa-award"></i></div>
+                        <div class="category-name">Best Public Vote</div>
+                    </div>
+                </div>
+                
+                <p class="competition-cta">Submit your entries by May 31st and vote for your favorites at the AGM on June 16th!</p>
+            </div>
+            <a href="#" class="btn-competition">Submit Your Photos</a>
+        </div>
+    </div>
+</div>
+            
             <div class="get-involved">
-                <h3>Get Involved!</h3>
-                <p>We're excited to build a more vibrant and engaged research community based on your feedback. If you would like to volunteer for any of these initiatives or have additional suggestions, please contact us.</p>
-                <a href="mailto:wpe-group@leeds.ac.uk" class="btn btn-primary">Contact the WPE Coordinator</a>
+                <div class="get-involved-content">
+                    <h3>Get Involved!</h3>
+                    <p>We're excited to build a more vibrant and engaged research community based on your feedback. If you would like to volunteer for any of these initiatives or have additional suggestions, please contact us.</p>
+                    <a href="mailto:wpe-group@leeds.ac.uk" class="btn">Contact the WPE Coordinator</a>
+                </div>
             </div>
         </div>
     </section>
@@ -464,131 +911,323 @@
         </div>
     </footer>
 
-    <!-- Chart Scripts -->
-    <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Respondents Chart
-            const respondentsCtx = document.getElementById('respondentsChart').getContext('2d');
-            const respondentsChart = new Chart(respondentsCtx, {
-                type: 'pie',
-                data: {
-                    labels: ['Academics', 'PhD Students/Researchers', 'Postdoctoral Researchers'],
-                    datasets: [{
-                        data: [9, 5, 1],
-                        backgroundColor: [
-                            '#003366',
-                            '#4a86e8',
-                            '#9fc5e8'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const label = context.label || '';
-                                    const value = context.raw || 0;
-                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                    const percentage = Math.round((value / total) * 100);
-                                    return `${label}: ${value} (${percentage}%)`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-            
-            // Activities Chart
-            const activitiesCtx = document.getElementById('activitiesChart').getContext('2d');
-            const activitiesChart = new Chart(activitiesCtx, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        'Horizons Scanning & Grant-writing',
-                        'Themed Networking',
-                        'Skill-building Sessions',
-                        'Social Gatherings',
-                        'Other Suggestions'
-                    ],
-                    datasets: [{
-                        label: 'Percentage of Respondents',
-                        data: [73, 67, 53, 53, 47],
-                        backgroundColor: '#003366',
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
+<!-- ApexCharts Scripts -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Respondents Chart (Pie Chart)
+        var respondentsOptions = {
+            series: [9, 5, 1],
+            chart: {
+                type: 'donut',
+                height: 350,
+                animations: {
+                    enabled: true,
+                    easing: 'easeinout',
+                    speed: 800,
+                    animateGradually: {
+                        enabled: true,
+                        delay: 150
                     },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            title: {
-                                display: true,
-                                text: '% of Respondents'
-                            }
-                        }
+                    dynamicAnimation: {
+                        enabled: true,
+                        speed: 350
                     }
                 }
-            });
-            
-            // Meetings Chart
-            const meetingsCtx = document.getElementById('meetingsChart').getContext('2d');
-            const meetingsChart = new Chart(meetingsCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: [
-                        'Research-Focused Discussions',
-                        'Tips on Surviving & Thriving',
-                        'Career Trajectory & Life Experience',
-                        'Rainbow Sessions',
-                    ],
-                    datasets: [{
-                        data: [10, 6, 5, 5],
-                        backgroundColor: [
-                            '#4a86e8',
-                            '#9fc5e8',
-                            '#c9daf8',
-                            '#d9d2e9'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const label = context.label || '';
-                                    const value = context.raw || 0;
-                                    return `${label}: ${value} mentions`;
+            },
+            labels: ['Academics', 'PhD Students/Researchers', 'Postdoctoral Researchers'],
+            colors: ['#77AAD4', '#6F8AC6', '#9F90C5'],
+            plotOptions: {
+                pie: {
+                    donut: {
+                        size: '50%',
+                        labels: {
+                            show: true,
+                            total: {
+                                show: true,
+                                label: 'Total',
+                                formatter: function (w) {
+                                    return w.globals.seriesTotals.reduce((a, b) => a + b, 0);
                                 }
                             }
                         }
                     }
                 }
-            });
-        });
-    </script>
+            },
+            dataLabels: {
+                enabled: true,
+                formatter: function (val, opts) {
+                    return opts.w.globals.seriesTotals[opts.seriesIndex] + ' (' + val.toFixed(1) + '%)';
+                },
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }],
+            legend: {
+                position: 'bottom',
+                offsetY: 0,
+                height: 40
+            }
+        };
+
+        // Activities Chart (Bar Chart)
+        var activitiesOptions = {
+            series: [{
+                name: 'Percentage of Respondents',
+                data: [73, 67, 53, 53, 47]
+            }],
+            chart: {
+                type: 'bar',
+                height: 350,
+                toolbar: {
+                    show: false,
+                },
+                animations: {
+                    enabled: true,
+                    easing: 'easeinout',
+                    speed: 800,
+                    animateGradually: {
+                        enabled: true,
+                        delay: 150
+                    },
+                    dynamicAnimation: {
+                        enabled: true,
+                        speed: 350
+                    }
+                }
+            },
+            plotOptions: {
+                bar: {
+                    borderRadius: 6,
+                    columnWidth: '55%',
+                    distributed: true,
+                    dataLabels: {
+                        position: 'top'
+                    },
+                }
+            },
+            colors: ['#77AAD4', '#6F8AC6', '#53525a', '#9F90C5', '#8AC9C1'],
+            dataLabels: {
+                enabled: true,
+                formatter: function (val) {
+                    return val + "%";
+                },
+                offsetY: -20,
+                style: {
+                    fontSize: '12px',
+                    colors: ["#304758"]
+                }
+            },
+            xaxis: {
+                categories: [
+                    'Horizons Scanning & Grant-writing',
+                    'Themed Networking',
+                    'Skill-building Sessions',
+                    'Social Gatherings',
+                    'Other Suggestions'
+                ],
+                position: 'bottom',
+                labels: {
+                    rotate: -45,
+                    style: {
+                        fontSize: '12px'
+                    }
+                },
+                axisBorder: {
+                    show: false
+                },
+                axisTicks: {
+                    show: false
+                }
+            },
+            yaxis: {
+                labels: {
+                    show: true,
+                    formatter: function (val) {
+                        return val + "%";
+                    }
+                },
+                title: {
+                    text: 'Percentage of Respondents',
+                    style: {
+                        fontSize: '13px'
+                    }
+                },
+                min: 0,
+                max: 100
+            },
+            grid: {
+                show: true,
+                borderColor: '#f1f1f1',
+                strokeDashArray: 5,
+            }
+        };
+
+        // What Members Seek Chart (Radar Chart)
+        var membersSeekOptions = {
+            series: [{
+                name: 'Priority Score',
+                data: [8, 7, 6, 5]
+            }],
+            chart: {
+                height: 350,
+                type: 'radar',
+                toolbar: {
+                    show: false
+                },
+                animations: {
+                    enabled: true,
+                    easing: 'easeinout',
+                    speed: 800
+                }
+            },
+            colors: ['#9F90C5'],
+            xaxis: {
+                categories: ['Community Building', 'Collaboration Opportunities', 'Skills Development', 'Identity & Recognition']
+            },
+            yaxis: {
+                show: false,
+                min: 0,
+                max: 10
+            },
+            markers: {
+                size: 5,
+                hover: {
+                    size: 10
+                }
+            },
+            fill: {
+                opacity: 0.3
+            },
+            stroke: {
+                width: 3
+            },
+            plotOptions: {
+                radar: {
+                    polygons: {
+                        strokeColors: '#e9e9e9',
+                        fill: {
+                            colors: ['#f8f8f8', '#ffffff']
+                        }
+                    }
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                background: {
+                    enabled: true,
+                    borderRadius: 2,
+                }
+            }
+        };
+
+        // Meetings Chart (Donut Chart)
+        var meetingsOptions = {
+            series: [10, 6, 5, 5],
+            chart: {
+                type: 'donut',
+                height: 350,
+                animations: {
+                    enabled: true,
+                    easing: 'easeinout',
+                    speed: 800
+                }
+            },
+            labels: [
+                'Research-Focused Discussions',
+                'Tips on Surviving & Thriving',
+                'Career Trajectory & Life Experience',
+                'Rainbow Sessions'
+            ],
+            colors: ['#77AAD4', '#6F8AC6', '#9F90C5', '#8AC9C1'],
+            plotOptions: {
+                pie: {
+                    donut: {
+                        size: '55%',
+                        background: 'transparent',
+                        labels: {
+                            show: true,
+                            name: {
+                                show: true,
+                                fontSize: '22px',
+                                fontFamily: 'Nunito, sans-serif',
+                                color: undefined,
+                                offsetY: -10
+                            },
+                            value: {
+                                show: true,
+                                fontSize: '16px',
+                                fontFamily: 'Nunito, sans-serif',
+                                color: undefined,
+                                offsetY: 16,
+                                formatter: function (val) {
+                                    return val + " mentions";
+                                }
+                            },
+                            total: {
+                                show: true,
+                                showAlways: false,
+                                label: 'Total Mentions',
+                                fontSize: '16px',
+                                fontFamily: 'Nunito, sans-serif',
+                                color: '#373d3f',
+                                formatter: function (w) {
+                                    return w.globals.seriesTotals.reduce((a, b) => a + b, 0) + " total";
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }],
+            legend: {
+                position: 'bottom'
+            }
+        };
+
+        // Initialize all charts
+        var respondentsChart = new ApexCharts(document.querySelector("#respondentsChart"), respondentsOptions);
+        respondentsChart.render();
+
+        var activitiesChart = new ApexCharts(document.querySelector("#activitiesChart"), activitiesOptions);
+        activitiesChart.render();
+
+        var membersSeekChart = new ApexCharts(document.querySelector("#membersSeekChart"), membersSeekOptions);
+        membersSeekChart.render();
+
+        var meetingsChart = new ApexCharts(document.querySelector("#meetingsChart"), meetingsOptions);
+        meetingsChart.render();
+    });
+</script>
+
+<!-- Script to highlight current page in navigation -->
+<script>
+    // Get current page filename
+    const path = window.location.pathname;
+    const page = path.split("/").pop();
+    
+    // Remove any active classes
+    document.querySelectorAll('nav a').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Set active class based on current page
+    if (page === "survey-results.html") {
+        // No specific nav item to highlight
+        // Could add a new nav item for this page if desired
+    }
+</script>
 
     <!-- Script to highlight current page in navigation -->
     <script>
