@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Matemático</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #4CAF50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+        }
+        
+        .game-container {
+            position: relative;
+        }
+        
+        canvas {
+            border: 4px solid #4CAF50;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #e8f5e9;
+        }
+        
+        .info-panel {
+            display: flex;
+            justify-content: space-between;
+            width: 500px;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .math-challenge {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 10;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .math-box {
+            background-color: #4CAF50;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            max-width: 500px;
+            color: white;
+            animation: appear 0.5s forwards;
+        }
+        
+        @keyframes appear {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .question {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .option-btn {
+            padding: 15px;
+            font-size: 20px;
+            background-color: #e8f5e9;
+            color: #4CAF50;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .option-btn:hover {
+            background-color: #81C784;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .key-hint {
+            position: absolute;
+            top: 5px;
+            left: 8px;
+            font-size: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            color: #388E3C;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .answer-input {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .answer-input input {
+            padding: 12px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+            margin-right: 10px;
+        }
+        
+        .answer-input button {
+            padding: 12px 20px;
+            font-size: 18px;
+            background-color: #e8f5e9;
+            color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .answer-input button:hover {
+            background-color: #81C784;
+            color: white;
+        }
+        
+        .result-message {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            height: 30px;
+        }
+        
+        .game-over {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 10;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+        
+        .game-over h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #f44336;
+            animation: blink 1s infinite alternate;
+        }
+        
+        @keyframes blink {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
+        }
+        
+        .restart-btn {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .restart-btn:hover {
+            background-color: #81C784;
+            transform: scale(1.1);
+        }
+        
+        .instructions {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e8f5e9;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Snake Matemático!</h1>
+    
+    <div class="game-container">
+        <canvas id="gameCanvas" width="500" height="500"></canvas>
+    </div>
+    
+    <div class="info-panel">
+        <div class="score">Puntuación: <span id="scoreCount">0</span></div>
+        <div class="level">Nivel: <span id="levelCount">1</span></div>
+    </div>
+    
+    <div class="instructions">
+        <p>Usa las teclas de flecha para mover la serpiente. ¡Come la comida para crecer!</p>
+        <p>Cada vez que comas, tendrás que resolver un desafío matemático.</p>
+        <p>Puedes responder haciendo clic en la opción correcta o escribe tu respuesta y presiona Enter.</p>
+    </div>
+    
+    <div class="math-challenge" id="mathChallenge">
+        <div class="math-box">
+            <div class="question" id="mathQuestion">¿Cuánto es 5²?</div>
+            <div class="options" id="mathOptions">
+                <button class="option-btn"><span class="key-hint">1</span>16</button>
+                <button class="option-btn"><span class="key-hint">2</span>20</button>
+                <button class="option-btn"><span class="key-hint">3</span>25</button>
+                <button class="option-btn"><span class="key-hint">4</span>30</button>
+            </div>
+            <div class="answer-input">
+                <input type="text" id="answerInput" placeholder="Escribe tu respuesta">
+                <button id="submitAnswer">Enviar</button>
+            </div>
+            <div class="result-message" id="resultMessage"></div>
+        </div>
+    </div>
+    
+    <div class="game-over" id="gameOver">
+        <h2>¡GAME OVER!</h2>
+        <p>Has conseguido <span id="finalScore">0</span> puntos</p>
+        <button class="restart-btn" id="restartBtn">Jugar otra vez</button>
+    </div>
+
+    <script>
+        // Obtener el canvas y su contexto
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Tamaño de la cuadrícula y otras variables
+        const gridSize = 20;
+        const gridWidth = canvas.width / gridSize;
+        const gridHeight = canvas.height / gridSize;
+        
+        // Variables del juego
+        let snake = [];
+        let food = {};
+        let direction = 'right';
+        let nextDirection = 'right';
+        let score = 0;
+        let level = 1;
+        let speed = 150; // milisegundos entre movimientos
+        let gameRunning = false;
+        let gameLoop = null;
+        let paused = false;
+        let currentChallenge = null;
+        
+        // Inicializar el juego
+        function initGame() {
+            // Resetear variables
+            snake = [
+                {x: 5, y: 10},
+                {x: 4, y: 10},
+                {x: 3, y: 10}
+            ];
+            direction = 'right';
+            nextDirection = 'right';
+            score = 0;
+            level = 1;
+            speed = 150;
+            
+            // Generar comida inicial
+            generateFood();
+            
+            // Actualizar UI
+            updateUI();
+            
+            // Iniciar el bucle del juego
+            gameRunning = true;
+            if (gameLoop) clearInterval(gameLoop);
+            gameLoop = setInterval(moveSnake, speed);
+        }
+        
+        // Generar comida en una posición aleatoria
+        function generateFood() {
+            // Generar posición aleatoria
+            let foodX, foodY;
+            let validPosition = false;
+            
+            while (!validPosition) {
+                foodX = Math.floor(Math.random() * gridWidth);
+                foodY = Math.floor(Math.random() * gridHeight);
+                
+                // Verificar que la comida no aparezca sobre la serpiente
+                validPosition = true;
+                for (const segment of snake) {
+                    if (segment.x === foodX && segment.y === foodY) {
+                        validPosition = false;
+                        break;
+                    }
+                }
+            }
+            
+            food = {x: foodX, y: foodY};
+        }
+        
+        // Dibujar la serpiente, la comida y el fondo
+        function drawGame() {
+            // Limpiar el canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Dibujar la serpiente
+            for (let i = 0; i < snake.length; i++) {
+                const segment = snake[i];
+                
+                // Color degradado para la serpiente
+                let color;
+                if (i === 0) {
+                    // Cabeza de la serpiente
+                    color = '#388E3C'; // Verde oscuro
+                } else {
+                    // Cuerpo de la serpiente con degradado
+                    const greenValue = Math.floor(136 + (119 * i / snake.length));
+                    color = `rgb(56, ${greenValue}, 60)`;
+                }
+                
+                ctx.fillStyle = color;
+                ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+                
+                // Borde para los segmentos
+                ctx.strokeStyle = '#E8F5E9';
+                ctx.strokeRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+                
+                // Dibujar ojos en la cabeza
+                if (i === 0) {
+                    ctx.fillStyle = 'white';
+                    
+                    // Posición de los ojos según la dirección
+                    let leftEyeX, leftEyeY, rightEyeX, rightEyeY;
+                    
+                    switch (direction) {
+                        case 'up':
+                            leftEyeX = segment.x * gridSize + 5;
+                            leftEyeY = segment.y * gridSize + 5;
+                            rightEyeX = segment.x * gridSize + gridSize - 8;
+                            rightEyeY = segment.y * gridSize + 5;
+                            break;
+                        case 'down':
+                            leftEyeX = segment.x * gridSize + 5;
+                            leftEyeY = segment.y * gridSize + gridSize - 8;
+                            rightEyeX = segment.x * gridSize + gridSize - 8;
+                            rightEyeY = segment.y * gridSize + gridSize - 8;
+                            break;
+                        case 'left':
+                            leftEyeX = segment.x * gridSize + 5;
+                            leftEyeY = segment.y * gridSize + 5;
+                            rightEyeX = segment.x * gridSize + 5;
+                            rightEyeY = segment.y * gridSize + gridSize - 8;
+                            break;
+                        case 'right':
+                            leftEyeX = segment.x * gridSize + gridSize - 8;
+                            leftEyeY = segment.y * gridSize + 5;
+                            rightEyeX = segment.x * gridSize + gridSize - 8;
+                            rightEyeY = segment.y * gridSize + gridSize - 8;
+                            break;
+                    }
+                    
+                    // Dibujar ojos
+                    ctx.beginPath();
+                    ctx.arc(leftEyeX, leftEyeY, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(rightEyeX, rightEyeY, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            // Dibujar la comida (manzana)
+            ctx.fillStyle = '#F44336'; // Rojo
+            ctx.beginPath();
+            const centerX = food.x * gridSize + gridSize / 2;
+            const centerY = food.y * gridSize + gridSize / 2;
+            ctx.arc(centerX, centerY, gridSize / 2 - 2, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Tallo de la manzana
+            ctx.fillStyle = '#795548'; // Marrón
+            ctx.fillRect(centerX - 1, food.y * gridSize + 2, 2, 3);
+            
+            // Hoja de la manzana
+            ctx.fillStyle = '#8BC34A'; // Verde claro
+            ctx.beginPath();
+            ctx.ellipse(centerX + 3, food.y * gridSize + 4, 3, 2, Math.PI / 4, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        // Mover la serpiente
+        function moveSnake() {
+            if (paused || !gameRunning) return;
+            
+            // Actualizar dirección
+            direction = nextDirection;
+            
+            // Obtener la posición de la cabeza
+            const head = {x: snake[0].x, y: snake[0].y};
+            
+            // Calcular nueva posición de la cabeza según la dirección
+            switch (direction) {
+                case 'up':
+                    head.y -= 1;
+                    break;
+                case 'down':
+                    head.y += 1;
+                    break;
+                case 'left':
+                    head.x -= 1;
+                    break;
+                case 'right':
+                    head.x += 1;
+                    break;
+            }
+            
+            // Comprobar colisiones con los bordes
+            if (head.x < 0 || head.x >= gridWidth || head.y < 0 || head.y >= gridHeight) {
+                gameOver();
+                return;
+            }
+            
+            // Comprobar colisiones con la propia serpiente
+            for (const segment of snake) {
+                if (head.x === segment.x && head.y === segment.y) {
+                    gameOver();
+                    return;
+                }
+            }
+            
+            // Añadir nueva cabeza
+            snake.unshift({x: head.x, y: head.y});
+            
+            // Comprobar si come la comida
+            if (head.x === food.x && head.y === food.y) {
+                // Aumentar puntuación
+                score += 10;
+                
+                // Verificar si sube de nivel
+                if (score % 50 === 0) {
+                    level++;
+                    speed = Math.max(50, speed - 10);
+                    clearInterval(gameLoop);
+                    gameLoop = setInterval(moveSnake, speed);
+                }
+                
+                // Actualizar UI
+                updateUI();
+                
+                // Generar nueva comida
+                generateFood();
+                
+                // Pausar el juego y mostrar desafío matemático
+                paused = true;
+                startMathChallenge();
+            } else {
+                // Si no come, eliminar el último segmento (la serpiente se mueve)
+                snake.pop();
+            }
+            
+            // Redibujar el juego
+            drawGame();
+        }
+        
+        // Iniciar desafío matemático
+        function startMathChallenge() {
+            // Generar un desafío matemático
+            currentChallenge = generateMathChallenge();
+            
+            // Mostrar el desafío
+            document.getElementById('mathQuestion').textContent = currentChallenge.question;
+            
+            const optionsContainer = document.getElementById('mathOptions');
+            optionsContainer.innerHTML = '';
+            
+            // Mezclar las opciones
+            const shuffledOptions = [...currentChallenge.options];
+            for (let i = shuffledOptions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+            }
+            
+            // Crear botones para las opciones
+            for (let i = 0; i < shuffledOptions.length; i++) {
+                const option = shuffledOptions[i];
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                
+                // Añadir pista de tecla
+                const keyHint = document.createElement('span');
+                keyHint.className = 'key-hint';
+                keyHint.textContent = i + 1;
+                button.appendChild(keyHint);
+                
+                // Añadir texto de la opción
+                button.appendChild(document.createTextNode(option));
+                
+                button.addEventListener('click', () => {
+                    // Comprobar si la respuesta es correcta
+                    checkAnswer(option);
+                });
+                
+                optionsContainer.appendChild(button);
+            }
+            
+            // Limpiar y enfocar el campo de entrada
+            const inputField = document.getElementById('answerInput');
+            inputField.value = '';
+            
+            // Limpiar mensaje de resultado
+            document.getElementById('resultMessage').textContent = '';
+            
+            // Mostrar el desafío
+            document.getElementById('mathChallenge').style.display = 'flex';
+            
+            // Enfocar el input después de que se muestre
+            setTimeout(() => {
+                inputField.focus();
+            }, 100);
+        }
+        
+        // Verificar respuesta
+        function checkAnswer(answer) {
+            if (answer === currentChallenge.correctAnswer) {
+                handleCorrectAnswer();
+            } else {
+                handleWrongAnswer();
+            }
+        }
+        
+        // Generar desafío matemático
+        function generateMathChallenge() {
+            // Elegir tipo de desafío según el nivel
+            let challengeType;
+            
+            if (level <= 2) {
+                // Niveles 1-2: Solo cuadrados y multiplicaciones simples
+                challengeType = Math.random() < 0.5 ? 'square' : 'multiply';
+            } else if (level <= 4) {
+                // Niveles 3-4: Añadir multiplicaciones de 2 dígitos
+                const rand = Math.random();
+                if (rand < 0.3) {
+                    challengeType = 'square';
+                } else if (rand < 0.7) {
+                    challengeType = 'multiply';
+                } else {
+                    challengeType = 'multiply2';
+                }
+            } else {
+                // Niveles 5+: Añadir fracciones
+                const rand = Math.random();
+                if (rand < 0.2) {
+                    challengeType = 'square';
+                } else if (rand < 0.5) {
+                    challengeType = 'multiply';
+                } else if (rand < 0.8) {
+                    challengeType = 'multiply2';
+                } else {
+                    challengeType = 'fraction';
+                }
+            }
+            
+            let question, correctAnswer, options;
+            
+            switch (challengeType) {
+                case 'square':
+                    // Cuadrado de un número
+                    const num = Math.floor(Math.random() * 10) + 2; // Números del 2 al 11
+                    question = `¿Cuánto es ${num}²?`;
+                    correctAnswer = `${num * num}`;
+                    break;
+                    
+                case 'multiply':
+                    // Multiplicación de un dígito
+                    const a = Math.floor(Math.random() * 9) + 1;
+                    const b = Math.floor(Math.random() * 9) + 1;
+                    question = `¿Cuánto es ${a} × ${b}?`;
+                    correctAnswer = `${a * b}`;
+                    break;
+                    
+                case 'multiply2':
+                    // Multiplicación de dos dígitos por un dígito
+                    const c = Math.floor(Math.random() * 90) + 10; // Número de dos dígitos (10-99)
+                    const d = Math.floor(Math.random() * 9) + 1;  // Número de un dígito (1-9)
+                    question = `¿Cuánto es ${c} × ${d}?`;
+                    correctAnswer = `${c * d}`;
+                    break;
+                    
+                case 'fraction':
+                    // Operaciones con fracciones
+                    const subtype = Math.floor(Math.random() * 3);
+                    
+                    if (subtype === 0) {
+                        // Fracción de un número
+                        const denom = [2, 3, 4, 5, 10][Math.floor(Math.random() * 5)];
+                        const numer = Math.floor(Math.random() * (denom - 1)) + 1;
+                        const total = [10, 20, 30, 40, 50, 100][Math.floor(Math.random() * 6)];
+                        
+                        question = `¿Cuánto es ${numer}/${denom} de ${total}?`;
+                        correctAnswer = `${(numer / denom) * total}`;
+                        
+                        // Si el resultado es decimal, formatearlo correctamente
+                        if (correctAnswer.includes('.')) {
+                            correctAnswer = parseFloat(correctAnswer).toFixed(1);
+                            // Eliminar cero decimal si es entero
+                            if (correctAnswer.endsWith('.0')) {
+                                correctAnswer = correctAnswer.slice(0, -2);
+                            }
+                        }
+                    } else if (subtype === 1) {
+                        // Suma de fracciones con mismo denominador
+                        const denom = [2, 3, 4, 5, 6, 8, 10][Math.floor(Math.random() * 7)];
+                        const numer1 = Math.floor(Math.random() * (denom - 1)) + 1;
+                        let numer2 = Math.floor(Math.random() * (denom - 1)) + 1;
+                        
+                        // Asegurar que la suma no sea mayor que 1
+                        while (numer1 + numer2 > denom) {
+                            numer2 = Math.floor(Math.random() * (denom - 1)) + 1;
+                        }
+                        
+                        question = `¿Cuánto es ${numer1}/${denom} + ${numer2}/${denom}?`;
+                        
+                        const resultNumer = numer1 + numer2;
+                        // Simplificar la fracción si es posible
+                        const gcd = findGCD(resultNumer, denom);
+                        if (gcd > 1) {
+                            correctAnswer = `${resultNumer/gcd}/${denom/gcd}`;
+                        } else {
+                            correctAnswer = `${resultNumer}/${denom}`;
+                        }
+                    } else {
+                        // Equivalencia de fracciones
+                        const denom1 = [2, 3, 4, 5][Math.floor(Math.random() * 4)];
+                        const numer1 = Math.floor(Math.random() * (denom1 - 1)) + 1;
+                        const factor = [2, 3, 4][Math.floor(Math.random() * 3)];
+                        
+                        const numer2 = numer1 * factor;
+                        const denom2 = denom1 * factor;
+                        
+                        question = `Si ${numer1}/${denom1} = ?/${denom2}, ¿cuál es el valor de ?`;
+                        correctAnswer = `${numer2}`;
+                    }
+                    break;
+            }
+            
+            // Generar opciones incorrectas
+            options = [correctAnswer];
+            
+            // Para fracciones con formato a/b
+            if (correctAnswer.includes('/')) {
+                while (options.length < 4) {
+                    // Generar una respuesta incorrecta cercana
+                    const parts = correctAnswer.split('/');
+                    let incorrectNumer, incorrectDenom;
+                    
+                    if (Math.random() < 0.5) {
+                        // Cambiar numerador
+                        incorrectNumer = parseInt(parts[0]) + (Math.random() < 0.5 ? 1 : -1);
+                        incorrectDenom = parseInt(parts[1]);
+                    } else {
+                        // Cambiar denominador
+                        incorrectNumer = parseInt(parts[0]);
+                        incorrectDenom = parseInt(parts[1]) + (Math.random() < 0.5 ? 1 : -1);
+                    }
+                    
+                    // Asegurar valores positivos
+                    if (incorrectNumer <= 0 || incorrectDenom <= 0) continue;
+                    
+                    const incorrectAnswer = `${incorrectNumer}/${incorrectDenom}`;
+                    
+                    // Asegurar que no se repitan opciones
+                    if (!options.includes(incorrectAnswer)) {
+                        options.push(incorrectAnswer);
+                    }
+                }
+            } else {
+                // Para resultados numéricos
+                const correctNum = parseFloat(correctAnswer);
+                
+                while (options.length < 4) {
+                    // Generar un offset según la magnitud del número
+                    let offset;
+                    if (correctNum < 20) {
+                        offset = Math.floor(Math.random() * 5) + 1;
+                    } else if (correctNum < 100) {
+                        offset = Math.floor(Math.random() * 10) + 5;
+                    } else {
+                        offset = Math.floor(Math.random() * 20) + 10;
+                    }
+                    
+                    let incorrectAnswer = `${correctNum + (Math.random() < 0.5 ? offset : -offset)}`;
+                    
+                    // Formatear si es decimal
+                    if (incorrectAnswer.includes('.')) {
+                        incorrectAnswer = parseFloat(incorrectAnswer).toFixed(1);
+                        if (incorrectAnswer.endsWith('.0')) {
+                            incorrectAnswer = incorrectAnswer.slice(0, -2);
+                        }
+                    }
+                    
+                    // Asegurar que sea positivo y no se repita
+                    if (parseFloat(incorrectAnswer) > 0 && !options.includes(incorrectAnswer)) {
+                        options.push(incorrectAnswer);
+                    }
+                }
+            }
+            
+            return { question, correctAnswer, options };
+        }
+        
+        // Encontrar el máximo común divisor (para simplificar fracciones)
+        function findGCD(a, b) {
+            a = Math.abs(a);
+            b = Math.abs(b);
+            while (b) {
+                const t = b;
+                b = a % b;
+                a = t;
+            }
+            return a;
+        }
+        
+        // Manejar respuesta correcta
+        function handleCorrectAnswer() {
+            const resultMessage = document.getElementById('resultMessage');
+            resultMessage.textContent = '¡Correcto! 😃';
+            resultMessage.style.color = '#E8F5E9';
+            
+            // Cerrar el desafío después de un breve momento
+            setTimeout(() => {
+                document.getElementById('mathChallenge').style.display = 'none';
+                paused = false;
+            }, 1000);
+        }
+        
+        // Manejar respuesta incorrecta
+        function handleWrongAnswer() {
+            const resultMessage = document.getElementById('resultMessage');
+            resultMessage.textContent = '¡Incorrecto! 😞';
+            resultMessage.style.color = '#FFEBEE';
+            
+            // Cerrar el desafío después de un breve momento
+            setTimeout(() => {
+                document.getElementById('mathChallenge').style.display = 'none';
+                gameOver();
+            }, 1000);
+        }
+        
+        // Game over
+        function gameOver() {
+            gameRunning = false;
+            clearInterval(gameLoop);
+            
+            // Mostrar pantalla de game over
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('gameOver').style.display = 'flex';
+        }
+        
+        // Actualizar interfaz
+        function updateUI() {
+            document.getElementById('scoreCount').textContent = score;
+            document.getElementById('levelCount').textContent = level;
+        }
+        
+        // Controles del juego
+        document.addEventListener('keydown', function(e) {
+            // Prevenir el desplazamiento de la página con las flechas
+            if(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(e.key)) {
+                e.preventDefault();
+            }
+            
+            // Si hay un desafío matemático activo
+            if (paused && document.getElementById('mathChallenge').style.display === 'flex') {
+                if (e.key >= '1' && e.key <= '4') {
+                    // Responder con teclas numéricas (1-4)
+                    const index = parseInt(e.key) - 1;
+                    const options = document.querySelectorAll('.option-btn');
+                    if (index < options.length) {
+                        // Simular clic en la opción seleccionada
+                        options[index].click();
+                    }
+                } else if (e.key === 'Enter') {
+                    // Verificar respuesta escrita al presionar Enter
+                    const inputValue = document.getElementById('answerInput').value.trim();
+                    if (inputValue) {
+                        checkAnswer(inputValue);
+                    }
+                }
+                return;
+            }
+            
+            // Cambiar dirección según la tecla
+            switch (e.key) {
+                case 'ArrowUp':
+                    if (direction !== 'down') {
+                        nextDirection = 'up';
+                    }
+                    break;
+                case 'ArrowDown':
+                    if (direction !== 'up') {
+                        nextDirection = 'down';
+                    }
+                    break;
+                case 'ArrowLeft':
+                    if (direction !== 'right') {
+                        nextDirection = 'left';
+                    }
+                    break;
+                case 'ArrowRight':
+                    if (direction !== 'left') {
+                        nextDirection = 'right';
+                    }
+                    break;
+            }
+        });
+        
+        // Configurar botón de envío de respuesta
+        document.getElementById('submitAnswer').addEventListener('click', function() {
+            const inputValue = document.getElementById('answerInput').value.trim();
+            if (inputValue) {
+                checkAnswer(inputValue);
+            }
+        });
+        
+        // Botón para reiniciar el juego
+        document.getElementById('restartBtn').addEventListener('click', function() {
+            document.getElementById('gameOver').style.display = 'none';
+            initGame();
+        });
+        
+        // Iniciar el juego cuando cargue la página
+        window.onload = initGame;
+    </script>
+</body>
+</html>

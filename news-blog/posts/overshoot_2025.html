@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Overshoot Days: Understanding Our Resource Consumption - WPE</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- News & Blog specific styles -->
+    <link rel="stylesheet" href="../../css/news-blog.css">
+    <!-- Post specific styles -->
+    <link rel="stylesheet" href="../../css/blog-post.css">
+    <!-- React and ReactDOM for interactive component -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <!-- Include script -->
+    <script src="../../js/include.js" defer></script>
+    <!-- Custom styles for the visualization -->
+    <style>
+        /* Custom styles for the visualization */
+        .visualization-container {
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        /* Controls */
+        .visualization-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .control-group {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .filter-btn {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--teal);
+            color: white;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-family: var(--body-font);
+        }
+        
+        /* Legend */
+        .timeline-legend {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        
+        .legend-color.country {
+            background-color: #ef4444;
+        }
+        
+        .legend-color.global {
+            background-color: #22c55e;
+        }
+        
+        /* Country cards */
+        .country-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .country-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .country-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .country-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        .earth-count {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            padding: 0.3rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Info panel */
+        .country-info-panel {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .panel-header h3 {
+            color: var(--primary-blue);
+            margin: 0;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: #666;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 0.8rem;
+        }
+        
+        .info-label {
+            flex: 0 0 120px;
+            font-weight: 600;
+        }
+        
+        .info-explanation {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .visualization-controls {
+                flex-direction: column;
+            }
+            
+            .control-group {
+                width: 100%;
+            }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- Header will be included via JS -->
+           <!-- Header -->
+           <header>
+            <div class="header-container">
+                <div class="logo">
+                    <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                    <h1>WPE</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" id="nav-home">Home</a></li>
+                        <li><a href="about.html" id="nav-about">About</a></li>
+                        <li><a href="research-groups.html" id="nav-research">Research Groups</a></li>
+                        <li><a href="people.html" id="nav-people">People</a></li>
+                        <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
+                        <li><a href="cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
+                        <li><a href="news-blog.html" id="nav-news">News & Blog</a></li>
+                        <li><a href="contact.html" id="nav-contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+    <!-- Blog Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <div class="post-meta">
+                <span class="post-category blog">Blog</span>
+                <span class="post-date">April 12, 2025</span>
+            </div>
+            <h1>Country Overshoot Days: Understanding Our Resource Consumption</h1>
+            <div class="post-author-container">
+                <div class="post-author">
+                    <img src="../../images/people/environmental-policy-team.jpg" alt="Environmental Policy Team">
+                    <div class="author-info">
+                        <span class="author-name">WPE Environmental Policy Research Team</span>
+                        <span class="author-role">Sustainability Research Group</span>
+                    </div>
+                </div>
+                <div class="post-share">
+                    <span>Share:</span>
+                    <a href="#" class="share-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="share-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="share-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="share-icon"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Image -->
+    <section class="post-featured-image">
+        <img src="../../images/news-blog/overshoot-days-header.jpg" alt="Earth Overshoot Day Visualization">
+    </section>
+    
+    <!-- Blog Post Content -->
+    <article class="post-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="main-content">
+                    <p class="post-intro">What if we treated Earth's resources like a budget? Earth Overshoot Day marks the date when humanity's demand for ecological resources exceeds what the planet can regenerate in a year. For 2025, this global deadline falls on April 10th—earlier than ever before. But different countries reach their "overshoot day" at vastly different times. Our interactive tool below helps visualize when each country would reach this crucial threshold if everyone lived like their residents.</p>
+                    
+                    <h2>What Does It Mean When a Country "Overshoots"?</h2>
+                    <p>Imagine if you spent your entire annual salary by April. For the rest of the year, you'd be borrowing resources from your future. This is essentially what's happening with our planet's ecological resources.</p>
+                    
+                    <p>Earth Overshoot Day marks the date when humanity's demand for ecological resources in a given year exceeds what Earth can regenerate in that year. It's calculated by dividing the planet's biocapacity (the amount of ecological resources Earth can generate that year) by humanity's ecological footprint (humanity's demand for that year) and multiplying by 365.</p>
+                    
+                    <div class="quote-block">
+                        <p>"For 2025, Earth Overshoot Day is projected to fall on April 10th - a concerning shift from April 21st in 2024."</p>
+                    </div>
+                    
+                    <p>This earlier date means we're depleting resources faster than ever before. But this global calculation doesn't tell the complete story. Different countries reach their "overshoot day" at different times based on their consumption patterns and ecological footprint.</p>
+                    
+                    <h2>Country-Specific Overshoot Days</h2>
+                    <p>If everyone on Earth lived like the residents of Qatar, we would reach Earth Overshoot Day on February 6th, requiring the resources of 5.9 Earths. In contrast, if everyone lived like residents of Uruguay, Earth Overshoot Day would fall on December 17th, requiring only 0.8 Earths.</p>
+                    
+                    <p>These country-level calculations highlight the vast disparities in resource consumption around the world and point to where changes could have the most significant impact.</p>
+                    
+                    <h2>Explore the Data</h2>
+                    <p>Our interactive visualization allows you to explore these country-specific overshoot days. The timeline shows when each country would reach its overshoot day if the entire world consumed resources at that country's rate.</p>
+                    
+                    <!-- Interactive Visualization Container -->
+                    <div class="visualization-container" id="overshoot-visualization">
+                        <h3 class="section-title">Country Overshoot Days 2025</h3>
+                        
+                        <!-- Information panel -->
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded">
+                            <div class="flex">
+                                <div class="mr-3">
+                                    <i class="fas fa-info-circle text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-blue-800">Understanding this visualization</h4>
+                                    <p class="text-blue-700">Each point on the circular timeline represents when a country would reach Earth Overshoot Day if everyone on the planet consumed resources at that country's rate. Earlier dates indicate higher resource consumption. Click on countries to learn more.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Legend -->
+                        <div class="timeline-legend">
+                            <div class="legend-item">
+                                <div class="legend-color country"></div>
+                                <span>Country Overshoot Day</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color global"></div>
+                                <span>Global Earth Overshoot Day (April 10)</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Visualization controls -->
+                        <div class="visualization-controls">
+                            <div class="control-group">
+                                <label>Filter by month:</label>
+                                <div class="filter-buttons">
+                                    <button class="filter-btn active" data-month="all">All</button>
+                                    <button class="filter-btn" data-month="1">Feb</button>
+                                    <button class="filter-btn" data-month="2">Mar</button>
+                                    <button class="filter-btn" data-month="3">Apr</button>
+                                    <button class="filter-btn" data-month="4">May</button>
+                                    <button class="filter-btn" data-month="5">Jun</button>
+                                    <button class="filter-btn" data-month="6">Jul</button>
+                                    <button class="filter-btn" data-month="7">Aug</button>
+                                    <button class="filter-btn" data-month="8">Sep</button>
+                                    <button class="filter-btn" data-month="9">Oct</button>
+                                    <button class="filter-btn" data-month="10">Nov</button>
+                                    <button class="filter-btn" data-month="11">Dec</button>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label>Search country:</label>
+                                <input type="text" class="search-input" placeholder="Type country name...">
+                            </div>
+                        </div>
+                        
+                        <!-- Circular Visualization Container -->
+                        <div id="visualization-container" class="text-center">
+                            <svg id="overshoot-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" style="max-width: 100%; height: auto;">
+                                <!-- Background -->
+                                <rect width="1000" height="1000" fill="#f8fafc" />
+                                
+                                <!-- Title -->
+                                <text x="500" y="40" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="24" font-weight="bold" fill="#6F8AC6">Country Overshoot Days 2025</text>
+                                <text x="500" y="70" text-anchor="middle" font-family="var(--body-font), Arial, sans-serif" font-size="16" fill="#53525a">When Earth Overshoot Day would land if all the people around the world lived like...</text>
+                                
+                                <!-- Outer Circle (Days of Year) -->
+                                <circle cx="500" cy="500" r="440" fill="none" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="2,3" />
+                                
+                                <!-- Month Dividers -->
+                                <line x1="500" y1="60" x2="500" y2="120" stroke="#64748b" stroke-width="2" />
+                                <line x1="794" y1="206" x2="764" y2="250" stroke="#64748b" stroke-width="2" />
+                                <line x1="940" y1="500" x2="880" y2="500" stroke="#64748b" stroke-width="2" />
+                                <line x1="794" y1="794" x2="764" y2="750" stroke="#64748b" stroke-width="2" />
+                                <line x1="500" y1="940" x2="500" y2="880" stroke="#64748b" stroke-width="2" />
+                                <line x1="206" y1="794" x2="236" y2="750" stroke="#64748b" stroke-width="2" />
+                                <line x1="60" y1="500" x2="120" y2="500" stroke="#64748b" stroke-width="2" />
+                                <line x1="206" y1="206" x2="236" y2="250" stroke="#64748b" stroke-width="2" />
+                                
+                                <!-- Month Labels -->
+                                <text x="500" y="45" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">JAN</text>
+                                <text x="680" y="135" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">FEB</text>
+                                <text x="815" y="270" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">MAR</text>
+                                <text x="865" y="425" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">APR</text>
+                                <text x="865" y="575" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">MAY</text>
+                                <text x="815" y="730" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">JUN</text>
+                                <text x="680" y="865" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">JUL</text>
+                                <text x="500" y="955" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">AUG</text>
+                                <text x="320" y="865" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">SEP</text>
+                                <text x="185" y="730" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">OCT</text>
+                                <text x="135" y="575" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">NOV</text>
+                                <text x="185" y="270" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155">DEC</text>
+                                
+                                <!-- Earth Circle -->
+                                <circle cx="500" cy="500" r="350" fill="#E6F2F5" stroke="#BFE3E8" stroke-width="2" />
+                                
+                                <!-- Earth Continents (simplified) -->
+                                <path d="M300,400 Q350,300 450,350 T600,400 Q550,500 450,550 T350,450 Q300,400 300,400Z" fill="#77AAD4" fill-opacity="0.4" />
+                                <path d="M400,350 Q500,300 600,400 T650,550 Q550,600 450,550 T400,450 Q350,400 400,350Z" fill="#8AC9C1" fill-opacity="0.4" />
+                                
+                                <!-- 2025 Text in Center -->
+                                <text x="500" y="520" text-anchor="middle" font-family="var(--heading-font), Arial, sans-serif" font-size="80" font-weight="bold" fill="#53525a">2025</text>
+                                
+                                <!-- Country markers and labels will be added by JavaScript -->
+                            </svg>
+                        </div>
+                        
+                        <!-- Selected country information panel (hidden by default) -->
+                        <div class="country-info-panel" style="display: none;">
+                            <div class="panel-header">
+                                <h3 id="selected-country-name">Qatar</h3>
+                                <button class="close-btn">&times;</button>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">Overshoot Day:</div>
+                                <div id="selected-country-date">February 6, 2025</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">Day of Year:</div>
+                                <div id="selected-country-day">37/365</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">Earths Required:</div>
+                                <div id="selected-country-earths">5.9 Earths</div>
+                            </div>
+                            <div class="info-explanation" id="selected-country-explanation">
+                                If everyone on Earth lived like the residents of Qatar, humanity would need the equivalent of 5.9 Earths to sustain our demand for resources.
+                            </div>
+                        </div>
+                        
+                        <!-- Country cards -->
+                        <h3 id="countries-heading" class="text-xl font-semibold mt-8 mb-4" style="color: #53525a;">Country List (68)</h3>
+                        <div class="country-cards" id="country-cards-container">
+                            <!-- Country cards will be dynamically generated by JS -->
+                        </div>
+                        
+                        <!-- Source and disclaimer -->
+                        <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #eee; font-size: 0.9rem; color: #666;">
+                            <p><strong>Source:</strong> Data based on National Footprint and Biocapacity Accounts, preliminary 2025 Edition. York University, FootaFo, Global Footprint Network.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Note:</strong> Earth Overshoot Day calculations are estimates based on available data and methodologies. For more detailed information, visit <a href="https://www.overshootday.org" target="_blank" rel="noopener noreferrer" style="color: var(--primary-blue);">overshootday.org</a>.</p>
+                        </div>
+                    </div>
+                    
+                    <h2>Key Insights from the Data</h2>
+                    <p>Several patterns emerge when examining the country-specific overshoot days:</p>
+                    
+                    <ol>
+                        <li><strong>Wealth and Consumption</strong>: High-income countries generally have earlier overshoot days, reflecting higher consumption levels and carbon footprints.</li>
+                        <li><strong>Regional Patterns</strong>: Countries in similar geographic regions often show comparable consumption patterns, though with notable exceptions.</li>
+                        <li><strong>Population Density</strong>: Some densely populated countries use resources more efficiently per capita, despite having large total footprints.</li>
+                        <li><strong>Development Stages</strong>: Rapidly industrializing nations often show increasing ecological footprints as their economies develop.</li>
+                        <li><strong>Policy Impact</strong>: Countries with strong environmental policies sometimes show better resource efficiency despite high standards of living.</li>
+                    </ol>
+                    
+                    <div class="post-image">
+                        <img src="../../images/news-blog/resource-efficiency-comparison.jpg" alt="Resource Efficiency Comparison">
+                        <p class="image-caption">Comparing resource efficiency measures across countries with different overshoot dates</p>
+                    </div>
+                    
+                    <h2>Moving Toward Balance</h2>
+                    <p>Understanding these patterns is crucial for developing effective sustainability policies. Our research at WPE focuses on several approaches to move the date later:</p>
+                    
+                    <ul>
+                        <li><strong>Resource Efficiency</strong>: Designing systems that maximize value while minimizing waste</li>
+                        <li><strong>Circular Economy Models</strong>: Keeping materials in use rather than discarding them</li>
+                        <li><strong>Renewable Energy Transition</strong>: Reducing carbon footprints through clean energy</li>
+                        <li><strong>Urban Planning Solutions</strong>: Creating cities that support sustainable lifestyles</li>
+                        <li><strong>Water Conservation</strong>: Implementing technologies and practices that reduce water waste</li>
+                    </ul>
+                    
+                    <h2>Join the Conversation</h2>
+                    <p>What would it take to move Earth Overshoot Day back to December 31st, creating a balanced ecological budget? How can countries with earlier overshoot days learn from those with later dates?</p>
+                    
+                    <p>We invite you to explore the interactive tool, consider your own consumption patterns, and join the conversation about creating a sustainable future where we live within our planet's means.</p>
+                    
+                    <div class="author-note">
+                        <img src="../../images/people/environmental-policy-team.jpg" alt="Environmental Policy Team">
+                        <div>
+                            <h4>About the Authors</h4>
+                            <p>The WPE Environmental Policy Research Team focuses on analyzing global sustainability metrics and developing policy recommendations for resource management. This article and visualization were created as part of our ongoing work on ecological footprint analysis.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="post-sidebar">
+                    <div class="sidebar-widget related-posts">
+                        <h3>Related Posts</h3>
+                        <ul>
+                            <li>
+                                <a href="../posts/climate-policy-impact.html">
+                                    <img src="../../images/news-blog/climate-policy-thumb.jpg" alt="Climate Policy">
+                                    <span>Measuring the Impact of Climate Policies on Emissions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../posts/sustainable-development-goals.html">
+                                    <img src="../../images/news-blog/sdg-thumb.jpg" alt="SDG Progress">
+                                    <span>2025 Progress Report: Sustainable Development Goals</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../posts/water-scarcity-solutions.html">
+                                    <img src="../../images/news-blog/water-solutions-thumb.jpg" alt="Water Solutions">
+                                    <span>Innovative Solutions to Global Water Scarcity</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget categories">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="../categories/news.html">News <span>(8)</span></a></li>
+                            <li><a href="../categories/blog.html" class="active">Blog <span>(12)</span></a></li>
+                            <li><a href="../categories/events.html">Events <span>(5)</span></a></li>
+                            <li><a href="../categories/achievements.html">Achievements <span>(7)</span></a></li>
+                            <li><a href="../categories/research-highlights.html">Research Highlights <span>(10)</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget newsletter">
+                        <h3>Subscribe to Updates</h3>
+                        <p>Get the latest posts delivered to your inbox</p>
+                        <form>
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                    
+                    <div class="sidebar-widget tags">
+                        <h3>Tags</h3>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag">Sustainability</a>
+                            <a href="#" class="tag">Climate Action</a>
+                            <a href="#" class="tag">Resource Management</a>
+                            <a href="#" class="tag">Environmental Policy</a>
+                            <a href="#" class="tag">Ecological Footprint</a>
+                            <a href="#" class="tag">Data Visualization</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+           
+            <!-- Post Navigation -->
+            <div class="post-navigation">
+                <a href="../posts/sustainable-development-goals.html" class="prev-post">
+                    <span class="nav-label"><i class="fas fa-arrow-left"></i> Previous Post</span>
+                    <span class="nav-title">2025 Progress Report: Sustainable Development Goals</span>
+                </a>
+                <a href="../posts/climate-policy-impact.html" class="next-post">
+                    <span class="nav-label">Next Post <i class="fas fa-arrow-right"></i></span>
+                    <span class="nav-title">Measuring the Impact of Climate Policies on Emissions</span>
+                </a>
+            </div>
+            
+            <!-- Comments Section -->
+            <section class="comments-section">
+                <h3>Comments (2)</h3>
+                
+                <div class="comment">
+                    <div class="comment-avatar">
+                        <img src="../../images/people/comment-avatar-1.jpg" alt="Prof. James Wilson">
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <h4>Prof. James Wilson</h4>
+                            <span class="comment-date">April 12, 2025 • 15:42</span>
+                        </div>
+                        <p>Excellent visualization! I've been using Earth Overshoot Day data in my lectures for years, but this country-by-country breakdown really helps illustrate the vast disparities in resource consumption. I'd be interested to see how this data correlates with various wellbeing indices - some countries manage high quality of life with much lower consumption patterns.</p>
+                        <div class="comment-actions">
+                            <button class="reply-btn">Reply</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-avatar">
+                        <img src="../../images/people/comment-avatar-2.jpg" alt="Sarah Chen">
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <h4>Sarah Chen</h4>
+                            <span class="comment-date">April 13, 2025 • 09:15</span>
+                        </div>
+                        <p>This is eye-opening! I had no idea there was such a dramatic difference between countries. I'd love to see this data visualized on a map as well, to better understand regional patterns. Also, it would be interesting to see how these dates have shifted over time for different countries - have any been making progress toward later overshoot days?</p>
+                        <div class="comment-actions">
+                            <button class="reply-btn">Reply</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add Comment Form -->
+                <div class="add-comment">
+                    <h3>Leave a Comment</h3>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="comment-name">Name</label>
+                                <input type="text" id="comment-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="comment-email">Email <span>(will not be published)</span></label>
+                                <input type="email" id="comment-email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment-text">Comment</label>
+                            <textarea id="comment-text" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </article>
+    
+    <!-- More Posts Section -->
+    <section class="more-posts">
+        <div class="container">
+            <h2 class="section-title">More Posts You May Like</h2>
+            <div class="posts-grid">
+                <div class="post-card">
+                    <div class="post-image">
+                        <img src="../../images/news-blog/circular-economy-thumb.jpg" alt="Circular Economy">
+                        <div class="post-category blog">Blog</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="../posts/circular-economy-case-studies.html">Circular Economy Case Studies: Success Stories from Around the World</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">March 28, 2025</span>
+                            <span class="post-author">Dr. Emily Nguyen</span>
+                        </div>
+                        <p>Examining successful implementations of circular economy principles that are reducing waste and creating sustainable value chains.</p>
+                        <a href="../posts/circular-economy-case-studies.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="post-card">
+                    <div class="post-image">
+                        <img src="../../images/news-blog/carbon-footprint-thumb.jpg" alt="Carbon Footprint">
+                        <div class="post-category blog">Blog</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="../posts/carbon-footprint-reduction.html">5 Proven Strategies to Reduce Institutional Carbon Footprints</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">February 15, 2025</span>
+                            <span class="post-author">Dr. Richard Thompson</span>
+                        </div>
+                        <p>Practical approaches that universities, hospitals, and corporate campuses can implement to significantly reduce their carbon emissions and environmental impact.</p>
+                        <a href="../posts/carbon-footprint-reduction.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="post-card">
+                    <div class="post-image">
+                        <img src="../../images/news-blog/water-conservation-thumb.jpg" alt="Water Conservation">
+                        <div class="post-category research-highlight">Research Highlight</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="../posts/water-conservation-technology.html">New Water Conservation Technology Shows Promising Results in Field Tests</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">April 5, 2025</span>
+                            <span class="post-author">Prof. Michael Davis</span>
+                        </div>
+                        <p>Our latest research on sustainable water management systems has demonstrated significant efficiency improvements in real-world applications.</p>
+                        <a href="../posts/water-conservation-technology.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer will be included via JS -->
+    
+    <!-- JavaScript for the interactive visualization -->
+", date: "2025-09-16" },
+            { country: "Iraq", date: "2025-09-22" },
+            { country: "Ghana", date: "2025-10-25" },
+            { country: "Tunisia", date: "2025-10-28" },
+            { country: "Ecuador", date: "2025-10-31" },
+            { country: "Nicaragua", date: "2025-11-11" },
+            { country: "Indonesia", date: "2025-11-18" },
+            { country: "Uruguay", date: "2025-12-17" }
+        ];
+
+        // Process the data
+        const processedData = overshootData.map(item => {
+            const dateParts = item.date.split('-');
+            const date = new Date(
+                parseInt(dateParts[0]), 
+                parseInt(dateParts[1]) - 1, 
+                parseInt(dateParts[2])
+            );
+            
+            // Format date for display
+            const formattedDate = date.toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Calculate days from start of year
+            const startOfYear = new Date(2025, 0, 1);
+            const dayOfYear = Math.floor((date - startOfYear) / (24 * 60 * 60 * 1000)) + 1;
+            
+            // Calculate percentage of year
+            const daysInYear = 365;
+            const percentOfYear = (dayOfYear / daysInYear) * 100;
+            
+            // Calculate number of Earths needed
+            const earthsNeeded = (365 / dayOfYear).toFixed(1);
+            
+            return {
+                ...item,
+                formattedDate,
+                dayOfYear,
+                percentOfYear,
+                earthsNeeded,
+                month: date.getMonth()
+            };
+        });
+
+        // Sort data by date
+        const sortedData = [...processedData].sort((a, b) => {
+            return new Date(a.date) - new Date(b.date);
+        });
+
+        // DOM references
+        const timelineEl = document.querySelector('.timeline');
+        const countryCardsContainer = document.getElementById('country-cards-container');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const searchInput = document.querySelector('.search-input');
+        const countryInfoPanel = document.querySelector('.country-info-panel');
+        const closeBtn = document.querySelector('.close-btn');
+        const countriesHeading = document.getElementById('countries-heading');
+        
+        // Selected countries state
+        let selectedMonth = null;
+        let searchTerm = '';
+        
+        // Add month markers to timeline
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        monthNames.forEach((month, index) => {
+            const marker = document.createElement('div');
+            marker.classList.add('month-marker');
+            marker.style.left = `${(index / 12) * 100}%`;
+            timelineEl.appendChild(marker);
+            
+            const label = document.createElement('div');
+            label.classList.add('month-label');
+            label.textContent = month;
+            label.style.left = `${(index / 12) * 100}%`;
+            timelineEl.appendChild(label);
+        });
+        
+        // Add country markers to timeline
+        sortedData.forEach(country => {
+            const marker = document.createElement('div');
+            marker.classList.add('timeline-point');
+            marker.setAttribute('data-country', country.country);
+            marker.setAttribute('data-month', country.month);
+            marker.style.left = `${country.percentOfYear}%`;
+            
+            const label = document.createElement('div');
+            label.classList.add('country-point-label');
+            label.textContent = `${country.country}: ${country.formattedDate}`;
+            
+            marker.appendChild(label);
+            timelineEl.appendChild(marker);
+            
+            // Add click event
+            marker.addEventListener('click', () => {
+                showCountryInfo(country);
+            });
+        });
+        
+        // Filter data based on month and search
+        function filterData() {
+            const filteredData = sortedData.filter(item => {
+                const matchesMonth = selectedMonth === null || item.month === selectedMonth;
+                const matchesSearch = searchTerm === '' || 
+                    item.country.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesMonth && matchesSearch;
+            });
+            
+            // Update display
+            renderCountryCards(filteredData);
+            updateCountryMarkers(filteredData);
+            
+            // Update heading
+            countriesHeading.textContent = `${filteredData.length} Countries${selectedMonth !== null ? ` in ${monthNames[selectedMonth]}` : ''}${searchTerm ? ` matching "${searchTerm}"` : ''}`;
+        }
+        
+        // Render country cards
+        function renderCountryCards(data) {
+            countryCardsContainer.innerHTML = '';
+            
+            data.forEach(country => {
+                const card = document.createElement('div');
+                card.classList.add('country-card');
+                
+                card.innerHTML = `
+                    <h4>${country.country}</h4>
+                    <div class="card-footer">
+                        <span>${country.formattedDate}</span>
+                        <span class="earth-count">${country.earthsNeeded} Earths</span>
+                    </div>
+                `;
+                
+                card.addEventListener('click', () => {
+                    showCountryInfo(country);
+                });
+                
+                countryCardsContainer.appendChild(card);
+            });
+        }
+        
+        // Update country marker visibility
+        function updateCountryMarkers(filteredData) {
+            const allMarkers = document.querySelectorAll('.timeline-point:not(.global)');
+            allMarkers.forEach(marker => {
+                const countryName = marker.getAttribute('data-country');
+                const isVisible = filteredData.some(item => item.country === countryName);
+                marker.style.opacity = isVisible ? '1' : '0.2';
+                marker.style.pointerEvents = isVisible ? 'auto' : 'none';
+            });
+        }
+        
+        // Show country info panel
+        function showCountryInfo(country) {
+            document.getElementById('selected-country-name').textContent = country.country;
+            document.getElementById('selected-country-date').textContent = country.formattedDate;
+            document.getElementById('selected-country-day').textContent = `${country.dayOfYear}/365`;
+            document.getElementById('selected-country-earths').textContent = `${country.earthsNeeded} Earths`;
+            document.getElementById('selected-country-explanation').textContent = 
+                `If everyone on Earth lived like the residents of ${country.country}, humanity would need the equivalent of ${country.earthsNeeded} Earths to sustain our demand for resources.`;
+            
+            countryInfoPanel.style.display = 'block';
+            
+            // Scroll to panel if not visible
+            const rect = countryInfoPanel.getBoundingClientRect();
+            if (rect.top < 0 || rect.bottom > window.innerHeight) {
+                countryInfoPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+        
+        // Set up event listeners
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update UI
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update filter
+                const month = btn.getAttribute('data-month');
+                selectedMonth = month === 'all' ? null : parseInt(month);
+                
+                filterData();
+            });
+        });
+        
+        searchInput.addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            filterData();
+        });
+        
+        closeBtn.addEventListener('click', () => {
+            countryInfoPanel.style.display = 'none';
+        });
+        
+        // Initial render
+        renderCountryCards(sortedData);
+    </script>
+</body>
+</html>
