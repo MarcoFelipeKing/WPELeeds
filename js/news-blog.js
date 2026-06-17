@@ -199,34 +199,6 @@ function initLoadMore() {
     });
 }
 
-// Newsletter subscription
-function initNewsletter() {
-    const newsletterForm = document.querySelector('.newsletter-form');
-    
-    if (!newsletterForm) return;
-    
-    newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const emailInput = this.querySelector('input[type="email"]');
-        const email = emailInput.value.trim();
-        
-        if (email) {
-            // In a real implementation, you would send this to your server
-            console.log('Newsletter signup:', email);
-            
-            // Show success message
-            const formContainer = this.parentNode;
-            formContainer.innerHTML = `
-                <div class="newsletter-success">
-                    <i class="fas fa-check-circle"></i>
-                    <h4>Thank You!</h4>
-                    <p>You've been successfully subscribed to our newsletter.</p>
-                </div>
-            `;
-        }
-    });
-}
 
 // Add scroll animations
 function initScrollAnimations() {

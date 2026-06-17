@@ -51,43 +51,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
-    // Booking button functionality
-    const bookButtons = document.querySelectorAll('.book-btn');
-    bookButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const lab = this.getAttribute('data-lab');
-            alert(`Booking system for ${lab} lab would open here. This would typically link to your institutional booking system.`);
-        });
-    });
-    
-    // Tour request functionality
-    const tourButtons = document.querySelectorAll('.tour-btn');
-    tourButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Tour request form would open here. This would typically send an email to the lab manager or facilities coordinator.');
-        });
-    });
-    
-    // Contact form submission
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const facility = document.getElementById('facility').value;
-            const message = document.getElementById('message').value;
-            
-            // In a real implementation, you would send this data to your server
-            console.log('Form submission:', { name, email, facility, message });
-            
-            // Show confirmation message
-            alert(`Thank you, ${name}! Your inquiry about the ${facility || 'facilities'} has been submitted. We will contact you at ${email} soon.`);
-            
-            // Reset form
-            this.reset();
-        });
-    }
 });

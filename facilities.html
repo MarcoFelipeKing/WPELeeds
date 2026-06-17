@@ -20,8 +20,10 @@
     <header>
         <div class="header-container">
             <div class="logo">
+                <img src="images/leeds_logo_black_on_white_bk.jpg" alt="University of Leeds" style="width:120px; height: auto;">
+            </div>
+            <div class="logo">
                 <img src="images/wpe_logo_colour.png" alt="WPE Logo">
-                <h1>WPE</h1>
             </div>
             <nav>
                 <ul>
@@ -140,27 +142,22 @@
                                 <li>
                                     <span class="equipment-name">Confocal Laser Scanning Microscope</span>
                                     <span class="equipment-model">Zeiss LSM 980</span>
-                                    <span class="equipment-status available">Available</span>
                                 </li>
                                 <li>
                                     <span class="equipment-name">Real-Time PCR System</span>
                                     <span class="equipment-model">Bio-Rad CFX96</span>
-                                    <span class="equipment-status available">Available</span>
                                 </li>
                                 <li>
                                     <span class="equipment-name">Anaerobic Chamber</span>
                                     <span class="equipment-model">Whitley A35</span>
-                                    <span class="equipment-status maintenance">Maintenance</span>
                                 </li>
                                 <li>
                                     <span class="equipment-name">Flow Cytometer</span>
                                     <span class="equipment-model">BD FACSymphony A3</span>
-                                    <span class="equipment-status booked">Booked</span>
                                 </li>
                                 <li>
                                     <span class="equipment-name">Microplate Reader</span>
                                     <span class="equipment-model">Tecan Infinite M200</span>
-                                    <span class="equipment-status available">Available</span>
                                 </li>
                             </ul>
                         </div>
@@ -196,8 +193,7 @@
                         </div>
                         
                         <div class="actions">
-                            <a href="#" class="btn btn-primary book-btn" data-lab="microbiology">Book Equipment</a>
-                            <a href="#" class="btn btn-secondary tour-btn">Request Tour</a>
+                            <a href="mailto:m.f.king@leeds.ac.uk" class="btn btn-secondary">Request Tour</a>
                         </div>
                     </div>
                 </div>
@@ -206,11 +202,10 @@
                     <div class="staff-contact">
                         <h3>Contact</h3>
                         <div class="contact-person">
-                            <img src="images/people/lab-manager-1.jpg" alt="Dr. Laura Chen">
                             <div class="contact-info">
-                                <h4>Dr. Laura Chen</h4>
-                                <p>Laboratory Manager</p>
-                                <a href="mailto:l.chen@university.edu">l.chen@university.edu</a>
+                                <h4>Dr. David Elliott</h4>
+                                <p>Lab Manager</p>
+                                <a href="mailto:D.J.S.elliott@leeds.ac.uk">D.J.S.elliott@leeds.ac.uk</a>
                             </div>
                         </div>
                     </div>
@@ -265,7 +260,101 @@
             
             <!-- Air Quality Lab -->
             <div class="lab-detail" id="air" style="display: none;">
-                <!-- Similar structure to previous labs -->
+                <div class="lab-header">
+                    <h2>Air Quality Laboratory</h2>
+                    <div class="lab-tags">
+                        <span class="lab-tag">Indoor Air</span>
+                        <span class="lab-tag">Public Health</span>
+                    </div>
+                </div>
+
+                <div class="lab-content">
+                    <div class="lab-gallery">
+                        <div class="gallery-main">
+                            <img src="images/facilities/air-lab-main.jpg" alt="Air Quality Laboratory" id="air-main-image">
+                        </div>
+                    </div>
+
+                    <div class="lab-info">
+                        <div class="info-item">
+                            <h3>Overview</h3>
+                            <p>The Air Quality Laboratory is home to one of the UK's most advanced bioaerosol research facilities. The centrepiece is a purpose-built bioaerosol chamber — a fully controlled indoor environment used to study airborne pathogen transmission, ventilation effectiveness, and exposure assessment. The laboratory supports the Indoor Air research group's work on infection control, building engineering, and air quality in healthcare and public settings.</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>Key Equipment</h3>
+                            <ul class="equipment-list">
+                                <li>
+                                    <span class="equipment-name">Bioaerosol Test Chamber</span>
+                                    <span class="equipment-model">Purpose-built, ~40 m³ sealed environment — value £1M+</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Optical Particle Counter</span>
+                                    <span class="equipment-model">TSI OPS 3330</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Aerodynamic Particle Sizer</span>
+                                    <span class="equipment-model">TSI APS 3321</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Bioaerosol Sampler</span>
+                                    <span class="equipment-model">Coriolis µ (liquid cyclone)</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">CO₂ / IAQ Monitor Array</span>
+                                    <span class="equipment-model">Multi-zone network for tracer gas studies</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>Technical Capabilities</h3>
+                            <div class="capabilities-grid">
+                                <div class="capability">
+                                    <i class="fas fa-wind"></i>
+                                    <span>Ventilation Characterisation</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-viruses"></i>
+                                    <span>Bioaerosol Generation &amp; Sampling</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-chart-area"></i>
+                                    <span>Particle Size Distribution</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-lungs"></i>
+                                    <span>Infection Transmission Modelling</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-thermometer-half"></i>
+                                    <span>Controlled Environment Testing</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-shield-virus"></i>
+                                    <span>Air Cleaning Evaluation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <a href="mailto:m.f.king@leeds.ac.uk" class="btn btn-secondary">Request Tour</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-footer">
+                    <div class="staff-contact">
+                        <h3>Contact</h3>
+                        <div class="contact-person">
+                            <div class="contact-info">
+                                <h4>Dr. Marco-Felipe King</h4>
+                                <p>Director of WPE / Indoor Air Group Lead</p>
+                                <a href="mailto:m.f.king@leeds.ac.uk">m.f.king@leeds.ac.uk</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- Resource Recovery Lab -->
@@ -279,105 +368,6 @@
             </div>
         </section>
         
-        <!-- Equipment Booking System Preview -->
-        <section class="booking-preview">
-            <h2 class="section-title">Equipment Booking System</h2>
-            <p class="section-intro">Our online booking system allows researchers to reserve equipment and lab space. Check availability and book resources for your research needs.</p>
-            
-            <div class="booking-snapshot">
-                <div class="snapshot-header">
-                    <h3>Today's Availability <span class="date-display">March 29, 2025</span></h3>
-                    <a href="#" class="full-calendar-link">View Full Calendar</a>
-                </div>
-                
-                <div class="availability-grid">
-                    <div class="equipment-row">
-                        <div class="equipment-name">Confocal Microscope</div>
-                        <div class="time-slots">
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot booked"></div>
-                            <div class="time-slot booked"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot booked"></div>
-                        </div>
-                    </div>
-                    <div class="equipment-row">
-                        <div class="equipment-name">PCR System</div>
-                        <div class="time-slots">
-                            <div class="time-slot booked"></div>
-                            <div class="time-slot booked"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot booked"></div>
-                            <div class="time-slot booked"></div>
-                        </div>
-                    </div>
-                    <div class="equipment-row">
-                        <div class="equipment-name">Flow Cytometer</div>
-                        <div class="time-slots">
-                            <div class="time-slot maintenance"></div>
-                            <div class="time-slot maintenance"></div>
-                            <div class="time-slot maintenance"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot booked"></div>
-                            <div class="time-slot booked"></div>
-                            <div class="time-slot available"></div>
-                        </div>
-                    </div>
-                    <div class="equipment-row">
-                        <div class="equipment-name">Spectrometer</div>
-                        <div class="time-slots">
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot booked"></div>
-                            <div class="time-slot booked"></div>
-                            <div class="time-slot available"></div>
-                            <div class="time-slot available"></div>
-                        </div>
-                    </div>
-                    <div class="equipment-row">
-                        <div class="equipment-name">Anaerobic Chamber</div>
-                        <div class="time-slots">
-                            <div class="time-slot maintenance"></div>
-                            <div class="time-slot maintenance"></div>
-                            <div class="time-slot maintenance"></div>
-                            <div class="time-slot maintenance"></div>
-                            <div class="time-slot maintenance"></div>
-                            <div class="time-slot maintenance"></div>
-                            <div class="time-slot maintenance"></div>
-                            <div class="time-slot maintenance"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="time-legend">
-                    <div class="legend-item">
-                        <span class="legend-color available"></span>
-                        <span>Available</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color booked"></span>
-                        <span>Booked</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color maintenance"></span>
-                        <span>Maintenance</span>
-                    </div>
-                </div>
-                
-                <div class="booking-cta">
-                    <a href="#" class="btn btn-primary">Access Booking System</a>
-                </div>
-            </div>
-        </section>
         
         <!-- Facilities Access Information -->
         <section class="facilities-access">
@@ -527,50 +517,25 @@
         <!-- Contact for Inquiries -->
         <section class="facilities-contact">
             <h2 class="section-title">Facilities Inquiries</h2>
-            
+
             <div class="contact-container">
                 <div class="contact-info">
-                    <p>For questions about our facilities, availability, or to discuss potential collaborations, please contact our Facilities Coordinator:</p>
-                    
+                    <p>For questions about our facilities, equipment access, or to discuss potential collaborations, please contact our Lab Manager or the WPE Director directly.</p>
+
                     <div class="coordinator-info">
-                        <img src="images/people/facilities-coordinator.jpg" alt="Dr. Michael Okonjo">
                         <div>
-                            <h3>Dr. Michael Okonjo</h3>
-                            <p>Lab Facilities Manager</p>
-                            <p><i class="fas fa-envelope"></i> <a href="mailto:m.okonjo@university.edu">m.okonjo@university.edu</a></p>
-                            <p><i class="fas fa-phone"></i> +1 (555) 123-4569</p>
+                            <h3>Dr. David Elliott</h3>
+                            <p>Lab Manager</p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:D.J.S.elliott@leeds.ac.uk">D.J.S.elliott@leeds.ac.uk</a></p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>Send an Inquiry</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" required>
+                    <div class="coordinator-info" style="margin-top:1rem;">
+                        <div>
+                            <h3>Dr. Marco-Felipe King</h3>
+                            <p>Director of WPE</p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:m.f.king@leeds.ac.uk">m.f.king@leeds.ac.uk</a></p>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="facility">Facility of Interest</label>
-                            <select id="facility">
-                                <option value="">Select a facility</option>
-                                <option value="microbiology">Microbiology Laboratory</option>
-                                <option value="soil">Soil Analysis Laboratory</option>
-                                <option value="air">Air Quality Laboratory</option>
-                                <option value="resource">Resource Recovery Laboratory</option>
-                                <option value="microplastics">Microplastics Laboratory</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit Inquiry</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>

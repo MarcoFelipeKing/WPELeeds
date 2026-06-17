@@ -98,3 +98,11 @@ If the site doesn't update: `git commit --allow-empty -m "Trigger rebuild" && gi
 - Do not inline styles in HTML; use the existing CSS files.
 - Do not commit `.DS_Store` or other macOS artefacts.
 - The Scopus API key in `network/UKRI_test.py` is real — do not expose it in new files or logs.
+- **Never use `include.js` or `<include src="...">` tags.** GitHub Pages is a static host — server-side includes do not work. This pattern was found broken across multiple pages; the failed includes left embedded `<!DOCTYPE html><head><body>` blocks inside `<body>`, requiring manual cleanup. The `js/include.js` file remains in the repo but should not be referenced in any page's `<head>`.
+
+## Known orphan / dev files (do not link publicly)
+
+Files in the repo root that are internal tools or drafts, not part of the public site:
+- `old_index.html` — superseded draft
+- `preguntas_inspeccionales.html`, `ukri_bar_chart.html`, `ukri_heatmap.html` — Scopus data exploration
+- `coauthor_network.html`, `leeds_network.html`, `report.html` — network pipeline outputs
