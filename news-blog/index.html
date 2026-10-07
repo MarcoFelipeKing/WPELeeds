@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="../css/news-blog.css">
     <!-- Archive specific styles -->
     <link rel="stylesheet" href="../css/news-archive.css">
-    <!-- Include script -->
-    <script src="../js/include.js" defer></script>
 </head>
 <body>
     <!-- Header Include -->
@@ -39,7 +37,7 @@
         <header>
             <div class="header-container">
                 <div class="logo">
-                    <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                    <img src="../images/wpe_logo_colour.png" alt="WPE Logo">
                     <h1>WPE</h1>
                 </div>
                 <nav>
@@ -111,21 +109,21 @@
                 <div class="sidebar-widget">
                     <h3>Browse By</h3>
                     <ul class="filter-menu">
-                        <li class="active"><a href="#" data-filter="all">All Posts <span>(42)</span></a></li>
-                        <li><a href="#" data-filter="news">News <span>(15)</span></a></li>
-                        <li><a href="#" data-filter="blog">Blog <span>(12)</span></a></li>
-                        <li><a href="#" data-filter="event">Events <span>(8)</span></a></li>
-                        <li><a href="#" data-filter="achievement">Achievements <span>(7)</span></a></li>
+                        <li class="active"><a href="#" data-filter="all">All Posts</a></li>
+                        <li><a href="#" data-filter="news">News</a></li>
+                        <li><a href="#" data-filter="blog">Blog</a></li>
+                        <li><a href="#" data-filter="event">Events</a></li>
+                        <li><a href="#" data-filter="achievement">Achievements</a></li>
                     </ul>
                 </div>
                 
                 <div class="sidebar-widget">
                     <h3>Research Groups</h3>
                     <ul class="filter-menu">
-                        <li><a href="#" data-group="indoor-air">Indoor Air <span>(14)</span></a></li>
-                        <li><a href="#" data-group="bioresources">BioResources <span>(11)</span></a></li>
-                        <li><a href="#" data-group="public-health">Public Health <span>(9)</span></a></li>
-                        <li><a href="#" data-group="sanitation">Sanitation <span>(8)</span></a></li>
+                        <li><a href="#" data-group="indoor-air">Indoor Air</a></li>
+                        <li><a href="#" data-group="bioresources">BioResources</a></li>
+                        <li><a href="#" data-group="public-health">Public Health</a></li>
+                        <li><a href="#" data-group="sanitation">Sanitation</a></li>
                     </ul>
                 </div>
                 
@@ -172,15 +170,15 @@
                 <div class="sidebar-widget">
                     <h3>Popular Tags</h3>
                     <div class="tag-cloud">
-                        <a href="#" class="tag" data-tag="research">Research <span>(18)</span></a>
-                        <a href="#" class="tag" data-tag="ecr">ECR <span>(12)</span></a>
-                        <a href="#" class="tag" data-tag="publication">Publications <span>(10)</span></a>
-                        <a href="#" class="tag" data-tag="awards">Awards <span>(7)</span></a>
-                        <a href="#" class="tag" data-tag="collaboration">Collaboration <span>(6)</span></a>
-                        <a href="#" class="tag" data-tag="conference">Conference <span>(6)</span></a>
-                        <a href="#" class="tag" data-tag="grant">Grants <span>(5)</span></a>
-                        <a href="#" class="tag" data-tag="community">Community <span>(4)</span></a>
-                        <a href="#" class="tag" data-tag="innovation">Innovation <span>(4)</span></a>
+                        <a href="#" class="tag" data-tag="research">Research</a>
+                        <a href="#" class="tag" data-tag="ecr">ECR</a>
+                        <a href="#" class="tag" data-tag="publication">Publications</a>
+                        <a href="#" class="tag" data-tag="awards">Awards</a>
+                        <a href="#" class="tag" data-tag="collaboration">Collaboration</a>
+                        <a href="#" class="tag" data-tag="conference">Conference</a>
+                        <a href="#" class="tag" data-tag="grant">Grants</a>
+                        <a href="#" class="tag" data-tag="community">Community</a>
+                        <a href="#" class="tag" data-tag="innovation">Innovation</a>
                     </div>
                 </div>
                 
@@ -225,11 +223,17 @@
                 <!-- Posts Grid (Default View) -->
                 <div class="posts-grid" id="posts-container">
                     <!-- ECR Branding Post -->
-                    <div class="post-card" data-category="blog" data-date="2025-03-22" data-group="all" data-tags="ecr,branding,design">
-                        <div class="post-image">
-                            <img src="../images/news-blog/ecr-branding.jpg" alt="ECR Branding Project">
+                    <div class="post-card" data-category="blog" data-date="2025-04-12" data-group="all" data-tags="sustainability,resources,data">
+                        <div class="post-content">
                             <div class="post-category blog">Blog</div>
+                            <h3><a href="posts/overshoot_2025.html">Country Overshoot Days: Understanding Our Resource Consumption</a></h3>
+                            <div class="post-meta"><span class="post-date">April 12, 2025</span></div>
+                            <p>An interactive look at the date each country would exhaust the Earth's resources if everyone consumed at its rate.</p>
+                            <a href="posts/overshoot_2025.html" class="read-more">Read More</a>
                         </div>
+                    </div>
+                    <div class="post-card" data-category="blog" data-date="2025-03-22" data-group="all" data-tags="ecr,branding,design">
+                    <div class="post-category blog">Blog</div>
                         <div class="post-content">
                             <h3><a href="posts/ecr-branding-project.html">Behind the Brand: How Our ECRs Developed the WPE Visual Identity</a></h3>
                             <div class="post-meta">
@@ -242,123 +246,7 @@
                     </div>
                     
                     <!-- Grant Announcement -->
-                    <div class="post-card" data-category="news" data-date="2025-03-20" data-group="bioresources" data-tags="grant,research,innovation">
-                        <div class="post-image">
-                            <img src="../images/news-blog/grant-announcement.jpg" alt="New Research Grant">
-                            <div class="post-category news">News</div>
-                        </div>
-                        <div class="post-content">
-                            <h3><a href="posts/major-research-grant.html">WPE Secures £1.2M Grant for Advanced Resource Recovery Research</a></h3>
-                            <div class="post-meta">
-                                <span class="post-date">March 20, 2025</span>
-                                <span class="post-author">Admin</span>
-                            </div>
-                            <p>The BioResources group has been awarded a substantial grant to expand research facilities and develop innovative technologies for resource recovery from waste streams...</p>
-                            <a href="posts/major-research-grant.html" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                    
-                    <!-- International Collaboration -->
-                    <div class="post-card" data-category="news" data-date="2025-03-15" data-group="sanitation" data-tags="collaboration,research,global">
-                        <div class="post-image">
-                            <img src="../images/news-blog/international-collab.jpg" alt="International Collaboration">
-                            <div class="post-category news">News</div>
-                        </div>
-                        <div class="post-content">
-                            <h3><a href="posts/cape-town-collaboration.html">New Partnership with University of Cape Town Addresses Global Sanitation Challenges</a></h3>
-                            <div class="post-meta">
-                                <span class="post-date">March 15, 2025</span>
-                                <span class="post-author">Prof. Barbara Evans</span>
-                            </div>
-                            <p>We're excited to announce a five-year collaborative research program with the University of Cape Town, focusing on sustainable sanitation solutions for developing regions...</p>
-                            <a href="posts/cape-town-collaboration.html" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Upcoming Conference -->
-                    <div class="post-card" data-category="event" data-date="2025-03-12" data-group="public-health" data-tags="conference,event,urban">
-                        <div class="post-image">
-                            <img src="../images/news-blog/upcoming-conference.jpg" alt="Environmental Health Conference">
-                            <div class="post-category event">Event</div>
-                        </div>
-                        <div class="post-content">
-                            <h3><a href="posts/envhealth-conference.html">WPE to Host International Conference on Urban Environmental Health</a></h3>
-                            <div class="post-meta">
-                                <span class="post-date">March 12, 2025</span>
-                                <span class="post-author">Admin</span>
-                            </div>
-                            <p>Mark your calendars! On May 28-30, 2025, our department will host researchers from around the world for a conference focused on urban environmental health challenges...</p>
-                            <a href="posts/envhealth-conference.html" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                    
-                    <!-- PhD Student Award -->
-                    <div class="post-card" data-category="achievement" data-date="2025-03-07" data-group="indoor-air" data-tags="awards,ecr,phd,research">
-                        <div class="post-image">
-                            <img src="../images/news-blog/phd-award.jpg" alt="PhD Student Award">
-                            <div class="post-category achievement">Achievement</div>
-                        </div>
-                        <div class="post-content">
-                            <h3><a href="posts/maria-lopez-award.html">WPE PhD Researcher Receives Prestigious Young Researcher Award</a></h3>
-                            <div class="post-meta">
-                                <span class="post-date">March 7, 2025</span>
-                                <span class="post-author">Dr. Amirul Khan</span>
-                            </div>
-                            <p>A WPE PhD researcher from our Indoor Air group has been recognized with the 2025 Young Researcher Award for innovative work on indoor air quality monitoring...</p>
-                            <a href="posts/maria-lopez-award.html" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Research Blog Post -->
-                    <div class="post-card" data-category="blog" data-date="2025-02-28" data-group="indoor-air" data-tags="research,technology,sensors">
-                        <div class="post-image">
-                            <img src="../images/news-blog/research-blog.jpg" alt="Research Methods Blog">
-                            <div class="post-category blog">Blog</div>
-                        </div>
-                        <div class="post-content">
-                            <h3><a href="posts/sensing-techniques.html">Advanced Sensing Techniques for Indoor Air Quality Research</a></h3>
-                            <div class="post-meta">
-                                <span class="post-date">February 28, 2025</span>
-                                <span class="post-author">Dr. Amirul Khan</span>
-                            </div>
-                            <p>A deep dive into the latest sensing technologies our Indoor Air group is using to monitor pollutants with unprecedented accuracy and lower costs...</p>
-                            <a href="posts/sensing-techniques.html" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                    
-                    <!-- New Faculty Member -->
-                    <div class="post-card" data-category="news" data-date="2025-02-20" data-group="public-health" data-tags="faculty,people">
-                        <div class="post-image">
-                            <img src="../images/news-blog/new-faculty.jpg" alt="New Faculty Member">
-                            <div class="post-category news">News</div>
-                        </div>
-                        <div class="post-content">
-                            <h3><a href="posts/new-faculty-member.html">WPE Welcomes Dr. Franja Prosenc to the BioResources Group</a></h3>
-                            <div class="post-meta">
-                                <span class="post-date">February 20, 2025</span>
-                                <span class="post-author">Admin</span>
-                            </div>
-                            <p>We are delighted to announce that Dr. Franja Prosenc has joined our department as a University Academic Fellow in the BioResources group, bringing expertise in bioresource recovery...</p>
-                            <a href="posts/new-faculty-member.html" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Workshop Announcement -->
-                    <div class="post-card" data-category="event" data-date="2025-02-15" data-group="all" data-tags="ecr,workshop,skills">
-                        <div class="post-image">
-                            <img src="../images/news-blog/ecr-showcase.jpg" alt="ECR Showcase">
-                            <div class="post-category event">Event</div>
-                        </div>
-                        <div class="post-content">
-                            <h3><a href="posts/ecr-showcase-2024.html">2025 ECR Research Showcase - Call for Participants</a></h3>
-                            <div class="post-meta">
-                                <span class="post-date">February 15, 2025</span>
-                                <span class="post-author">Admin</span>
-                            </div>
-                            <p>Our annual ECR Research Showcase will take place on April 5, 2025. PhD students and postdoctoral researchers are invited to present their work through posters or short talks...</p>
-                            <a href="posts/ecr-showcase-2025.html" class="read-more">Read More</a>
-                        </div>
-                    </div>
+
                     
                     <!-- Additional post card examples would continue here -->
                 </div>
@@ -387,7 +275,7 @@
     <div class="footer-container">
         <div class="footer-section">
             <div class="footer-logo">
-                <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                <img src="../images/wpe_logo_colour.png" alt="WPE Logo">
                 <h3>WPE</h3>
             </div>
             <p>Water, Public Health and Environmental Engineering Research Group</p>

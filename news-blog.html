@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- News & Blog specific styles -->
     <link rel="stylesheet" href="css/news-blog.css">
-    <!-- Include script -->
-    <script src="js/include.js" defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -136,12 +134,20 @@
             <h2 class="section-title">Latest Posts</h2>
             
             <div class="posts-grid" id="posts-container">
+                <!-- Country Overshoot Days -->
+                <div class="post-card" data-category="blog">
+                    <div class="post-content">
+                        <h3><a href="news-blog/posts/overshoot_2025.html">Country Overshoot Days: Understanding Our Resource Consumption</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">April 12, 2025</span>
+                        </div>
+                        <p>An interactive look at the date each country would exhaust the Earth's resources if everyone consumed at its rate.</p>
+                        <a href="news-blog/posts/overshoot_2025.html" class="read-more">Read More</a>
+                    </div>
+                </div>
                 <!-- ECR Branding Post -->
                 <div class="post-card" data-category="blog">
-                    <div class="post-image">
-                        <img src="images/news-blog/ecr-branding.jpg" alt="ECR Branding Project">
-                        <div class="post-category blog">Blog</div>
-                    </div>
+                    <div class="post-category blog">Blog</div>
                     <div class="post-content">
                         <h3><a href="news-blog/posts/ecr-branding-project.html">Behind the Brand: How Our ECRs Developed the WPE Visual Identity</a></h3>
                         <div class="post-meta">
@@ -153,17 +159,7 @@
                     </div>
                 </div>
                 
-                <!-- Research Blog Post (sensing-techniques removed — post not yet written) -->
-                <div class="post-card" data-category="blog" style="display:none;">
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">February 28, 2025</span>
-                            <span class="post-author">Dr. Amirul Khan</span>
-                        </div>
-                        <p>A deep dive into the latest sensing technologies our Indoor Air group is using to monitor pollutants with unprecedented accuracy and lower costs...</p>
-                        <a href="news-blog/posts/sensing-techniques.html" class="read-more">Read More</a>
-                    </div>
-                </div>
+                
             </div>
             
             <!-- Load More Button -->

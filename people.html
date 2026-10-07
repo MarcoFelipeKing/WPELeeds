@@ -114,9 +114,8 @@
                     <div class="filter-options">
                         <button class="filter-btn active" data-group="all">All Groups</button>
                         <button class="filter-btn" data-group="indoor-air">Indoor Air</button>
-                        <button class="filter-btn" data-group="bioresources">BioResources</button>
-                        <button class="filter-btn" data-group="public-health">Public Health</button>
-                        <button class="filter-btn" data-group="sanitation">Sanitation</button>
+                        <button class="filter-btn" data-group="bioresources">BioResources &amp; Circular Economy</button>
+                        <button class="filter-btn" data-group="sanitation">Sanitation &amp; WASH</button>
                         <button class="filter-btn" data-group="water">Water</button>
                     </div>
                 </div>
@@ -129,6 +128,12 @@
         </section>
 
         <!-- Team Collaboration Network -->
+<!-- Collaboration network hidden on 7 October 2026.
+     js/network.js contains hardcoded, fabricated data: invented people (Dr Katharine Booker,
+     Dr Peter Martin, Dr Felix Mietzel), researchers from other universities (Prof Joby Boxall,
+     Dr Martin Crapper) and invented publication counts. Restore this section once it is driven
+     by real co-authorship data. The markup below is unchanged. -->
+<!--
 <section class="network-section">
     <h2 class="section-title">Research Collaboration Network</h2>
     <p class="network-intro">Explore the collaborative connections between our researchers across different research groups.</p>
@@ -209,14 +214,16 @@
         </div>
     </div>
 </section>
+-->
+
         
         <!-- People Directory -->
         <section class="people-directory">
             <div class="people-grid">
                 <!-- Academic Staff -->
-                <div class="person-card" data-role="academic" data-group="public-health">
+                <div class="person-card" data-role="academic" data-group="indoor-air">
                     <div class="person-image">
-                        <img src="images/people/profile_marco-felipe_king.png" alt="Dr. Marco-Felipe King">
+                        <img src="images/people/square/King_Marco-Felipe.jpg" alt="Dr. Marco-Felipe King" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -226,7 +233,7 @@
                     <div class="person-info">
                         <h3>Dr. Marco-Felipe King</h3>
                         <div class="person-title">Lecturer in Building Engineering and Infection Transmission; Co-director, CDT Future Fluid Dynamics</div>
-                        <div class="person-group public-health">Public Health</div>
+                        <div class="person-group indoor-air">Indoor Air</div>
                         <p>Research focuses on particulate matter dynamics in indoor environments and their health impacts.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
@@ -234,7 +241,7 @@
                 
                 <div class="person-card" data-role="academic" data-group="bioresources">
                     <div class="person-image">
-                        <img src="images/people/Cynthia-700x467.jpg" alt="Dr. Cynthia">
+                        <img src="images/people/Cynthia-700x467.jpg" alt="Dr. Cynthia Okoro-Shekwaga" loading="lazy">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -246,13 +253,13 @@
                         <div class="person-title">BBSRC Discovery Fellow &amp; University Academic Fellow</div>
                         <div class="person-group bioresources">BioResources</div>
                         <p>Specialises in biological waste treatment processes and resource recovery from waste streams.</p>
-                        <a href="#" class="person-profile-link">View Profile</a>
+                        <a href="spotlights/cynthia/index.html" class="person-profile-link">View Profile</a>
                     </div>
                 </div>
                 
                 <div class="person-card" data-role="academic" data-group="indoor-air">
                     <div class="person-image">
-                        <img src="images/people/amir.jpeg" alt="Dr. Amir Khan">
+                        <img src="images/people/square/Khan_Amirul.jpg" alt="Dr. Amirul Khan" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -270,7 +277,7 @@
                 
                 <div class="person-card" data-role="academic" data-group="indoor-air">
                     <div class="person-image">
-                        <img src="images/people/cath_noakes.jpg" alt="Prof. Catherine Noakes">
+                        <img src="images/people/square/Noakes_Catherine.jpg" alt="Prof. Catherine Noakes OBE" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -286,9 +293,9 @@
                     </div>
                 </div>
 
-                <div class="person-card" data-role="emeritus" data-group="public-health">
+                <div class="person-card" data-role="emeritus" data-group="sanitation">
                     <div class="person-image">
-                        <img src="images/people/jamie_bartram.jpg" alt="Prof. Jamie Bartram">
+                        <img src="images/people/jamie_bartram.jpg" alt="Prof. Jamie Bartram" loading="lazy">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -298,7 +305,7 @@
                     <div class="person-info">
                         <h3>Prof. Jamie Bartram</h3>
                         <div class="person-title">Professor of Public Health and Environment (Retired)</div>
-                        <div class="person-group public-health">Public Health</div>
+                        <div class="person-group sanitation">Sanitation &amp; WASH</div>
                         <p>Former Director of the WHO Collaborating Centre for Water and Health; internationally recognised leader in water, sanitation and hygiene.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
@@ -306,7 +313,7 @@
 
                 <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/martin_tillotson.jpeg" alt="Prof. Matrin Tillotson">
+                        <img src="images/people/square/Tillotson_Martin.jpg" alt="Prof. Martin Tillotson" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -324,7 +331,7 @@
 
                 <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/mohsen.jpg" alt="Dr. Mohsen Besharat">
+                        <img src="images/people/square/Besharat_Mohsen.jpg" alt="Dr. Mohsen Besharat" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -342,7 +349,7 @@
 
                 <div class="person-card" data-role="academic" data-group="indoor-air">
                     <div class="person-image">
-                        <img src="images/people/doug_booker.jpg" alt="Dr. Douglas Booker">
+                        <img src="images/people/square/Booker_Douglas.jpg" alt="Dr. Douglas Booker" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -360,7 +367,7 @@
 
                 <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/maryam_asachi.jpg" alt="Dr. Maryam Asachi">
+                        <img src="images/people/square/Asachi_Maryam.jpg" alt="Dr. Maryam Asachi" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:M.Asachi@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -376,7 +383,7 @@
 
                 <div class="person-card" data-role="academic" data-group="bioresources">
                     <div class="person-image">
-                        <img src="images/people/akintunde_babatunde.jpg" alt="Dr. Akintunde Babatunde">
+                        <img src="images/people/square/Babatunde_Akintunde.jpg" alt="Dr. Akintunde Babatunde" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:A.Babatunde@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -392,7 +399,7 @@
 
                 <div class="person-card" data-role="academic" data-group="sanitation">
                     <div class="person-image">
-                        <img src="images/people/dani_barrington.jpg" alt="Dr. Dani Barrington">
+                        <img src="images/people/square/Barrington_Dani.jpg" alt="Dr. Dani Barrington" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:D.J.Barrington@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -400,7 +407,7 @@
                     <div class="person-info">
                         <h3>Dr. Dani Barrington</h3>
                         <div class="person-title">Visiting Lecturer in Water, Sanitation &amp; Health</div>
-                        <div class="person-group sanitation">Sanitation</div>
+                        <div class="person-group sanitation">Sanitation &amp; WASH</div>
                         <p>Research on water, sanitation and hygiene in low- and middle-income country contexts.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
@@ -408,7 +415,7 @@
 
                 <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/shashank_bettadapura.jpg" alt="Dr. Shashank Bettadapura Subramanyam">
+                        <img src="images/people/square/Bettadapura-Subramanyam_Shashank.jpg" alt="Dr. Shashank Bettadapura Subramanyam" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:S.B.Subramanyam@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -422,9 +429,9 @@
                     </div>
                 </div>
 
-                <div class="person-card" data-role="academic" data-group="indoor-air">
+                <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/duncan_borman.jpg" alt="Dr. Duncan Borman">
+                        <img src="images/people/square/Borman_Duncan.jpg" alt="Dr. Duncan Borman" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:D.J.Borman@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -432,7 +439,7 @@
                     <div class="person-info">
                         <h3>Dr. Duncan Borman</h3>
                         <div class="person-title">Associate Professor</div>
-                        <div class="person-group indoor-air">Indoor Air</div>
+                        <div class="person-group water">Water</div>
                         <p>Computational fluid dynamics applied to indoor and outdoor airflow environments.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
@@ -440,7 +447,7 @@
 
                 <div class="person-card" data-role="academic" data-group="bioresources">
                     <div class="person-image">
-                        <img src="images/people/miller_1.jpg" alt="Dr. Miller Alonso Camargo-Valero">
+                        <img src="images/people/square/Camargo-Valero_Miller-Alonso.jpg" alt="Dr. Miller Alonso Camargo-Valero" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:M.A.Camargo-Valero@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -456,7 +463,7 @@
 
                 <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/xiaohui_chen.jpg" alt="Dr. Xiaohui Chen">
+                        <img src="images/people/square/Chen_Xiaohui.jpg" alt="Dr. Xiaohui Chen" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:X.Chen@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -470,9 +477,9 @@
                     </div>
                 </div>
 
-                <div class="person-card" data-role="academic" data-group="public-health">
+                <div class="person-card" data-role="academic" data-group="sanitation">
                     <div class="person-image">
-                        <img src="images/people/barbara_evans.jpg" alt="Prof. Barbara Evans">
+                        <img src="images/people/square/Evans_Barbara.jpg" alt="Prof. Barbara Evans" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:B.E.Evans@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -480,15 +487,15 @@
                     <div class="person-info">
                         <h3>Prof. Barbara Evans</h3>
                         <div class="person-title">Professor of Public Health Engineering</div>
-                        <div class="person-group public-health">Public Health</div>
+                        <div class="person-group sanitation">Sanitation &amp; WASH</div>
                         <p>Research on sanitation, hygiene and public health engineering in global development contexts.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
                 </div>
 
-                <div class="person-card" data-role="academic" data-group="public-health">
+                <div class="person-card" data-role="academic" data-group="bioresources">
                     <div class="person-image">
-                        <img src="images/people/louise_fletcher.jpg" alt="Dr. Louise Fletcher">
+                        <img src="images/people/square/Fletcher_Louise.jpg" alt="Dr. Louise Fletcher" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:L.A.Fletcher@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -496,7 +503,7 @@
                     <div class="person-info">
                         <h3>Dr. Louise Fletcher</h3>
                         <div class="person-title">Lecturer in Environmental Engineering</div>
-                        <div class="person-group public-health">Public Health</div>
+                        <div class="person-group bioresources">BioResources</div>
                         <p>Research in environmental engineering with a focus on water quality and public health outcomes.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
@@ -504,7 +511,7 @@
 
                 <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/john_forth.jpg" alt="Prof. John Forth">
+                        <img src="images/people/square/Forth_John.jpg" alt="Prof. John Forth" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:J.P.Forth@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -520,7 +527,7 @@
 
                 <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/ana_heitor.jpg" alt="Dr. Ana Heitor">
+                        <img src="images/people/square/Heitor_Ana.jpg" alt="Dr. Ana Heitor" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:A.Heitor@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -534,9 +541,9 @@
                     </div>
                 </div>
 
-                <div class="person-card" data-role="academic" data-group="public-health">
+                <div class="person-card" data-role="academic" data-group="sanitation">
                     <div class="person-image">
-                        <img src="images/people/paul_hutchings.jpg" alt="Dr. Paul Hutchings">
+                        <img src="images/people/square/Hutchings_Paul.jpg" alt="Dr. Paul Hutchings" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:P.Hutchings@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -544,22 +551,22 @@
                     <div class="person-info">
                         <h3>Dr. Paul Hutchings</h3>
                         <div class="person-title">Associate Professor in Water, Sanitation &amp; Health</div>
-                        <div class="person-group public-health">Public Health</div>
+                        <div class="person-group sanitation">Sanitation &amp; WASH</div>
                         <p>Research on water, sanitation and hygiene access, governance and behaviour change.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
                 </div>
 
-                <div class="person-card" data-role="academic" data-group="water">
+                <div class="person-card" data-role="emeritus" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/kris_moodley.jpg" alt="Kris Moodley">
+                        <img src="images/people/square/_placeholder.svg" alt="Kris Moodley" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:K.Moodley@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                     <div class="person-info">
                         <h3>Kris Moodley</h3>
-                        <div class="person-title">Senior Lecturer (Teaching + Scholarship)</div>
+                        <div class="person-title">Visiting Professor</div>
                         <div class="person-group water">Water</div>
                         <p>Teaching and scholarship in civil and environmental engineering.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
@@ -568,14 +575,14 @@
 
                 <div class="person-card" data-role="emeritus" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/andy_sleigh.jpg" alt="Prof. Andy Sleigh">
+                        <img src="images/people/square/_placeholder.svg" alt="Prof. Andy Sleigh" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:P.A.Sleigh@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                     <div class="person-info">
                         <h3>Prof. Andy Sleigh</h3>
-                        <div class="person-title">Professor of Computational Hydraulics (Retired)</div>
+                        <div class="person-title">Visiting Professor, Computational Hydraulics</div>
                         <div class="person-group water">Water</div>
                         <p>Research in computational hydraulics and water engineering.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
@@ -584,7 +591,7 @@
 
                 <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/doug_stewart.jpg" alt="Prof. Doug Stewart">
+                        <img src="images/people/square/Stewart_Doug.jpg" alt="Prof. Doug Stewart" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:D.I.Stewart@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -600,7 +607,7 @@
 
                 <div class="person-card" data-role="academic" data-group="water">
                     <div class="person-image">
-                        <img src="images/people/mark_trigg.jpg" alt="Prof. Mark Trigg">
+                        <img src="images/people/square/Trigg_Mark.jpg" alt="Prof. Mark Trigg" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:M.Trigg@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -614,10 +621,158 @@
                     </div>
                 </div>
 
-                <!-- PhD Students -->
-                <div class="person-card" data-role="phd" data-group="public-health">
+                <!-- Added from the official WPE copy. Job title and role filter to be confirmed. -->
+                <div class="person-card" data-role="academic" data-group="indoor-air">
                     <div class="person-image">
-                        <img src="images/people/jack_dalton.jpg" alt="Jack Dalton">
+                        <img src="images/people/square/Hiwar_Waseem.jpg" alt="Dr. Waseem Hiwar" loading="lazy" width="600" height="600">
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Waseem Hiwar</h3>
+                        <div class="person-title"></div>
+                        <div class="person-group indoor-air">Indoor Air</div>
+                        <p>Airborne infection science in the aerobiology chamber.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Added from the official WPE copy. Job title and role filter to be confirmed. -->
+                <div class="person-card" data-role="academic" data-group="indoor-air">
+                    <div class="person-image">
+                        <img src="images/people/square/Tarn_Mark.jpg" alt="Dr. Mark Tarn" loading="lazy" width="600" height="600">
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Mark Tarn</h3>
+                        <div class="person-title"></div>
+                        <div class="person-group indoor-air">Indoor Air</div>
+                        <p>Single-particle bioaerosol detection on lab-on-a-chip devices.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Added from the official WPE copy. Job title and role filter to be confirmed. -->
+                <div class="person-card" data-role="academic" data-group="indoor-air">
+                    <div class="person-image">
+                        <img src="images/people/square/Rees_Simon.jpg" alt="Prof. Simon Rees" loading="lazy" width="600" height="600">
+                    </div>
+                    <div class="person-info">
+                        <h3>Prof. Simon Rees</h3>
+                        <div class="person-title"></div>
+                        <div class="person-group indoor-air">Indoor Air</div>
+                        <p>Low-carbon ventilation and building physics.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Added from the official WPE copy. Job title and role filter to be confirmed. -->
+                <div class="person-card" data-role="academic" data-group="indoor-air">
+                    <div class="person-image">
+                        <img src="images/people/square/Shahzad_Sally.jpg" alt="Dr. Sally Shahzad" loading="lazy" width="600" height="600">
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Sally Shahzad</h3>
+                        <div class="person-title"></div>
+                        <div class="person-group indoor-air">Indoor Air</div>
+                        <p>Building physics, thermal comfort and low-carbon ventilation.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Added from the official WPE copy. Job title and role filter to be confirmed. -->
+                <div class="person-card" data-role="academic" data-group="sanitation">
+                    <div class="person-image">
+                        <img src="images/people/square/Sylvester_Ruth.jpg" alt="Ruth Sylvester" loading="lazy" width="600" height="600">
+                    </div>
+                    <div class="person-info">
+                        <h3>Ruth Sylvester</h3>
+                        <div class="person-title"></div>
+                        <div class="person-group sanitation">Sanitation &amp; WASH</div>
+                        <p>Works across the sanitation service chain and the institutions that sustain it.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Added from the official WPE copy. Job title and role filter to be confirmed. -->
+                <div class="person-card" data-role="academic" data-group="sanitation">
+                    <div class="person-image">
+                        <img src="images/people/square/Grisaffi_Claire.jpg" alt="Claire Grisaffi" loading="lazy" width="600" height="600">
+                    </div>
+                    <div class="person-info">
+                        <h3>Claire Grisaffi</h3>
+                        <div class="person-title"></div>
+                        <div class="person-group sanitation">Sanitation &amp; WASH</div>
+                        <p>Regulation of faecal sludge emptying and transport services.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Added from the official WPE copy. Job title and role filter to be confirmed. -->
+                <div class="person-card" data-role="academic" data-group="bioresources">
+                    <div class="person-image">
+                        <img src="images/people/square/Velenturf_Anne.jpg" alt="Dr. Anne Velenturf" loading="lazy" width="600" height="600">
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Anne Velenturf</h3>
+                        <div class="person-title"></div>
+                        <div class="person-group bioresources">BioResources</div>
+                        <p>Circular economy, from offshore wind to the foundation industries.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Added 7 October 2026. Job title, role filter to be confirmed.
+                     A photograph exists in images/people/square/ but its source is flagged
+                     "check permission before publishing" in the photo roster, so the placeholder is used. -->
+                <div class="person-card" data-role="academic" data-group="sanitation">
+                    <div class="person-image">
+                        <img src="images/people/square/_placeholder.svg" alt="Dr. Zhe Zhan" loading="lazy" width="600" height="600">
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Zhe Zhan</h3>
+                        <div class="person-title"></div>
+                        <div class="person-group sanitation">Sanitation &amp; WASH</div>
+                        <p>Climate resilience of on-site sanitation: how floodwater interacts with pit latrines and septic tanks, combining field sampling in India and Uganda with CFD modelling.</p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Added 7 October 2026. Job title, role filter and a one-line description to be confirmed.
+                     A photograph exists in images/people/square/ but its source is flagged
+                     "check permission before publishing" in the photo roster, so the placeholder is used. -->
+                <div class="person-card" data-role="academic" data-group="bioresources">
+                    <div class="person-image">
+                        <img src="images/people/square/_placeholder.svg" alt="Dr. Ed Cook" loading="lazy" width="600" height="600">
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Ed Cook</h3>
+                        <div class="person-title"></div>
+                        <div class="person-group bioresources">BioResources</div>
+                        <p></p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Added 7 October 2026. Job title, role filter and a one-line description to be confirmed.
+                     A photograph exists in images/people/square/ but its source is flagged
+                     "check permission before publishing" in the photo roster, so the placeholder is used. -->
+                <div class="person-card" data-role="academic" data-group="bioresources">
+                    <div class="person-image">
+                        <img src="images/people/square/_placeholder.svg" alt="Josh Cottom" loading="lazy" width="600" height="600">
+                    </div>
+                    <div class="person-info">
+                        <h3>Josh Cottom</h3>
+                        <div class="person-title"></div>
+                        <div class="person-group bioresources">BioResources</div>
+                        <p></p>
+                        <a href="#" class="person-profile-link">View Profile</a>
+                    </div>
+                </div>
+
+
+
+                <!-- PhD Students -->
+                <div class="person-card" data-role="phd" data-group="indoor-air">
+                    <div class="person-image">
+                        <img src="images/people/jack_dalton.jpg" alt="Jack Dalton" loading="lazy">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -627,7 +782,7 @@
                     <div class="person-info">
                         <h3>Jack Dalton</h3>
                         <div class="person-title">PhD Candidate</div>
-                        <div class="person-group public-health">Public Health</div>
+                        <div class="person-group indoor-air">Indoor Air</div>
                         <p>Investigating the effects of ventilation systems on airborne pathogen transmission in healthcare settings.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
@@ -635,7 +790,7 @@
                 
                 <div class="person-card" data-role="phd" data-group="sanitation">
                     <div class="person-image">
-                        <img src="images/people/gettie_shiinda.jpg" alt="Gettie">
+                        <img src="images/people/gettie_shiinda.jpg" alt="Gettie Shiinda" loading="lazy">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -645,7 +800,7 @@
                     <div class="person-info">
                         <h3>Gettie Shiinda</h3>
                         <div class="person-title">PhD Candidate</div>
-                        <div class="person-group sanitation">Sanitation</div>
+                        <div class="person-group sanitation">Sanitation &amp; WASH</div>
                         <p>Researching microbial communities in anaerobic digesters for optimal biogas production.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
@@ -653,7 +808,7 @@
                 
                 <div class="person-card" data-role="phd" data-group="indoor-air">
                     <div class="person-image">
-                        <img src="images/people/anushi.jpeg" alt="Anushi">
+                        <img src="images/people/anushi.jpeg" alt="Anushi Khandare" loading="lazy">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -671,7 +826,7 @@
                 
                 <div class="person-card" data-role="past-phd" data-group="bioresources">
                     <div class="person-image">
-                        <img src="images/people/tatiana.jpg" alt="Tatiana Zúñiga">
+                        <img src="images/people/tatiana.jpg" alt="Dr. Tatiana Zúñiga" loading="lazy">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -688,7 +843,7 @@
                 </div>
                 <div class="person-card" data-role="past-phd" data-group="sanitation">
                     <div class="person-image">
-                        <img src="images/people/jemma.jpg" alt="Jemma Philips">
+                        <img src="images/people/jemma.jpg" alt="Dr. Jemma Philips" loading="lazy">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -698,14 +853,14 @@
                     <div class="person-info">
                         <h3>Dr. Jemma Philips</h3>
                         <div class="person-title">PhD Graduate</div>
-                        <div class="person-group sanitation">Sanitation</div>
+                        <div class="person-group sanitation">Sanitation &amp; WASH</div>
                         <p>Researched exposure to enteric pathogens through food and water in India.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
                 </div>
                 <div class="person-card" data-role="phd" data-group="indoor-air">
                     <div class="person-image">
-                        <img src="images/people/xiaoxuan.jpeg" alt="Jemma">
+                        <img src="images/people/xiaoxuan.jpeg" alt="Xiaoxuan Qin" loading="lazy">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -723,7 +878,7 @@
                 <!-- Postdoctoral Researchers 
                 <div class="person-card" data-role="postdoc" data-group="sanitation">
                     <div class="person-image">
-                        <img src="images/people/benjamin.jpg" alt="Dr. Benjamin">
+                        <img src="images/people/square/_placeholder.svg" alt="Dr. Benjamin" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -740,7 +895,7 @@
                     <div class="person-info">
                         <h3>Dr. Caroline Montoyo Pachongo</h3>
                         <div class="person-title">Postdoctoral Researcher</div>
-                        <div class="person-group sanitation">Sanitation</div>
+                        <div class="person-group sanitation">Sanitation &amp; WASH</div>
                         <p>Investigating advanced sensing technologies for real-time indoor air quality monitoring.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
                     </div>
@@ -748,7 +903,7 @@
                 
                 <div class="person-card" data-role="postdoc" data-group="bioresources">
                     <div class="person-image">
-                        <img src="images/people/franja.jpg" alt="Dr. Franja Prosenc">
+                        <img src="images/people/square/Prosenc_Franja.jpg" alt="Dr. Franja Prosenc" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:F.Prosenc@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -766,7 +921,7 @@
 
                 <div class="person-card" data-role="postdoc" data-group="bioresources">
                     <div class="person-image">
-                        <img src="images/people/johan_pasos.jpg" alt="Johan Pasos-Panqueva">
+                        <img src="images/people/square/_placeholder.svg" alt="Johan Pasos-Panqueva" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:J.A.Pasos-Panqueva@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -783,14 +938,14 @@
                 <!-- Staff -->
                 <div class="person-card" data-role="staff" data-group="all">
                     <div class="person-image">
-                        <img src="images/people/david_elliott.jpg" alt="Dr. David Elliott">
+                        <img src="images/people/square/_placeholder.svg" alt="Dr. David Elliott" loading="lazy" width="600" height="600">
                         <div class="person-social">
                             <a href="mailto:D.J.S.elliott@leeds.ac.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                     <div class="person-info">
                         <h3>Dr. David Elliott</h3>
-                        <div class="person-title">Lab Manager</div>
+                        <div class="person-title">Lab Technician</div>
                         <div class="person-group staff">Technical Staff</div>
                         <p>Oversees laboratory operations, equipment maintenance, and technical support across WPE research groups.</p>
                         <a href="#" class="person-profile-link">View Profile</a>
@@ -802,9 +957,15 @@
         <!-- Researcher Spotlight -->
         <section class="spotlight-section">
             <h2 class="section-title">Researcher Spotlight</h2>
-            <div style="text-align:center; padding: 3rem 1rem; background:#f7f9fc; border-radius:10px;">
-                <i class="fas fa-user-circle" style="font-size:3rem; color:#ccc; margin-bottom:1rem; display:block;"></i>
-                <p style="color:#777;">Spotlight interviews coming soon. Check back for in-depth conversations with our researchers.</p>
+            <div class="spotlight-card">
+                <a href="spotlights/cynthia/index.html" class="spotlight-link">
+                    <img src="images/spotlights/cynthia/kalerwe-market.jpg" alt="Fruit and vegetable waste at Kalerwe Market, Kampala" loading="lazy">
+                    <div class="spotlight-text">
+                        <h3>Dr Cynthia Okoro-Shekwaga</h3>
+                        <p>From a market in Kampala to off-grid milk cooling: turning organic waste into usable energy, and putting the equipment where the waste is.</p>
+                        <span class="spotlight-more">Read the spotlight</span>
+                    </div>
+                </a>
             </div>
         </section>
     </div>

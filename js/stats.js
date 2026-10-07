@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const progress = Math.min(timeElapsed / duration, 1);
             const value = Math.floor(progress * (end - start) + start);
             
-            el.textContent = value;
+            el.textContent = value + (el.dataset.suffix || '');
             
             if (progress < 1) {
                 requestAnimationFrame(animation);

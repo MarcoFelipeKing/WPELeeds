@@ -1,0 +1,10 @@
+# macOS artefacts
+.DS_Store
+
+# Full-resolution working copies of staff photographs.
+# Only the 600px square crops in images/people/square/ are published;
+# unreferenced files in the repo still get a public URL on GitHub Pages.
+images/people/originals/
+
+# Internal source data, not for publication
+Lab Equipment/
