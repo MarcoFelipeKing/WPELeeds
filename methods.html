@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Research Groups specific styles, reused for this page -->
     <link rel="stylesheet" href="css/research-groups.css">
+    <link rel="stylesheet" href="css/methods.css">
 </head>
 <body>
     <!-- Header -->
@@ -77,15 +78,20 @@
         <div class="page-header-content">
             <h2 class="display-text">Data-driven and Computational Methods</h2>
             <p>Physics tells us how the world should behave. Data tells us how it actually behaved.</p>
-            <div class="breadcrumb"><a href="index.html">Home</a> &gt; <a href="research-groups.html">Research Groups</a> &gt; <span>Data &amp; Computation</span></div>
+            <div class="breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">&rsaquo;</span> <a href="research-groups.html">Research Groups</a> <span aria-hidden="true">&rsaquo;</span> <span>Data &amp; Computation</span></div>
         </div>
     </section>
 
-    <main class="container">
+    <main class="container methods-main">
         <section class="intro-section">
             <p>From airflow in a hospital ward to contaminant transport through rock, we develop computational methods that combine physical understanding with experimental, field and sensor data. The result is models that are fast enough to inform decisions, physically meaningful enough to be trusted, and explicit about what remains uncertain.</p>
         </section>
 
+
+        <figure class="methods-figure">
+            <img src="images/research/cfd_q_criterion.jpg" alt="Computational fluid dynamics simulation of wind flowing around an array of cubic buildings, with streamlines coloured by velocity and vortex structures picked out" loading="lazy">
+            <figcaption>Simulated airflow around a building array: streamlines coloured by velocity magnitude, with the vortex structures that govern how pollutants and pathogens are carried between buildings.</figcaption>
+        </figure>
         <section class="research-group">
             <div class="group-header"><h2>Why this matters</h2></div>
             <div class="group-content">
@@ -114,6 +120,7 @@
         <section class="research-group">
             <div class="group-header"><h2>Our methods</h2></div>
             <div class="group-content">
+                <div class="method-grid">
                 <article class="method">
                     <h3>Physics-informed machine learning</h3>
                     <p>Physics-informed machine learning builds physical laws into the way a model learns, reducing the risk of predictions that fit the data but violate the behaviour of the real system. <strong>Xiaohui Chen</strong>, who leads the Geomodelling and Artificial Intelligence Group, develops physics-informed neural networks for unsaturated groundwater flow, ground consolidation and contaminant transport. <strong>Amirul Khan</strong> works on the numerical foundations of these methods, including how such models select the points they learn from. <strong>Mohsen Besharat</strong> applies them to hydraulics, predicting pressure, velocity and contaminant loads in transient and two-phase flows.</p>
@@ -122,6 +129,10 @@
                     <h3>Bayesian inference and model calibration</h3>
                     <p><strong>Marco-Felipe King</strong> uses Bayesian inference and simulation-based methods to calibrate models against experimental and field evidence, including microbial exposure and transmission models and the assumptions behind how microorganisms transfer between hands and surfaces. Rather than one apparently certain value, calibration returns a distribution of plausible values, so uncertainty is carried through into the prediction.</p>
                 </article>
+                <figure class="methods-figure float-right">
+                    <img src="images/research/chamber/IMG_1785.jpeg" alt="Interior of the aerobiology chamber arranged as an office, with wall-mounted airspeed sensors and controlled supply and extract" loading="lazy">
+                    <figcaption>Inside the aerobiology chamber, arranged as an office. Wall-mounted airspeed sensors and controlled ventilation give the measurements that models are calibrated and updated against.</figcaption>
+                </figure>
                 <article class="method">
                     <h3>Data assimilation and real-time inference</h3>
                     <p><strong>Marco-Felipe King</strong> and <strong>Amirul Khan</strong> develop data-assimilation methods for indoor environments, combining airflow simulation with carbon dioxide and other sensor measurements. The aim is an operational digital twin: a representation of an occupied space that updates from real-world data and forecasts where air, water or contaminants are likely to move.</p>
@@ -154,6 +165,7 @@
                     <h3>Statistical and chemometric inference</h3>
                     <p>Environmental datasets are large, noisy and shaped by overlapping sources. <strong>Maryam Asachi</strong> applies multivariate statistical, spectroscopic and chemometric methods to identify pollution sources, estimate their contributions to water quality, and turn complex analytical measurements into information that supports monitoring and treatment decisions.</p>
                 </article>
+                </div>
             </div>
         </section>
 
@@ -185,7 +197,7 @@
             <div class="group-header"><h2>Work with us</h2></div>
             <div class="group-content">
                 <p>We work with partners whose systems are difficult to model, only partly observed, or too computationally expensive to simulate at the speed required: making better use of sensor data, calibrating a complex model against observations, quantifying uncertainty, accelerating an existing simulation, developing predictive control or an operational digital twin, exploring a large design space, or optimising competing health, environmental, energy and cost objectives.</p>
-                <p><a href="contact.html">Discuss a research problem with us</a></p>
+                <p class="methods-cta"><a href="contact.html">Discuss a research problem with us</a> &middot; <a href="mailto:m.f.king@leeds.ac.uk">m.f.king@leeds.ac.uk</a></p>
             </div>
         </section>
     </main>
@@ -223,7 +235,7 @@
             <h3>Contact Us</h3>
             <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
             <p><i class="fas fa-map-marker"></i> Woodhouse Lane, LS2 9JT, Leeds, UK</p>
-            <p><i class="fas fa-envelope"></i> wpe-group@leeds.ac.uk</p>
+            <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
         </div>
     </div>
     <div class="copyright">
