@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When the flood reaches the latrine - WPE</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- News & Blog specific styles -->
+    <link rel="stylesheet" href="../../css/news-blog.css">
+    <!-- Post specific styles -->
+    <link rel="stylesheet" href="../../css/blog-post.css">
+</head>
+<body>
+    <!-- Header Include -->
+        <!-- Header -->
+        <header>
+            <div class="header-container">
+                <div class="logo">
+                    <img src="../../images/wpe_logo_colour.png" alt="WPE Logo">
+                    <h1>WPE</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="../../index.html" id="nav-home">Home</a></li>
+                        <li><a href="../../about.html" id="nav-about">About</a></li>
+                        <li><a href="../../research-groups.html" id="nav-research">Research Groups</a></li>
+                        <li><a href="../../people.html" id="nav-people">People</a></li>
+                        <li><a href="../../facilities.html" id="nav-facilities">Facilities</a></li>
+                        <li><a href="../../cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
+                        <li><a href="../../news-blog.html" id="nav-news">News & Blog</a></li>
+                        <li><a href="../../contact.html" id="nav-contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+        <!-- Script to highlight current page in navigation -->
+        <script>
+            // Get current page filename
+            const path = window.location.pathname;
+            const page = path.split("/").pop();
+            
+            // Remove any active classes
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Set active class based on current page
+            if (page === "" || page === "index.html") {
+                document.getElementById('nav-home').classList.add('active');
+            } else if (page === "about.html") {
+                document.getElementById('nav-about').classList.add('active');
+            } else if (page === "research-groups.html") {
+                document.getElementById('nav-research').classList.add('active');
+            } else if (page === "people.html") {
+                document.getElementById('nav-people').classList.add('active');
+            } else if (page === "facilities.html") {
+                document.getElementById('nav-facilities').classList.add('active');
+            } else if (page === "cake-meetings.html") {
+                document.getElementById('nav-cake').classList.add('active');
+            } else if (page === "news-blog.html") {
+                document.getElementById('nav-news').classList.add('active');
+            } else if (page === "contact.html") {
+                document.getElementById('nav-contact').classList.add('active');
+            }
+        </script>
+    
+    
+    <!-- Blog Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <div class="post-meta">
+                <span class="post-category blog">Research</span>
+                <span class="post-date">7 October 2026</span>
+            </div>
+            <h1>When the flood reaches the latrine</h1>
+            <div class="post-author-container">
+                <div class="post-author">
+                    <div class="author-info">
+                        <span class="author-name">Dr Zhe Zhan</span>
+                        <span class="author-role">Sanitation and WASH</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="main-content">
+                    <p class="post-intro">Most of the world's sanitation is not connected to a sewer. It sits in the ground underneath the household that uses it, in a pit latrine or a septic tank. That is fine until the water arrives. Zhe Zhan's research asks a question on-site sanitation was never designed to answer: when a flood comes, where does the waste go?</p>
+
+                    <h2>Starting in the pit</h2>
+                    <div class="post-image">
+                        <img src="../../images/news-blog/zhe/latrine-sampling.jpg" alt="A researcher in overalls, gloves and a mask crouching beside an open squat hole, taking a sample from the pit below" loading="lazy">
+                        <p class="image-caption">Sludge sampling during fieldwork. The physical and microbiological properties measured here are what the models are built on.</p>
+                    </div>
+                    <p>The work combines empirical fieldwork &mdash; sludge sampling and physical and microbiological analysis, in countries including India and Uganda &mdash; with numerical modelling. The fieldwork establishes what is actually in a pit and how it behaves; the modelling asks what happens to it under flood conditions nobody can stage on purpose.</p>
+
+                    <h2>One hour of flooding, simulated</h2>
+                    <p>Using computational fluid dynamics, Zhe simulated sludge washout from a pit latrine during a one-hour flood. The pit was represented on a single Cartesian mesh block with a cell size of 0.04 m. Floodwater stood at an elevation of 2 m at the start and end of the hour, rising to 3.3 m between 300 and 3,300 seconds.</p>
+                    <div class="post-image">
+                        <img src="../../images/news-blog/zhe/flood-sequence.png" alt="Eight cross-sections of a simulated pit latrine during flooding, from nought to 3,600 seconds, with sludge concentration shown from 0.5 to 120 kilograms per cubic metre" loading="lazy">
+                        <p class="image-caption">The pit in cross-section through one hour of flooding, at 0, 216, 288, 360, 900, 3,276, 3,348 and 3,600 seconds. Colour shows sludge concentration in kilograms per cubic metre: the dense layer sitting at the bottom of the pit at the start is stirred through the water column and carried out.</p>
+                    </div>
+                    <p>The sequence shows the mechanism, not just the outcome. The sludge does not simply float away when the water rises; it is drawn into suspension, and what leaves the pit leaves as a dilute but substantial load spread through the floodwater people are standing in.</p>
+
+                    <h2>And afterwards</h2>
+                    <p>The flood is not the end of it. Zhe also modelled sludge settling in a cylindrical reservoir, 0.036 m in radius and 0.248 m high, starting from a sludge concentration of 3.42 kg/m&sup3;, to find how quickly disturbed sludge resettles once the flood has passed.</p>
+                    <div class="post-image">
+                        <img src="../../images/news-blog/zhe/sludge-settling.jpg" alt="Geometry and mesh of a cylindrical reservoir, with sludge concentration shown at nought and 120 seconds, the sludge having settled towards the base" loading="lazy">
+                        <p class="image-caption">Batch settling in a cylindrical reservoir: the geometry and mesh, then sludge concentration at the start and after 120 seconds.</p>
+                    </div>
+                    <p>How fast solids resettle governs how long contamination stays mobile, and so how long after the water recedes a place remains hazardous.</p>
+
+                    <h2>Why it matters</h2>
+                    <p>Climate resilience for sanitation is usually discussed as whether a facility survives a flood. This work treats it as a question of what the facility releases during one, and how much. The aim is best practice for mitigating the risk of faecal contamination from flooded sanitation infrastructure, which only follows from being able to quantify contamination under different flood scenarios.</p>
+                    <p>It also sits at the junction of two of our themes: the sanitation service chain, and the computational methods used across the group.</p>
+                    <p><a href="../../sanitation.html">Sanitation and WASH</a> &middot; <a href="../../methods.html">Data-driven and computational methods</a> &middot; <a href="../../projects/urban-health.html">Urban environmental health</a> &middot; <a href="../../people.html">Meet the researchers</a></p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <img src="../../images/wpe_logo_colour.png" alt="WPE Logo">
+                <h3>WPE</h3>
+            </div>
+            <p>Water, Public Health and Environmental Engineering Research Group</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../research-groups.html">Research Groups</a></li>
+                <li><a href="../../news-blog.html">News & Blog</a></li>
+                <li><a href="../../people.html">People</a></li>
+                <li><a href="../../facilities.html">Facilities</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Events</h3>
+            <ul class="footer-links">
+                <li><a href="../../cake-meetings.html">Cake Meetings</a></li>
+            </ul>
+        </div>
+        <div class="footer-section footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
+            <p><i class="fas fa-map-marker"></i>Woodhouse Lane, LS2 9JT, Leeds, UK</p>
+            <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering  Research Group. All rights reserved.
+    </div>
+</footer>
+    
+    <!-- Blog Post JavaScript -->
+</body>
+</html> 

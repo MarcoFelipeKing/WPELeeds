@@ -1,0 +1,73 @@
+{
+  "generated": "2026-10-07",
+  "period": "2018 to 2025",
+  "source": "Symplectic research outputs matched to the WPE roster; doctoral researchers take the theme of their supervisor",
+  "counts": {
+    "outputs": 1895,
+    "peopleMatched": 60,
+    "staff": 36,
+    "students": 55
+  },
+  "nodes": [
+    {
+      "id": "BioResources",
+      "slug": "bioresources",
+      "people": 9,
+      "outputs": 155,
+      "within": 29
+    },
+    {
+      "id": "Indoor Air",
+      "slug": "indoor-air",
+      "people": 9,
+      "outputs": 195,
+      "within": 48
+    },
+    {
+      "id": "Sanitation & WASH",
+      "slug": "sanitation",
+      "people": 13,
+      "outputs": 221,
+      "within": 40
+    },
+    {
+      "id": "Water",
+      "slug": "water",
+      "people": 29,
+      "outputs": 390,
+      "within": 80
+    }
+  ],
+  "links": [
+    {
+      "source": "BioResources",
+      "target": "Indoor Air",
+      "value": 8
+    },
+    {
+      "source": "BioResources",
+      "target": "Sanitation & WASH",
+      "value": 18
+    },
+    {
+      "source": "BioResources",
+      "target": "Water",
+      "value": 6
+    },
+    {
+      "source": "Indoor Air",
+      "target": "Sanitation & WASH",
+      "value": 9
+    },
+    {
+      "source": "Indoor Air",
+      "target": "Water",
+      "value": 14
+    },
+    {
+      "source": "Sanitation & WASH",
+      "target": "Water",
+      "value": 6
+    }
+  ]
+}

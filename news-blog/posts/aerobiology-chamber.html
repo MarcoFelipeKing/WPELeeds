@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forty cubic metres of controlled air - WPE</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- News & Blog specific styles -->
+    <link rel="stylesheet" href="../../css/news-blog.css">
+    <!-- Post specific styles -->
+    <link rel="stylesheet" href="../../css/blog-post.css">
+</head>
+<body>
+    <!-- Header Include -->
+        <!-- Header -->
+        <header>
+            <div class="header-container">
+                <div class="logo">
+                    <img src="../../images/wpe_logo_colour.png" alt="WPE Logo">
+                    <h1>WPE</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="../../index.html" id="nav-home">Home</a></li>
+                        <li><a href="../../about.html" id="nav-about">About</a></li>
+                        <li><a href="../../research-groups.html" id="nav-research">Research Groups</a></li>
+                        <li><a href="../../people.html" id="nav-people">People</a></li>
+                        <li><a href="../../facilities.html" id="nav-facilities">Facilities</a></li>
+                        <li><a href="../../cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
+                        <li><a href="../../news-blog.html" id="nav-news">News & Blog</a></li>
+                        <li><a href="../../contact.html" id="nav-contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+        <!-- Script to highlight current page in navigation -->
+        <script>
+            // Get current page filename
+            const path = window.location.pathname;
+            const page = path.split("/").pop();
+            
+            // Remove any active classes
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Set active class based on current page
+            if (page === "" || page === "index.html") {
+                document.getElementById('nav-home').classList.add('active');
+            } else if (page === "about.html") {
+                document.getElementById('nav-about').classList.add('active');
+            } else if (page === "research-groups.html") {
+                document.getElementById('nav-research').classList.add('active');
+            } else if (page === "people.html") {
+                document.getElementById('nav-people').classList.add('active');
+            } else if (page === "facilities.html") {
+                document.getElementById('nav-facilities').classList.add('active');
+            } else if (page === "cake-meetings.html") {
+                document.getElementById('nav-cake').classList.add('active');
+            } else if (page === "news-blog.html") {
+                document.getElementById('nav-news').classList.add('active');
+            } else if (page === "contact.html") {
+                document.getElementById('nav-contact').classList.add('active');
+            }
+        </script>
+    
+    
+    <!-- Blog Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <div class="post-meta">
+                <span class="post-category blog">Research</span>
+                <span class="post-date">7 October 2026</span>
+            </div>
+            <h1>Forty cubic metres of controlled air</h1>
+            <div class="post-author-container">
+                <div class="post-author">
+                    <div class="author-info">
+                        <span class="author-name">Dr Marco-Felipe King</span>
+                        <span class="author-role">Indoor Air Quality and Airborne Infection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="main-content">
+                    <p class="post-intro">You cannot run a controlled experiment on an occupied hospital ward. You cannot release a tracer, repeat it eight times, move the ventilation rate and ask a patient to stay still. So we built a room where you can: a purpose-built Class II aerobiology chamber, five metres by three point two by two point five, where the air does exactly what we tell it to.</p>
+
+                    <div class="post-image">
+                        <img src="../../images/news-blog/chamber/manikin-sensors.jpg" alt="The darkened chamber with a heated thermal manikin glowing in the centre, surrounded by instruments suspended on chains at several heights" loading="lazy">
+                        <p class="image-caption">A heated thermal manikin at the centre of the chamber, surrounded by the sensor lattice. The manikin reproduces the buoyant plume of a real person, which is what carries exhaled aerosol upwards before the ventilation gets hold of it.</p>
+                    </div>
+
+                    <h2>Why a room and not a model</h2>
+                    <p>Airborne transmission happens at room scale. A droplet nucleus leaves someone's breath, is caught by the thermal plume rising off their body, and from there it goes wherever the room's air takes it: into the extract, into a corner, or into the breathing zone of the person in the next bed. Simulation can describe that. Only measurement can check it.</p>
+                    <p>The chamber gives us the half that real buildings cannot. Supply and extract are controlled, so we can set a ventilation rate and hold it. Two heated thermal manikins, which we call DINbots, stand in for occupants and generate the same buoyant plume a body does. Airspeed sensors and distributed air-quality monitoring record what actually happened, rather than what the design drawing says should have.</p>
+
+                    <div class="post-image">
+                        <img src="../../images/news-blog/chamber/chamber-sketch.jpg" alt="A hand-drawn sketch of the chamber on squared paper, marked 5,000 by 3,200 by 2,500 millimetres with inlet and outlet positions" loading="lazy">
+                        <p class="image-caption">The chamber as first sketched: 5,000 by 3,200 by 2,500 mm, with the inlet and outlet positions worked out on the page.</p>
+                    </div>
+
+                    <h2>Mapping a release, and checking the instruments</h2>
+                    <p>One of the first things a controlled room is good for is finding out whether your instruments agree with each other. In a series of tracer experiments we released carbon dioxide at the inlet and logged it on four different sensor types at once &mdash; co-located on a table in the centre first, to compare like with like, and then distributed through the volume in a lattice.</p>
+                    <div class="post-image">
+                        <img src="../../images/news-blog/chamber/sensor-positions.jpg" alt="Three-dimensional scatter plot of sensor positions through the chamber volume, spanning five metres in length, over three in width and two and a half in height" loading="lazy">
+                        <p class="image-caption">Where the sensors went. Positions spread through the full volume, including floor and ceiling corners and chains hung at three heights, so the map covers the room rather than one convenient bench.</p>
+                    </div>
+                    <p>The chamber was run at six air changes per hour, with fifteen minutes to reach steady state, a timed release, and thirty minutes to return. Everything logged every two seconds. Repeat it with a manikin in the middle, and then with a person sitting in the room, and you can see how much the occupant changes the answer.</p>
+                    <p>That matters well beyond the chamber: cheap CO<sub>2</sub> sensors are now sold as a proxy for ventilation adequacy in classrooms and offices, and knowing how far apart two of them read in the same room, at the same moment, is the difference between a useful signal and a reassuring number.</p>
+
+                    <h2>From tracer gas to real organisms</h2>
+                    <div class="post-image">
+                        <img src="../../images/news-blog/chamber/chamber-equipment.jpg" alt="Sampling instruments mounted on tripods and stands inside the brightly lit chamber, with a wall-mounted fan above" loading="lazy">
+                        <p class="image-caption">Sampling equipment set up inside the chamber.</p>
+                    </div>
+                    <p>Carbon dioxide is a well-behaved stand-in, but it is not a pathogen. The chamber is rated for Class II work, so category II microorganisms can be aerosolised and then recovered: in the air with an Andersen six-stage impactor, which separates particles from 0.65 to 6 micrometres by the depth they would reach in a respiratory tract, and on surfaces with AMPAS, a sampling device developed here.</p>
+                    <p>Alongside those, a portable Plair Rapid-E+ detects and characterises particles from 0.3 to 100 micrometres in real time &mdash; bacteria, fungal spores, pollen, virus aerosol and microplastics &mdash; using scattered light and fluorescence. Because it is portable, the same measurement can be made in the chamber and then taken out to a hospital ward.</p>
+
+                    <h2>What we test in here</h2>
+                    <p>The chamber is where interventions get examined before anyone claims they work: ventilation strategies, air cleaning, and far-UVC disinfection at 222 nm. A device that reduces airborne counts in a sealed box at a manufacturer's bench may do very little in a ventilated room with a warm body in it, moving air around. Here we can put it in the room, run it against a control, and measure the difference.</p>
+
+                    <h2>The ward is the other half</h2>
+                    <p>None of this is useful on its own. A chamber is a simplification: no visitors, no doors opening, no beds being made. That is the point of it, and also its limit.</p>
+                    <p>The counterpart is fieldwork. In <a href="../../research/hecoira.html">HECOIRA</a>, an EPSRC project led by Catherine Noakes, the group spent eighteen months recording air quality on a surgical rehabilitation unit and a respiratory ward, sampling surfaces, air and hands, and observing how healthcare workers actually touch things during care. The chamber tells you what the physics does when nothing else interferes; the ward tells you what interferes.</p>
+                    <p>Put the two together and you can say something useful about a real building &mdash; which is the only claim worth making.</p>
+                    <p><a href="../../facilities.html">The chamber and our other facilities</a> &middot; <a href="../../indoor-air.html">Indoor Air Quality and Airborne Infection</a> &middot; <a href="../../methods.html">How we model it</a></p>
+                    <p class="hint">Interested in using the chamber? We share it with academic and industrial partners &mdash; <a href="mailto:m.f.king@leeds.ac.uk">m.f.king@leeds.ac.uk</a>.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <img src="../../images/wpe_logo_colour.png" alt="WPE Logo">
+                <h3>WPE</h3>
+            </div>
+            <p>Water, Public Health and Environmental Engineering Research Group</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../research-groups.html">Research Groups</a></li>
+                <li><a href="../../news-blog.html">News & Blog</a></li>
+                <li><a href="../../people.html">People</a></li>
+                <li><a href="../../facilities.html">Facilities</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Events</h3>
+            <ul class="footer-links">
+                <li><a href="../../cake-meetings.html">Cake Meetings</a></li>
+            </ul>
+        </div>
+        <div class="footer-section footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
+            <p><i class="fas fa-map-marker"></i>Woodhouse Lane, LS2 9JT, Leeds, UK</p>
+            <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering  Research Group. All rights reserved.
+    </div>
+</footer>
+    
+    <!-- Blog Post JavaScript -->
+</body>
+</html> 

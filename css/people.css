@@ -712,3 +712,41 @@
 .spotlight-text p { margin:0 0 1rem; color:#53525a; }
 .spotlight-more { font-weight:700; color:var(--primary-blue); }
 .spotlight-card .spotlight-link:hover .spotlight-more { text-decoration:underline; }
+
+/* Theme collaboration diagram (generated data; see network/build_collaboration.py) */
+.collab-section { margin: 3rem 0 2rem; }
+.collab-intro { max-width: 72ch; color: #53525a; }
+.collab-figure { margin: 1.2rem 0 0; }
+.collab-svg { width: 100%; height: auto; max-width: 680px; display: block; margin: 0 auto; }
+.collab-figure figcaption { max-width: 72ch; margin: .4rem auto 0; font-size: .88rem; color: #5b6b7a; }
+.collab-node-label { font-size: 15px; font-weight: 700; fill: #33424f; }
+.collab-node-value { font-size: 15px; font-weight: 700; fill: #fff; }
+.collab-value { font-size: 14px; font-weight: 700; fill: #33424f; paint-order: stroke; stroke: #fff; stroke-width: 4px; }
+.collab-zero { font-size: 12px; fill: #7b8893; paint-order: stroke; stroke: #fff; stroke-width: 4px; }
+
+/* interaction */
+.collab-node { cursor: pointer; }
+.collab-node .collab-disc, .collab-link-g path { transition: opacity .15s ease, stroke-width .15s ease; }
+.is-highlighting .collab-node:not(.is-on) { opacity: .3; }
+.is-highlighting .collab-link-g:not(.is-on) { opacity: .18; }
+.collab-node.is-on .collab-disc { stroke: #33424f; stroke-width: 4; }
+.collab-link-g.is-on path { stroke-opacity: .9; }
+.collab-node:focus { outline: none; }
+.collab-node:focus-visible .collab-disc { stroke: #16212b; stroke-width: 4; }
+.collab-node:focus-visible { outline: 3px solid #16212b; outline-offset: 4px; border-radius: 50%; }
+.collab-readout { max-width: 72ch; margin: .8rem auto 0; min-height: 3em; font-size: .95rem; color: #33424f; text-align: center; }
+.collab-readout strong { color: var(--primary-blue); }
+
+/* figures as a table, collapsed so it does not dominate the page */
+.collab-details { max-width: 560px; margin: .6rem auto 0; }
+.collab-details summary { cursor: pointer; font-size: .9rem; color: var(--primary-blue); padding: .4rem 0; }
+.collab-details summary:focus-visible { outline: 3px solid #16212b; outline-offset: 2px; }
+.collab-table { border-collapse: collapse; margin: .6rem 0 0; font-size: .92rem; width: 100%; }
+.collab-table caption { text-align: left; padding-bottom: .4rem; color: #5b6b7a; }
+.collab-table th, .collab-table td { text-align: left; padding: .45rem .8rem .45rem 0; border-bottom: 1px solid #e6ebef; font-weight: 400; }
+.collab-table thead th { font-size: .78rem; text-transform: uppercase; letter-spacing: .03em; color: #5b6b7a; border-bottom: 2px solid var(--primary-blue); }
+.collab-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.collab-note { max-width: 72ch; margin: 1rem auto 0; font-size: .85rem; color: #5b6b7a; }
+.collab-note code { font-size: .85em; }
+@media (max-width: 600px) { .collab-node-label { font-size: 13px; } .collab-readout { min-height: 4.5em; } }
+@media (prefers-reduced-motion: reduce) { .collab-node .collab-disc, .collab-link-g path { transition: none; } }

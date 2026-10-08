@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Overshoot Days 2026 - WPE</title>
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- News & Blog specific styles -->
+    <link rel="stylesheet" href="../../css/news-blog.css">
+    <!-- Post specific styles -->
+    <link rel="stylesheet" href="../../css/blog-post.css">
+    <script src="../../data/overshoot.js" defer></script>
+    <script src="../../js/overshoot.js" defer></script>
+</head>
+<body>
+    <!-- Header Include -->
+        <!-- Header -->
+        <header>
+            <div class="header-container">
+                <div class="logo">
+                    <img src="../../images/wpe_logo_colour.png" alt="WPE Logo">
+                    <h1>WPE</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="../../index.html" id="nav-home">Home</a></li>
+                        <li><a href="../../about.html" id="nav-about">About</a></li>
+                        <li><a href="../../research-groups.html" id="nav-research">Research Groups</a></li>
+                        <li><a href="../../people.html" id="nav-people">People</a></li>
+                        <li><a href="../../facilities.html" id="nav-facilities">Facilities</a></li>
+                        <li><a href="../../cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
+                        <li><a href="../../news-blog.html" id="nav-news">News & Blog</a></li>
+                        <li><a href="../../contact.html" id="nav-contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+        <!-- Script to highlight current page in navigation -->
+        <script>
+            // Get current page filename
+            const path = window.location.pathname;
+            const page = path.split("/").pop();
+            
+            // Remove any active classes
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Set active class based on current page
+            if (page === "" || page === "index.html") {
+                document.getElementById('nav-home').classList.add('active');
+            } else if (page === "about.html") {
+                document.getElementById('nav-about').classList.add('active');
+            } else if (page === "research-groups.html") {
+                document.getElementById('nav-research').classList.add('active');
+            } else if (page === "people.html") {
+                document.getElementById('nav-people').classList.add('active');
+            } else if (page === "facilities.html") {
+                document.getElementById('nav-facilities').classList.add('active');
+            } else if (page === "cake-meetings.html") {
+                document.getElementById('nav-cake').classList.add('active');
+            } else if (page === "news-blog.html") {
+                document.getElementById('nav-news').classList.add('active');
+            } else if (page === "contact.html") {
+                document.getElementById('nav-contact').classList.add('active');
+            }
+        </script>
+    
+    
+    <!-- Blog Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <div class="post-meta">
+                <span class="post-category blog">Data</span>
+                <span class="post-date">8 October 2026</span>
+            </div>
+            <h1>Country Overshoot Days 2026</h1>
+            <div class="post-author-container">
+                <div class="post-author">
+                    <div class="author-info">
+                        <span class="author-name">WPE</span>
+                        <span class="author-role">Water, Public Health and Environmental Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="main-content">
+                    <p class="post-intro">Earth Overshoot Day 2026 fell on <strong>30 July</strong>: the date by which humanity had used more from nature than the planet can renew in the year. That single date hides enormous variation. If everyone lived like the average resident of Qatar it would have arrived on <strong>4 February</strong>; like the average resident of Honduras, not until <strong>27 November</strong>; and for thirteen countries in the dataset, not at all.</p>
+
+                    <h2>How the date is worked out</h2>
+                    <p>The calculation is a ratio, not a forecast. Global Footprint Network divides the world's biocapacity per person by a country's Ecological Footprint per person and multiplies by the days in the year. A country whose people consume twice what the planet can regenerate per head reaches its overshoot day halfway through.</p>
+                    <p>The number of Earths follows directly: 365 divided by the day of the year. Qatar's 4 February works out at 10.4 Earths. The <strong>United Kingdom</strong> reaches 22 May, which is <strong>2.6 Earths</strong> &mdash; if everyone lived as we do in Britain, humanity would need more than two and a half planets.</p>
+
+                    <h2>Every country, on one timeline</h2>
+                    <p>Search for a country or filter by month. The dashed line marks the global Earth Overshoot Day.</p>
+                    <div id="overshoot"></div>
+
+                    <h2>What this has to do with us</h2>
+                    <div class="post-image">
+                        <img src="../../images/news-blog/overshoot/kalerwe-market.jpg" alt="Fruit and vegetable waste piled at Kalerwe Market in Kampala, with traders and researchers nearby" loading="lazy">
+                        <p class="image-caption">Fruit and vegetable waste at Kalerwe Market, Kampala, where our BioResources group characterised waste streams to assess their potential for biohydrogen recovery.</p>
+                    </div>
+                    <p>A footprint is the sum of a great many ordinary decisions about materials, energy, water and waste, and those are the systems we work on. Every tonne of organic waste left to rot is a resource already paid for and then thrown away: the land, water and energy that produced it are spent whether or not anything is recovered. Recovering energy and nutrients from that waste, as our <a href="../../bioresources.html">BioResources and Circular Economy</a> theme does, is one of the few interventions that improves both sides of the ledger at once.</p>
+                    <p>The same holds across the other themes: treating water with less energy, ventilating buildings without burning more of it, designing sanitation that recovers rather than discards. Each one shifts a footprint, and these dates are simply the arithmetic of those footprints.</p>
+
+                    <h2>Read the numbers carefully</h2>
+                    <p>Two caveats. First, Global Footprint Network recalculates past years as the National Footprint and Biocapacity Accounts improve, so a date published for 2026 is not directly comparable with one published years ago; they maintain a consistent back-series for that purpose. Second, a country overshoot day is a thought experiment rather than a measure of a country's total impact: it asks what would happen if everyone on Earth lived that way, which is why small, wealthy countries sit at the extreme end and why population size plays no part in it.</p>
+                    <p>Read that way &mdash; as a comparison of consumption intensity, not a league table of blame &mdash; it shows clearly where the leverage sits.</p>
+                    <p><a href="../../bioresources.html">BioResources and Circular Economy</a> &middot; <a href="../../projects/circular-buildings.html">Circular buildings</a> &middot; <a href="../../spotlights/cynthia/index.html">Turning waste into energy in Uganda</a></p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <img src="../../images/wpe_logo_colour.png" alt="WPE Logo">
+                <h3>WPE</h3>
+            </div>
+            <p>Water, Public Health and Environmental Engineering Research Group</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../research-groups.html">Research Groups</a></li>
+                <li><a href="../../news-blog.html">News & Blog</a></li>
+                <li><a href="../../people.html">People</a></li>
+                <li><a href="../../facilities.html">Facilities</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Events</h3>
+            <ul class="footer-links">
+                <li><a href="../../cake-meetings.html">Cake Meetings</a></li>
+            </ul>
+        </div>
+        <div class="footer-section footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
+            <p><i class="fas fa-map-marker"></i>Woodhouse Lane, LS2 9JT, Leeds, UK</p>
+            <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering  Research Group. All rights reserved.
+    </div>
+</footer>
+    
+    <!-- Blog Post JavaScript -->
+</body>
+</html> 
