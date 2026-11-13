@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="No photograph available">
-  <rect width="600" height="600" fill="#e8edf1"/>
-  <circle cx="300" cy="235" r="92" fill="#c2ced8"/>
-  <path d="M300 355c-104 0-188 68-188 152v93h376v-93c0-84-84-152-188-152z" fill="#c2ced8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Person outline placeholder">
+  <rect width="600" height="600" fill="#f2f6fa"/>
+  <circle cx="300" cy="300" r="240" fill="none" stroke="#dce5ee" stroke-width="4"/>
+  <!-- Head outline -->
+  <circle cx="300" cy="220" r="84" fill="none" stroke="#53525a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Shoulders / torso outline -->
+  <path d="M136 490c0-88 73-154 164-154s164 66 164 154" fill="none" stroke="#53525a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

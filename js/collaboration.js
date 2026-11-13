@@ -12,9 +12,14 @@
     const NS = 'http://www.w3.org/2000/svg';
     const COLOUR = {
         'Indoor Air': '#77AAD4',
-        'BioResources': '#6F8AC6',
+        'Indoor Air Quality & Airborne Infection': '#77AAD4',
+        'Water': '#6F8AC6',
+        'Water Supply & Treatment': '#6F8AC6',
         'Sanitation & WASH': '#8AC9C1',
-        'Water': '#5FA8B8'
+        'Sanitation, Wastewater & Faecal Sludge Management': '#8AC9C1',
+        'BioResources': '#9F90C5',
+        'BioResources & Circular Economy': '#9F90C5',
+        'BioResources & the Circular Economy': '#9F90C5'
     };
     const W = 680, H = 420, CX = W / 2, CY = H / 2 - 5, R = 140;
     const el = (name, attrs, text) => {

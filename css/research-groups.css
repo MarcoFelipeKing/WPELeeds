@@ -25,45 +25,45 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem;
+    justify-content: center;
+    text-align: center;
+    padding: 1.35rem 1rem;
     border-radius: 10px;
     text-decoration: none;
     color: white;
-    width: 140px;
+    width: 185px;
     transition: all 0.3s;
 }
 
 .group-nav-item i {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
 }
 
 .group-nav-item span {
     font-weight: 600;
+    font-size: 0.92rem;
+    line-height: 1.3;
 }
 
 .group-nav-item.indoor-air {
-    background-color: var(--primary-blue);
-}
-
-.group-nav-item.bioresources {
-    background-color: var(--secondary-blue);
-}
-
-.group-nav-item.public-health {
-    background-color: var(--purple);
-}
-
-.group-nav-item.sanitation {
-    background-color: var(--teal);
+    background-color: var(--theme-indoor-air, #77AAD4);
 }
 
 .group-nav-item.water {
-    background-color: var(--blue, #0072b2);
+    background-color: var(--theme-water, #6F8AC6);
+}
+
+.group-nav-item.sanitation {
+    background-color: var(--theme-sanitation, #8AC9C1);
+}
+
+.group-nav-item.bioresources {
+    background-color: var(--theme-bioresources, #9F90C5);
 }
 
 .group-nav-item.methods {
-    background-color: #2b4c6f;
+    background-color: var(--theme-methods, #53525a);
 }
 
 .group-nav-item:hover {
@@ -104,83 +104,73 @@
 
 /* Group color theming */
 .indoor-air-section .group-header h2 {
-    color: var(--primary-blue);
-    border-color: var(--primary-blue);
+    color: var(--theme-indoor-air, #77AAD4);
+    border-color: var(--theme-indoor-air, #77AAD4);
 }
 
 .indoor-air-section .group-icon {
-    background-color: rgba(119, 170, 212, 0.15);
-    color: var(--primary-blue);
-}
-
-.bioresources-section .group-header h2 {
-    color: var(--secondary-blue);
-    border-color: var(--secondary-blue);
-}
-
-.bioresources-section .group-icon {
-    background-color: rgba(111, 138, 198, 0.15);
-    color: var(--secondary-blue);
-}
-
-.public-health-section .group-header h2 {
-    color: var(--purple);
-    border-color: var(--purple);
-}
-
-.public-health-section .group-icon {
-    background-color: rgba(159, 144, 197, 0.15);
-    color: var(--purple);
-}
-
-.sanitation-section .group-header h2 {
-    color: var(--teal);
-    border-color: var(--teal);
-}
-
-.sanitation-section .group-icon {
-    background-color: rgba(138, 201, 193, 0.15);
-    color: var(--teal);
+    background-color: rgba(119, 170, 212, 0.18);
+    color: var(--theme-indoor-air, #77AAD4);
 }
 
 .water-section .group-header h2 {
-    color: var(--blue, #0072b2);
-    border-color: var(--blue, #0072b2);
+    color: var(--theme-water, #6F8AC6);
+    border-color: var(--theme-water, #6F8AC6);
 }
 
 .water-section .group-icon,
 .water-section .area-icon {
-    background-color: rgba(0, 114, 178, 0.15);
-    color: var(--blue, #0072b2);
+    background-color: rgba(111, 138, 198, 0.18);
+    color: var(--theme-water, #6F8AC6);
 }
 
 .water-section .stat-number {
-    color: var(--blue, #0072b2);
+    color: var(--theme-water, #6F8AC6);
+}
+
+.sanitation-section .group-header h2 {
+    color: var(--theme-sanitation, #8AC9C1);
+    border-color: var(--theme-sanitation, #8AC9C1);
+}
+
+.sanitation-section .group-icon {
+    background-color: rgba(138, 201, 193, 0.2);
+    color: var(--theme-sanitation, #8AC9C1);
+}
+
+.bioresources-section .group-header h2 {
+    color: var(--theme-bioresources, #9F90C5);
+    border-color: var(--theme-bioresources, #9F90C5);
+}
+
+.bioresources-section .group-icon {
+    background-color: rgba(159, 144, 197, 0.2);
+    color: var(--theme-bioresources, #9F90C5);
 }
 
 .methods-section .group-header h2 {
-    color: #2b4c6f;
-    border-color: #2b4c6f;
+    color: var(--theme-methods, #53525a);
+    border-color: var(--theme-methods, #53525a);
 }
 
 .methods-section .group-icon,
 .methods-section .area-icon {
-    background-color: rgba(43, 76, 111, 0.15);
-    color: #2b4c6f;
+    background-color: rgba(83, 82, 90, 0.15);
+    color: var(--theme-methods, #53525a);
 }
 
 .methods-section .stat-number {
-    color: #2b4c6f;
+    color: var(--theme-methods, #53525a);
 }
 
 .group-tag.water {
-    background-color: rgba(0, 114, 178, 0.15);
-    color: var(--blue, #0072b2);
+    background-color: rgba(111, 138, 198, 0.2);
+    color: #2d4785;
 }
 
 .group-tag.methods {
-    background-color: rgba(43, 76, 111, 0.15);
-    color: #2b4c6f;
+    background-color: rgba(83, 82, 90, 0.16);
+    color: var(--theme-methods, #53525a);
 }
 
 /* Group Intro Section */
@@ -239,19 +229,15 @@
 }
 
 .indoor-air-section .stat-number {
-    color: var(--primary-blue);
+    color: var(--theme-indoor-air, #77AAD4);
 }
 
 .bioresources-section .stat-number {
-    color: var(--secondary-blue);
-}
-
-.public-health-section .stat-number {
-    color: var(--purple);
+    color: var(--theme-bioresources, #9F90C5);
 }
 
 .sanitation-section .stat-number {
-    color: var(--teal);
+    color: var(--theme-sanitation, #8AC9C1);
 }
 
 .stat-label {
@@ -302,23 +288,18 @@
 }
 
 .indoor-air-section .area-icon {
-    background-color: rgba(119, 170, 212, 0.15);
-    color: var(--primary-blue);
+    background-color: rgba(119, 170, 212, 0.18);
+    color: var(--theme-indoor-air, #77AAD4);
 }
 
 .bioresources-section .area-icon {
-    background-color: rgba(111, 138, 198, 0.15);
-    color: var(--secondary-blue);
-}
-
-.public-health-section .area-icon {
-    background-color: rgba(159, 144, 197, 0.15);
-    color: var(--purple);
+    background-color: rgba(159, 144, 197, 0.2);
+    color: var(--theme-bioresources, #9F90C5);
 }
 
 .sanitation-section .area-icon {
-    background-color: rgba(138, 201, 193, 0.15);
-    color: var(--teal);
+    background-color: rgba(138, 201, 193, 0.2);
+    color: var(--theme-sanitation, #8AC9C1);
 }
 
 .area-card h4 {
@@ -470,19 +451,23 @@
 }
 
 .indoor-air-section .dot.active {
-    background-color: var(--primary-blue);
+    background-color: var(--theme-indoor-air, #77AAD4);
 }
 
-.bioresources-section .dot.active {
-    background-color: var(--secondary-blue);
-}
-
-.public-health-section .dot.active {
-    background-color: var(--purple);
+.water-section .dot.active {
+    background-color: var(--theme-water, #6F8AC6);
 }
 
 .sanitation-section .dot.active {
-    background-color: var(--teal);
+    background-color: var(--theme-sanitation, #8AC9C1);
+}
+
+.bioresources-section .dot.active {
+    background-color: var(--theme-bioresources, #9F90C5);
+}
+
+.methods-section .dot.active {
+    background-color: var(--theme-methods, #53525a);
 }
 
 /* Group Team Section */
@@ -642,22 +627,32 @@
 
 .group-tag.indoor-air {
     background-color: rgba(119, 170, 212, 0.2);
-    color: var(--primary-blue);
+    color: #265985;
+    border: 1px solid rgba(119, 170, 212, 0.5);
 }
 
-.group-tag.bioresources {
+.group-tag.water {
     background-color: rgba(111, 138, 198, 0.2);
-    color: var(--secondary-blue);
-}
-
-.group-tag.public-health {
-    background-color: rgba(159, 144, 197, 0.2);
-    color: var(--purple);
+    color: #2d4785;
+    border: 1px solid rgba(111, 138, 198, 0.5);
 }
 
 .group-tag.sanitation {
-    background-color: rgba(138, 201, 193, 0.2);
-    color: var(--teal);
+    background-color: rgba(138, 201, 193, 0.24);
+    color: #1d615a;
+    border: 1px solid rgba(138, 201, 193, 0.6);
+}
+
+.group-tag.bioresources {
+    background-color: rgba(159, 144, 197, 0.22);
+    color: #4a3875;
+    border: 1px solid rgba(159, 144, 197, 0.55);
+}
+
+.group-tag.methods {
+    background-color: rgba(83, 82, 90, 0.16);
+    color: var(--dark-gray);
+    border: 1px solid rgba(83, 82, 90, 0.35);
 }
 
 .collaboration-content p {
