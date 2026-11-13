@@ -14,71 +14,67 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Research Groups specific styles -->
     <link rel="stylesheet" href="css/research-groups.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/wpe_favico.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Header -->
-        <header>
-            <div class="header-container">
-                <div class="logo">
-                    <img src="images/leeds_logo_black_on_white_bk.jpg" alt="University of Leeds" style="width:120px; height: auto;">
-                </div>
-                <div class="logo">
-                    <img src="images/wpe_logo_colour.png" alt="WPE Logo">
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" id="nav-home">Home</a></li>
-                        <li><a href="about.html" id="nav-about">About</a></li>
-                        <li><a href="research-groups.html" id="nav-research">Research Groups</a></li>
-                        <li><a href="people.html" id="nav-people">People</a></li>
-                        <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
-                        <li><a href="cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
-                        <li><a href="news-blog.html" id="nav-news">News & Blog</a></li>
-                        <li><a href="contact.html" id="nav-contact">Contact</a></li>
-                    </ul>
-                </nav>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/leeds_logo_black_on_white_bk.jpg" alt="University of Leeds" style="width:120px; height: auto;">
             </div>
-        </header>
-    
-        <!-- Script to highlight current page in navigation -->
-        <script>
-            // Get current page filename
-            const path = window.location.pathname;
-            const page = path.split("/").pop();
-            
-            // Remove any active classes
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Set active class based on current page
-            if (page === "" || page === "index.html") {
-                document.getElementById('nav-home').classList.add('active');
-            } else if (page === "about.html") {
-                document.getElementById('nav-about').classList.add('active');
-            } else if (page === "research-groups.html") {
-                document.getElementById('nav-research').classList.add('active');
-            } else if (page === "people.html") {
-                document.getElementById('nav-people').classList.add('active');
-            } else if (page === "facilities.html") {
-                document.getElementById('nav-facilities').classList.add('active');
-            } else if (page === "cake-meetings.html") {
-                document.getElementById('nav-cake').classList.add('active');
-            } else if (page === "news-blog.html") {
-                document.getElementById('nav-news').classList.add('active');
-            } else if (page === "contact.html") {
-                document.getElementById('nav-contact').classList.add('active');
-            }
-        </script>
-    
+            <div class="logo">
+                <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" id="nav-home">Home</a></li>
+                    <li><a href="about.html" id="nav-about">About</a></li>
+                    <li><a href="research-groups.html" id="nav-research">Research Groups</a></li>
+                    <li><a href="people.html" id="nav-people">People</a></li>
+                    <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
+                    <li><a href="cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
+                    <li><a href="news-blog.html" id="nav-news">News &amp; Blog</a></li>
+                    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Script to highlight current page in navigation -->
+    <script>
+        const path = window.location.pathname;
+        const page = path.split("/").pop();
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+        });
+        if (page === "" || page === "index.html") {
+            document.getElementById('nav-home').classList.add('active');
+        } else if (page === "about.html") {
+            document.getElementById('nav-about').classList.add('active');
+        } else if (page === "research-groups.html") {
+            document.getElementById('nav-research').classList.add('active');
+        } else if (page === "people.html") {
+            document.getElementById('nav-people').classList.add('active');
+        } else if (page === "facilities.html") {
+            document.getElementById('nav-facilities').classList.add('active');
+        } else if (page === "cake-meetings.html") {
+            document.getElementById('nav-cake').classList.add('active');
+        } else if (page === "news-blog.html") {
+            document.getElementById('nav-news').classList.add('active');
+        } else if (page === "contact.html") {
+            document.getElementById('nav-contact').classList.add('active');
+        }
+    </script>
     
     <!-- Page Header -->
     <section class="page-header">
-        <h2 class="display-text">Research Groups</h2>
-        <p>Exploring innovative solutions to environmental and public health challenges</p>
+        <h2 class="display-text">Research Themes &amp; Capabilities</h2>
+        <p>Exploring innovative solutions to environmental and public health challenges across four themes and shared methods</p>
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li>></li>
+            <li>&gt;</li>
             <li>Research Groups</li>
         </ul>
     </section>
@@ -87,8 +83,8 @@
     <div class="main-content">
         <!-- Groups Overview -->
         <section class="groups-overview">
-            <p>The Water, Public Health and Environment department consists of five specialised research groups working collaboratively to address complex challenges in environmental health and sustainability.</p>
-            <p>Our interdisciplinary approach combines expertise from engineering, biology, chemistry, public health, and social sciences to develop innovative solutions with real-world impact.</p>
+            <p>The Water, Public Health and Environmental Engineering (WPE) group organises its research around four interconnected themes — <strong>Indoor Air &amp; Healthy Buildings</strong>, <strong>BioResources &amp; Circular Economy</strong>, <strong>Sanitation &amp; WASH</strong>, and <strong>Water</strong> — supported by a cross-cutting capability in <strong>Experimental, Microbiological, and Computational Methods</strong>.</p>
+            <p>Our interdisciplinary approach combines building physics, fluid mechanics, environmental microbiology, analytical chemistry, public health engineering, and social science to deliver practical solutions with global impact.</p>
             
             <!-- Group Navigation -->
             <div class="group-nav">
@@ -108,9 +104,9 @@
                     <i class="fas fa-droplet"></i>
                     <span>Water</span>
                 </a>
-                <a href="methods.html" class="group-nav-item methods">
+                <a href="#methods" class="group-nav-item methods">
                     <i class="fas fa-microchip"></i>
-                    <span>Data &amp; Computation</span>
+                    <span>Methods &amp; Capabilities</span>
                 </a>
             </div>
         </section>
@@ -125,27 +121,16 @@
             <div class="group-content">
                 <div class="group-intro">
                     <div class="group-image">
-                        <img src="images/research/cfd_SilsoePic1.png" alt="Indoor Air Quality Testing Lab">
+                        <img src="images/research/cfd_SilsoePic1.png" alt="Indoor Air Quality Testing and CFD Simulation">
                     </div>
                     <div class="group-description">
-                        <h3>Improving the Air We Breathe</h3>
-                        <p>The Indoor Air research group focuses on understanding and improving the quality of air in built environments. With people spending up to 90% of their time indoors, our research addresses critical questions about air pollutants, ventilation systems, and their impacts on human health and wellbeing.</p>
-                        <p>Our interdisciplinary team combines expertise in mathematics, chemistry, building engineering, and public health to develop innovative monitoring technologies, evidence-based interventions, and policy recommendations.</p>
-                        <!--<div class="group-stats">
-                            <div class="stat">
-                                <div class="stat-number">7</div>
-                                <div class="stat-label">Faculty Members</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-number">15</div>
-                                <div class="stat-label">PhD Students</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-number">32</div>
-                                <div class="stat-label">Publications (2024)</div>
-                            </div>
-                        </div>--->
-                        <a href="indoor-air.html" class="btn btn-primary">Explore Indoor Air</a>
+                        <h3>Engineering Healthy, Low-Carbon Buildings</h3>
+                        <p>With people spending up to 90% of their time indoors, our Indoor Air research theme investigates how respiratory pathogens and air pollutants move through buildings, how ventilation and air-cleaning technologies reduce exposure, and how net-zero building retrofits can protect occupant health.</p>
+                        <p>Anchored by our walk-in controlled aerobiology chamber and high-performance CFD modelling, our work has directly shaped UK SAGE, NHS, CIBSE, and World Health Organization ventilation guidance.</p>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                            <a href="indoor-air.html" class="btn btn-primary">Explore Indoor Air</a>
+                            <a href="research/covid19-impact.html" class="btn btn-secondary">COVID-19 Impact Case Study</a>
+                        </div>
                     </div>
                 </div>
                 
@@ -153,24 +138,24 @@
                     <h3>Research Areas</h3>
                     <div class="areas-grid">
                         <div class="area-card">
-                            <div class="area-icon"><i class="fas fa-sensor"></i></div>
-                            <h4>Sensing & Monitoring</h4>
-                            <p>Developing sensor networks and analytical techniques for real-time air quality monitoring in diverse indoor environments.</p>
-                        </div>
-                        <div class="area-card">
-                            <div class="area-icon"><i class="fas fa-lungs"></i></div>
-                            <h4>Health Impacts</h4>
-                            <p>Modelling relationships between indoor air pollutants and respiratory, cardiovascular, and cognitive health outcomes.</p>
+                            <div class="area-icon"><i class="fas fa-Microscope"></i><i class="fas fa-bacterium"></i></div>
+                            <h4>Airborne Infection &amp; Bioaerosols</h4>
+                            <p>Chamber experiments, single-particle microfluidic bioaerosol detection, and QMRA modelling across airborne and surface-contact routes.</p>
                         </div>
                         <div class="area-card">
                             <div class="area-icon"><i class="fas fa-fan"></i></div>
-                            <h4>Ventilation Systems</h4>
-                            <p>Optimising ventilation strategies and HVAC systems for energy efficiency and improved indoor air quality.</p>
+                            <h4>Ventilation &amp; Air Cleaning</h4>
+                            <p>Optimising hospital and school ventilation, HEPA filtration, and germicidal UV-C (254 nm and 222 nm far-UVC) systems.</p>
                         </div>
                         <div class="area-card">
                             <div class="area-icon"><i class="fas fa-building"></i></div>
-                            <h4>Building Materials</h4>
-                            <p>Studying emissions from building materials and developing low-emission alternatives for healthier indoor environments.</p>
+                            <h4>Building Physics &amp; Net Zero</h4>
+                            <p>Balancing indoor air quality and thermal comfort with low-carbon heating, heat pumps, and building energy efficiency.</p>
+                        </div>
+                        <div class="area-card">
+                            <div class="area-icon"><i class="fas fa-broadcast-tower"></i></div>
+                            <h4>Sensing &amp; Environmental Justice</h4>
+                            <p>Deploying low-cost indoor air quality sensor networks in schools and homes to address exposure inequalities.</p>
                         </div>
                     </div>
                 </div>
@@ -180,65 +165,59 @@
                     <div class="projects-slider">
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/research/cfd_SilsoePic1.png" alt="School Air Quality Project">
+                                <img src="images/research/cfd_SilsoePic1.png" alt="Modelling Airflow Around Buildings">
                             </div>
                             <div class="project-content">
-                                <h4>Modelling Airflow Around Buildings</h4>
-                                <p>How air behaves around buildings impacts on how natural ventilation brings in fresh air.</p>
-                                <span class="project-status Completed">Completed</span>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="images/hbn_portrait.png" alt="Low-Cost Sensor Network">
-                            </div>
-                            <div class="project-content">
-                                <h4>Healthy Buildings Network</h4>
-                                <p>Bringing together academics, industry and policy makers through dedicated workshops to build lasting partnerships around healthy buildings. </p>
+                                <h4>Modelling Airflow Around and Within Buildings</h4>
+                                <p>High-fidelity CFD and real-time data assimilation for natural and mechanical ventilation in complex buildings.</p>
                                 <span class="project-status ongoing">Ongoing</span>
                             </div>
                         </div>
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/research/hecoira.png" alt="Hospital Ventilation Project">
+                                <img src="images/hbn_portrait.png" alt="Healthy Buildings Network">
+                            </div>
+                            <div class="project-content">
+                                <h4>Healthy Buildings Network &amp; Class-ACT</h4>
+                                <p>Evaluating CO₂ monitoring, HEPA air cleaners, and UV-C interventions across 30 Bradford primary schools and national networks.</p>
+                                <span class="project-status ongoing">Ongoing</span>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/research/hecoira.png" alt="HECOIRA Hospital Ventilation Project">
                             </div>
                             <div class="project-content">
                                 <h4>Hospital Environment Control, Optimisation and Infection Risk Assessment (HECOIRA)</h4>
-                                <p>Redesigning ventilation systems in healthcare settings to reduce pathogen transmission while maintaining energy efficiency.</p>
+                                <p>Redesigning hospital ward ventilation systems to reduce nosocomial pathogen transmission while maintaining energy efficiency.</p>
                                 <span class="project-status Completed">Completed</span>
                             </div>
                         </div>
                     </div>
                     <div class="slider-controls">
-                        <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-prev" aria-label="Previous project"><i class="fas fa-chevron-left"></i></button>
                         <div class="slider-dots">
                             <span class="dot active"></span>
                             <span class="dot"></span>
                             <span class="dot"></span>
                         </div>
-                        <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                        <button class="slider-next" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
                 
                 <div class="group-team">
-                    <h3>Group Leader</h3>
+                    <h3>Group Director &amp; Theme Contact</h3>
                     <div class="leader-profile">
                         <div class="leader-image">
-                            <img src="images/people/profile_marco-felipe_king.png" alt="Dr. Marco Felipe King">
+                            <img src="images/people/square/King_Marco-Felipe.jpg" alt="Associate Professor Marco-Felipe King">
                         </div>
                         <div class="leader-info">
-                            <h4>Dr. Marco-Felipe King</h4>
-                            <p class="leader-title">Lecturer in Building Engineering and Infection Control</p>
-                            <p class="leader-bio">He focuses on how ventilation 
-                                strategies, building design, and occupant behaviour affect indoor air quality and pathogen 
-                                transmission. His interdisciplinary work combines computational fluid dynamics (CFD) modeling, 
-                                experimental studies, and real-world applications to reduce the spread of airborne infections 
-                                in healthcare and public buildings. By partnering with the NHS and industry, 
-                                Dr. King’s research drives evidence-based improvements in indoor air management, advancing 
-                                healthy, sustainable environments for occupants and communities.</p>
+                            <h4>Associate Professor Marco-Felipe King</h4>
+                            <p class="leader-title">Director of WPE; Associate Professor in Building Engineering and Infection Transmission; Co-Director, EPSRC CDT in Future Fluid Dynamics</p>
+                            <p class="leader-bio">Associate Professor King investigates how ventilation strategies, building design, and occupant behaviour govern indoor air quality and pathogen transmission. His work combines computational fluid dynamics (CFD) modelling, Bayesian inference, and experimental studies in the Leeds aerobiology chamber to reduce healthcare-associated and community infections in partnership with the NHS, government departments, and industry.</p>
                             <div class="leader-contact">
                                 <a href="mailto:m.f.king@leeds.ac.uk" class="leader-email"><i class="fas fa-envelope"></i> Email</a>
-                                <a href="https://www.linkedin.com/in/marco-felipe-king-b6683a35" class="leader-profile-link">View Profile</a>
+                                <a href="people.html" class="leader-profile-link">Meet the Team</a>
                             </div>
                         </div>
                     </div>
@@ -259,24 +238,13 @@
                         <img src="images/research/bioresources.jpeg" alt="BioResources Research Lab">
                     </div>
                     <div class="group-description">
-                        <h3>Transforming Waste into Resource</h3>
-                        <p>The BioResources group is focused on developing sustainable technologies for resource recovery and circular economy applications. Our research harnesses biological processes to transform waste streams into valuable materials, energy, and nutrients.</p>
-                        <p>We work at the intersection of environmental biotechnology, chemical engineering, and sustainability science to develop and scale solutions that address waste management challenges while recovering valuable resources.</p>
-                       <!-- <div class="group-stats">
-                            <div class="stat">
-                                <div class="stat-number">6</div>
-                                <div class="stat-label">Faculty Members</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-number">12</div>
-                                <div class="stat-label">PhD Students</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-number">28</div>
-                                <div class="stat-label">Publications (2024)</div>
-                            </div>
-                        </div>-->
-                        <a href="bioresources.html" class="btn btn-primary">Explore BioResources</a>
+                        <h3>Transforming Waste into Clean Energy, Nutrients, and Materials</h3>
+                        <p>The BioResources and Circular Economy theme develops biological, chemical, and systems-level solutions to recover biomethane, biohydrogen, nutrients, protein, and secondary construction materials from organic and industrial waste streams.</p>
+                        <p>From the £1.75M Ayrton Challenge <strong>BioCool</strong> off-grid milk-cooling programme in Uganda to circular economy policy for offshore wind infrastructure and the UK foundation industries, we link bioprocess engineering with circular governance.</p>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                            <a href="bioresources.html" class="btn btn-primary">Explore BioResources</a>
+                            <a href="research/biocool.html" class="btn btn-secondary">BioCool Project Highlight</a>
+                        </div>
                     </div>
                 </div>
                 
@@ -285,68 +253,51 @@
                     <div class="areas-grid">
                         <div class="area-card">
                             <div class="area-icon"><i class="fas fa-recycle"></i></div>
-                            <h4>Waste Valorization</h4>
-                            <p>Converting organic waste streams into high-value products including biofuels, bioplastics, and specialty chemicals.</p>
+                            <h4>Waste Valorisation &amp; Biogas</h4>
+                            <p>Anaerobic digestion, biomethane upgrading, biohydrogen, and hydrothermal carbonisation of agricultural and municipal wastes.</p>
                         </div>
                         <div class="area-card">
                             <div class="area-icon"><i class="fas fa-bacteria"></i></div>
-                            <h4>Microbial Biotechnology</h4>
-                            <p>Harnessing microbial communities for resource recovery and environmental remediation applications.</p>
+                            <h4>Microalgae &amp; Duckweed Biorefineries</h4>
+                            <p>Harnessing photobioreactors, microalgae, and duckweed to capture carbon, remove micropollutants, and recover protein.</p>
                         </div>
                         <div class="area-card">
                             <div class="area-icon"><i class="fas fa-leaf"></i></div>
-                            <h4>Nutrient Recovery</h4>
-                            <p>Developing technologies to extract and recycle essential nutrients like nitrogen and phosphorus from waste streams.</p>
+                            <h4>Nutrient Recovery &amp; Digestate</h4>
+                            <p>Extracting nitrogen, phosphorus, and safe biofertilisers from wastewater, faecal sludge, and anaerobic digestate.</p>
                         </div>
                         <div class="area-card">
                             <div class="area-icon"><i class="fas fa-industry"></i></div>
-                            <h4>Industrial Symbiosis</h4>
-                            <p>Creating integrated biorefinery concepts where waste from one process becomes a resource for another.</p>
+                            <h4>Circular Economy &amp; Infrastructure</h4>
+                            <p>Whole-system resource flows, offshore wind decommissioning, and circular transitions in the foundation industries.</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Additional content for BioResources group would mirror the structure of the Indoor Air group -->
             </div>
         </section>
-        
-        
         
         <!-- Sanitation Group -->
         <section id="sanitation" class="research-group sanitation-section">
             <div class="group-header">
                 <h2>Sanitation and WASH</h2>
-                <div class="group-icon"><i class="fas fa-tint"></i></div>
+                <div class="group-icon"><i class="fas fa-toilet"></i></div>
             </div>
             
             <div class="group-content">
                 <div class="group-intro">
                     <div class="group-image">
-                        <img src="images/research/sanitation-lab.jpg" alt="Sanitation Research">
+                        <img src="images/research/sanitation-lab.jpg" alt="Sanitation Field Research">
                     </div>
                     <div class="group-description">
-                        <h3>Sustainable Sanitation Solutions</h3>
-                        <p>The Sanitation research group develops innovative approaches to water and sanitation challenges in both developed and developing regions. Our work spans from advanced wastewater treatment technologies to off-grid sanitation solutions for resource-limited settings.</p>
-                        <p>We integrate technical innovation with social, economic, and policy considerations to create sustainable sanitation systems that protect public health and the environment.</p>
-                       <!-- <div class="group-stats">
-                            <div class="stat">
-                                <div class="stat-number">6</div>
-                                <div class="stat-label">Faculty Members</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-number">9</div>
-                                <div class="stat-label">PhD Students</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-number">24</div>
-                                <div class="stat-label">Publications (2024)</div>
-                            </div>
-                        </div>-->
-                        <a href="sanitation.html" class="btn btn-primary">Explore Sanitation</a>
+                        <h3>Safely Managed, Climate-Resilient Sanitation and Hygiene</h3>
+                        <p>The Sanitation and WASH theme works across the entire sanitation service chain — from containment and emptying to treatment, governance, and public finance — in rapidly growing cities and rural communities across Africa, South and Southeast Asia, and the UK.</p>
+                        <p>Home to the <strong>Shit Flow Diagram (SFD)</strong> and leads on the FCDO <strong>WASH Systems for Health</strong> and DFAT <strong>EMISI</strong> programmes, our team combines public health engineering with political economy and climate-resilience modelling.</p>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                            <a href="sanitation.html" class="btn btn-primary">Explore Sanitation &amp; WASH</a>
+                            <a href="research/sanitation-impact.html" class="btn btn-secondary">Global Sanitation Impact Story</a>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Additional content for Sanitation group would mirror the structure of previous groups -->
             </div>
         </section>
 
@@ -359,133 +310,137 @@
             <div class="group-content">
                 <div class="group-intro">
                     <div class="group-image">
-                        <img src="images/research/water-lab.jpg" alt="Water Research">
+                        <img src="images/research/water-lab.jpg" alt="Water Hydraulics and Treatment Research">
                     </div>
                     <div class="group-description">
-                        <h3>Water Engineering &amp; Management</h3>
-                        <p>The Water research group works across the full water cycle — from source protection and treatment to distribution, flood risk and transboundary water governance. Our work combines computational hydraulics, environmental chemistry, and hydrology.</p>
-                        <p>We address global challenges including water scarcity, flood resilience and water quality, partnering with governments, utilities and international agencies to translate research into practice.</p>
+                        <h3>Water Supply, Treatment, Hydraulics, and Flood Resilience</h3>
+                        <p>The Water theme works across the full water cycle — from global flood risk, river hydrodynamics, and pressurised pipeline transients to drinking-water microplastics removal, constructed wetlands, and subsurface contaminant geochemistry.</p>
+                        <p>Closely integrated with <strong>water@leeds</strong> (directed by Prof. Martin Tillotson, with Prof. Mark Trigg as Associate Director), we partner with utilities, regulators, and international agencies to build resilient water systems.</p>
                         <a href="water.html" class="btn btn-primary">Explore Water</a>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Collaborative Research -->
-                <!-- Cross-cutting capability -->
+        <!-- Cross-cutting capability -->
         <section id="methods" class="research-group methods-section">
             <div class="group-header">
-                <h2>Data-driven and Computational Methods</h2>
+                <h2>Experimental, Microbiological &amp; Computational Methods</h2>
                 <div class="group-icon"><i class="fas fa-microchip"></i></div>
             </div>
             <div class="group-content">
                 <div class="group-intro">
+                    <div class="group-image">
+                        <img src="images/research/overview_Q_165.jpg" alt="Computational Fluid Dynamics and Data-Driven Methods">
+                    </div>
                     <div class="group-description">
-                        <h3>One shared toolkit across the four themes</h3>
-                        <p>Physics tells us how the world should behave; data tells us how it actually behaved. Across indoor air, water, sanitation and bioresources we build models that combine the two: physics-informed machine learning, Bayesian calibration, data assimilation, high-performance simulation, reduced-order models and multi-objective optimisation.</p>
-                        <p>Six researchers work across this toolkit, and it is why we are active in the Leeds Institute for Fluid Dynamics, where Amirul Khan co-leads the computational group.</p>
-                        <a href="methods.html" class="btn btn-primary">Explore our methods</a>
+                        <h3>One Shared Toolkit Across All Four Themes</h3>
+                        <p>Physics tells us how the world should behave; experimental and field data tell us how it actually behaved. Across indoor air, water, sanitation, and bioresources, our group shares specialist capabilities in walk-in chamber experimentation, Class II environmental microbiology, automated analytical chemistry, high-performance CFD, physics-informed machine learning, Bayesian calibration, and Quantitative Microbial Risk Assessment (QMRA).</p>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                            <a href="methods.html" class="btn btn-primary">Explore Our Methods</a>
+                            <a href="facilities.html" class="btn btn-secondary">Explore Research Facilities</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-<section class="collaborative-research">
-            <h2 class="section-title">Collaborative Research</h2>
-            <p class="section-intro">Our research groups frequently collaborate on interdisciplinary projects that address complex environmental and public health challenges requiring diverse expertise.</p>
+        <!-- Collaborative Research -->
+        <section class="collaborative-research">
+            <h2 class="section-title">Cross-Theme Collaborative Research</h2>
+            <p class="section-intro">Our research themes frequently collaborate on interdisciplinary programmes that address interconnected environmental and public health hazards.</p>
             
             <div class="collaboration-grid">
                 <div class="collaboration-card">
                     <div class="collaboration-image">
-                        <img src="images/research/public_health.png" alt="Microplastics Research">
+                        <img src="images/research/microplastics_jar_testing.png" alt="Microplastics Research">
                     </div>
                     <div class="collaboration-content">
                         <h3>Microplastics: From Source to Solution</h3>
                         <div class="groups-involved">
+                            <span class="group-tag water">Water</span>
+                            <span class="group-tag bioresources">BioResources</span>
                             <span class="group-tag indoor-air">Indoor Air</span>
-                            <span class="group-tag sanitation">Sanitation &amp; WASH</span>
                         </div>
-                        <p>Finding microplastics by spectroscopy and real-time particle detection, tracing where they came from with chemometrics, and testing how to remove them &mdash; across water, waste streams and air.</p>
-                        <a href="projects/microplastics.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <p>Detecting microplastics by Nile Red fluorescence and FTIR/Raman spectroscopy, tracing their fate in agricultural soils and compost, and optimising coagulation–flocculation removal in drinking-water treatment works.</p>
+                        <a href="water.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
                 <div class="collaboration-card">
                     <div class="collaboration-image">
-                        <img src="images/research/Circular_Economy_diagram.png" alt="Circular Buildings Project">
+                        <img src="images/research/Circular_Economy_diagram.png" alt="Circular Infrastructure and Bioresources">
                     </div>
                     <div class="collaboration-content">
-                        <h3>Circular Buildings Initiative</h3>
+                        <h3>Circular Bioresources &amp; Low-Carbon Infrastructure</h3>
                         <div class="groups-involved">
                             <span class="group-tag bioresources">BioResources</span>
-                            <span class="group-tag indoor-air">Indoor Air</span>
+                            <span class="group-tag water">Water</span>
                             <span class="group-tag sanitation">Sanitation &amp; WASH</span>
                         </div>
-                        <p>Circular economy work from wind turbine blades to the foundation industries, resource recovery from the waste buildings produce, and the ventilation needed to keep the inside healthy while cutting carbon.</p>
-                        <a href="projects/circular-buildings.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <p>Connecting circular economy governance for wind energy and foundation industries with anaerobic digestion, nutrient recovery from wastewater, and valorisation of mineral wastes in construction materials.</p>
+                        <a href="bioresources.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
                 <div class="collaboration-card">
                     <div class="collaboration-image">
-                        <img src="images/research/collab-urban.jpg" alt="Urban Health Project">
+                        <img src="images/research/sanitation-field.jpg" alt="Climate-Resilient Urban Health">
                     </div>
                     <div class="collaboration-content">
-                        <h3>Urban Environmental Health</h3>
+                        <h3>Climate-Resilient Urban Environmental Health</h3>
                         <div class="groups-involved">
                             <span class="group-tag sanitation">Sanitation &amp; WASH</span>
+                            <span class="group-tag water">Water</span>
                             <span class="group-tag indoor-air">Indoor Air</span>
-                            <span class="group-tag bioresources">BioResources</span>
                         </div>
-                        <p>Air quality and equity, infection in occupied buildings, citywide inclusive sanitation and urban flood risk &mdash; hazards that usually stack on the same households.</p>
-                        <a href="projects/urban-health.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <p>Combining urban flood-risk modelling and multiphase CFD with field pathogen sampling to understand how extreme weather, flooding, and housing quality affect sanitation systems and infection risk.</p>
+                        <a href="sanitation.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </section>
     </div>
     
-    <!-- Footer Include -->
-<!-- Footer -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <div class="footer-logo">
-                <img src="images/wpe_logo_colour.png" alt="WPE Logo">
-                <h3>WPE</h3>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                    <h3>WPE</h3>
+                </div>
+                <p>Water, Public Health and Environmental Engineering Research Group</p>
             </div>
-            <p>Water, Public Health and Environmental Engineering Research Group</p>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="research-groups.html">Research Groups</a></li>
+                    <li><a href="news-blog.html">News &amp; Blog</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Events</h3>
+                <ul class="footer-links">
+                    <li><a href="cake-meetings.html">Cake Meetings</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
+                <p><i class="fas fa-map-marker"></i> Woodhouse Lane, LS2 9JT, Leeds, UK</p>
+                <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
+            </div>
         </div>
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="research-groups.html">Research Groups</a></li>
-                <li><a href="news-blog.html">News & Blog</a></li>
-                <li><a href="people.html">People</a></li>
-                <li><a href="facilities.html">Facilities</a></li>
-            </ul>
+        <div class="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering Research Group. All rights reserved.
         </div>
-        <div class="footer-section">
-            <h3>Events</h3>
-            <ul class="footer-links">
-                <li><a href="cake-meetings.html">Cake Meetings</a></li>
-            </ul>
-        </div>
-        <div class="footer-section footer-contact">
-            <h3>Contact Us</h3>
-            <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
-            <p><i class="fas fa-map-marker"></i> Woodhouse Lane, LS2 9JT, Leeds, UK</p>
-            <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
-        </div>
-    </div>
-    <div class="copyright">
-        &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering  Research Group. All rights reserved.
-    </div>
-</footer>
+    </footer>
 
-    
     <!-- Research Groups JavaScript -->
     <script src="js/research-groups.js"></script>
 </body>

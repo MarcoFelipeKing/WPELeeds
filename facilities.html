@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facilities - WPE - Water, Public Health and Environment</title>
+    <title>Research Facilities - WPE - Water, Public Health and Environment</title>
     <!-- Font imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +14,13 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Facilities specific styles -->
     <link rel="stylesheet" href="css/facilities.css">
+    <!-- Facilities interactive tab & gallery script -->
+    <script src="js/facilities.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" href="images/wpe_favico.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Header (your existing header) -->
+    <!-- Header -->
     <header>
         <div class="header-container">
             <div class="logo">
@@ -31,9 +35,9 @@
                     <li><a href="about.html" id="nav-about">About</a></li>
                     <li><a href="research-groups.html" id="nav-research">Research Groups</a></li>
                     <li><a href="people.html" id="nav-people">People</a></li>
-                    <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
+                    <li><a href="facilities.html" id="nav-facilities" class="active">Facilities</a></li>
                     <li><a href="cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
-                    <li><a href="news-blog.html" id="nav-news">News & Blog</a></li>
+                    <li><a href="news-blog.html" id="nav-news">News &amp; Blog</a></li>
                     <li><a href="contact.html" id="nav-contact">Contact</a></li>
                 </ul>
             </nav>
@@ -43,10 +47,10 @@
     <!-- Page Header -->
     <section class="page-header">
         <h2 class="display-text">Research Facilities</h2>
-        <p>State-of-the-art laboratories and equipment supporting our diverse research portfolio</p>
+        <p>Specialist laboratories, walk-in environmental chambers, and high-performance computing supporting our research portfolio</p>
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li>></li>
+            <li>&gt;</li>
             <li>Facilities</li>
         </ul>
     </section>
@@ -56,212 +60,61 @@
         <!-- Facilities Overview -->
         <section class="facilities-overview">
             <div class="overview-text">
-                <h2 class="section-title">Our Facilities</h2>
-                <p>The WPE department houses specialized laboratories equipped with cutting-edge technology to support our research mission. Our facilities enable innovative research across our four focus areas: Indoor Air, BioResources, Public Health, and Sanitation.</p>
-                <p>Our laboratories are available to departmental researchers, collaborators, and—under specific arrangements—external partners from industry and other academic institutions.</p>
+                <h2 class="section-title">Our Laboratories &amp; Testing Suites</h2>
+                <p>The WPE group houses specialist laboratories in the School of Civil Engineering equipped for experimental research across our four themes: <strong>Indoor Air &amp; Healthy Buildings</strong>, <strong>Water</strong>, <strong>Sanitation &amp; WASH</strong>, and <strong>BioResources &amp; Circular Economy</strong>.</p>
+                <p>Anchored by the UK's largest controlled walk-in Class II aerobiology chamber and our Public Health and Environmental Engineering Laboratories, our facilities are available to University of Leeds researchers, academic collaborators, and — under tailored partnership arrangements — external partners from industry, healthcare, and utilities.</p>
             </div>
             
             <div class="facilities-stats">
                 <div class="stat-item">
-                    <div class="stat-number">5 &times; 3.2 &times; 2.5 m</div>
-                    <div class="stat-label">Class II aerobiology chamber</div>
+                    <div class="stat-number">32&ndash;40 m&sup3;</div>
+                    <div class="stat-label">Walk-in Class II aerobiology chamber</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">2</div>
-                    <div class="stat-label">Heated thermal manikins (DINbots)</div>
+                    <div class="stat-label">Heated breathing thermal manikins (DINbots)</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">0.3&ndash;100 &micro;m</div>
-                    <div class="stat-label">Real-time bioaerosol detection range</div>
+                    <div class="stat-label">Real-time bioaerosol &amp; particle detection</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">HPC</div>
-                    <div class="stat-label">High-performance computing for simulation</div>
+                    <div class="stat-number">HPC &amp; GPU</div>
+                    <div class="stat-label">High-performance CFD &amp; AI computing</div>
                 </div>
             </div>
         </section>
         
         <!-- Facilities Navigation -->
         <section class="facilities-nav">
+            <div class="facility-nav-item active" data-target="air">
+                <div class="nav-icon"><i class="fas fa-wind"></i></div>
+                <h3>Aerobiology Chamber</h3>
+            </div>
             <div class="facility-nav-item" data-target="microbiology">
                 <div class="nav-icon"><i class="fas fa-bacteria"></i></div>
-                <h3>Microbiology Lab</h3>
-            </div>
-            <div class="facility-nav-item" data-target="soil">
-                <div class="nav-icon"><i class="fas fa-seedling"></i></div>
-                <h3>Soil Analysis Lab</h3>
-            </div>
-            <div class="facility-nav-item" data-target="air">
-                <div class="nav-icon"><i class="fas fa-wind"></i></div>
-                <h3>Air Quality Lab</h3>
+                <h3>Microbiology &amp; Water Lab</h3>
             </div>
             <div class="facility-nav-item" data-target="resource">
                 <div class="nav-icon"><i class="fas fa-recycle"></i></div>
-                <h3>Resource Recovery Lab</h3>
+                <h3>BioResources &amp; Bioprocess Lab</h3>
+            </div>
+            <div class="facility-nav-item" data-target="soil">
+                <div class="nav-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Geochemistry &amp; Soil Lab</h3>
             </div>
             <div class="facility-nav-item" data-target="microplastics">
                 <div class="nav-icon"><i class="fas fa-flask"></i></div>
-                <h3>Microplastics Lab</h3>
+                <h3>Microplastics &amp; Hydraulics</h3>
             </div>
         </section>
         
         <!-- Laboratory Details -->
         <section class="laboratory-details">
-            <!-- Microbiology Lab -->
-            <div class="lab-detail" id="microbiology">
+            <!-- 1. Aerobiology Chamber & Air Quality Lab (Default Active) -->
+            <div class="lab-detail" id="air">
                 <div class="lab-header">
-                    <h2>Microbiology Laboratory</h2>
-                    <div class="lab-tags">
-                        <span class="lab-tag">Public Health</span>
-                        <span class="lab-tag">Sanitation</span>
-                    </div>
-                </div>
-                
-                <div class="lab-content">
-                    <div class="lab-gallery">
-                        <div class="gallery-main">
-                            <img src="images/facilities/microbiology-lab-main.jpg" alt="Microbiology Laboratory" id="microbiology-main-image">
-                        </div>
-                        <div class="gallery-thumbs">
-                            <img src="images/facilities/microbiology-lab-main.jpg" alt="Main View" class="active" onclick="changeImage('microbiology', 'microbiology-lab-main.jpg')">
-                            <img src="images/facilities/microbiology-equipment-1.jpg" alt="Microscopes" onclick="changeImage('microbiology', 'microbiology-equipment-1.jpg')">
-                            <img src="images/facilities/microbiology-equipment-2.jpg" alt="Incubators" onclick="changeImage('microbiology', 'microbiology-equipment-2.jpg')">
-                            <img src="images/facilities/microbiology-equipment-3.jpg" alt="PCR Machines" onclick="changeImage('microbiology', 'microbiology-equipment-3.jpg')">
-                        </div>
-                    </div>
-                    
-                    <div class="lab-info">
-                        <div class="info-item">
-                            <h3>Overview</h3>
-                            <p>Our microbiology laboratory supports research on waterborne pathogens, microbial communities in various environments, and the development of biological treatment processes. The facility is equipped for cultivation, identification, and molecular analysis of microorganisms.</p>
-                        </div>
-                        
-                        <div class="info-item">
-                            <h3>Key Equipment</h3>
-                            <ul class="equipment-list">
-                                <li>
-                                    <span class="equipment-name">Confocal Laser Scanning Microscope</span>
-                                    <span class="equipment-model">Zeiss LSM 980</span>
-                                </li>
-                                <li>
-                                    <span class="equipment-name">Real-Time PCR System</span>
-                                    <span class="equipment-model">Bio-Rad CFX96</span>
-                                </li>
-                                <li>
-                                    <span class="equipment-name">Anaerobic Chamber</span>
-                                    <span class="equipment-model">Whitley A35</span>
-                                </li>
-                                <li>
-                                    <span class="equipment-name">Flow Cytometer</span>
-                                    <span class="equipment-model">BD FACSymphony A3</span>
-                                </li>
-                                <li>
-                                    <span class="equipment-name">Microplate Reader</span>
-                                    <span class="equipment-model">Tecan Infinite M200</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="info-item">
-                            <h3>Technical Capabilities</h3>
-                            <div class="capabilities-grid">
-                                <div class="capability">
-                                    <i class="fas fa-dna"></i>
-                                    <span>DNA/RNA Extraction</span>
-                                </div>
-                                <div class="capability">
-                                    <i class="fas fa-vial"></i>
-                                    <span>Pathogen Detection</span>
-                                </div>
-                                <div class="capability">
-                                    <i class="fas fa-microscope"></i>
-                                    <span>Microscopy</span>
-                                </div>
-                                <div class="capability">
-                                    <i class="fas fa-temperature-high"></i>
-                                    <span>Cell Culturing</span>
-                                </div>
-                                <div class="capability">
-                                    <i class="fas fa-chart-bar"></i>
-                                    <span>Quantitative Analysis</span>
-                                </div>
-                                <div class="capability">
-                                    <i class="fas fa-flask"></i>
-                                    <span>Bioassays</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="actions">
-                            <a href="mailto:m.f.king@leeds.ac.uk" class="btn btn-secondary">Request Tour</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lab-footer">
-                    <div class="staff-contact">
-                        <h3>Contact</h3>
-                        <div class="contact-person">
-                            <div class="contact-info">
-                                <h4>Dr. David Elliott</h4>
-                                <p>Lab Technician</p>
-                                <a href="mailto:D.J.S.elliott@leeds.ac.uk">D.J.S.elliott@leeds.ac.uk</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="recent-publications">
-                        <h3>Recent Publications Using This Facility</h3>
-                        <ul class="pub-list">
-                            <li><a href="#">Chen et al. (2024). "Novel microbiome analysis techniques for water quality assessment." <em>Environmental Microbiology</em>, 26(3), 412-428.</a></li>
-                            <li><a href="#">Rodriguez & Park (2024). "Pathogen removal efficiency in experimental sanitation systems." <em>Water Research</em>, 218, 119518.</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Soil Analysis Lab -->
-            <div class="lab-detail" id="soil" style="display: none;">
-                <div class="lab-header">
-                    <h2>Soil Analysis Laboratory</h2>
-                    <div class="lab-tags">
-                        <span class="lab-tag">Public Health</span>
-                        <span class="lab-tag">BioResources</span>
-                    </div>
-                </div>
-                
-                <!-- Content similar to Microbiology Lab but specific to Soil Analysis -->
-                <div class="lab-content">
-                    <div class="lab-gallery">
-                        <div class="gallery-main">
-                            <img src="images/facilities/soil-lab-main.jpg" alt="Soil Analysis Laboratory" id="soil-main-image">
-                        </div>
-                        <div class="gallery-thumbs">
-                            <img src="images/facilities/soil-lab-main.jpg" alt="Main View" class="active" onclick="changeImage('soil', 'soil-lab-main.jpg')">
-                            <img src="images/facilities/soil-equipment-1.jpg" alt="Analyzers" onclick="changeImage('soil', 'soil-equipment-1.jpg')">
-                            <img src="images/facilities/soil-equipment-2.jpg" alt="Sample Preparation" onclick="changeImage('soil', 'soil-equipment-2.jpg')">
-                            <img src="images/facilities/soil-equipment-3.jpg" alt="Testing Area" onclick="changeImage('soil', 'soil-equipment-3.jpg')">
-                        </div>
-                    </div>
-                    
-                    <div class="lab-info">
-                        <!-- Similar structure to Microbiology Lab -->
-                        <div class="info-item">
-                            <h3>Overview</h3>
-                            <p>The Soil Analysis Laboratory specializes in physical, chemical, and biological characterization of soil samples from diverse environments. Our advanced equipment enables comprehensive analysis of soil properties, contaminants, and nutrient profiles.</p>
-                        </div>
-                        
-                        <!-- Additional content specific to Soil Analysis -->
-                    </div>
-                </div>
-                
-                <!-- Similar footer structure -->
-            </div>
-            
-            <!-- Air Quality Lab -->
-            <div class="lab-detail" id="air" style="display: none;">
-                <div class="lab-header">
-                    <h2>Air Quality Laboratory</h2>
+                    <h2>Controlled Walk-In Aerobiology Chamber &amp; Indoor Air Laboratory</h2>
                     <div class="lab-tags">
                         <span class="lab-tag">Indoor Air</span>
                         <span class="lab-tag">Public Health</span>
@@ -271,50 +124,52 @@
                 <div class="lab-content">
                     <div class="lab-gallery">
                         <div class="gallery-main">
-                            <img src="images/facilities/air-lab-main.jpg" alt="Air Quality Laboratory" id="air-main-image">
+                            <img src="images/facilities/capabilities_chamber.jpg" alt="Controlled Walk-In Aerobiology Chamber" id="air-main-image">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="images/facilities/capabilities_chamber.jpg" alt="Chamber Interior" class="active" onclick="changeImage('air', 'capabilities_chamber.jpg')">
+                            <img src="images/facilities/overview_chamber_outside.jpg" alt="Chamber Exterior & Control" onclick="changeImage('air', 'overview_chamber_outside.jpg')">
+                            <img src="images/facilities/chamber_inside_vertical_1.jpg" alt="Sensor Array" onclick="changeImage('air', 'chamber_inside_vertical_1.jpg')">
+                            <img src="images/facilities/chamber_inside_vertical_2.jpg" alt="Sampling Setup" onclick="changeImage('air', 'chamber_inside_vertical_2.jpg')">
                         </div>
                     </div>
 
                     <div class="lab-info">
                         <div class="info-item">
                             <h3>Overview</h3>
-                            <p>The centrepiece is a purpose-built, room-sized Class II aerobiology chamber (5 &times; 3.2 &times; 2.5 m) with two heated thermal manikins (DINbots, which reproduce the buoyant plume of a human body) and distributed airspeed and air-quality sensing. It allows fully instrumented, repeatable room-scale experiments on how aerosols are generated, transported and removed, including ventilation, air cleaning and far-UVC (222 nm) disinfection. Category II microorganisms can be aerosolised and sampled in the air and on surfaces, in a way that is impossible in a working building.</p>
+                            <p>The centrepiece of our indoor air facilities is a purpose-built, room-scale Class II microbiological containment aerobiology chamber equipped with two heated thermal manikins (DINbots, which reproduce the buoyant thermal plume of a human body), programmable mechanical ventilation (0.5 to 12+ air changes per hour), HEPA filtration, and a three-dimensional lattice of airspeed, temperature, humidity, CO₂, and aerosol sensors. It enables repeatable, fully instrumented experiments on how respiratory pathogens and bioaerosols are generated, transported, and removed by ventilation, portable air cleaners, and germicidal UV-C (254 nm and 222 nm far-UVC) disinfection.</p>
                         </div>
 
                         <div class="info-item">
                             <h3>Key Equipment</h3>
                             <ul class="equipment-list">
                                 <li>
-                                    <span class="equipment-name">Bioaerosol Test Chamber</span>
-                                    <span class="equipment-model">Class II, 5 &times; 3.2 &times; 2.5 m, two heated thermal manikins and airspeed sensors</span>
+                                    <span class="equipment-name">Walk-In Class II Aerobiology Chamber</span>
+                                    <span class="equipment-model">Programmable HVAC (0.5–12+ ACH), HEPA filtration, two heated thermal manikins (DINbots)</span>
                                 </li>
                                 <li>
-                                    <span class="equipment-name">Andersen 6-stage impactor</span>
-                                    <span class="equipment-model">Size-resolved bioaerosol sampling, 0.65&ndash;6 &micro;m</span>
+                                    <span class="equipment-name">Andersen 6-Stage Viable Cascade Impactor</span>
+                                    <span class="equipment-model">Size-resolved bioaerosol sampling (0.65–7.0 &micro;m)</span>
                                 </li>
                                 <li>
-                                    <span class="equipment-name">AMPAS surface sampler</span>
-                                    <span class="equipment-model">Developed in-house for sampling bioaerosol deposited on surfaces</span>
+                                    <span class="equipment-name">Plair Rapid-E+ Bioaerosol Detector</span>
+                                    <span class="equipment-model">Real-time laser fluorescence &amp; scattering detection of bacteria, spores, pollen &amp; microplastics (0.3–100 &micro;m)</span>
                                 </li>
                                 <li>
-                                    <span class="equipment-name">Plair Rapid-E+</span>
-                                    <span class="equipment-model">Portable real-time detection of bacteria, fungal spores, pollen, virus aerosol and microplastics, 0.3&ndash;100 &micro;m</span>
+                                    <span class="equipment-name">Optical &amp; Aerodynamic Particle Sizers</span>
+                                    <span class="equipment-model">TSI OPS 3330 &amp; TSI APS 3321</span>
                                 </li>
                                 <li>
-                                    <span class="equipment-name">Optical Particle Counter</span>
-                                    <span class="equipment-model">TSI OPS 3330</span>
+                                    <span class="equipment-name">High-Volume Liquid Cyclone Sampler</span>
+                                    <span class="equipment-model">Bertin Coriolis &micro; bioaerosol collector</span>
                                 </li>
                                 <li>
-                                    <span class="equipment-name">Aerodynamic Particle Sizer</span>
-                                    <span class="equipment-model">TSI APS 3321</span>
+                                    <span class="equipment-name">Lab-on-a-Chip Cold Stage &amp; Microfluidics</span>
+                                    <span class="equipment-model">Polydispersed droplet-freezing assays for ice-nucleating particles &amp; bioaerosols</span>
                                 </li>
                                 <li>
-                                    <span class="equipment-name">Bioaerosol Sampler</span>
-                                    <span class="equipment-model">Coriolis µ (liquid cyclone)</span>
-                                </li>
-                                <li>
-                                    <span class="equipment-name">CO₂ / IAQ Monitor Array</span>
-                                    <span class="equipment-model">Multi-zone network for tracer gas studies</span>
+                                    <span class="equipment-name">Omnidirectional Anemometer &amp; IAQ Array</span>
+                                    <span class="equipment-model">3D velocity, turbulence, and multi-point CO₂ tracer network</span>
                                 </li>
                             </ul>
                         </div>
@@ -344,46 +199,432 @@
                                 </div>
                                 <div class="capability">
                                     <i class="fas fa-shield-virus"></i>
-                                    <span>Air Cleaning Evaluation</span>
+                                    <span>UV-C &amp; HEPA Air Cleaner Testing</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="actions">
-                            <a href="mailto:m.f.king@leeds.ac.uk" class="btn btn-secondary">Request Tour</a>
+                            <a href="mailto:m.f.king@leeds.ac.uk" class="btn btn-secondary">Enquire About Chamber Access</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="lab-footer">
                     <div class="staff-contact">
-                        <h3>Contact</h3>
+                        <h3>Academic &amp; Technical Contacts</h3>
                         <div class="contact-person">
                             <div class="contact-info">
-                                <h4>Dr. Marco-Felipe King</h4>
-                                <p>Director of WPE / Indoor Air Group Lead</p>
+                                <h4>Associate Professor Marco-Felipe King &amp; Dr Louise Fletcher</h4>
+                                <p>Director of WPE / Indoor Air &amp; Aerobiology Leads</p>
                                 <a href="mailto:m.f.king@leeds.ac.uk">m.f.king@leeds.ac.uk</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-publications">
+                        <h3>Selected Research Using This Facility</h3>
+                        <ul class="pub-list">
+                            <li><a href="research/covid19-impact.html">Far-UVC (222 nm), HEPA filtration, and hospital ventilation efficacy trials informing UK SAGE and NHS HTM 03-01 guidance.</a></li>
+                            <li><a href="news-blog/posts/aerobiology-chamber.html">Multi-sensor CO₂ tracer lattice and heated manikin plume validation for real-time indoor digital twins.</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Microbiology & Public Health Water Lab -->
+            <div class="lab-detail" id="microbiology" style="display: none;">
+                <div class="lab-header">
+                    <h2>Public Health Microbiology &amp; Water Quality Laboratory</h2>
+                    <div class="lab-tags">
+                        <span class="lab-tag">Public Health</span>
+                        <span class="lab-tag">Sanitation &amp; Water</span>
+                    </div>
+                </div>
+                
+                <div class="lab-content">
+                    <div class="lab-gallery">
+                        <div class="gallery-main">
+                            <img src="images/facilities/bioresources_cynthia_hach.jpg" alt="Public Health and Water Quality Laboratory" id="microbiology-main-image">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="images/facilities/bioresources_cynthia_hach.jpg" alt="HACH Robot & Analytical Suite" class="active" onclick="changeImage('microbiology', 'bioresources_cynthia_hach.jpg')">
+                            <img src="images/facilities/hach_robot.jpg" alt="HACH AP3900 Robot" onclick="changeImage('microbiology', 'hach_robot.jpg')">
+                            <img src="images/facilities/lab_instrument_bench.jpg" alt="Analytical Bench" onclick="changeImage('microbiology', 'lab_instrument_bench.jpg')">
+                            <img src="images/facilities/inp_sampling_lab.jpg" alt="Microbiological Preparation" onclick="changeImage('microbiology', 'inp_sampling_lab.jpg')">
+                        </div>
+                    </div>
+                    
+                    <div class="lab-info">
+                        <div class="info-item">
+                            <h3>Overview</h3>
+                            <p>Our Class II Public Health and Environmental Engineering Laboratories support research on waterborne, airborne, and faecal pathogens, environmental microbiomes, and biological water and wastewater treatment. Equipped with automated chemical analysers and molecular biology tools, the laboratory handles both controlled laboratory challenges (using bacteriophages such as &Phi;6 and MS2, <em>E. coli</em>, <em>Staphylococcus aureus</em>, and <em>Aspergillus fumigatus</em>) and environmental samples from UK and international field sites.</p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <h3>Key Equipment</h3>
+                            <ul class="equipment-list">
+                                <li>
+                                    <span class="equipment-name">Automated Water Analysis Robot</span>
+                                    <span class="equipment-model">HACH AP3900 multi-parameter robotic analyser (COD, nutrients, pH, conductivity)</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Class II Microbiological Safety Cabinets</span>
+                                    <span class="equipment-model">Containment Level 2 pathogen, bacteriophage &amp; bioaerosol handling</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Quantitative PCR (qPCR) &amp; Nucleic Acid Suite</span>
+                                    <span class="equipment-model">DNA/RNA extraction and amplification for pathogen quantification</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">UV-Vis &amp; Fluorescence Spectrophotometers</span>
+                                    <span class="equipment-model">High-throughput microplate and cuvette spectrophotometry</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Epifluorescence &amp; Phase-Contrast Microscopes</span>
+                                    <span class="equipment-model">Microbial enumeration, viability staining, and biofilm imaging</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-item">
+                            <h3>Technical Capabilities</h3>
+                            <div class="capabilities-grid">
+                                <div class="capability">
+                                    <i class="fas fa-dna"></i>
+                                    <span>DNA/RNA Extraction &amp; qPCR</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-vial"></i>
+                                    <span>Bacteriophage &amp; Pathogen Assays</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-microscope"></i>
+                                    <span>Epifluorescence Microscopy</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-robot"></i>
+                                    <span>Automated Water Chemistry</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Faecal Indicator Enumeration</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-flask"></i>
+                                    <span>Surface &amp; Fomite Transfer Trials</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="actions">
+                            <a href="mailto:D.J.S.Elliott@leeds.ac.uk" class="btn btn-secondary">Contact Lab Technician</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lab-footer">
+                    <div class="staff-contact">
+                        <h3>Laboratory Management</h3>
+                        <div class="contact-person">
+                            <div class="contact-info">
+                                <h4>Dr. David Elliott</h4>
+                                <p>Environmental Engineering Laboratory Technician</p>
+                                <a href="mailto:D.J.S.Elliott@leeds.ac.uk">D.J.S.Elliott@leeds.ac.uk</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-publications">
+                        <h3>Selected Research Programmes Using This Facility</h3>
+                        <ul class="pub-list">
+                            <li><a href="research/hecoira.html">HECOIRA &amp; Reckitt surface hygiene trials: quantifying viral surrogate and bacterial transfer between hands, surfaces, and air.</a></li>
+                            <li><a href="sanitation.html">EMISI &amp; climate-resilient sanitation: characterising pathogen survival and greenhouse gas generation in on-site sanitation systems.</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3. BioResources & Resource Recovery Lab -->
+            <div class="lab-detail" id="resource" style="display: none;">
+                <div class="lab-header">
+                    <h2>BioResources, Anaerobic Digestion &amp; Bioprocess Laboratory</h2>
+                    <div class="lab-tags">
+                        <span class="lab-tag">BioResources</span>
+                        <span class="lab-tag">Circular Economy</span>
+                    </div>
+                </div>
+
+                <div class="lab-content">
+                    <div class="lab-gallery">
+                        <div class="gallery-main">
+                            <img src="images/facilities/cynthia_biogas_lab.jpg" alt="BioResources and Biogas Testing Laboratory" id="resource-main-image">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="images/facilities/cynthia_biogas_lab.jpg" alt="Biogas & AD Setup" class="active" onclick="changeImage('resource', 'cynthia_biogas_lab.jpg')">
+                            <img src="images/facilities/cynthia_digestate_trials.jpg" alt="Digestate Valorisation" onclick="changeImage('resource', 'cynthia_digestate_trials.jpg')">
+                            <img src="images/facilities/bioresources_cynthia_hach.jpg" alt="Nutrient & COD Analysis" onclick="changeImage('resource', 'bioresources_cynthia_hach.jpg')">
+                            <img src="images/facilities/hach_robot.jpg" alt="High-Throughput Digest Analysis" onclick="changeImage('resource', 'hach_robot.jpg')">
+                        </div>
+                    </div>
+
+                    <div class="lab-info">
+                        <div class="info-item">
+                            <h3>Overview</h3>
+                            <p>The BioResources and Bioprocess Laboratory develops and scales biological and thermochemical technologies that convert organic waste, wastewater, and agricultural residues into biomethane, biohydrogen, protein, and safe biofertilisers. Supporting flagship programmes such as the £1.75M Ayrton Challenge <strong>BioCool</strong> project and <strong>BEFWAM</strong>, the laboratory combines automated methane potential testing with microalgae and duckweed photobioreactors.</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>Key Equipment</h3>
+                            <ul class="equipment-list">
+                                <li>
+                                    <span class="equipment-name">Automated Methane Potential Testing System</span>
+                                    <span class="equipment-model">Bioprocess Control AMPTS II (multi-reactor biomethane &amp; biohydrogen yield monitoring)</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Bench-Top &amp; Pilot-Scale Anaerobic Digesters</span>
+                                    <span class="equipment-model">Temperature-controlled CSTR and two-stage mesophilic/thermophilic reactors</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Microalgae &amp; Duckweed Photobioreactors</span>
+                                    <span class="equipment-model">Illuminated tubular photobioreactors and controlled raceway pond systems</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Gas &amp; Ion Chromatography Suite</span>
+                                    <span class="equipment-model">Biogas composition (CH₄, CO₂, H₂, H₂S), volatile fatty acids (VFAs), and nutrient ions</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Hydrothermal Carbonisation &amp; Solids Suite</span>
+                                    <span class="equipment-model">High-pressure reactors, furnaces, and elemental (CHNS) characterisation</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>Technical Capabilities</h3>
+                            <div class="capabilities-grid">
+                                <div class="capability">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Biomethane &amp; Biohydrogen Assays</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-seedling"></i>
+                                    <span>Algal &amp; Duckweed Cultivation</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-recycle"></i>
+                                    <span>Nutrient &amp; Protein Recovery</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>Digestate Biofertiliser Testing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <a href="mailto:M.A.Camargo-Valero@leeds.ac.uk" class="btn btn-secondary">Enquire About BioResources Lab</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-footer">
+                    <div class="staff-contact">
+                        <h3>Academic Contacts</h3>
+                        <div class="contact-person">
+                            <div class="contact-info">
+                                <h4>Dr Miller Alonso Camargo-Valero &amp; Dr Cynthia Kusin Okoro-Shekwaga</h4>
+                                <p>BioResources &amp; Circular Economy Theme Leads</p>
+                                <a href="mailto:M.A.Camargo-Valero@leeds.ac.uk">M.A.Camargo-Valero@leeds.ac.uk</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Geochemistry & Soil Analysis Lab -->
+            <div class="lab-detail" id="soil" style="display: none;">
+                <div class="lab-header">
+                    <h2>Environmental Geochemistry, Soil &amp; Contaminated Land Laboratory</h2>
+                    <div class="lab-tags">
+                        <span class="lab-tag">Water &amp; Ground</span>
+                        <span class="lab-tag">BioResources</span>
+                    </div>
+                </div>
+                
+                <div class="lab-content">
+                    <div class="lab-gallery">
+                        <div class="gallery-main">
+                            <img src="images/facilities/cynthia_digestate_trials.jpg" alt="Environmental Geochemistry and Soil Analysis" id="soil-main-image">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="images/facilities/cynthia_digestate_trials.jpg" alt="Soil & Digestate Columns" class="active" onclick="changeImage('soil', 'cynthia_digestate_trials.jpg')">
+                            <img src="images/facilities/lab_instrument_bench.jpg" alt="Geochemical Instrumentation" onclick="changeImage('soil', 'lab_instrument_bench.jpg')">
+                            <img src="images/facilities/sda_helideck_sampling.jpg" alt="Environmental Field Sampling" onclick="changeImage('soil', 'sda_helideck_sampling.jpg')">
+                        </div>
+                    </div>
+                    
+                    <div class="lab-info">
+                        <div class="info-item">
+                            <h3>Overview</h3>
+                            <p>The Environmental Geochemistry and Soil Laboratory specialises in the physical, chemical, mineralogical, and biological characterisation of soils, sediments, industrial mineral wastes (steel slags, bauxite residue, mine tailings), and contaminated groundwater. Research spans redox-sensitive trace metal mobility (vanadium, chromium, radionuclides), permeable reactive barriers, biogeotechnical soil stabilisation, and the agricultural application of anaerobic digestates.</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>Key Equipment</h3>
+                            <ul class="equipment-list">
+                                <li>
+                                    <span class="equipment-name">Trace Metal &amp; Elemental Analysers</span>
+                                    <span class="equipment-model">Atomic Absorption Spectroscopy (AAS), ICP-OES / ICP-MS access, and Ion Chromatography</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Anaerobic &amp; Redox-Controlled Microcosms</span>
+                                    <span class="equipment-model">Controlled Eh/pH column and batch reactors for subsurface contaminant transport</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Porous Media &amp; Unsaturated Soil Testing</span>
+                                    <span class="equipment-model">Triaxial cells, permeameters, and coupled thermo-hydro-mechanical-chemical (THMC) rigs</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>Technical Capabilities</h3>
+                            <div class="capabilities-grid">
+                                <div class="capability">
+                                    <i class="fas fa-mountain"></i>
+                                    <span>Contaminant Leaching &amp; Speciation</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-water"></i>
+                                    <span>Permeable Reactive Barriers</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-seedling"></i>
+                                    <span>Soil–Digestate Nutrient Cycling</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-cubes"></i>
+                                    <span>Mineral Waste Valorisation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <a href="mailto:D.I.Stewart@leeds.ac.uk" class="btn btn-secondary">Contact Geochemistry Lead</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-footer">
+                    <div class="staff-contact">
+                        <h3>Academic Contacts</h3>
+                        <div class="contact-person">
+                            <div class="contact-info">
+                                <h4>Prof. Doug Stewart, Dr Xiaohui Chen &amp; Dr Shashank Subramanyam</h4>
+                                <p>Environmental Geochemistry &amp; Geomechanics</p>
+                                <a href="mailto:D.I.Stewart@leeds.ac.uk">D.I.Stewart@leeds.ac.uk</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Resource Recovery Lab -->
-            <div class="lab-detail" id="resource" style="display: none;">
-                <!-- Similar structure to previous labs -->
-            </div>
-            
-            <!-- Microplastics Lab -->
+            <!-- 5. Microplastics & Hydraulics Lab -->
             <div class="lab-detail" id="microplastics" style="display: none;">
-                <!-- Similar structure to previous labs -->
+                <div class="lab-header">
+                    <h2>Microplastics Treatment &amp; Hydraulic Infrastructure Laboratory</h2>
+                    <div class="lab-tags">
+                        <span class="lab-tag">Water</span>
+                        <span class="lab-tag">BioResources</span>
+                    </div>
+                </div>
+
+                <div class="lab-content">
+                    <div class="lab-gallery">
+                        <div class="gallery-main">
+                            <img src="images/facilities/microplastics_jar_testing.jpg" alt="Microplastics Coagulation and Jar Testing" id="microplastics-main-image">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="images/facilities/microplastics_jar_testing.jpg" alt="Microplastics Jar Testing" class="active" onclick="changeImage('microplastics', 'microplastics_jar_testing.jpg')">
+                            <img src="images/facilities/wnw_tube_z1.jpg" alt="Multiphase Hydraulic Pipeline Modelling" onclick="changeImage('microplastics', 'wnw_tube_z1.jpg')">
+                            <img src="images/facilities/lab_instrument_bench.jpg" alt="Spectroscopic Characterisation" onclick="changeImage('microplastics', 'lab_instrument_bench.jpg')">
+                        </div>
+                    </div>
+
+                    <div class="lab-info">
+                        <div class="info-item">
+                            <h3>Overview</h3>
+                            <p>Combining our water-treatment process benches with hydraulic flumes and pressurised pipeline rigs, this suite supports two major strands of water engineering: (1) extracting, identifying, and removing microplastics and emerging micropollutants across drinking water, wastewater, compost, and agricultural soils; and (2) experimental investigation of two-phase air–water transient surges, open-channel weir flows, and constructed wetland treatment systems.</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>Key Equipment</h3>
+                            <ul class="equipment-list">
+                                <li>
+                                    <span class="equipment-name">Programmable Jar-Testing &amp; Flocculation Suite</span>
+                                    <span class="equipment-model">Coagulation, flocculation, and dissolved air flotation (DAF) rigs for microplastics removal</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Nile Red Fluorescence &amp; Vibrational Spectroscopy</span>
+                                    <span class="equipment-model">Density-separation extraction, fluorescence tagging, and FTIR/Raman polymer identification</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Two-Phase Transient Pipeline &amp; Hydraulic Flume Rigs</span>
+                                    <span class="equipment-model">High-frequency pressure transducers, optical flow visualisation, and compressed-air storage loops</span>
+                                </li>
+                                <li>
+                                    <span class="equipment-name">Constructed Wetland Mesocosms</span>
+                                    <span class="equipment-model">Bench and pilot-scale vertical and horizontal flow wetland columns</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>Technical Capabilities</h3>
+                            <div class="capabilities-grid">
+                                <div class="capability">
+                                    <i class="fas fa-filter"></i>
+                                    <span>Microplastics Extraction &amp; Removal</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-wave-square"></i>
+                                    <span>Chemometric Source Apportionment</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <span>Hydraulic Transient &amp; Surge Testing</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-water"></i>
+                                    <span>Constructed Wetland Treatment</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <a href="mailto:M.R.Tillotson@leeds.ac.uk" class="btn btn-secondary">Enquire About Water &amp; Microplastics</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-footer">
+                    <div class="staff-contact">
+                        <h3>Academic Contacts</h3>
+                        <div class="contact-person">
+                            <div class="contact-info">
+                                <h4>Prof. Martin Tillotson, Dr Maryam Asachi, Dr Franja Prosenc &amp; Dr Mohsen Besharat</h4>
+                                <p>Water Treatment, Microplastics &amp; Hydraulic Infrastructure</p>
+                                <a href="mailto:M.R.Tillotson@leeds.ac.uk">M.R.Tillotson@leeds.ac.uk</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
-        
         <!-- Facilities Access Information -->
         <section class="facilities-access">
-            <h2 class="section-title">Access & Policies</h2>
+            <h2 class="section-title">Access &amp; Policies</h2>
             
             <div class="access-grid">
                 <div class="access-card">
@@ -391,8 +632,8 @@
                         <i class="fas fa-user-graduate"></i>
                     </div>
                     <h3>Internal Researchers</h3>
-                    <p>WPE department members have 24/7 access to facilities following proper safety training and authorization.</p>
-                    <a href="#" class="access-link">Training Schedule</a>
+                    <p>WPE staff and doctoral researchers have full access to laboratory facilities following completion of School of Civil Engineering safety inductions and COSHH/biological risk assessments.</p>
+                    <a href="mailto:D.J.S.Elliott@leeds.ac.uk?subject=WPE%20Lab%20Safety%20Induction" class="access-link">Book Lab Induction</a>
                 </div>
                 
                 <div class="access-card">
@@ -400,26 +641,26 @@
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3>Academic Collaborators</h3>
-                    <p>Researchers from partner institutions can access facilities through established collaboration agreements.</p>
-                    <a href="#" class="access-link">Collaboration Inquiries</a>
+                    <p>Researchers from partner universities and research institutes can access our walk-in aerobiology chamber and analytical suites through collaborative research agreements.</p>
+                    <a href="mailto:m.f.king@leeds.ac.uk?subject=Academic%20Facility%20Collaboration" class="access-link">Collaboration Enquiries</a>
                 </div>
                 
                 <div class="access-card">
                     <div class="access-icon">
                         <i class="fas fa-industry"></i>
                     </div>
-                    <h3>Industry Partners</h3>
-                    <p>Commercial access is available through our industry partnership program with flexible fee structures.</p>
-                    <a href="#" class="access-link">Industry Rates</a>
+                    <h3>Industry &amp; NHS Partners</h3>
+                    <p>Commercial testing, product evaluation (e.g. air cleaners, UV-C devices, surface disinfectants, water treatment processes), and consultancy are available through University of Leeds enterprise agreements.</p>
+                    <a href="mailto:m.f.king@leeds.ac.uk?subject=Industry%20Testing%20Enquiry" class="access-link">Industry Enquiries</a>
                 </div>
                 
                 <div class="access-card">
                     <div class="access-icon">
                         <i class="fas fa-clipboard-check"></i>
                     </div>
-                    <h3>Safety Protocols</h3>
-                    <p>All users must adhere to laboratory safety protocols and complete required training before access is granted.</p>
-                    <a href="#" class="access-link">Safety Guidelines</a>
+                    <h3>Safety &amp; Containment</h3>
+                    <p>All microbiological and chamber work operates under strict Containment Level 2 (Class II) biosafety protocols overseen by our technical and biological safety officers.</p>
+                    <a href="mailto:D.J.S.Elliott@leeds.ac.uk?subject=Laboratory%20Safety%20Protocols" class="access-link">Safety Enquiries</a>
                 </div>
             </div>
         </section>
@@ -427,84 +668,76 @@
         <!-- Technical Capabilities Matrix -->
         <section class="capabilities-matrix">
             <h2 class="section-title">Technical Capabilities Matrix</h2>
-            <p class="section-intro">This matrix helps you identify which laboratory best suits your research needs based on technical capabilities.</p>
+            <p class="section-intro">This matrix summarises the core experimental capabilities across our five laboratory suites.</p>
             
             <div class="matrix-container">
                 <table class="capabilities-table">
                     <thead>
                         <tr>
                             <th>Capability</th>
-                            <th>Microbiology</th>
-                            <th>Soil Analysis</th>
-                            <th>Air Quality</th>
-                            <th>Resource Recovery</th>
-                            <th>Microplastics</th>
+                            <th>Aerobiology Chamber</th>
+                            <th>Microbiology &amp; Water</th>
+                            <th>BioResources &amp; AD</th>
+                            <th>Geochemistry &amp; Soil</th>
+                            <th>Microplastics &amp; Hydraulics</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Molecular Analysis</td>
+                            <td>Pathogen &amp; Bacteriophage Assays (CL2)</td>
+                            <td class="has-capability">●●●</td>
                             <td class="has-capability">●●●</td>
                             <td class="has-capability">●●</td>
                             <td></td>
-                            <td class="has-capability">●</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td>Chemical Analysis</td>
-                            <td class="has-capability">●</td>
-                            <td class="has-capability">●●●</td>
-                            <td class="has-capability">●●</td>
-                            <td class="has-capability">●●</td>
-                            <td class="has-capability">●●</td>
-                        </tr>
-                        <tr>
-                            <td>Microscopy</td>
-                            <td class="has-capability">●●●</td>
-                            <td class="has-capability">●</td>
-                            <td></td>
+                            <td>Automated Chemical &amp; Nutrient Analysis</td>
                             <td></td>
                             <td class="has-capability">●●●</td>
-                        </tr>
-                        <tr>
-                            <td>Particle Analysis</td>
-                            <td></td>
-                            <td class="has-capability">●●</td>
                             <td class="has-capability">●●●</td>
-                            <td></td>
-                            <td class="has-capability">●●●</td>
-                        </tr>
-                        <tr>
-                            <td>Material Testing</td>
-                            <td></td>
-                            <td class="has-capability">●</td>
-                            <td class="has-capability">●</td>
                             <td class="has-capability">●●●</td>
                             <td class="has-capability">●●</td>
                         </tr>
                         <tr>
-                            <td>Environmental Monitoring</td>
+                            <td>Microscopy &amp; Spectroscopy</td>
+                            <td class="has-capability">●</td>
+                            <td class="has-capability">●●●</td>
                             <td class="has-capability">●</td>
                             <td class="has-capability">●●</td>
                             <td class="has-capability">●●●</td>
-                            <td></td>
-                            <td class="has-capability">●</td>
                         </tr>
                         <tr>
-                            <td>Process Development</td>
-                            <td class="has-capability">●●</td>
+                            <td>Aerosol &amp; Particle Sizing (0.3–100 &micro;m)</td>
+                            <td class="has-capability">●●●</td>
+                            <td class="has-capability">●</td>
                             <td></td>
                             <td class="has-capability">●</td>
                             <td class="has-capability">●●●</td>
+                        </tr>
+                        <tr>
+                            <td>Biogas, Biomethane &amp; Bioprocess Reactors</td>
+                            <td></td>
+                            <td class="has-capability">●</td>
+                            <td class="has-capability">●●●</td>
+                            <td class="has-capability">●</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td>Pilot Scale Testing</td>
-                            <td></td>
-                            <td></td>
+                            <td>Environmental &amp; Sensor Network Monitoring</td>
+                            <td class="has-capability">●●●</td>
                             <td class="has-capability">●●</td>
+                            <td class="has-capability">●●</td>
+                            <td class="has-capability">●●</td>
+                            <td class="has-capability">●●</td>
+                        </tr>
+                        <tr>
+                            <td>Room-Scale &amp; Pilot-Scale Physical Testing</td>
                             <td class="has-capability">●●●</td>
                             <td></td>
+                            <td class="has-capability">●●●</td>
+                            <td class="has-capability">●●</td>
+                            <td class="has-capability">●●●</td>
                         </tr>
                     </tbody>
                 </table>
@@ -512,38 +745,38 @@
                 <div class="capability-legend">
                     <div class="legend-item">
                         <span class="dot">●●●</span>
-                        <span>Advanced Capability</span>
+                        <span>Primary Specialist Capability</span>
                     </div>
                     <div class="legend-item">
                         <span class="dot">●●</span>
-                        <span>Intermediate Capability</span>
+                        <span>Routine Capability</span>
                     </div>
                     <div class="legend-item">
                         <span class="dot">●</span>
-                        <span>Basic Capability</span>
+                        <span>Supporting Capability</span>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Contact for Inquiries -->
+        <!-- Contact for Enquiries -->
         <section class="facilities-contact">
-            <h2 class="section-title">Facilities Inquiries</h2>
+            <h2 class="section-title">Facilities Enquiries</h2>
 
             <div class="contact-container">
                 <div class="contact-info">
-                    <p>For questions about our facilities, equipment access, or to discuss potential collaborations, please contact our Lab Technician or the WPE Director directly.</p>
+                    <p>For questions about our laboratories, equipment access, commercial testing, or research collaborations, please contact our Laboratory Technician or the WPE Director directly.</p>
 
                     <div class="coordinator-info">
                         <div>
                             <h3>Dr. David Elliott</h3>
-                            <p>Lab Technician</p>
-                            <p><i class="fas fa-envelope"></i> <a href="mailto:D.J.S.elliott@leeds.ac.uk">D.J.S.elliott@leeds.ac.uk</a></p>
+                            <p>Environmental Engineering Laboratory Technician</p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:D.J.S.Elliott@leeds.ac.uk">D.J.S.Elliott@leeds.ac.uk</a></p>
                         </div>
                     </div>
                     <div class="coordinator-info" style="margin-top:1rem;">
                         <div>
-                            <h3>Dr. Marco-Felipe King</h3>
+                            <h3>Associate Professor Marco-Felipe King</h3>
                             <p>Director of WPE</p>
                             <p><i class="fas fa-envelope"></i> <a href="mailto:m.f.king@leeds.ac.uk">m.f.king@leeds.ac.uk</a></p>
                         </div>
@@ -553,44 +786,43 @@
         </section>
     </div>
     
-    <!-- Footer (your existing footer) -->
-   <!-- Footer -->
-   <footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <div class="footer-logo">
-                <img src="images/wpe_logo_colour.png" alt="WPE Logo">
-                <h3>WPE</h3>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                    <h3>WPE</h3>
+                </div>
+                <p>Water, Public Health and Environmental Engineering Research Group</p>
             </div>
-            <p>Water, Public Health and Environmental Engineering Research Group</p>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="research-groups.html">Research Groups</a></li>
+                    <li><a href="news-blog.html">News &amp; Blog</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Events</h3>
+                <ul class="footer-links">
+                    <li><a href="cake-meetings.html">Cake Meetings</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
+                <p><i class="fas fa-map-marker"></i> Woodhouse Lane, LS2 9JT, Leeds, UK</p>
+                <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
+            </div>
         </div>
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="research-groups.html">Research Groups</a></li>
-                <li><a href="news-blog.html">News & Blog</a></li>
-                <li><a href="people.html">People</a></li>
-                <li><a href="facilities.html">Facilities</a></li>
-            </ul>
+        <div class="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering Research Group. All rights reserved.
         </div>
-        <div class="footer-section">
-            <h3>Events</h3>
-            <ul class="footer-links">
-                <li><a href="cake-meetings.html">Cake Meetings</a></li>
-            </ul>
-        </div>
-        <div class="footer-section footer-contact">
-            <h3>Contact Us</h3>
-            <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
-            <p><i class="fas fa-map-marker"></i>Woodhouse Lane, LS2 9JT, Leeds, UK</p>
-            <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
-        </div>
-    </div>
-    <div class="copyright">
-        &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering  Research Group. All rights reserved.
-    </div>
-</footer>
+    </footer>
 </body>
 </html>

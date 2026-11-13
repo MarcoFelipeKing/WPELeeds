@@ -1,20 +1,20 @@
 {
-  "generated": "2026-10-07",
+  "generated": "2026-11-10",
   "period": "2018 to 2025",
   "source": "Symplectic research outputs matched to the WPE roster; doctoral researchers take the theme of their supervisor",
   "counts": {
     "outputs": 1895,
-    "peopleMatched": 60,
-    "staff": 36,
-    "students": 55
+    "peopleMatched": 50,
+    "staff": 29,
+    "students": 44
   },
   "nodes": [
     {
       "id": "BioResources",
       "slug": "bioresources",
-      "people": 9,
-      "outputs": 155,
-      "within": 29
+      "people": 6,
+      "outputs": 122,
+      "within": 6
     },
     {
       "id": "Indoor Air",
@@ -26,16 +26,16 @@
     {
       "id": "Sanitation & WASH",
       "slug": "sanitation",
-      "people": 13,
+      "people": 12,
       "outputs": 221,
-      "within": 40
+      "within": 28
     },
     {
       "id": "Water",
       "slug": "water",
-      "people": 29,
-      "outputs": 390,
-      "within": 80
+      "people": 23,
+      "outputs": 306,
+      "within": 69
     }
   ],
   "links": [
@@ -62,7 +62,7 @@
     {
       "source": "Indoor Air",
       "target": "Water",
-      "value": 14
+      "value": 13
     },
     {
       "source": "Sanitation & WASH",

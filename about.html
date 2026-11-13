@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - WPE - Water, Public Health and Environment</title>
+    <title>About Us &amp; Impact - WPE - Water, Public Health and Environment</title>
     <!-- Font imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Note: FreightSans Pro and Monarcha are premium fonts that would need to be properly licensed and loaded -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
@@ -34,7 +33,7 @@
                      <li><a href="people.html" id="nav-people">People</a></li>
                      <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
                      <li><a href="cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
-                     <li><a href="news-blog.html" id="nav-news">News & Blog</a></li>
+                     <li><a href="news-blog.html" id="nav-news">News &amp; Blog</a></li>
                      <li><a href="contact.html" id="nav-contact">Contact</a></li>
                  </ul>
              </nav>
@@ -43,16 +42,11 @@
  
      <!-- Script to highlight current page in navigation -->
      <script>
-         // Get current page filename
          const path = window.location.pathname;
          const page = path.split("/").pop();
-         
-         // Remove any active classes
          document.querySelectorAll('nav a').forEach(link => {
              link.classList.remove('active');
          });
-         
-         // Set active class based on current page
          if (page === "" || page === "index.html") {
              document.getElementById('nav-home').classList.add('active');
          } else if (page === "about.html") {
@@ -71,16 +65,14 @@
              document.getElementById('nav-contact').classList.add('active');
          }
      </script>
- 
-
 
     <!-- Page Header -->
     <section class="page-header">
-        <h2 class="display-text">About Our Group</h2>
-        <p>Learn more about our mission, people, and history</p>
+        <h2 class="display-text">About WPE &amp; Our Global Impact</h2>
+        <p>Engineering healthy buildings, resilient water and sanitation systems, and circular bioresources at the University of Leeds</p>
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li>></li>
+            <li>&gt;</li>
             <li>About</li>
         </ul>
     </section>
@@ -89,15 +81,15 @@
     <div class="main-content">
         <!-- About Section -->
         <section class="about-section">
-            <h2 class="section-title">Our Story</h2>
+            <h2 class="section-title">Who We Are</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>The Water, Public Health and Environmental Engineering Research Group (WPE) was established in 2003 to address the growing challenges at the intersection of water management, environmental sustainability, and public health concerns. What began as a small research unit with just 6 academics has grown into a vibrant community of 20 academics and >50 PhD students.</p>
-                    <p>Our group has pioneered innovative approaches to complex environmental challenges, earning recognition for our interdisciplinary research methodology that brings together experts from engineering, biology, public health, and social sciences. This collaborative approach has positioned us at the forefront of developing sustainable solutions for global environmental and health challenges.</p>
-                    <p>Over the past two decades, we have expanded our research focus to include emerging concerns such as microplastics, resource recovery, and the health impacts of climate change, while maintaining our core expertise in water quality, sanitation systems, and indoor air quality.</p>
+                    <p>The <strong>Water, Public Health and Environmental Engineering (WPE)</strong> group in the School of Civil Engineering at the University of Leeds studies how water, air, waste, and energy move through buildings, cities, and catchments — and how those flows affect human health and the environment.</p>
+                    <p>Founded on Leeds's long-standing tradition in tropical public health engineering and building aerobiology, WPE brings together <strong>30 academic and research staff</strong> and <strong>more than 50 doctoral researchers</strong> working across four interconnected research themes: <a href="indoor-air.html">Indoor Air &amp; Healthy Buildings</a>, <a href="water.html">Water — Supply, Treatment &amp; Resilience</a>, <a href="sanitation.html">Sanitation, Hygiene &amp; Global Health</a>, and <a href="bioresources.html">BioResources, Waste &amp; Circular Economy</a>, underpinned by shared <a href="methods.html">experimental, microbiological, computational, and social-science methods</a>.</p>
+                    <p>Our researchers play leading roles across the University's interdisciplinary institutes — including <strong>water@leeds</strong> (one of the world's largest university water research centres, led by Prof. Martin Tillotson), the <strong>Leeds Institute for Fluid Dynamics (LIFD)</strong>, the <strong>Priestley Centre for Climate Futures</strong>, and two EPSRC Centres for Doctoral Training (<strong>WaterWISER</strong> and <strong>Future Fluid Dynamics</strong>).</p>
                 </div>
                 <div class="about-image">
-                    <img src="images/collaboration.jpg" alt="WPE Research Team">
+                    <img src="images/facilities/bioresources_cynthia_hach.jpg" alt="WPE researchers in the Public Health and Environmental Engineering Laboratories">
                 </div>
             </div>
         </section>
@@ -106,161 +98,178 @@
         <section class="mission-vision">
             <div class="mission-card">
                 <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
-                <p>To advance scientific knowledge and develop practical solutions for sustainable water management, improved public health outcomes, and environmental protection through rigorous interdisciplinary research, innovation, and collaboration.</p>
+                <p>To advance fundamental environmental engineering science and co-develop practical, low-carbon solutions for healthy indoor environments, resilient water and sanitation systems, and circular resource recovery through rigorous laboratory, computational, and field research.</p>
             </div>
             <div class="vision-card">
                 <h3><i class="fas fa-binoculars"></i> Our Vision</h3>
-                <p>A world where communities have equitable access to clean water, healthy environments, and sustainable sanitation systems, supported by evidence-based policies and innovative technologies that promote human and ecological wellbeing.</p>
+                <p>A world where every community has equitable access to clean air, safe water, safely managed sanitation, and circular bioresource systems, supported by evidence-based engineering standards and public health policy.</p>
             </div>
         </section>
-<!-- Department Timeline -->
-<section class="timeline-section">
-    <h2 class="section-title">Our Journey</h2>
-    <div class="timeline-container">
-        <div class="timeline-navigation">
-            <button class="timeline-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-            <div class="timeline-wrapper">
-                <div class="timeline-track">
-                    <!-- Timeline items -->
-                    <div class="timeline-item" data-year="2003">
-                        <div class="timeline-year">2003</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Department Founded</h3>
-                            <p>The Water, Public Health and Environment department was established with 6 founding academics.</p>
-                        </div>
+
+        <!-- Impact Hub (from 02_WPE_Impact_Hub_final.md) -->
+        <section class="featured" id="impact" style="padding: 3rem 0;">
+            <h2 class="section-title">Research That Changes Policy and Practice</h2>
+            <p style="max-width: 850px; margin: 0 auto 2.5rem; text-align: center; color: var(--text-light); line-height: 1.7;">
+                Our research is designed alongside the people and institutions who use it — from hospital estates teams, water utilities, and local authorities in the UK to municipal utilities, ministries, and international agencies across Africa, South and Southeast Asia, and Latin America.
+            </p>
+            <div class="featured-grid">
+                <div class="featured-item" id="impact-sanitation">
+                    <img src="images/research/sanitation-lab.jpg" alt="Mapping Unsafely Managed Sanitation Around the World">
+                    <div class="featured-content">
+                        <h3>Mapping Unsafely Managed Sanitation Around the World</h3>
+                        <p>Co-developed by Prof. Barbara Evans and Prof. Andy Sleigh, the <strong>Shit Flow Diagram (SFD)</strong> is used in more than 100 cities worldwide, directly informed UN Sustainable Development Goal Target 6.2 ("safely managed sanitation"), and shaped over <strong>US$1.1 billion</strong> in urban sanitation investment.</p>
+                        <a href="research/sanitation-impact.html" class="read-more-button">Read Full Impact Case Study</a>
                     </div>
-                    
-                    <div class="timeline-item" data-year="2007">
-                        <div class="timeline-year">2007</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>First Major Research Grant</h3>
-                            <p>Secured £2.5M funding for groundbreaking water purification research, establishing our international reputation.</p>
-                        </div>
+                </div>
+                <div class="featured-item" id="impact-covid">
+                    <img src="images/facilities/capabilities_chamber.jpg" alt="Shaping COVID-19 Guidance on Ventilation and Transmission">
+                    <div class="featured-content">
+                        <h3>Shaping National &amp; International COVID-19 Guidance</h3>
+                        <p>Led by Prof. Cath Noakes OBE FREng (Chair of the SAGE Environment and Modelling Group) with Associate Professor Marco-Felipe King and Dr Louise Fletcher, two decades of Leeds aerobiology research underpinned UK Government, NHS, CIBSE, and WHO ventilation guidance.</p>
+                        <a href="research/covid19-impact.html" class="read-more-button">Read Full Impact Case Study</a>
                     </div>
-                    
-                    <div class="timeline-item" data-year="2010">
-                        <div class="timeline-year">2010</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Public Health Group Established</h3>
-                            <p>Expansion into public health research with the addition of 4 new faculty members and dedicated laboratory space.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-year="2014">
-                        <div class="timeline-year">2014</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>New Building Inauguration</h3>
-                            <p>Moved to our current purpose-built facility with state-of-the-art laboratories and collaborative workspaces.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-year="2017">
-                        <div class="timeline-year">2017</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Indoor Air Group Launched</h3>
-                            <p>Expanded our research scope to include indoor air quality and ventilation systems research.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-year="2020">
-                        <div class="timeline-year">2020</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>COVID-19 Response</h3>
-                            <p>Pivoted research to address pandemic challenges, developing COVID-safe ventilation guidelines and rapid water testing methods.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-year="2023">
-                        <div class="timeline-year">2023</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Environmental Excellence Award</h3>
-                            <p>Received the prestigious Environmental Research Excellence Award for our collective work on microplastics.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-year="2025">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Today</h3>
-                            <p>Now with 25 academic staff and 50 PhD researchers across four research groups, we continue to expand our impact on global environmental challenges.</p>
-                        </div>
+                </div>
+                <div class="featured-item" id="global-agenda">
+                    <img src="images/spotlights/cynthia/kalerwe-market.jpg" alt="Contributing to the Global Agenda">
+                    <div class="featured-content">
+                        <h3>Contributing to the Global Agenda</h3>
+                        <p>From WHO/UNICEF global sanitation monitoring and £1.75M Ayrton Challenge clean-cooling hubs in Uganda (<strong>BioCool</strong>) to UK school air-quality trials (<strong>Class-ACT</strong>) and circular economy policy for offshore wind, our work directly supports SDGs 3, 6, 7, 11, 12, and 13.</p>
+                        <a href="research/biocool.html" class="read-more-button">Explore BioCool Impact</a>
                     </div>
                 </div>
             </div>
-            <button class="timeline-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        
-        <div class="timeline-progress">
-            <div class="timeline-progress-bar"></div>
-        </div>
-    </div>
-</section>
+        </section>
+
+        <!-- Department Timeline -->
+        <section class="timeline-section">
+            <h2 class="section-title">Milestones in Our History</h2>
+            <div class="timeline-container">
+                <div class="timeline-navigation">
+                    <button class="timeline-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <div class="timeline-wrapper">
+                        <div class="timeline-track">
+                            <div class="timeline-item" data-year="1970s–2003">
+                                <div class="timeline-year">2003</div>
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Tropical Public Health &amp; Aerobiology Foundations</h3>
+                                    <p>Building on Professor Duncan Mara's pioneering work in tropical public health engineering and the establishment of the Leeds Pathogen Control Engineering (PaCE) institute in 2003.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item" data-year="2009">
+                                <div class="timeline-year">2009</div>
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Launch of water@leeds</h3>
+                                    <p>WPE academics help establish water@leeds, uniting more than 500 water researchers across faculties at the University of Leeds.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item" data-year="2014">
+                                <div class="timeline-year">2014</div>
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Shit Flow Diagram (SFD) &amp; SDG 6.2</h3>
+                                    <p>Prof. Barbara Evans and Prof. Andy Sleigh co-develop the SFD diagnostic framework, helping redefine global sanitation targets for the UN Sustainable Development Goals.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item" data-year="2019">
+                                <div class="timeline-year">2019</div>
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>EPSRC WaterWISER CDT</h3>
+                                    <p>Leeds leads the EPSRC Centre for Doctoral Training in Water and Waste Infrastructure Systems Engineered for Resilience (WaterWISER).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item" data-year="2020">
+                                <div class="timeline-year">2020</div>
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>SAGE EMG &amp; Global COVID-19 Response</h3>
+                                    <p>Prof. Cath Noakes chairs the UK Government SAGE Environment and Modelling Group, with Leeds aerobiology and QMRA models shaping national and WHO ventilation guidance.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item" data-year="2024">
+                                <div class="timeline-year">2024</div>
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>EPSRC CDT in Future Fluid Dynamics &amp; BioCool</h3>
+                                    <p>Launch of the EPSRC CDT in Future Fluid Dynamics (Co-Director: Associate Professor Marco-Felipe King) and the BioCool clean-cooling initiative in Uganda (PI: Dr Cynthia Okoro-Shekwaga).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item" data-year="2026">
+                                <div class="timeline-year">2026</div>
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Pettenkofer Award &amp; £1.75M Ayrton Challenge</h3>
+                                    <p>Prof. Cath Noakes receives the 2026 Pettenkofer Award at Indoor Air 2026, and the BioCool programme secures £1.75M in Ayrton Challenge scale-up funding.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="timeline-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <div class="timeline-progress">
+                    <div class="timeline-progress-bar"></div>
+                </div>
+            </div>
+        </section>
 
         <!-- Leadership Team -->
         <section class="leadership-team">
-            <h2 class="section-title">Leadership Team</h2>
+            <h2 class="section-title">Leadership &amp; Community Coordination</h2>
             <div class="team-members">
                 <div class="team-member">
                     <div class="team-member-image">
-                        <img src="images/people/profile_marco-felipe_king.png" alt="Dr. Marco-Felipe King">
+                        <img src="images/people/square/King_Marco-Felipe.jpg" alt="Associate Professor Marco-Felipe King">
                     </div>
                     <div class="team-member-info">
-                        <h3>Dr. Marco-Felipe King</h3>
-                        <div class="team-member-title">Director of WPE</div>
+                        <h3>Associate Professor Marco-Felipe King</h3>
+                        <div class="team-member-title">Director of WPE; Co-Director, EPSRC CDT in Future Fluid Dynamics</div>
                         <ul class="team-member-social">
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                            <li><a href="mailto:m.f.king@leeds.ac.uk" aria-label="Email Marco-Felipe King"><i class="fas fa-envelope"></i></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="team-member">
                     <div class="team-member-image">
-                        <img src="images/people/amir.jpeg" alt="Dr Amir Khan">
+                        <img src="images/people/square/Khan_Amirul.jpg" alt="Associate Professor Amirul Khan">
                     </div>
                     <div class="team-member-info">
-                        <h3>Dr. Amirul Khan</h3>
-                        <div class="team-member-title">Associate Professor of Environmental Fluid Mechanics</div>
+                        <h3>Associate Professor Amirul Khan</h3>
+                        <div class="team-member-title">Deputy Director of WPE; Director, Centre for Computational Engineering</div>
                         <ul class="team-member-social">
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                            <li><a href="mailto:A.Khan@leeds.ac.uk" aria-label="Email Amirul Khan"><i class="fas fa-envelope"></i></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="team-member">
                     <div class="team-member-image">
-                        <img src="images/people/anushi.jpeg" alt="Miss Anushi Khandare">
+                        <img src="images/people/square/Hasan_Bushra.jpg" alt="Bushra Hasan">
                     </div>
                     <div class="team-member-info">
-                        <h3>Miss Anushi Khandare</h3>
-                        <div class="team-member-title">Cake Meeting Lead</div>
+                        <h3>Bushra Hasan &amp; Anushi Khandare</h3>
+                        <div class="team-member-title">Cake Meetings Co-Organisers (2026–2027)</div>
                         <ul class="team-member-social">
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                            <li><a href="mailto:cnbh@leeds.ac.uk" aria-label="Email Cake Meetings Co-Organisers"><i class="fas fa-envelope"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-
-
         <!-- Partners Section -->
         <section class="partners">
-            <h2 class="section-title">Our Partners</h2>
+            <h2 class="section-title">University Institutes &amp; Research Centres</h2>
             <div class="partners-grid">
                 <div class="partner-logo">
-                    <img src="images/logo_water_at_leeds.jpeg" alt="Water@Leeds">
+                    <img src="images/logo_water_at_leeds.jpeg" alt="water@leeds">
                 </div>
                 <div class="partner-logo">
                     <img src="images/logo_lida.jpeg" alt="Leeds Institute for Data Analytics (LIDA)">
@@ -269,10 +278,10 @@
                     <img src="images/logo_lahri.jpg" alt="Leeds Arts and Humanities Research Institute (LAHRI)">
                 </div>
                 <div class="partner-logo">
-                    <img src="images/logo_bioresource_group.png" alt="Bioresource Group">
+                    <img src="images/logo_bioresource_group.png" alt="BioResource Group">
                 </div>
                 <div class="partner-logo">
-                    <img src="images/logo_lifd.jpeg" alt="Leeds Institute for Fluid Dynamics (LIFD)">
+                    <img src="images/logo_LIFD.png" alt="Leeds Institute for Fluid Dynamics (LIFD)">
                 </div>
                 <div class="partner-logo">
                     <img src="images/logo_ncas.jpg" alt="National Centre for Atmospheric Science (NCAS)">
@@ -283,7 +292,7 @@
         <!-- Location & Contact -->
         <section class="location-contact">
             <div class="map">
-                <img src="images/civil_engineering.png" alt="Civil Map">
+                <img src="images/civil_engineering.png" alt="School of Civil Engineering Map">
             </div>
             <div class="contact-info">
                 <h2 class="section-title">Contact Information</h2>
@@ -291,29 +300,28 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <div class="contact-text">
                         <h4>Location</h4>
-                        <p>Water, Public Health and Environment Group<br>School of Civil Enginering<br>Woodhouse Lane<br>Leeds, LS2 9JT, UK.</p>
+                        <p>Water, Public Health and Environmental Engineering Group<br>School of Civil Engineering<br>University of Leeds, Woodhouse Lane<br>Leeds, LS2 9JT, United Kingdom</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <div class="contact-text">
                         <h4>Email</h4>
-                        <p>General Inquiries: m.f.king@leeds.ac.uk<br>PhD Inquiries: civil@leeds.ac.uk</p>
+                        <p>General &amp; Group Enquiries: <a href="mailto:m.f.king@leeds.ac.uk">m.f.king@leeds.ac.uk</a><br>School &amp; Postgraduate Enquiries: <a href="mailto:civil@leeds.ac.uk">civil@leeds.ac.uk</a></p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-clock"></i>
                     <div class="contact-text">
                         <h4>Office Hours</h4>
-                        <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Closed on weekends and university holidays</p>
+                        <p>Monday – Friday: 09:00 – 17:00<br>Closed on weekends and University holidays</p>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Footer Include <include src="includes/footer.html"></include>-->
-     <!-- Footer -->
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -329,7 +337,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="research-groups.html">Research Groups</a></li>
-                    <li><a href="news-blog.html">News & Blog</a></li>
+                    <li><a href="news-blog.html">News &amp; Blog</a></li>
                     <li><a href="people.html">People</a></li>
                     <li><a href="facilities.html">Facilities</a></li>
                 </ul>
@@ -343,14 +351,13 @@
             <div class="footer-section footer-contact">
                 <h3>Contact Us</h3>
                 <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
-                <p><i class="fas fa-map-marker"></i>Woodhouse Lane, LS2 9JT, Leeds, UK</p>
+                <p><i class="fas fa-map-marker"></i> Woodhouse Lane, LS2 9JT, Leeds, UK</p>
                 <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
             </div>
         </div>
         <div class="copyright">
-            &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering  Research Group. All rights reserved.
+            &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering Research Group. All rights reserved.
         </div>
     </footer>
 </body>
 </html>
-  

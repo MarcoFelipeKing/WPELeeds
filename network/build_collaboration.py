@@ -49,7 +49,7 @@ THEMES = {
     "bioresources": "BioResources",
 }
 PERIOD = "2018 to 2025"
-STOP = {"dr", "prof", "professor", "obe", "mr", "mrs", "ms"}
+STOP = {"dr", "prof", "professor", "associate", "obe", "mr", "mrs", "ms"}
 
 
 def clean(x: str) -> str:

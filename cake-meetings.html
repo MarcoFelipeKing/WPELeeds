@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cake Meetings - WPE - Water, Public Health and Environment</title>
+    <title>Cake Meetings &amp; Group Events - WPE - Water, Public Health and Environment</title>
     <!-- Font imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Cake Meetings specific styles -->
     <link rel="stylesheet" href="css/cake-meetings.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/wpe_favico.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Header -->
@@ -25,60 +27,28 @@
             <div class="logo">
                 <img src="images/wpe_logo_colour.png" alt="WPE Logo">
             </div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" id="nav-home">Home</a></li>
-                        <li><a href="about.html" id="nav-about">About</a></li>
-                        <li><a href="research-groups.html" id="nav-research">Research Groups</a></li>
-                        <li><a href="people.html" id="nav-people">People</a></li>
-                        <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
-                        <li><a href="cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
-                        <li><a href="news-blog.html" id="nav-news">News & Blog</a></li>
-                        <li><a href="contact.html" id="nav-contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    
-        <!-- Script to highlight current page in navigation -->
-        <script>
-            // Get current page filename
-            const path = window.location.pathname;
-            const page = path.split("/").pop();
-            
-            // Remove any active classes
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Set active class based on current page
-            if (page === "" || page === "index.html") {
-                document.getElementById('nav-home').classList.add('active');
-            } else if (page === "about.html") {
-                document.getElementById('nav-about').classList.add('active');
-            } else if (page === "research-groups.html") {
-                document.getElementById('nav-research').classList.add('active');
-            } else if (page === "people.html") {
-                document.getElementById('nav-people').classList.add('active');
-            } else if (page === "facilities.html") {
-                document.getElementById('nav-facilities').classList.add('active');
-            } else if (page === "cake-meetings.html") {
-                document.getElementById('nav-cake').classList.add('active');
-            } else if (page === "news-blog.html") {
-                document.getElementById('nav-news').classList.add('active');
-            } else if (page === "contact.html") {
-                document.getElementById('nav-contact').classList.add('active');
-            }
-        </script>
-    
-    
+            <nav>
+                <ul>
+                    <li><a href="index.html" id="nav-home">Home</a></li>
+                    <li><a href="about.html" id="nav-about">About</a></li>
+                    <li><a href="research-groups.html" id="nav-research">Research Groups</a></li>
+                    <li><a href="people.html" id="nav-people">People</a></li>
+                    <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
+                    <li><a href="cake-meetings.html" id="nav-cake" class="active">Cake Meetings</a></li>
+                    <li><a href="news-blog.html" id="nav-news">News &amp; Blog</a></li>
+                    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <!-- Page Header -->
     <section class="page-header">
-        <h2 class="display-text">Cake Meetings</h2>
-        <p>Connect, share knowledge, and enjoy cake with the WPE community</p>
+        <h2 class="display-text">Cake Meetings &amp; Annual Events</h2>
+        <p>Connect, share knowledge, and build collaborations across the WPE community</p>
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li>></li>
+            <li>&gt;</li>
             <li>Cake Meetings</li>
         </ul>
     </section>
@@ -88,166 +58,193 @@
         <!-- About Cake Meetings -->
         <section class="about-cake">
             <h3>What are Cake Meetings?</h3>
-            <p>Cake Meetings are monthly gatherings bringing together academics, PhD students and researchers from across WPE: an hour for knowledge sharing, interdisciplinary discussion and community building, with cake in the room.</p>
-            <p>While particularly valuable for Early Career Researchers (ECRs), these meetings are open to all department members regardless of career stage. The informal atmosphere encourages open dialogue and creates opportunities for unexpected collaborations across our research groups.</p>
+            <p>Cake Meetings are our regular WPE seminar and community gatherings bringing together academic staff, postdoctoral researchers, and PhD students from across all four research themes for knowledge sharing, interdisciplinary discussion, and community building — always with cake in the room.</p>
+            <p>For the <strong>2026–2027 academic year</strong>, every session pairs a named academic host with a named postgraduate or postdoctoral co-host, coordinated by our PGR Cake Meeting Leads <strong>Bushra Hasan</strong> (<a href="mailto:cnbh@leeds.ac.uk">cnbh@leeds.ac.uk</a>) and <strong>Anushi Khandare</strong> alongside WPE Director <strong>Associate Professor Marco-Felipe King</strong>.</p>
         </section>
         
-        <!-- Meeting Types -->
+        <!-- Meeting Formats -->
         <section>
-            <h2 class="section-title">Meeting Types</h2>
+            <h2 class="section-title">Session Formats</h2>
             <div class="meeting-types">
                 <div class="meeting-type-card">
                     <div class="meeting-type-icon icon-rainbow">
                         <i class="fas fa-palette"></i>
                     </div>
-                    <h4>Rainbow Sessions</h4>
-                    <p>Interdisciplinary discussions where researchers from different groups share perspectives on common challenges, encouraging cross-pollination of ideas.</p>
+                    <h4>Interdisciplinary Sandpits</h4>
+                    <p>Cross-theme discussions where researchers from Indoor Air, Water, Sanitation, and BioResources tackle shared methodological or global challenges.</p>
                 </div>
                 <div class="meeting-type-card">
                     <div class="meeting-type-icon icon-career">
                         <i class="fas fa-briefcase"></i>
                     </div>
-                    <h4>Career Tips & Tricks</h4>
-                    <p>Professional development sessions focused on skills like grant writing, publishing strategies, and career advancement in academic and industry settings.</p>
+                    <h4>Grants, Fellowships &amp; Careers</h4>
+                    <p>Practical sessions on fellowship applications, grant writing, peer review, and career pathways across academia, policy, utilities, and industry.</p>
                 </div>
                 <div class="meeting-type-card">
                     <div class="meeting-type-icon icon-story">
-                        <i class="fas fa-book-open"></i>
+                        <i class="fas fa-globe-africa"></i>
                     </div>
-                    <h4>Your Story</h4>
-                    <p>Personal journeys and experiences shared by department members, highlighting diverse career paths and the human side of academic research.</p>
+                    <h4>Fieldwork, Safety &amp; Ethics</h4>
+                    <p>Sharing best practice from international fieldwork, laboratory biosafety (CL2), equitable partnerships, and community engagement.</p>
                 </div>
                 <div class="meeting-type-card">
                     <div class="meeting-type-icon icon-research">
                         <i class="fas fa-microscope"></i>
                     </div>
-                    <h4>Research Presentations</h4>
-                    <p>Technical sessions where researchers present their latest findings, methodologies, and results, sparking detailed discussions on specific research topics.</p>
+                    <h4>Method &amp; Theme Deep-Dives</h4>
+                    <p>Technical sessions showcasing emerging methods — from Digital Twins, PINNs, and CFD surrogates to microfluidics and circular bioresources.</p>
                 </div>
             </div>
         </section>
-        
-        <!-- Upcoming Meetings -->
-                <!-- The series, from the memo of October 2026 -->
-        <section class="cake-series">
-            <h2 class="section-title">The new series</h2>
-            <p><strong>Monthly, from Tuesday 3 November, 12:00 to 13:00.</strong> One hour, hard stop, cake in the room.
-               <!-- TODO: add the room once confirmed --><em>Room to be confirmed.</em></p>
 
-            <h3>Why the last series stopped</h3>
-            <p>It drifted into being organised by whoever had the goodwill that month, mostly our PDRAs and PGRs, with no
-               mandate and no recognition. That is a structural problem, not a motivation one, and more reminders would
-               not have fixed it.</p>
-
-            <h3>How it works now</h3>
-            <p>Every session has a named academic host and a named PGR or PDRA co-host, agreed in advance and published.
-               <strong>The host is accountable for the slot happening. The co-host runs it.</strong></p>
-
-            <h3>What we are asking</h3>
-            <p>Claim one date between now and June. That is the whole commitment: one hour, plus a conversation with your
-               co-host beforehand.</p>
-            <p>The dates are fixed. Everything else is yours. There are suggested topics against each date, but they are a
-               menu rather than an allocation, and nobody has been paired up. Choose your own co-host, or leave it blank
-               and we will match you. If you would rather talk about something else entirely, write over the suggestion.
-               A session someone chose will always beat a session someone was given.</p>
-            <!-- TODO: point this at the sign-up sheet -->
-            <p class="cake-signup"><strong>Claim a date on the sign-up sheet</strong> &mdash; link to follow.</p>
-
-            <table class="cake-schedule">
-                <caption>Sessions from November to June. Both roles are open on every date.</caption>
-                <thead>
-                    <tr><th scope="col">Date</th><th scope="col">Academic host</th><th scope="col">PGR / PDRA co-host</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Tuesday 3 November 2026</th>
-                        <td class="slot-open">Open</td>
-                        <td class="slot-open">Open</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tuesday 1 December 2026</th>
-                        <td class="slot-open">Open</td>
-                        <td class="slot-open">Open</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tuesday 5 January 2027</th>
-                        <td class="slot-open">Open</td>
-                        <td class="slot-open">Open</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tuesday 2 February 2027</th>
-                        <td class="slot-open">Open</td>
-                        <td class="slot-open">Open</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tuesday 2 March 2027</th>
-                        <td class="slot-open">Open</td>
-                        <td class="slot-open">Open</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tuesday 6 April 2027</th>
-                        <td class="slot-open">Open</td>
-                        <td class="slot-open">Open</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tuesday 4 May 2027</th>
-                        <td class="slot-open">Open</td>
-                        <td class="slot-open">Open</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tuesday 1 June 2027</th>
-                        <td class="slot-open">Open</td>
-                        <td class="slot-open">Open</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Recent Session Highlight (3 Nov 2026) -->
+        <section class="cake-series" style="margin-top: 2.5rem;">
+            <h2 class="section-title">Recent Session Highlight: 3 November 2026</h2>
+            <div style="background: #f8fafc; border-left: 4px solid var(--teal, #008080); padding: 1.5rem 2rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem;">
+                <span style="display: inline-block; background: #e6f4ea; color: #137333; font-weight: 700; font-size: 0.85rem; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.5rem;">COMPLETED &bull; 3 NOVEMBER 2026</span>
+                <h3 style="margin-top: 0.25rem;">Digital Twins &amp; AI in Water, Public Health and Environmental Engineering</h3>
+                <p><strong>Academic Chair:</strong> Associate Professor Amirul Khan (Deputy Director of WPE; Director, Centre for Computational Engineering)<br>
+                   <strong>Panel Contributors:</strong> Dr Maryam Asachi &amp; Dr Xiaohui Chen</p>
+                <p>Our opening session of the 2026–2027 series examined how physics-informed machine learning (PINNs), reduced-order CFD surrogates, chemometric data fusion, and Bayesian sensor assimilation are enabling operational digital twins across hospital wards, wastewater treatment plants, and subsurface groundwater systems.</p>
+            </div>
         </section>
         
-        <!-- Calendar Section -->
-        
-    </div>
-    
-    <!-- Footer Include -->
-<!-- Footer -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <div class="footer-logo">
-                <img src="images/wpe_logo_colour.png" alt="WPE Logo">
-                <h3>WPE</h3>
-            </div>
-            <p>Water, Public Health and Environmental Engineering Research Group</p>
-        </div>
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="research-groups.html">Research Groups</a></li>
-                <li><a href="news-blog.html">News & Blog</a></li>
-                <li><a href="people.html">People</a></li>
-                <li><a href="facilities.html">Facilities</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>Events</h3>
-            <ul class="footer-links">
-                <li><a href="cake-meetings.html">Cake Meetings</a></li>
-            </ul>
-        </div>
-        <div class="footer-section footer-contact">
-            <h3>Contact Us</h3>
-            <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
-            <p><i class="fas fa-map-marker"></i>Woodhouse Lane, LS2 9JT, Leeds, UK</p>
-            <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
-        </div>
-    </div>
-    <div class="copyright">
-        &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering  Research Group. All rights reserved.
-    </div>
-</footer>
+        <!-- 2026-2027 Schedule -->
+        <section class="cake-series">
+            <h2 class="section-title">2026–2027 Programme &amp; Schedule</h2>
+            <p>Each session has a dedicated academic host and a PGR/PDRA co-host. To propose a topic or claim an open co-host slot, please email <a href="mailto:cnbh@leeds.ac.uk">Bushra Hasan</a> or <a href="mailto:m.f.king@leeds.ac.uk">Associate Professor Marco-Felipe King</a>.</p>
 
+            <div class="table-responsive" style="overflow-x: auto;">
+                <table class="cake-schedule">
+                    <caption>2026–2027 WPE Cake Meetings Schedule (School of Civil Engineering, University of Leeds)</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Session Theme / Topic</th>
+                            <th scope="col">Academic Host(s)</th>
+                            <th scope="col">PGR / PDRA Co-Host</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">3 November 2026</th>
+                            <td><strong>Digital Twins, Physics-Informed AI &amp; Surrogate Modelling</strong></td>
+                            <td>Assoc. Prof. Amirul Khan, Dr Maryam Asachi &amp; Dr Xiaohui Chen</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">December 2026</th>
+                            <td><strong>Fellowships, Grant Writing &amp; Research Impact</strong></td>
+                            <td>Dr Cynthia Okoro-Shekwaga &amp; Assoc. Prof. Marco-Felipe King</td>
+                            <td>Bushra Hasan</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">January 2027</th>
+                            <td><strong>Climate-Resilient Sanitation &amp; Fieldwork in the Global South</strong></td>
+                            <td>Prof. Barbara Evans, Dr Paul Hutchings &amp; Dr Zhe Zhan</td>
+                            <td>Gettie Shiinda</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">February 2027</th>
+                            <td><strong>Laboratory Best Practice, CL2 Biosafety &amp; Shared Instrumentation</strong></td>
+                            <td>Dr Louise Fletcher, Dr Mark Tarn &amp; Dr David Elliott</td>
+                            <td>Anushi Khandare</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">March 2027</th>
+                            <td><strong>Circular Economy, Microplastics &amp; BioResource Recovery</strong></td>
+                            <td>Assoc. Prof. Anne Velenturf, Dr Miller Camargo-Valero &amp; Dr Franja Prosenc</td>
+                            <td>Johan Pasos-Panqueva</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">April 2027</th>
+                            <td><strong>Water Security, Flood Risk &amp; Hydraulic Infrastructure</strong></td>
+                            <td>Prof. Martin Tillotson, Prof. Mark Trigg &amp; Dr Mohsen Besharat</td>
+                            <td>Open (Contact Organisers)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10–14 May 2027</th>
+                            <td><strong>WPE All-Hands in Leeds Week (Special Plenary &amp; Poster Showcase)</strong></td>
+                            <td>All WPE Academic &amp; Research Staff</td>
+                            <td>WPE PGR &amp; PDRA Committee</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">June 2027</th>
+                            <td><strong>PGR Summer Research Symposium &amp; Industry Sandpit</strong></td>
+                            <td>Prof. Doug Stewart, Dr Douglas Booker &amp; Dr Subarna Sivashanmugam</td>
+                            <td>Jack Dalton &amp; Xiaoxuan Qin</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- WPE All-Hands in Leeds Week (10-14 May 2027) -->
+        <section class="cake-series" id="all-hands-week" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e2e8f0;">
+            <h2 class="section-title">Flagship Event: WPE All-Hands in Leeds Week (10–14 May 2027)</h2>
+            <p>From <strong>Monday 10 May to Friday 14 May 2027</strong>, WPE will host our annual <strong>All-Hands in Leeds Week</strong> at the School of Civil Engineering. Designed to bring together our Leeds-based staff and doctoral researchers with our international collaborators, visiting professors, alumni, and industry/utility partners, the week anchors our group's strategic planning and external engagement.</p>
+            
+            <div class="meeting-types" style="margin-top: 1.5rem;">
+                <div class="meeting-type-card">
+                    <h4>Day 1–2: Theme Strategy &amp; Sandpits</h4>
+                    <p>Research theme reviews across Indoor Air, Water, Sanitation, and BioResources, alongside cross-cutting proposal sandpits for UKRI, Horizon Europe, FCDO, and Wellcome calls.</p>
+                </div>
+                <div class="meeting-type-card">
+                    <h4>Day 3: Partner Showcase &amp; Lab Tours</h4>
+                    <p>Guided demonstrations of the walk-in Aerobiology Chamber, the HACH AP3900 analytical suite, and our bioprocess and hydraulic laboratories for industry, NHS, and utility guests.</p>
+                </div>
+                <div class="meeting-type-card">
+                    <h4>Day 4: PGR &amp; PDRA Conference</h4>
+                    <p>Doctoral and postdoctoral lightning talks, poster competition, and career panels with WPE alumni working in global health, water utilities, consultancy, and academia.</p>
+                </div>
+                <div class="meeting-type-card">
+                    <h4>Day 5: Plenary Cake Meeting &amp; Social</h4>
+                    <p>Keynote lecture from our visiting international fellows followed by the annual WPE Plenary Cake Meeting and group celebration.</p>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem;">External partners and alumni wishing to attend or contribute to the May 2027 All-Hands Week are warmly invited to contact <a href="mailto:m.f.king@leeds.ac.uk">Associate Professor Marco-Felipe King</a>.</p>
+        </section>
+    </div>
     
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                    <h3>WPE</h3>
+                </div>
+                <p>Water, Public Health and Environmental Engineering Research Group</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="research-groups.html">Research Groups</a></li>
+                    <li><a href="news-blog.html">News &amp; Blog</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Events</h3>
+                <ul class="footer-links">
+                    <li><a href="cake-meetings.html">Cake Meetings</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
+                <p><i class="fas fa-map-marker"></i> Woodhouse Lane, LS2 9JT, Leeds, UK</p>
+                <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering Research Group. All rights reserved.
+        </div>
+    </footer>
+
     <!-- Cake Meetings JavaScript -->
     <script src="js/cake-meetings.js"></script>
 </body>

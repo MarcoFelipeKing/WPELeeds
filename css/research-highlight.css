@@ -12,7 +12,7 @@
     position: relative;
     height: 60vh;
     min-height: 400px;
-    background: url('/api/placeholder/1200/600') center/cover no-repeat;
+    background: url('../images/facilities/capabilities_chamber.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -390,7 +390,7 @@ section {
 
 .finding-item {
     display: flex;
-    gap: a.5rem;
+    gap: 1.5rem;
     background-color: white;
     border-radius: 10px;
     padding: 2rem;
@@ -627,7 +627,7 @@ section {
 @media (max-width: 768px) {
     .research-hero {
         height: auto;
-        padding: 5rem 0;
+        padding: 10.5rem 0 4rem;
     }
     
     .research-hero h1 {

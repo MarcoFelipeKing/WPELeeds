@@ -58,6 +58,14 @@
     background-color: var(--teal);
 }
 
+.group-nav-item.water {
+    background-color: var(--blue, #0072b2);
+}
+
+.group-nav-item.methods {
+    background-color: #2b4c6f;
+}
+
 .group-nav-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -133,6 +141,46 @@
 .sanitation-section .group-icon {
     background-color: rgba(138, 201, 193, 0.15);
     color: var(--teal);
+}
+
+.water-section .group-header h2 {
+    color: var(--blue, #0072b2);
+    border-color: var(--blue, #0072b2);
+}
+
+.water-section .group-icon,
+.water-section .area-icon {
+    background-color: rgba(0, 114, 178, 0.15);
+    color: var(--blue, #0072b2);
+}
+
+.water-section .stat-number {
+    color: var(--blue, #0072b2);
+}
+
+.methods-section .group-header h2 {
+    color: #2b4c6f;
+    border-color: #2b4c6f;
+}
+
+.methods-section .group-icon,
+.methods-section .area-icon {
+    background-color: rgba(43, 76, 111, 0.15);
+    color: #2b4c6f;
+}
+
+.methods-section .stat-number {
+    color: #2b4c6f;
+}
+
+.group-tag.water {
+    background-color: rgba(0, 114, 178, 0.15);
+    color: var(--blue, #0072b2);
+}
+
+.group-tag.methods {
+    background-color: rgba(43, 76, 111, 0.15);
+    color: #2b4c6f;
 }
 
 /* Group Intro Section */

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News & Blog - WPE - Water, Public Health and Environment</title>
+    <title>News &amp; Blog - WPE - Water, Public Health and Environment</title>
     <!-- Font imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,72 +14,42 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- News & Blog specific styles -->
     <link rel="stylesheet" href="css/news-blog.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/wpe_favico.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Header -->
-        <header>
-            <div class="header-container">
-                <div class="logo">
-                    <img src="images/leeds_logo_black_on_white_bk.jpg" alt="University of Leeds" style="width:120px; height: auto;">
-                </div>
-                <div class="logo">
-                    <img src="images/wpe_logo_colour.png" alt="WPE Logo">
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" id="nav-home">Home</a></li>
-                        <li><a href="about.html" id="nav-about">About</a></li>
-                        <li><a href="research-groups.html" id="nav-research">Research Groups</a></li>
-                        <li><a href="people.html" id="nav-people">People</a></li>
-                        <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
-                        <li><a href="cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
-                        <li><a href="news-blog.html" id="nav-news">News & Blog</a></li>
-                        <li><a href="contact.html" id="nav-contact">Contact</a></li>
-                    </ul>
-                </nav>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/leeds_logo_black_on_white_bk.jpg" alt="University of Leeds" style="width:120px; height: auto;">
             </div>
-        </header>
-    
-        <!-- Script to highlight current page in navigation -->
-        <script>
-            // Get current page filename
-            const path = window.location.pathname;
-            const page = path.split("/").pop();
-            
-            // Remove any active classes
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Set active class based on current page
-            if (page === "" || page === "index.html") {
-                document.getElementById('nav-home').classList.add('active');
-            } else if (page === "about.html") {
-                document.getElementById('nav-about').classList.add('active');
-            } else if (page === "research-groups.html") {
-                document.getElementById('nav-research').classList.add('active');
-            } else if (page === "people.html") {
-                document.getElementById('nav-people').classList.add('active');
-            } else if (page === "facilities.html") {
-                document.getElementById('nav-facilities').classList.add('active');
-            } else if (page === "cake-meetings.html") {
-                document.getElementById('nav-cake').classList.add('active');
-            } else if (page === "news-blog.html") {
-                document.getElementById('nav-news').classList.add('active');
-            } else if (page === "contact.html") {
-                document.getElementById('nav-contact').classList.add('active');
-            }
-        </script>
-    
+            <div class="logo">
+                <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" id="nav-home">Home</a></li>
+                    <li><a href="about.html" id="nav-about">About</a></li>
+                    <li><a href="research-groups.html" id="nav-research">Research Groups</a></li>
+                    <li><a href="people.html" id="nav-people">People</a></li>
+                    <li><a href="facilities.html" id="nav-facilities">Facilities</a></li>
+                    <li><a href="cake-meetings.html" id="nav-cake">Cake Meetings</a></li>
+                    <li><a href="news-blog.html" id="nav-news" class="active">News &amp; Blog</a></li>
+                    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     
     <!-- Page Header -->
     <section class="page-header">
-        <h2 class="display-text">News & Blog</h2>
-        <p>Stay updated with the latest from the WPE department</p>
+        <h2 class="display-text">News &amp; Blog</h2>
+        <p>Latest research stories, awards, field dispatches, and insights from the WPE group</p>
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li>></li>
-            <li>News & Blog</li>
+            <li>&gt;</li>
+            <li>News &amp; Blog</li>
         </ul>
     </section>
     
@@ -110,30 +80,47 @@
         <section class="featured-post">
             <div class="featured-post-container">
                 <div class="featured-image">
-                    <img src="images/news-blog/ecr-branding/featured.jpg" alt="The WPE monogram blind-embossed into a sheet of white paper">
+                    <img src="images/news-blog/chamber/manikin-sensors.jpg" alt="Heated thermal manikin in the darkened aerobiology chamber surrounded by sensors">
                     <div class="featured-label">Featured</div>
                 </div>
                 <div class="featured-content">
                     <div class="post-meta">
-                        <span class="post-category blog">Blog</span>
-                        <span class="post-date">22 March 2025</span>
+                        <span class="post-category blog">Research</span>
+                        <span class="post-date">7 October 2026</span>
                     </div>
-                    <h3>Behind the Brand: How Our ECRs Developed the WPE Visual Identity</h3>
-                    <p>Five doctoral researchers, a brief the group wrote itself, and a visual identity that is still in use: the monogram, the five named colours, the three typefaces and the pattern. With the assets they produced.</p>
+                    <h3>Forty Cubic Metres of Controlled Air: Inside the Leeds Aerobiology Chamber</h3>
+                    <p>You cannot run a repeatable, controlled pathogen experiment on an occupied hospital ward. So we built a walk-in Class II room where you can — equipped with heated thermal manikins, a 3D sensor lattice, and real-time bioaerosol detection.</p>
                     <div class="post-author">
-                        <img src="images/people/anushi.jpeg" alt="Anushi Khandare">
-                        <span>By Anushi Khandare</span>
+                        <img src="images/people/square/King_Marco-Felipe.jpg" alt="Associate Professor Marco-Felipe King">
+                        <span>By Associate Professor Marco-Felipe King</span>
                     </div>
-                    <a href="news-blog/posts/ecr-branding-project.html" class="btn btn-primary">Read Full Post</a>
+                    <a href="news-blog/posts/aerobiology-chamber.html" class="btn btn-primary">Read Full Post</a>
                 </div>
             </div>
         </section>
         
         <!-- Latest Posts -->
         <section class="latest-posts">
-            <h2 class="section-title">Latest Posts</h2>
+            <h2 class="section-title">Latest Posts &amp; Announcements</h2>
             
             <div class="posts-grid" id="posts-container">
+                <!-- Country Overshoot Days 2026 -->
+                <div class="post-card" data-category="blog">
+                    <div class="post-image">
+                        <img src="images/news-blog/overshoot/kalerwe-market.jpg" alt="Fruit and vegetable waste at Kalerwe Market, Kampala" loading="lazy">
+                        <div class="post-category blog">Data</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="news-blog/posts/overshoot-2026.html">Country Overshoot Days 2026</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">8 October 2026</span>
+                            <span class="post-author">BioResources &amp; Circular Economy</span>
+                        </div>
+                        <p>Earth Overshoot Day fell on 30 July. Qatar would reach it on 4 February, Honduras on 27 November, and thirteen countries never. All 82, on one timeline.</p>
+                        <a href="news-blog/posts/overshoot-2026.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+
                 <!-- Aerobiology chamber -->
                 <div class="post-card" data-category="blog">
                     <div class="post-image">
@@ -144,12 +131,13 @@
                         <h3><a href="news-blog/posts/aerobiology-chamber.html">Forty cubic metres of controlled air</a></h3>
                         <div class="post-meta">
                             <span class="post-date">7 October 2026</span>
-                            <span class="post-author">Dr Marco-Felipe King</span>
+                            <span class="post-author">Associate Professor Marco-Felipe King</span>
                         </div>
                         <p>You cannot run a controlled experiment on an occupied hospital ward. So we built a room where you can, and this is what we do in it.</p>
                         <a href="news-blog/posts/aerobiology-chamber.html" class="read-more">Read More</a>
                     </div>
                 </div>
+
                 <!-- Flooded latrines -->
                 <div class="post-card" data-category="blog">
                     <div class="post-image">
@@ -166,21 +154,41 @@
                         <a href="news-blog/posts/flooded-latrines.html" class="read-more">Read More</a>
                     </div>
                 </div>
-                <!-- Country Overshoot Days 2026 -->
-                <div class="post-card" data-category="blog">
+
+                <!-- Pettenkofer Award -->
+                <div class="post-card" data-category="achievement">
                     <div class="post-image">
-                        <img src="images/news-blog/overshoot/kalerwe-market.jpg" alt="Fruit and vegetable waste at Kalerwe Market, Kampala" loading="lazy">
-                        <div class="post-category blog">Data</div>
+                        <img src="images/people/square/Noakes_Catherine.jpg" alt="Prof. Catherine Noakes OBE" loading="lazy">
+                        <div class="post-category achievement">Achievement</div>
                     </div>
                     <div class="post-content">
-                        <h3><a href="news-blog/posts/overshoot-2026.html">Country Overshoot Days 2026</a></h3>
+                        <h3><a href="research/covid19-impact.html">Prof. Cath Noakes Receives the 2026 Pettenkofer Award</a></h3>
                         <div class="post-meta">
-                            <span class="post-date">8 October 2026</span>
+                            <span class="post-date">July 2026</span>
+                            <span class="post-author">Indoor Air 2026</span>
                         </div>
-                        <p>Earth Overshoot Day fell on 30 July. Qatar would reach it on 4 February, Honduras on 27 November, and thirteen countries never. All 82, on one timeline.</p>
-                        <a href="news-blog/posts/overshoot-2026.html" class="read-more">Read More</a>
+                        <p>Professor Cath Noakes OBE FREng has been awarded the Pettenkofer Award — the highest honour of the International Society of Indoor Air Quality and Climate (ISIAQ) — recognising her leadership in airborne infection science and building ventilation.</p>
+                        <a href="research/covid19-impact.html" class="read-more">Read Impact Story</a>
                     </div>
                 </div>
+
+                <!-- BioCool £1.75M Ayrton Challenge -->
+                <div class="post-card" data-category="news">
+                    <div class="post-image">
+                        <img src="images/spotlights/cynthia/bioreactor-simulator.jpg" alt="Dr Cynthia Okoro-Shekwaga in the BioResources Lab" loading="lazy">
+                        <div class="post-category news">News</div>
+                    </div>
+                    <div class="post-content">
+                        <h3><a href="spotlights/cynthia/index.html">£1.75M Ayrton Challenge Award to Scale Off-Grid Biomethane Milk Cooling</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date">2025–2026</span>
+                            <span class="post-author">Dr Cynthia Okoro-Shekwaga</span>
+                        </div>
+                        <p>Following pilot trials in Kampala and rural Ugandan dairy cooperatives, the BioCool team has secured £1.75M from Innovate UK's Ayrton Challenge Energy programme to scale solar-assisted anaerobic digestion and Cooling-as-a-Service.</p>
+                        <a href="spotlights/cynthia/index.html" class="read-more">Read Spotlight</a>
+                    </div>
+                </div>
+
                 <!-- ECR Branding Post -->
                 <div class="post-card" data-category="blog">
                     <div class="post-image">
@@ -193,17 +201,10 @@
                             <span class="post-date">22 March 2025</span>
                             <span class="post-author">Anushi Khandare</span>
                         </div>
-                        <p>Five doctoral researchers designed the logo, the five colours, the typefaces and the pattern that this website still runs on. The assets, and the reasoning behind them.</p>
+                        <p>Five doctoral researchers designed the logo, the five colours, the typefaces, and the pattern that this website runs on. The assets, and the reasoning behind them.</p>
                         <a href="news-blog/posts/ecr-branding-project.html" class="read-more">Read More</a>
                     </div>
                 </div>
-                
-                
-            </div>
-            
-            <!-- Load More Button -->
-            <div class="load-more-container">
-                <button id="load-more" class="btn btn-secondary">Load More Posts</button>
             </div>
         </section>
         
@@ -212,54 +213,52 @@
             <div class="newsletter-container">
                 <div class="newsletter-content">
                     <h3>Stay Updated</h3>
-                    <p>To receive updates from the WPE group, please get in touch by email.</p>
+                    <p>To receive seminar announcements and research updates from the WPE group, please get in touch by email.</p>
                     <a href="mailto:m.f.king@leeds.ac.uk" class="btn btn-primary">Contact Us</a>
                 </div>
             </div>
         </section>
     </div>
     
-    <!-- Footer Include -->
-<!-- Footer -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <div class="footer-logo">
-                <img src="images/wpe_logo_colour.png" alt="WPE Logo">
-                <h3>WPE</h3>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/wpe_logo_colour.png" alt="WPE Logo">
+                    <h3>WPE</h3>
+                </div>
+                <p>Water, Public Health and Environmental Engineering Research Group</p>
             </div>
-            <p>Water, Public Health and Environmental Engineering Research Group</p>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="research-groups.html">Research Groups</a></li>
+                    <li><a href="news-blog.html">News &amp; Blog</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Events</h3>
+                <ul class="footer-links">
+                    <li><a href="cake-meetings.html">Cake Meetings</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
+                <p><i class="fas fa-map-marker"></i> Woodhouse Lane, LS2 9JT, Leeds, UK</p>
+                <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
+            </div>
         </div>
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="research-groups.html">Research Groups</a></li>
-                <li><a href="news-blog.html">News & Blog</a></li>
-                <li><a href="people.html">People</a></li>
-                <li><a href="facilities.html">Facilities</a></li>
-            </ul>
+        <div class="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering Research Group. All rights reserved.
         </div>
-        <div class="footer-section">
-            <h3>Events</h3>
-            <ul class="footer-links">
-                <li><a href="cake-meetings.html">Cake Meetings</a></li>
-            </ul>
-        </div>
-        <div class="footer-section footer-contact">
-            <h3>Contact Us</h3>
-            <p><i class="fas fa-map-marker-alt"></i> School of Civil Engineering, University of Leeds</p>
-            <p><i class="fas fa-map-marker"></i>Woodhouse Lane, LS2 9JT, Leeds, UK</p>
-            <p><i class="fas fa-envelope"></i> m.f.king@leeds.ac.uk</p>
-        </div>
-    </div>
-    <div class="copyright">
-        &copy; <script>document.write(new Date().getFullYear())</script> Water, Public Health and Environmental Engineering  Research Group. All rights reserved.
-    </div>
-</footer>
+    </footer>
 
-    
     <!-- News & Blog JavaScript -->
     <script src="js/news-blog.js"></script>
 </body>
