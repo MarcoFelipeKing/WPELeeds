@@ -10,16 +10,48 @@
 /* Hero Section */
 .research-hero {
     position: relative;
-    height: 60vh;
-    min-height: 400px;
+    height: auto;
+    min-height: 520px;
     background: url('../images/facilities/capabilities_chamber.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-align: center;
-    padding-top: 100px; /* Increased padding to account for fixed navbar */
+    padding: 9.5rem 2rem 4.5rem;
     margin-top: 0;
+}
+
+.research-hero--sanitation {
+    background-image: url('../images/research/sanitation-field.jpg');
+}
+
+.research-hero--sanitation .hero-overlay {
+    background: linear-gradient(135deg, rgba(35, 96, 90, 0.84), rgba(111, 138, 198, 0.78));
+}
+
+.research-hero--bioresources {
+    background-image: url('../images/spotlights/cynthia/kalerwe-market.jpg');
+}
+
+.research-hero--bioresources .hero-overlay {
+    background: linear-gradient(135deg, rgba(76, 59, 120, 0.84), rgba(111, 138, 198, 0.78));
+}
+
+.research-hero--circular {
+    background-image: url('../images/research/rc_slab_construction.jpg');
+}
+
+.research-hero--circular .hero-overlay {
+    background: linear-gradient(135deg, rgba(76, 59, 120, 0.84), rgba(83, 82, 90, 0.8));
+}
+
+.research-hero--water {
+    background-image: url('../images/research/water-lab.jpg');
+}
+
+.research-hero--water .hero-overlay {
+    background: linear-gradient(135deg, rgba(47, 73, 135, 0.84), rgba(119, 170, 212, 0.78));
 }
 
 .hero-overlay {
@@ -627,7 +659,8 @@ section {
 @media (max-width: 768px) {
     .research-hero {
         height: auto;
-        padding: 10.5rem 0 4rem;
+        min-height: 440px;
+        padding: 11rem 1.25rem 4rem;
     }
     
     .research-hero h1 {

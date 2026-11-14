@@ -157,10 +157,30 @@ nav ul li a:hover, nav ul li a.active {
 
 /* Page Header - For inner pages */
 .page-header {
-    background: linear-gradient(to right, rgba(111, 138, 198, 0.9), rgba(119, 170, 212, 0.8)), url('../images/facilities/capabilities_chamber.jpg') center/cover no-repeat;
+    background: linear-gradient(to right, rgba(111, 138, 198, 0.9), rgba(119, 170, 212, 0.82)), url('../images/facilities/hach_robot.jpg') center/cover no-repeat;
     padding: 10rem 2rem 5rem;
     color: white;
     text-align: center;
+}
+
+.page-header--chamber {
+    background-image: linear-gradient(to right, rgba(111, 138, 198, 0.9), rgba(119, 170, 212, 0.82)), url('../images/facilities/capabilities_chamber.jpg');
+}
+
+.page-header--sanitation {
+    background-image: linear-gradient(135deg, rgba(35, 96, 90, 0.86), rgba(111, 138, 198, 0.82)), url('../images/research/sanitation-field.jpg');
+}
+
+.page-header--water {
+    background-image: linear-gradient(135deg, rgba(47, 73, 135, 0.88), rgba(119, 170, 212, 0.82)), url('../images/research/water-lab.jpg');
+}
+
+.page-header--bioresources {
+    background-image: linear-gradient(135deg, rgba(76, 59, 120, 0.86), rgba(111, 138, 198, 0.82)), url('../images/facilities/bioresources_cynthia_hach.jpg');
+}
+
+.page-header--methods {
+    background-image: linear-gradient(135deg, rgba(83, 82, 90, 0.88), rgba(111, 138, 198, 0.82)), url('../images/research/overview_Q_165.jpg');
 }
 
 .page-header h2 {
@@ -270,27 +290,52 @@ nav ul li a:hover, nav ul li a.active {
 
 .group-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .group-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 10px;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     text-align: center;
-    transition: all 0.3s;
+    text-decoration: none;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.indoor-air { background-color: var(--primary-blue); color: white; }
-.bioresources { background-color: var(--teal); color: white; }
-.public-health { background-color: var(--purple); color: white; }
-.sanitation { background-color: var(--dark-gray); color: white; }
-.water { background-color: var(--secondary-blue); color: white; }
+.group-card h3,
+.group-card p,
+.group-card i {
+    color: #ffffff;
+}
+
+.group-card p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    opacity: 0.95;
+}
+
+.group-card .theme-badge {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.indoor-air, .group-card.indoor-air { background-color: var(--theme-indoor-air); color: white; }
+.water, .group-card.water { background-color: var(--theme-water); color: white; }
+.sanitation, .group-card.sanitation { background-color: var(--theme-sanitation); color: white; }
+.bioresources, .group-card.bioresources { background-color: var(--theme-bioresources); color: white; }
+.public-health, .methods, .group-card.methods { background-color: var(--theme-methods); color: white; }
 
 .group-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.14);
 }
 
 .group-card i {
@@ -824,10 +869,11 @@ footer {
 /* Enhanced Hero Section */
 .hero {
     position: relative;
-    height: 80vh;
+    height: auto;
+    min-height: 86vh;
     width: 100%;
     overflow: hidden;
-    padding-top: 70px;
+    padding: 8.5rem 0 7rem;
 }
 
 .hero-background {
@@ -858,7 +904,7 @@ footer {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 2.5rem 2rem 1rem;
     color: white;
     z-index: 2;
 }
@@ -870,7 +916,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(111, 138, 198, 0.19), rgba(119, 170, 212, 0.18));
+    background: linear-gradient(to right, rgba(45, 71, 133, 0.55), rgba(83, 82, 90, 0.38));
     z-index: 1;
 }
 
@@ -901,18 +947,32 @@ footer {
 
 .btn-secondary {
     background-color: transparent;
-    color: white;
-    border: 2px solid white;
+    color: var(--secondary-blue);
+    border: 2px solid var(--secondary-blue);
 }
 
 .btn-secondary:hover {
+    background-color: var(--secondary-blue);
+    color: white;
+}
+
+.hero .btn-secondary,
+.research-hero .btn-secondary,
+.contact-box .btn-secondary {
+    color: white;
+    border-color: white;
+}
+
+.hero .btn-secondary:hover,
+.research-hero .btn-secondary:hover,
+.contact-box .btn-secondary:hover {
     background-color: white;
     color: var(--primary-blue);
 }
 
 .hero-scroll-indicator {
     position: absolute;
-    bottom: 2rem;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -920,7 +980,8 @@ footer {
     align-items: center;
     color: white;
     font-size: 0.9rem;
-    opacity: 0.8;
+    opacity: 0.85;
+    z-index: 2;
     animation: bounce 2s infinite;
 }
 
@@ -942,8 +1003,13 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 10.5rem 1rem 6.5rem;
+    }
+
     .hero-content {
-        padding: 3rem 1.5rem;
+        padding: 1.5rem 1.25rem 0.5rem;
     }
     
     .hero h2 {

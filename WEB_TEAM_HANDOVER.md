@@ -1,60 +1,62 @@
 # WPELeeds (`wpeleeds.org`) - Web Team GitHub Deployment & Handover Guide
 
 **Prepared by:** Dr Marco-Felipe King (Director of WPE) & WPE Web/Copywriting Team  
-**Date:** November 2026  
-**Source Folder:** `WPELeeds/` (`/Users/cenmk/Documents/Admin/WPE/WPELeeds`)  
+**Date:** 14 November 2026  
+**Source Folder:** `WPELeeds/` (`/Users/cenmk/Library/CloudStorage/OneDrive-UniversityofLeeds/Documents/Admin/WPE/WPELeeds`)  
 **Target:** Clean `wpeleeds.org` GitHub Pages Repository (`/Users/cenmk/Documents/GitHub/WPELeeds`)  
 
 ---
 
-## 1. Executive Summary of Changes
+## 1. Latest Release Updates (14 November 2026)
 
-This release synchronises `wpeleeds.org` with the approved University of Leeds Official Website copy (`Official Website/06 Approved final copy/01-11`), standardises staff and researcher titles across the entire site (`people.html` and `wpe_staff.txt`), rebuilds the Scopus co-authorship network (`data/collaboration.js` & `data/collaboration.json`), updates the 2026-2027 Cake Meetings schedule (run jointly by academic and ECR staff, with the 3 November 2026 Digital Twins session, the 1 December 2026 WPE Christmas Party, open 2027 slots, and the **10-14 May 2027 WPE All-Hands in Leeds Week**), corrects all laboratory and theme images across `facilities.html`, `water.html`, and `research-groups.html`, fixes the `about.html` milestones layout and verifies all milestone dates against REF2021 and KRISTAL records, standardises our **four core research themes** and **one cross-cutting methods theme** using the 5 official WPE Brand Palette colours, replaces missing staff portraits with a crisp SVG person outline (`images/people/square/_placeholder.svg`), removes all em dashes across all 43 HTML files, and optimises all images for fast GitHub Pages delivery.
+This release resolves all hero/card/carousel UI issues, adds Leeds-based Water-WISER CDT doctoral researchers and portraits, names and attributes the EPSRC **CECAM** chamber (`EP/W006375/1`) under **Prof. Cath Noakes OBE**, replaces the subjective dot-rating facilities matrix with a 100% verified facilities and instrumentation summary, and updates **Dr Paul Hutchings**'s postgraduate leadership role:
+
+1. **Highlight Hero Height, Pill Clearance & Scoped Chamber Photo (`css/research-highlight.css`, `css/style.css`, `research/*.html`, `projects/*.html`):**
+   - Changed `.research-hero` from fixed `height: 60vh` to `height: auto; min-height: 520px; padding: 9.5rem 2rem 4.5rem;` (`min-height: 440px; padding: 11rem 1.25rem 4rem;` on mobile `<=768px`) so neither the top green `IMPACT CASE STUDY` badge nor the bottom theme badge (`Sanitation, Wastewater & Faecal Sludge Management`) is clipped on `research/sanitation-impact.html` or any highlight page.
+   - Added theme-specific hero modifiers (`.research-hero--sanitation`, `.research-hero--bioresources`, `.research-hero--circular`, `.research-hero--water` and `.page-header--*`) so `capabilities_chamber.jpg` appears strictly on Indoor Air and Facilities pages (`indoor-air.html`, `facilities.html`, `airflow.html`, `covid19-impact.html`, `hecoira.html`), while Sanitation, BioResources, Circular Buildings, and Water pages use their own verified photography.
+2. **`index.html` Sanitation Theme Card & Hero `"Scroll to explore"` Overlap (`index.html`, `css/style.css`):**
+   - Fixed the empty dark-grey card on `index.html`: removed inline `color: inherit;` from `<a class="group-card">` and styled all 5 `.group-card` links in the canonical WPE 5-theme palette (`#77AAD4`, `#6F8AC6`, `#8AC9C1`, `#9F90C5`, `#53525a`) with `#ffffff` text, icons, and badges.
+   - Fixed `.btn-secondary` contrast on light backgrounds (`var(--secondary-blue)`) while preserving white `.btn-secondary` buttons inside dark hero/contact banners.
+   - Updated `.hero` to `height: auto; min-height: 86vh; padding: 8.5rem 0 7rem;` so `.hero-scroll-indicator` (`Scroll to explore`) clears the `Meet Our Team` pill cleanly at all viewport sizes.
+3. **`research-groups.html` Key Projects Carousel (`research-groups.html`, `css/research-groups.css`, `js/research-groups.js`):**
+   - Wrapped `.projects-slider` in `.projects-slider-viewport { overflow: hidden; }` and rewrote `initProjectSliders()` in `js/research-groups.js` to calculate exact card width + CSS gap (`32px`), dynamically build dot indicators (`maxSlide + 1`), and support desktop/tablet/mobile resize, keyboard, and touch swipe navigation.
+   - Expanded `#indoor-air` Key Projects to 5 linked project cards (`CECAM`, `Modelling Airflow`, `Healthy Buildings Network & Class-ACT`, `HESTIA & JUSTHEAT`, `HECOIRA`).
+4. **Water-WISER CDT Leeds-Based PhD Students & Portraits (`people.html`, `images/people/square/*.jpg`, `data/collaboration.*`):**
+   - Audited all 53 Water-WISER CDT profiles (`waterwisercdt.ac.uk`) against University of Leeds registration, supervisor records, and White Rose eTheses Online (`etheses.whiterose.ac.uk`), excluding Loughborough and Cranfield students.
+   - Corrected `Jack Dalton`'s profile (`cnjed@leeds.ac.uk`, `data-group="sanitation"`) to his verified Water-WISER PhD on sanitation greenhouse gas emissions and bioaerosols.
+   - Added 13 current Leeds-based Water-WISER PhD candidates (`data-role="phd"`): `Leonie Hyde-Smith`, `Grace Phiri`, `Jonathan Wilcox`, `Karl Jones`, `Jamie Myers`, `Virginia Roaf`, `Lais Dos Santos`, `Spurthi Kolipaka`, `Ben Smeaton-Russell`, `Mary Wambugu`, `Vince Moran`, `James Wallace`, and `Madison Wright`.
+   - Added 8 graduated Leeds-based Water-WISER PhDs (`data-role="past-phd"`): `Dr Georgia Hales`, `Dr Katie Allen`, `Dr Hannah Robinson`, `Dr Angela Bayona-Valderrama`, `Dr Mahbub Ul Alam`, `Dr Mariam Zaqout`, `Dr Claire Rosato-Scott`, and `Dr Mofwe Kapulu`.
+   - Added square `600x600` portraits (`<80 KB` each) for **Dr Zhe Zhan** (`Zhan_Zhe.jpg`), **Prof. Andy Sleigh** (`Sleigh_Andy.jpg`), and all 21 Water-WISER researchers, and regenerated `data/collaboration.json` and `data/collaboration.js`.
+5. **CECAM Chamber (`EP/W006375/1`), Prof. Cath Noakes OBE & Verified Facilities Summary (`facilities.html`, `css/facilities.css`, `indoor-air.html`, `bioresources.html`, `methods.html`, `contact.html`):**
+   - Named **CECAM: Chamber for Environmental Control of Airborne Microorganisms** (`5 x 3.2 x 2.5 m` Class II chamber, Room B.02, funded by EPSRC Strategic Equipment Grant `EP/W006375/1`) and set **Prof. Cath Noakes OBE** (`C.J.Noakes@leeds.ac.uk`) as Primary Contact across `facilities.html`, `indoor-air.html`, and `contact.html`.
+   - Audited every equipment entry against `05_WPE_Capabilities_Main_Page_final.md`, `10_WPE_BioResources_and_Circular_Economy_final.md`, `11_Research_Facilities_final.md`, and `Lab Equipment/Chamber and micro equipment list.xlsx` (replacing unverified `AMPTS II`, `TSI 3330/3321`, and `Bertin Coriolis` with the verified **BioReactor Simulator III [BRS III]**, **Agilent 990 Micro GC**, **in-house waste respirometers**, **Geotech GA5000 & G200**, **Andersen 6-stage impactor**, **AMPAS**, **Plair Rapid-E+**, **Burkard C90M**, **Cantium MicroBio M02**, **Ushio Care222**, **Bio-Rad CFX Opus 96 qPCR**, **Hach AP3900 Robotic Analyser**, and joint Leeds-Makerere **AMPTS III**).
+   - Replaced the subjective `●●● / ●● / ●` dot-rating `Technical Capabilities Matrix` on `facilities.html` with a 5-column factual **Verified Facilities & Instrumentation Summary** table.
+6. **Dr Paul Hutchings Role Update (`people.html`, `sanitation.html`, `contact.html`):**
+   - Updated `Dr Paul Hutchings` to `Associate Professor in Water, Sanitation and Health; Deputy Director of Postgraduate Research Studies`.
+7. **Image Weight & Copy Verification:**
+   - Compressed `images/research/rc_slab_construction.jpg` (`3.35 MB -> 356 KB`) and `xiaohui_catchment_ml.jpg` (`569 KB -> 175 KB`); all site images are now `< 500 KB`.
+   - Verified `0` em dashes (`—` or `&mdash;`), `0` broken links on active pages, and consistent `Prof.` / `Dr` titles across all HTML pages.
 
 ---
 
-## 2. Summary of Key Factual & Design Updates
+## 2. Modified & Added Files to Push to GitHub
 
-1. **Title Homogenisation Across All Pages:**
-   - **Dr Marco-Felipe King:** `Director of WPE; Lecturer in Building Engineering and Infection Transmission; Co-Director, EPSRC CDT in Future Fluid Dynamics` (updated from Associate Professor to Lecturer across all pages).
-   - **Prof. Barbara Evans:** `Professor of Public Health Engineering; Deputy Head of School of Civil Engineering; Co-Director, EPSRC WaterWISER CDT`.
-   - **Full Professors:** Standardised as `Prof. [First] [Last]` with `Professor of [Subject]...` (replacing mixed `Chair in` / `Professor of` usage).
-   - **Associate Professors:** Standardised as `Dr [First] [Last]` (UK English `Dr` without period) with `Associate Professor in [Subject]...` across `Dr Amirul Khan`, `Dr Anne Velenturf`, `Dr Miller Alonso Camargo-Valero`, `Dr Mohsen Besharat`, `Dr Duncan Borman`, `Dr Xiaohui Chen`, `Dr Akintunde Babatunde`, `Dr Paul Hutchings`, and `Dr Sally Shahzad`.
-   - **Dr Subarna Sivashanmugam:** Updated to `Research Assistant in Low-Carbon Construction and Circular Economy` (`data-role="postdoc"`, `data-group="bioresources"`), linking to `https://eps.leeds.ac.uk/civil-engineering/staff/17063/dr-subarna-sivashanmugam`, with verified research on Building Information Modelling (BIM), construction waste minimisation, and life cycle assessment (LCA) of reinforced concrete slabs (EPSRC IAA) and belite-calcium sulfoaluminate (BCSA) cement (UKRI FLF), plus a dedicated spotlight page at `news-blog/posts/spotlight-subarna-sivashanmugam.html`.
-   - **Dr Bushra Hasan:** Moved to `Past PhDs` (`data-role="past-phd"`, `PhD Graduate`); removed Cake Meetings Co-Organiser from both `Dr Bushra Hasan` and `Anushi Khandare`.
-2. **Person Outline Placeholder (`images/people/square/_placeholder.svg`):**
-   - Replaced solid grey placeholder blobs with a clean head-and-shoulders line outline of a person for staff/PGRs without a cleared portrait (`Prof. Andy Sleigh`, `Dr David Elliott`, `Dr Zhe Zhan`, `Johan Pasos-Panqueva`), and added circular portrait `<img>` tags to all contact blocks on `facilities.html` and `cake-meetings.html`.
-3. **Corrected Facility & Water Theme Images (`facilities.html`, `water.html`, `research-groups.html`):**
-   - **`facilities.html#soil` (Geochemistry & Soil Lab):** Removed the Aerobiology Chamber anemometry rig (`lab_instrument_bench.jpg`) and Antarctic expedition photo (`sda_helideck_sampling.jpg`); replaced with verified geochemistry and materials images (`doug_stewart_research.jpg`, `civil_capabilities.jpg`, `bcsa_cement.jpg`).
-   - **`facilities.html#microplastics` (Microplastics & Hydraulics Lab):** Removed the St James's Hospital airflow CFD (`wnw_tube_z1.jpg`) and chamber anemometry (`lab_instrument_bench.jpg`); replaced with the B-KER² 6-paddle jar-testing flocculator (`microplastics_jar_testing.jpg`), HACH robot (`hach_robot.jpg`), and catchment hydrology/ML figure (`xiaohui_catchment_ml.jpg`).
-   - **`water.html` & `research-groups.html#water`:** Replaced `images/research/water-lab.jpg` (previously a copy of St James's Hospital airflow CFD) with the real B-KER² 6-paddle jar-testing flocculator laboratory photograph (`microplastics_jar_testing.jpg`) and added `images/research/xiaohui_catchment_ml.jpg`.
-4. **Four Core Research Themes + One Cross-Cutting Methods Theme:**
-   - Standardised naming, badge labels, and card colour accents across `index.html`, `about.html`, `research-groups.html`, `people.html`, `facilities.html`, and the 5 theme pages:
-     1. **Indoor Air Quality & Airborne Infection** (`#77AAD4`, Summer Blue)
-     2. **Water Supply & Treatment** (`#6F8AC6`, Orbit Blue)
-     3. **Sanitation, Wastewater & Faecal Sludge Management** (`#8AC9C1`, Riverbed Teal)
-     4. **BioResources & the Circular Economy** (`#9F90C5`, Wisteria Purple)
-     - *Cross-Cutting Theme:* **Data-Driven & Computational Methods** (`#53525a`, Earth Stone)
-5. **`about.html` Milestones Display & Date Verification:**
-   - Fixed the CSS clipping bug on `.timeline-content` / `.timeline-track` (`css/style.css` and `js/timeline.js`) so all milestone cards render in an unclipped responsive grid.
-   - Included only dates verified from the REF2021 Impact Case Study PDF and KRISTAL grant database (`2011-2014` SFD & UN SDG 6.2; `2017-2021` EPSRC HECOIRA; `2019-2024` EPSRC WaterWISER CDT & GCRF Water Security Hub; `2020-2022` SAGE EMG, Class-ACT & EPSRC CECAM Chamber; `2022-2024` BBSRC Discovery Fellowship, EoLO-HUBs & HumanIC; `2024-2026` EPSRC Future Fluid Dynamics CDT, HESTIA, BioCool & 2026 Pettenkofer Award).
-6. **Cake Meetings (`cake-meetings.html`, `index.html`, `about.html`):**
-   - Updated to reflect joint organisation by academic and ECR staff.
-   - Verified `Tuesday 3 November 2026` (*Digital Twins & AI in WPE*, hosted by `Dr Marco-Felipe King` and `Dr Amirul Khan`, with talks by `I Wayan Arnaya`, `Khadija`, `Jiaxian`, and `Dr Amirul Khan`).
-   - Set `Tuesday 1 December 2026` to **WPE Christmas Party**, and set `January-June 2027` monthly slots to *To be confirmed* / *Open* alongside the `10-14 May 2027` **WPE All-Hands in Leeds Week**.
-7. **Zero Em Dashes:**
-   - Audited and copyedited all 43 HTML files so 0 em dashes (`—` or `&mdash;`) remain anywhere on the site.
+- **HTML Pages:** `index.html`, `research-groups.html`, `people.html`, `facilities.html`, `indoor-air.html`, `sanitation.html`, `water.html`, `bioresources.html`, `methods.html`, `contact.html`, `research/sanitation-impact.html`, `research/biocool.html`, `research/covid19-impact.html`, `research/hecoira.html`, `projects/circular-buildings.html`, `projects/microplastics.html`, `projects/urban-health.html`
+- **Stylesheets & Scripts:** `css/style.css`, `css/research-highlight.css`, `css/research-groups.css`, `css/facilities.css`, `js/research-groups.js`
+- **Generated Data:** `data/collaboration.json`, `data/collaboration.js`
+- **New/Optimised Images:** `images/people/square/Zhan_Zhe.jpg`, `images/people/square/Sleigh_Andy.jpg`, 21 Water-WISER portraits in `images/people/square/`, `images/research/rc_slab_construction.jpg`, `images/research/xiaohui_catchment_ml.jpg`, `images/facilities/xiaohui_catchment_ml.jpg`
+- **Documentation:** `WEB_TEAM_HANDOVER.md`
 
 ---
 
 ## 3. Sync & Git Push Commands
 
-Both `/Users/cenmk/Documents/Admin/WPE/WPELeeds` and `/Users/cenmk/Documents/GitHub/WPELeeds` have been synchronised via `rsync` (preserving `.git/` in `/Users/cenmk/Documents/GitHub/WPELeeds`). To commit and push from `/Users/cenmk/Documents/GitHub/WPELeeds`:
+Both `/Users/cenmk/Library/CloudStorage/OneDrive-UniversityofLeeds/Documents/Admin/WPE/WPELeeds` and `/Users/cenmk/Documents/GitHub/WPELeeds` are synchronised via `rsync` (without `--delete`, preserving `CNAME`, `LICENSE`, `README.md`, and `.git/` in `/Users/cenmk/Documents/GitHub/WPELeeds`). To commit and push from `/Users/cenmk/Documents/GitHub/WPELeeds`:
 
 ```bash
 cd /Users/cenmk/Documents/GitHub/WPELeeds
 git status
 git add -A
-git commit -m "Update WPE titles, themes, facilities images, Cake Meetings schedule, milestones, and copy"
+git commit -m "Fix hero/cards/carousel, add Leeds Water-WISER PhDs & portraits, add CECAM & verified facilities matrix"
 git push origin main
 ```

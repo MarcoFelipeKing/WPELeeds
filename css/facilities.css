@@ -225,6 +225,8 @@
 .equipment-list li {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
     padding: 1rem 0;
     border-bottom: 1px solid #eee;
 }
@@ -233,14 +235,20 @@
     border-bottom: none;
 }
 
-.equipment-name {
+.equipment-list .equipment-name {
+    width: auto;
+    flex: 0 0 38%;
+    padding: 0;
     font-weight: 600;
     color: var(--dark-gray);
 }
 
-.equipment-model {
-    color: #777;
-    font-size: 0.9rem;
+.equipment-list .equipment-model {
+    flex: 1;
+    text-align: right;
+    color: #555;
+    font-size: 0.92rem;
+    line-height: 1.5;
 }
 
 .equipment-status {
@@ -594,6 +602,48 @@
     background-color: #f9f9f9;
 }
 
+.capabilities-table--factual {
+    margin-bottom: 0;
+    min-width: 860px;
+}
+
+.capabilities-table--factual th,
+.capabilities-table--factual td {
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.55;
+    font-size: 0.94rem;
+    color: #444;
+}
+
+.capabilities-table--factual td:first-child {
+    width: 18%;
+}
+
+.capabilities-table--factual td:nth-child(2) {
+    width: 18%;
+}
+
+.capabilities-table--factual td:nth-child(3),
+.capabilities-table--factual td:nth-child(4) {
+    width: 25%;
+}
+
+.capabilities-table--factual td:last-child {
+    width: 14%;
+    white-space: nowrap;
+}
+
+.capabilities-table--factual td a {
+    color: var(--secondary-blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.capabilities-table--factual td a:hover {
+    text-decoration: underline;
+}
+
 .has-capability {
     color: var(--primary-blue);
 }
@@ -617,8 +667,9 @@
 /* Contact Section */
 .contact-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr;
+    max-width: 920px;
+    gap: 2rem;
     margin-bottom: 4rem;
 }
 
@@ -750,6 +801,15 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+    }
+    
+    .equipment-list li {
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .equipment-list .equipment-model {
+        text-align: left;
     }
     
     .equipment-name {
